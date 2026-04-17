@@ -26,8 +26,9 @@ class ApexMonitor(discord.Client):
     def update_watchlist(self):
         """Scans the latest HTML report in the Portal folder for tickers and catalysts"""
         try:
-            # Path logic: Jump out of '2-Catalyst-Bot' and into '1-Analytical-Portal/reports'
-            report_path = os.path.join("..", "1-Analytical-Portal", "reports", "*.html")
+            # This tells the bot: "Go up one level, then into Portal, then into reports"
+            report_path = os.path.join("..", "Portal", "reports", "*.html")
+            
             list_of_files = glob.glob(report_path)
             
             if not list_of_files:
