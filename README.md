@@ -1,4 +1,4 @@
 # apex-intelligence
 Just front testing AI Trading Strategies
-<br>Portal=AI website
+<br>docs\index.html = AI website
 <br>Discord-Bot = Watchlist News Tracker
