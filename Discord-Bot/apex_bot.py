@@ -24,10 +24,10 @@ class ApexMonitor(discord.Client):
         self.update_watchlist()
 
     def update_watchlist(self):
-        """Scans the latest HTML report in the Portal folder for tickers and catalysts"""
+        """Scans the latest HTML report in the docs folder for tickers and catalysts"""
         try:
-            # This tells the bot: "Go up one level, then into Portal, then into reports"
-            report_path = os.path.join("..", "Portal", "reports", "*.html")
+            # This tells the bot: "Go up one level, then into docs, then into reports"
+            report_path = os.path.join("..", "docs", "reports", "*.html")
             
             list_of_files = glob.glob(report_path)
             
