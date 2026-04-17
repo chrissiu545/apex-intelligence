@@ -15,20 +15,28 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 FINNHUB_KEY = os.getenv('FINNHUB_KEY')
 CHANNEL_ID = int(os.getenv('CHANNEL_ID')) if os.getenv('CHANNEL_ID') else 0
 
+# --- NOISE FILTER ---
+# Add words here that you want the bot to ignore even if they are ALL CAPS
+EXCLUDED_WORDS = {
+    "THE", "AND", "WAS", "FOR", "THAT", "WITH", "THIS", "FROM", "BUT", "NOT", 
+    "ARE", "ALL", "WERE", "WHEN", "WHAT", "ALSO", "THAN", "THEN", "ONLY",
+    "ANY", "WHY", "NOW", "HERE", "SOME", "SAME", "BOTH", "EACH", "INTO", "OVER",
+    "HTML", "CSS", "MODE", "EDIT", "VIEW", "TEXT", "PART", "LIST", "ITEM", "FILE",
+    "DATE", "HOUR", "STEP", "YEAR", "TERM", "SHOW", "PAST", "POST", "DONE", "DATA",
+    "REAL", "BACK", "FACT", "CASE", "DAYS", "SIZE", "TIME", "WELL", "MADE", "LOOK"
+}
+
 class ApexMonitor(discord.Client):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.last_timestamp = 0
         self.watchlist = []
-        # Initial scan of your reports folder
         self.update_watchlist()
 
     def update_watchlist(self):
         """Scans the latest HTML report in the docs folder for tickers and catalysts"""
         try:
-            # This tells the bot: "Go up one level, then into docs, then into reports"
             report_path = os.path.join("..", "docs", "reports", "*.html")
-            
             list_of_files = glob.glob(report_path)
             
             if not list_of_files:
@@ -36,7 +44,6 @@ class ApexMonitor(discord.Client):
                 self.watchlist = ["UNH", "NFLX", "AVGO", "CPI"] 
                 return
 
-            # Find the most recently created file
             latest_report = max(list_of_files, key=os.path.getctime)
             print(f"🔍 Syncing catalysts from: {latest_report}")
 
@@ -44,16 +51,21 @@ class ApexMonitor(discord.Client):
                 soup = BeautifulSoup(f, 'html.parser')
                 text = soup.get_text().upper()
 
-                # Regex: Find 3-4 uppercase letters (Tickers)
-                found_tickers = re.findall(r'\b[A-Z]{3,4}\b', text)
+                # 1. Grab potential tickers (2 to 5 characters long)
+                found_tickers = re.findall(r'\b[A-Z]{2,5}\b', text)
                 
-                # Custom tactical keywords to always track
+                # 2. Your must-track tactical keywords
                 manual_keywords = ["CEASEFIRE", "CPI", "MEDICARE", "BLOCKADE", "ISLAMABAD"]
                 
-                # Combine, remove duplicates, and filter out common non-ticker words
-                ignore_list = ["HTML", "BODY", "SPAN", "TRUE", "NONE", "DONE", "APEX"]
+                # 3. Combine and filter
                 combined = list(set(found_tickers + manual_keywords))
-                self.watchlist = [word for word in combined if word not in ignore_list]
+                
+                # We filter out the EXCLUDED_WORDS and ensure words are 2-5 chars 
+                # (unless they are in our manual_keywords list)
+                self.watchlist = [
+                    word for word in combined 
+                    if word not in EXCLUDED_WORDS and (2 <= len(word) <= 5 or word in manual_keywords)
+                ]
                 
                 print(f"✅ Watchlist updated: {self.watchlist}")
 
@@ -86,12 +98,11 @@ class ApexMonitor(discord.Client):
                     if item['datetime'] > self.last_timestamp:
                         headline = item['headline'].upper()
                         
-                        # Trigger alert if any watchlist word is in the headline
                         if any(word in headline for word in self.watchlist):
                             embed = discord.Embed(
                                 title="🚨 APEX CATALYST DETECTED",
                                 description=f"**{item['headline']}**",
-                                color=0xc53030, # Apex Red
+                                color=0xc53030, 
                                 url=item['url']
                             )
                             embed.set_footer(text=f"Source: {item['source']} | Catalyst Sync Active")
@@ -104,7 +115,6 @@ class ApexMonitor(discord.Client):
 
     @tasks.loop(hours=24)
     async def refresh_watchlist_task(self):
-        """Auto-syncs with the reports folder once a day"""
         self.update_watchlist()
 
 # --- RUN BOT ---
