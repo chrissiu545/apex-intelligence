@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apex Capital · April 6 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fff;--bg2:#f5f5f3;--bg3:#ebebea;--bg4:#e0e0de;
+  --text:#1a1a18;--text2:#5a5a56;--text3:#8a8a85;
+  --bdr:rgba(0,0,0,.11);--bdr2:rgba(0,0,0,.20);
+  --grn:#27ae60;--grn-bg:#eaf3de;--grn-drk:#27500a;--grn-bdr:#97c459;
+  --red:#c0392b;--red-bg:#fcebeb;--red-drk:#791f1f;--red-bdr:#f09595;
+  --amb:#c0870a;--amb-bg:#faeeda;--amb-drk:#854f0b;
+  --blu:#185fa5;--blu-bg:#e6f1fb;
+  --r:8px;--rl:12px;
+  --sans:system-ui,-apple-system,sans-serif;
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:14px;line-height:1.5;padding:16px;max-width:960px;margin:0 auto}
+
+/* HEADER */
+.firm{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--text3);text-transform:uppercase;margin-bottom:3px}
+.hdr-row{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:3px}
+h1{font-size:22px;font-weight:700}
+.hdr-note{font-size:12px;color:var(--text2);background:var(--amb-bg);padding:3px 10px;border-radius:var(--r);font-weight:500}
+.subtitle{font-size:12px;color:var(--text2);margin-bottom:14px;line-height:1.5}
+
+/* TICKER BAR */
+.ticker-bar{display:flex;gap:14px;flex-wrap:wrap;background:var(--bg2);border:0.5px solid var(--bdr);border-radius:var(--r);padding:9px 14px;margin-bottom:16px;align-items:center}
+.ti{display:flex;flex-direction:column;gap:1px;min-width:60px}
+.tl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.07em}
+.tv{font-size:13px;font-weight:700}
+.up{color:var(--grn)}.dn{color:var(--red)}.neu{color:var(--amb)}
+
+/* MAIN TABS */
+.main-tabs{display:flex;gap:0;border-bottom:1px solid var(--bdr);margin-bottom:16px;overflow-x:auto}
+.mt{padding:8px 16px;font-size:12px;font-weight:600;border:none;background:transparent;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;font-family:var(--sans);letter-spacing:.01em}
+.mt.on{color:var(--text);border-bottom-color:var(--text)}
+.mt:hover:not(.on){color:var(--text2)}
+.sec{display:none}.sec.on{display:block}
+
+/* PICK TABS */
+.ptabs{display:flex;gap:4px;margin-bottom:12px;flex-wrap:wrap}
+.pt{padding:5px 12px;font-size:12px;border-radius:var(--r);border:0.5px solid var(--bdr);background:transparent;color:var(--text2);cursor:pointer;font-family:var(--sans)}
+.pt.on{background:var(--text);color:var(--bg);font-weight:600;border-color:var(--text)}
+.pt:hover:not(.on){background:var(--bg2)}
+.pp{display:none}.pp.on{display:block}
+
+/* CARD */
+.card{background:var(--bg);border:0.5px solid var(--bdr);border-radius:var(--rl);overflow:hidden;margin-bottom:12px}
+.chd{padding:13px 17px 11px;border-bottom:0.5px solid var(--bdr)}
+.trow{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:5px}
+.tk{font-size:21px;font-weight:800}
+.cn{font-size:13px;color:var(--text2)}
+.bdg{font-size:10px;padding:2px 7px;border-radius:var(--r);font-weight:700}
+.bs{background:var(--grn-bg);color:var(--grn-drk)}
+.bb{background:var(--blu-bg);color:var(--blu)}
+.bw{background:var(--amb-bg);color:var(--amb-drk)}
+.br{background:var(--red-bg);color:var(--red-drk)}
+.hmeta{font-size:11px;color:var(--text2);display:flex;gap:12px;flex-wrap:wrap}
+.cbody{padding:13px 17px;display:flex;flex-direction:column;gap:13px}
+
+/* SECTION LABEL */
+.sl{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+
+/* THESIS */
+.thesis{font-size:13px;line-height:1.7;color:var(--text)}
+
+/* HOLD TIME */
+.hold-pill{display:inline-flex;align-items:center;gap:5px;background:var(--bg2);border:0.5px solid var(--bdr2);border-radius:var(--r);padding:4px 10px;font-size:11px;font-weight:600;color:var(--text2)}
+.hold-dot{width:7px;height:7px;border-radius:50%}
+
+/* PROS CONS */
+.pcg{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.pcb{background:var(--bg2);border-radius:var(--r);padding:9px 11px}
+.pct{font-size:10px;font-weight:700;margin-bottom:5px}
+.pct.p{color:var(--grn-drk)}.pct.c{color:var(--red-drk)}
+.pcl{list-style:none;display:flex;flex-direction:column;gap:4px}
+.pcl li{font-size:11px;color:var(--text2);line-height:1.4;padding-left:14px;position:relative}
+.pcl li::before{position:absolute;left:0;font-weight:700}
+.pros li::before{content:'+';color:var(--grn)}
+.cons li::before{content:'–';color:var(--red)}
+
+/* COMPETITOR TABLE */
+.cw{overflow-x:auto}
+.ct{width:100%;border-collapse:collapse;font-size:11px;min-width:480px}
+.ct th{font-size:10px;font-weight:700;color:var(--text3);text-align:left;padding:5px 7px;border-bottom:0.5px solid var(--bdr)}
+.ct td{padding:6px 7px;border-bottom:0.5px solid var(--bdr);color:var(--text2);vertical-align:top;line-height:1.35}
+.ct tr.hl td{color:var(--text);font-weight:600;background:var(--bg2)}
+.ct tr:last-child td{border-bottom:none}
+.win{color:var(--grn);font-weight:700}.lose{color:var(--red)}
+.cnote{font-size:10px;color:var(--text3);margin-top:5px;line-height:1.5}
+
+/* PROB BAR */
+.pbar{display:flex;height:7px;border-radius:4px;overflow:hidden;margin-bottom:3px}
+.pb-b{background:#639922}.pb-n{background:#888780}.pb-r{background:#e24b4a}
+.plbl{display:flex;justify-content:space-between;font-size:10px;color:var(--text2);margin-bottom:6px}
+
+/* SCENARIOS */
+.scg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}
+.sc{border-radius:var(--r);padding:9px 11px;border:0.5px solid}
+.sc.bull{background:var(--grn-bg);border-color:var(--grn-bdr)}
+.sc.neu{background:var(--bg2);border-color:var(--bdr2)}
+.sc.bear{background:var(--red-bg);border-color:var(--red-bdr)}
+.scl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px}
+.sc.bull .scl{color:#27500a}.sc.neu .scl{color:var(--text2)}.sc.bear .scl{color:#791f1f}
+.scp{font-size:10px;font-weight:600;margin-bottom:2px;opacity:.8}
+.sc.bull .scp{color:#3b6d11}.sc.neu .scp{color:var(--text2)}.sc.bear .scp{color:#a32d2d}
+.sct{font-size:16px;font-weight:800;margin-bottom:3px}
+.sc.bull .sct{color:#3b6d11}.sc.neu .sct{color:var(--text)}.sc.bear .sct{color:#a32d2d}
+.scd{font-size:10px;line-height:1.4}
+.sc.bull .scd{color:#3b6d11}.sc.neu .scd{color:var(--text2)}.sc.bear .scd{color:#993535}
+
+/* MODEL */
+.mdl{background:var(--bg2);border-radius:var(--rl);padding:13px 17px}
+.scbtns{display:flex;gap:5px;margin-bottom:12px;flex-wrap:wrap}
+.scb{padding:4px 12px;font-size:11px;font-weight:600;border-radius:var(--r);border:0.5px solid var(--bdr2);background:transparent;color:var(--text2);cursor:pointer;font-family:var(--sans)}
+.bull-a{background:var(--grn-bg)!important;border-color:var(--grn-bdr)!important;color:#27500a!important}
+.neu-a{background:var(--bg3)!important;border-color:var(--bdr2)!important;color:var(--text)!important}
+.bear-a{background:var(--red-bg)!important;border-color:var(--red-bdr)!important;color:#791f1f!important}
+.sliders{display:flex;flex-direction:column;gap:9px;margin-bottom:12px}
+.slr{display:flex;align-items:center;gap:9px}
+.slr label{font-size:11px;color:var(--text2);width:140px;flex-shrink:0}
+.slr input[type=range]{flex:1;accent-color:#378add;height:4px}
+.sv{font-size:11px;font-weight:700;min-width:48px;text-align:right;color:var(--text)}
+.mets{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:12px}
+.met{background:var(--bg);border-radius:var(--r);padding:8px 10px;border:0.5px solid var(--bdr)}
+.ml2{font-size:9px;color:var(--text3);margin-bottom:2px}
+.mv2{font-size:15px;font-weight:800}
+.mpos{color:var(--grn)}.mneg{color:var(--red)}.mwrn{color:var(--amb)}
+.cw2{position:relative;width:100%;height:190px}
+.mnote{font-size:10px;color:var(--text3);margin-top:7px;line-height:1.5}
+
+/* SECTOR GRID */
+.secg{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.secc{background:var(--bg);border:0.5px solid var(--bdr);border-radius:var(--rl);padding:11px 13px}
+.sech{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px;gap:6px}
+.secn{font-size:12px;font-weight:700}
+.secr{font-size:9px;font-weight:700;padding:2px 7px;border-radius:var(--r)}
+.sr-bull{background:var(--grn-bg);color:var(--grn-drk)}
+.sr-neu{background:var(--bg2);color:var(--text2);border:0.5px solid var(--bdr2)}
+.sr-bear{background:var(--red-bg);color:var(--red-drk)}
+.sr-caut{background:var(--amb-bg);color:var(--amb-drk)}
+.secb{font-size:11px;color:var(--text2);line-height:1.55}
+.secat{margin-top:5px;font-size:10px;font-weight:700;color:var(--text3)}
+
+/* MACRO */
+.news-grid{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:14px}
+.news-list{background:var(--bg2);border-radius:var(--rl);padding:12px 14px}
+.news-item{padding:8px 0;border-bottom:0.5px solid var(--bdr);display:flex;flex-direction:column;gap:2px}
+.news-item:last-child{border-bottom:none;padding-bottom:0}
+.news-tag{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em}
+.nt-break{color:var(--red)}.nt-econ{color:var(--blu)}.nt-war{color:var(--amb-drk)}.nt-fed{color:#6c3483}
+.news-head{font-size:12px;font-weight:600;color:var(--text);line-height:1.35}
+.news-body{font-size:11px;color:var(--text2);line-height:1.4}
+.cal-box{background:var(--bg2);border-radius:var(--rl);padding:12px 14px}
+.cal-item{display:flex;gap:8px;padding:5px 0;border-bottom:0.5px solid var(--bdr);align-items:flex-start}
+.cal-item:last-child{border-bottom:none;padding-bottom:0}
+.cal-day{font-size:10px;font-weight:700;color:var(--text3);min-width:28px}
+.cal-txt{font-size:11px;color:var(--text2);line-height:1.35}
+.cal-imp{font-size:9px;font-weight:700;padding:1px 5px;border-radius:4px;margin-left:3px}
+.hi{background:var(--red-bg);color:var(--red-drk)}.med{background:var(--amb-bg);color:var(--amb-drk)}.lo{background:var(--grn-bg);color:var(--grn-drk)}
+.macro-scg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px}
+
+/* PORTFOLIO */
+.port-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:14px}
+.ps{background:var(--bg2);border-radius:var(--r);padding:9px 11px}
+.psl{font-size:9px;color:var(--text3);margin-bottom:2px;text-transform:uppercase;letter-spacing:.06em}
+.psv{font-size:16px;font-weight:800}
+.port-layout{display:grid;grid-template-columns:1fr 280px;gap:14px;margin-bottom:14px}
+.ptable{width:100%;border-collapse:collapse;font-size:12px}
+.ptable th{font-size:10px;font-weight:700;color:var(--text3);text-align:right;padding:6px 8px;border-bottom:0.5px solid var(--bdr);background:var(--bg2)}
+.ptable th:first-child,.ptable th:nth-child(2){text-align:left}
+.ptable td{padding:7px 8px;border-bottom:0.5px solid var(--bdr);text-align:right;color:var(--text2);font-size:11px}
+.ptable td:first-child{text-align:left;font-weight:700;color:var(--text)}
+.ptable td:nth-child(2){text-align:left}
+.ptable tr:last-child td{border-bottom:none}
+.port-chart-wrap{background:var(--bg2);border-radius:var(--rl);padding:12px;display:flex;flex-direction:column;gap:8px}
+.port-chart-area{position:relative;height:180px}
+.port-legend{display:flex;flex-direction:column;gap:4px}
+.pleg-item{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--text2)}
+.pleg-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+
+/* HISTORY */
+.hist-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:14px}
+.hs{background:var(--bg2);border-radius:var(--r);padding:10px 12px;text-align:center}
+.hsl{font-size:9px;color:var(--text3);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em}
+.hsv{font-size:20px;font-weight:800}
+.trade-table{width:100%;border-collapse:collapse;font-size:12px}
+.trade-table th{font-size:10px;font-weight:700;color:var(--text3);text-align:left;padding:6px 8px;border-bottom:0.5px solid var(--bdr);background:var(--bg2)}
+.trade-table td{padding:6px 8px;border-bottom:0.5px solid var(--bdr);color:var(--text2);font-size:11px}
+.trade-table tr:last-child td{border-bottom:none}
+.side-long{background:var(--grn-bg);color:var(--grn-drk);font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px}
+.side-short{background:var(--red-bg);color:var(--red-drk);font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px}
+
+/* CRYPTO */
+.crypto-tabs{display:flex;gap:4px;margin-bottom:12px}
+.crtab{padding:5px 12px;font-size:12px;border-radius:var(--r);border:0.5px solid var(--bdr);background:transparent;color:var(--text2);cursor:pointer;font-family:var(--sans)}
+.crtab.on{background:var(--text);color:var(--bg);font-weight:600;border-color:var(--text)}
+.crpanel{display:none}.crpanel.on{display:block}
+.crypto-layout{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.fut-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:12px}
+.fut-table th{font-size:10px;font-weight:700;color:var(--text3);padding:6px 8px;border-bottom:0.5px solid var(--bdr);background:var(--bg2);text-align:left}
+.fut-table td{padding:6px 8px;border-bottom:0.5px solid var(--bdr);color:var(--text2);font-size:11px}
+.fut-table tr:last-child td{border-bottom:none}
+
+/* RESPONSIVE */
+@media(max-width:620px){
+  .pcg,.scg,.mets,.macro-scg,.secg,.crypto-layout,.news-grid,.port-layout,.port-stats,.hist-stats{grid-template-columns:1fr}
+  .slr label{width:110px}
+  .main-tabs{gap:0}
+  .mt{padding:7px 10px;font-size:11px}
+}
+
+/* UTILITY */
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tag{font-size:10px;padding:2px 8px;border-radius:var(--r);font-weight:600;background:var(--bg3);color:var(--text2)}
+.divider{height:0.5px;background:var(--bdr);margin:10px 0}
+.disclaim{margin-top:14px;padding:9px 13px;background:var(--bg2);border-radius:var(--r);font-size:10px;color:var(--text3);line-height:1.6}
+</style>
+</head>
+<body>
+  <nav style="background: var(--bg2); border-bottom: 1px solid var(--bdr); padding: 14px 24px; font-family: var(--sans); -webkit-font-smoothing: antialiased;">
+    <div style="max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+        
+        <a href="../index.html" style="text-decoration: none; color: var(--blu); font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; transition: opacity 0.2s;">
+            <span style="font-size: 16px; line-height: 0;">←</span> 
+            <span style="letter-spacing: -0.01em;">Apex Intelligence Portal</span>
+        </a>
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="height: 12px; width: 1px; background: var(--bdr2);"></span>
+            <span style="text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px; font-weight: 700; color: var(--text3);">Internal Briefing</span>
+        </div>
+
+    </div>
+</nav>
+
+<div class="firm">Apex Capital · Aggressive Growth Portfolio</div>
+<div class="hdr-row">
+  <h1>April 6, 2026 — Full Daily Briefing</h1>
+  <span class="hdr-note">⚡ Day 1 — Portfolio Initiated</span>
+</div>
+<p class="subtitle">Iran 45-day ceasefire talks live · Trump Tuesday Hormuz deadline tonight · Nasdaq +0.7% · WTI $111 · BTC ~$69,500 · Starting capital: $10,000</p>
+
+<div class="ticker-bar">
+  <div class="ti"><span class="tl">S&P 500</span><span class="tv up">+0.30%</span></div>
+  <div class="ti"><span class="tl">Nasdaq</span><span class="tv up">+0.70%</span></div>
+  <div class="ti"><span class="tl">WTI Oil</span><span class="tv neu">$111</span></div>
+  <div class="ti"><span class="tl">Brent</span><span class="tv neu">$109</span></div>
+  <div class="ti"><span class="tl">10Y UST</span><span class="tv dn">4.29%</span></div>
+  <div class="ti"><span class="tl">VIX</span><span class="tv neu">27.2</span></div>
+  <div class="ti"><span class="tl">Gold</span><span class="tv up">$5,061</span></div>
+  <div class="ti"><span class="tl">BTC</span><span class="tv up">$69,500</span></div>
+  <div class="ti"><span class="tl">ETH</span><span class="tv dn">$2,200</span></div>
+  <div class="ti"><span class="tl">SOL</span><span class="tv dn">$86</span></div>
+</div>
+
+<!-- MAIN NAVIGATION -->
+<div class="main-tabs">
+  <button class="mt on" onclick="showMain('macro',this)">📰 News &amp; Macro</button>
+  <button class="mt" onclick="showMain('picks',this)">📈 Today's Picks</button>
+  <button class="mt" onclick="showMain('sectors',this)">🗂 Sectors</button>
+  <button class="mt" onclick="showMain('portfolio',this)">💼 Portfolio</button>
+  <button class="mt" onclick="showMain('history',this)">📊 History</button>
+  <button class="mt" onclick="showMain('crypto',this)">₿ Crypto</button>
+</div>
+
+<!-- ========== NEWS & MACRO ========== -->
+<div class="sec on" id="sec-macro">
+  <div class="news-grid">
+    <div class="news-list">
+      <div class="sl">Breaking News — April 6, 2026</div>
+      <div class="news-item">
+        <span class="news-tag nt-break">🚨 Breaking</span>
+        <span class="news-head">45-Day Iran Ceasefire Terms Under Active Discussion</span>
+        <span class="news-body">Axios: U.S., Iran & regional mediators discussing two-phased deal — 45-day ceasefire followed by permanent resolution. Slim odds before Tuesday deadline but real progress noted by 4 sources. Markets cautiously optimistic.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag nt-war">⚠️ Geopolitical</span>
+        <span class="news-head">Trump: "Tuesday will be Power Plant Day" if Hormuz Not Reopened</span>
+        <span class="news-body">Trump issued a profanity-laden Truth Social ultimatum Sunday night — Tuesday at 8PM ET is the stated escalation deadline. WTI pulled back from $141 peak to $111 on ceasefire hopes but remains 66% above pre-war levels.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag nt-econ">📊 Economy</span>
+        <span class="news-head">March Jobs Report: +178,000 — Nearly Triple Consensus</span>
+        <span class="news-body">Blowout jobs report gives Fed cover to stay hawkish. Employment index in ISM simultaneously fell to 45.2, lowest since Dec 2023. Prices index spiked to 70.7 — highest since Oct 2022. Stagflation signals intensifying.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag nt-break">🔥 Today</span>
+        <span class="news-head">Goldman Upgrades NFLX to Buy · UNH &amp; Healthcare Rotate Up</span>
+        <span class="news-body">Goldman: NFLX Buy, $120 PT after Warner Bros. merger termination. UNH +1.7%, healthcare outperforming as institutions rotate to defensives. AMD +3% rebound. Amazon, UPS, FedEx adding Iran fuel surcharges from April 17.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag nt-fed">🏦 Fed Watch</span>
+        <span class="news-head">Fed Minutes Wednesday · CPI Friday — Two Binary Events This Week</span>
+        <span class="news-body">Fed Minutes (Wed) will reveal how March's strong data changed the policy calculus. Friday CPI — if hot on energy, market will reprice rate cuts further. One cut now priced for all of 2026. Morgan Stanley says S&P carving near-term floor.</span>
+      </div>
+    </div>
+    <div class="cal-box">
+      <div class="sl">This Week's Calendar</div>
+      <div class="cal-item"><span class="cal-day">MON</span><div class="cal-txt">Iran ceasefire talks · Markets open (thin — Easter Monday globally) <span class="cal-imp med">MED</span></div></div>
+      <div class="cal-item"><span class="cal-day">TUE</span><div class="cal-txt">Trump Iran deadline 8PM ET · Feb Durable Goods Orders <span class="cal-imp hi">HIGH</span></div></div>
+      <div class="cal-item"><span class="cal-day">WED</span><div class="cal-txt">Fed Meeting Minutes release · Feb PCE Inflation <span class="cal-imp hi">HIGH</span></div></div>
+      <div class="cal-item"><span class="cal-day">THU</span><div class="cal-txt">Feb Personal Income &amp; Spending · Initial Jobless Claims <span class="cal-imp med">MED</span></div></div>
+      <div class="cal-item"><span class="cal-day">FRI</span><div class="cal-txt">March CPI Report — Energy inflation key <span class="cal-imp hi">HIGH</span></div></div>
+      <div class="cal-item"><span class="cal-day">APR 16</span><div class="cal-txt">Netflix Q1 Earnings (after close) <span class="cal-imp hi">HIGH</span></div></div>
+      <div class="cal-item"><span class="cal-day">APR 21</span><div class="cal-txt">UnitedHealth Q1 Earnings (before open) <span class="cal-imp hi">HIGH</span></div></div>
+      <div class="cal-item"><span class="cal-day">APR 24</span><div class="cal-txt">ExxonMobil Q1 Earnings <span class="cal-imp med">MED</span></div></div>
+    </div>
+  </div>
+
+  <!-- MACRO OUTLOOK -->
+  <div class="card">
+    <div class="chd"><div class="sl">Macroeconomic Outlook — 3–6 Month View</div>
+      <p class="thesis" style="margin-top:4px">The U.S. economy faces a historically unusual combination: a war-driven energy shock layered on pre-existing tariff inflation, with a labor market that is paradoxically strong in headline but fragile in ISM details. The S&P 500 is below its 200-day moving average. The Fed's hands are increasingly tied. The single biggest macro variable this week is the Iran binary — ceasefire vs. escalation — which will set the tone for Q2.</p>
+    </div>
+    <div class="cbody">
+      <div>
+        <div class="sl">Macro Scenario Probabilities</div>
+        <div class="pbar" id="macro-pbar"></div>
+        <div class="plbl"><span>🐂 Bull 28%</span><span>⚖️ Base 45%</span><span>🐻 Bear 27%</span></div>
+        <div class="macro-scg">
+          <div class="sc bull">
+            <div class="scl">Bull Macro</div><div class="scp">28% probability</div>
+            <div class="sct">Risk-On Rip</div>
+            <div class="scd"><strong>Trigger:</strong> 45-day ceasefire signed this week. Hormuz reopens. Brent crashes to $80–85. Fed signals 2 cuts. S&P rallies to 6,900–7,200 by June. AI capex accelerates. CPI drops sharply by May. Credit spreads tighten. Strong earnings season validates the bull case. Tech, crypto, and consumer discretionary all re-rate higher.</div>
+          </div>
+          <div class="sc neu">
+            <div class="scl">Base Macro</div><div class="scp">45% probability</div>
+            <div class="sct">Grinding Uncertainty</div>
+            <div class="scd"><strong>Trigger:</strong> Conflict drags 2–3 more months. Oil stays $95–115. One Fed cut in H2. S&P oscillates 6,200–6,700, earnings growth (13%+ projected) keeps market from breaking down. Stagflation risk priced but not materialized. Market leadership stays in AI and defensives. Volatility remains elevated (VIX 22–30).</div>
+          </div>
+          <div class="sc bear">
+            <div class="scl">Bear Macro</div><div class="scp">27% probability</div>
+            <div class="sct">Stagflation Shock</div>
+            <div class="scd"><strong>Trigger:</strong> Trump escalates Tuesday, Iran retaliates on Gulf infrastructure. Brent hits $140–150. Fed forced to hike in June. Q4 2025 GDP already revised to 0.7% — recession probability hits 50%+. S&P breaks to 5,400–5,800. Credit spreads blow out. Consumer spending collapses. Unemployment rises above 5%.</div>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="sl">Key Macro Variables to Monitor Daily</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;color:var(--text2)">
+          <div>🛢️ <strong>Brent Crude:</strong> Above $115 = escalation. Below $95 = ceasefire priced in. Watch daily.</div>
+          <div>🏛️ <strong>Fed Funds Futures:</strong> Any repricing toward a hike is the biggest macro risk. Watch Dec '26 contract.</div>
+          <div>📈 <strong>10Y Treasury:</strong> Above 4.6% = markets losing confidence in Fed control. Below 4.0% = bull signal.</div>
+          <div>😰 <strong>VIX:</strong> Above 35 = panic, add risk. Below 20 = complacency, reduce risk. Currently 27.2 = elevated but not extreme.</div>
+          <div>💱 <strong>USD Index (DXY):</strong> War has been dollar-supportive. A ceasefire weakens USD — bullish for EM and gold.</div>
+          <div>⚡ <strong>Credit Spreads (HYG):</strong> Widening = stress. Tight spreads validate corporate earnings optimism.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== TODAY'S PICKS ========== -->
+<div class="sec" id="sec-picks">
+  <div class="ptabs">
+    <button class="pt on" onclick="showPick('nflx',this)">1 · NFLX</button>
+    <button class="pt" onclick="showPick('unh',this)">2 · UNH</button>
+    <button class="pt" onclick="showPick('avgo',this)">3 · AVGO ↑</button>
+    <button class="pt" onclick="showPick('xom',this)">4 · XOM ↓</button>
+  </div>
+
+  <!-- NFLX -->
+  <div class="pp on" id="pp-nflx">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">NFLX</span><span class="cn">Netflix, Inc.</span><span class="bdg bs">Strong Buy</span><span class="bdg bb">New Pick</span></div>
+        <div class="hmeta"><span>Entry: $97.50</span><span>Shares: 20</span><span>Position: $1,950</span><span>Goldman PT: $120</span><span>BofA PT: $125</span><span>Weight: 19.5%</span></div>
+      </div>
+      <div class="cbody">
+        <div class="row">
+          <span class="hold-pill"><span class="hold-dot" style="background:#378add"></span>Holding Timeframe: 2–4 Weeks</span>
+          <span class="tag">Primary catalyst: Q1 Earnings April 16</span>
+          <span class="tag">Secondary: Buyback announcement</span>
+        </div>
+        <div><div class="sl">Investment Thesis</div>
+          <p class="thesis">Goldman Sachs upgraded NFLX to Buy this morning with a $120 target — 26% upside from $97.50 entry. The catalyst is a clean slate: Netflix walked away from its Warner Bros. merger and collected a $2.8B termination fee. The M&A overhang that weighed on the stock for six months is gone. What remains is the best streaming business on earth with exceptional pricing power, ad revenue ramping from $1.5B to a projected $9.5B by 2030, and the most conservative FCF guide in media ($11B in 2026, per Goldman likely understated). Q1 earnings April 16 is the primary near-term catalyst. We enter at $97.50 with a 2–4 week base horizon and stop at $82.</p>
+        </div>
+        <div><div class="sl">Pros & Cons</div>
+          <div class="pcg">
+            <div class="pcb"><div class="pct p">Pros</div><ul class="pcl pros">
+              <li>Goldman Buy upgrade today, $120 PT; BofA $125 PT; 34-analyst Buy consensus</li>
+              <li>$2.8B merger break fee — buybacks resuming, targeting 20–25% of market cap over 5 years</li>
+              <li>Price hikes add ~$3B cumulative revenue 2026–27; pricing power exceptional</li>
+              <li>Ad revenue doubling in 2026 to ~$3B, targeting $9.5B by 2030</li>
+              <li>$11B FCF guide — Goldman calls it conservative post-merger cancellation</li>
+              <li>16% revenue growth, 48.5% gross margin, 26.4% operating margin</li>
+            </ul></div>
+            <div class="pcb"><div class="pct c">Cons</div><ul class="pcl cons">
+              <li>Down 18% last 6 months — sentiment still negative; requires patience</li>
+              <li>Subscriber growth guide shows ~46% fewer new subscribers YoY</li>
+              <li>YouTube, FAST, and short-form creators are growing time-share rivals</li>
+              <li>Content spending must stay disciplined for margin expansion thesis</li>
+              <li>War-driven consumer uncertainty could pressure subscription spending</li>
+            </ul></div>
+          </div>
+        </div>
+        <div><div class="sl">Competitor Comparison — Why NFLX over DIS, WBD, PARA?</div>
+          <div class="cw"><table class="ct">
+            <thead><tr><th>Metric</th><th>NFLX ★</th><th>DIS</th><th>WBD</th><th>PARA</th></tr></thead>
+            <tbody>
+              <tr class="hl"><td>Revenue Growth</td><td class="win">~16% YoY</td><td>~5%</td><td class="lose">Flat</td><td class="lose">Declining</td></tr>
+              <tr><td>Op. Margin</td><td class="win">26.4%</td><td>~14%</td><td class="lose">~8%</td><td class="lose">~5%</td></tr>
+              <tr><td>2026 FCF</td><td class="win">$11B guide</td><td>~$5B</td><td class="lose">~$2B</td><td class="lose">Negative</td></tr>
+              <tr><td>Ad Revenue Path</td><td class="win">$1.5B → $9.5B by 2030</td><td>Early stage</td><td>Struggling</td><td class="lose">Shrinking</td></tr>
+              <tr><td>M&A Overhang</td><td class="win">Cleared + $2.8B fee</td><td>Moderate</td><td>High debt</td><td>High (merger risk)</td></tr>
+              <tr><td>Why Not Instead</td><td>—</td><td>Streaming unprofitable vs NFLX margins; parks + ESPN valuable but diluted</td><td>Debt-laden; struggling HBO integration; no growth narrative</td><td>Potential take-private risk; too uncertain for aggressive position</td></tr>
+            </tbody>
+          </table></div>
+          <p class="cnote">NFLX is the only streaming pure-play with double-digit operating margins and positive FCF. Disney is the only credible alternative but trades at a premium for a structurally inferior streaming unit. Warner and Paramount are value traps we are avoiding.</p>
+        </div>
+        <div><div class="sl">Scenario Probabilities</div>
+          <div class="pbar" id="nflx-pbar"></div>
+          <div class="plbl"><span>🐂 Bull 42%</span><span>⚖️ Base 38%</span><span>🐻 Bear 20%</span></div>
+          <div class="scg">
+            <div class="sc bull"><div class="scl">Bull</div><div class="scp">42% probability</div><div class="sct">$130–145</div><div class="scd">Q1 beats on subs and ad revenue. Buyback announcement. Ad business exceeds $3B. Ceasefire → consumer spending rebounds. Multiple expands to 42x+ on clean execution story.</div></div>
+            <div class="sc neu"><div class="scl">Base</div><div class="scp">38% probability</div><div class="sct">$115–125</div><div class="scd">In-line Q1. Steady ad growth. Buybacks resume gradually. Compounding toward Goldman's $120 and BofA's $125 targets over 3–4 weeks post-earnings.</div></div>
+            <div class="sc bear"><div class="scl">Bear</div><div class="scp">20% probability</div><div class="sct">$78–88</div><div class="scd">Q1 subscriber miss. Economic slowdown pressures subs. Content spend rises. War worsens consumer confidence. Cut at $82 stop.</div></div>
+          </div>
+        </div>
+        <div><div class="sl">Interactive Financial Model</div>
+          <div class="mdl">
+            <div class="scbtns">
+              <button class="scb bull-a" id="nflx-bb" onclick="setS('nflx','bull')">Bull Case</button>
+              <button class="scb" id="nflx-nb" onclick="setS('nflx','neu')">Base Case</button>
+              <button class="scb" id="nflx-rb" onclick="setS('nflx','bear')">Bear Case</button>
+            </div>
+            <div class="sliders">
+              <div class="slr"><label>Revenue Growth</label><input type="range" id="nflx-r" min="4" max="26" step="1" value="18" oninput="cNFLX()"><span class="sv" id="nflx-rv">18%</span></div>
+              <div class="slr"><label>Op. Margin</label><input type="range" id="nflx-m" min="18" max="34" step="1" value="26" oninput="cNFLX()"><span class="sv" id="nflx-mv">26%</span></div>
+              <div class="slr"><label>P/E Multiple</label><input type="range" id="nflx-p" min="20" max="50" step="1" value="35" oninput="cNFLX()"><span class="sv" id="nflx-pv">35x</span></div>
+            </div>
+            <div class="mets">
+              <div class="met"><div class="ml2">Est. Revenue 2026</div><div class="mv2 mpos" id="nflx-mr">—</div></div>
+              <div class="met"><div class="ml2">Op. Income</div><div class="mv2 mpos" id="nflx-mo">—</div></div>
+              <div class="met"><div class="ml2">Est. EPS</div><div class="mv2" id="nflx-me">—</div></div>
+              <div class="met"><div class="ml2">Price Target</div><div class="mv2 mpos" id="nflx-mpt">—</div></div>
+            </div>
+            <div class="cw2"><canvas id="nflx-chart"></canvas></div>
+            <p class="mnote">Base: $51.1B FY25 revenue · ~1.8B diluted shares (post-split assumed) · Net income ≈ net margin ~13% of revenue at base. Entry $97.50 · Stop $82 · Targets: Bull $138, Base $120, Bear $83.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UNH -->
+  <div class="pp" id="pp-unh">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">UNH</span><span class="cn">UnitedHealth Group</span><span class="bdg bb">Buy</span><span class="bdg" style="background:#e8d5f5;color:#6c3483">Defensive Rotation</span></div>
+        <div class="hmeta"><span>Entry: $279.00</span><span>Shares: 7</span><span>Position: $1,953</span><span>RayJames PT: $330</span><span>Consensus PT: $373</span><span>Weight: 19.5%</span></div>
+      </div>
+      <div class="cbody">
+        <div class="row">
+          <span class="hold-pill"><span class="hold-dot" style="background:#6c3483"></span>Holding Timeframe: 4–8 Weeks</span>
+          <span class="tag">Primary catalyst: Q1 Earnings April 21</span>
+          <span class="tag">Defensive rotation driver ongoing</span>
+        </div>
+        <div><div class="sl">Investment Thesis</div>
+          <p class="thesis">UNH is the highest-quality defensive rotation trade available. Up 1.7% today as institutions flee cyclicals into stable healthcare — and we're going with the flow. Trading at $279 vs. a 24-analyst consensus target of $373 (+34% upside) and Raymond James' recent $330 upgrade target. The 2026 guidance is extraordinary: $439B+ revenue, $24B+ operating income, $17.75+ adjusted EPS. Optum's AI integration ($1.5B tech investment, nearly $1B in AI-driven cost reductions) gives this a secular growth engine beyond the defensive narrative. Entry $279, stop $245, hold through April 21 earnings and likely beyond.</p>
+        </div>
+        <div><div class="sl">Pros & Cons</div>
+          <div class="pcg">
+            <div class="pcb"><div class="pct p">Pros</div><ul class="pcl pros">
+              <li>$447.6B FY25 revenue (+12% YoY) — scale no competitor can match</li>
+              <li>Adj. EPS guide >$17.75 for 2026; consensus target $373 vs. $279 price = 34% gap</li>
+              <li>Optum AI: $1.5B tech investment, ~$1B in AI cost reductions in 2026 alone</li>
+              <li>Up 1.7% today — defensive rotation is active and institutional</li>
+              <li>~16x P/E — cheapest relative valuation in years for a franchise of this quality</li>
+              <li>Aging demographics provide structural multi-decade demand growth</li>
+            </ul></div>
+            <div class="pcb"><div class="pct c">Cons</div><ul class="pcl cons">
+              <li>Medicare Advantage membership contracting 1.3–1.4M in 2026</li>
+              <li>Medical cost trend ~10% — elevated utilization pressures near-term margins</li>
+              <li>DOJ probe creates regulatory headline risk at any moment</li>
+              <li>Medicaid cuts and ACA subsidy uncertainty from Washington</li>
+              <li>Margin recovery partially delayed to 2027 — requires patience</li>
+            </ul></div>
+          </div>
+        </div>
+        <div><div class="sl">Competitor Comparison — Why UNH over CVS, HUM, CNC?</div>
+          <div class="cw"><table class="ct">
+            <thead><tr><th>Metric</th><th>UNH ★</th><th>CVS Health</th><th>Humana</th><th>Centene</th></tr></thead>
+            <tbody>
+              <tr class="hl"><td>2025 Revenue</td><td class="win">$447.6B</td><td>$372B</td><td>~$116B</td><td>~$160B</td></tr>
+              <tr><td>2026 Adj. EPS</td><td class="win">>$17.75</td><td>~$6.50</td><td class="lose">Suspended</td><td>~$7.25</td></tr>
+              <tr><td>AI Integration</td><td class="win">$1.5B investment, $1B savings</td><td>Limited</td><td class="lose">None at scale</td><td>Limited</td></tr>
+              <tr><td>Vertical Integration</td><td class="win">Insurance + care + PBM</td><td>Insurance + PBM + retail</td><td class="lose">Insurance only</td><td>Medicaid-focused</td></tr>
+              <tr><td>Forward P/E</td><td class="win">~16x (historically cheap)</td><td>~10x (reflects risk)</td><td class="lose">N/A — guide suspended</td><td>~10x</td></tr>
+              <tr><td>Why Not Instead</td><td>—</td><td>Retail pharmacy drag; Aetna integration headaches; balance sheet stress</td><td>Suspended guidance — too uncertain for aggressive position right now</td><td>Medicaid-heavy, policy-dependent; no Optum-like AI moat</td></tr>
+            </tbody>
+          </table></div>
+          <p class="cnote">UNH wins on scale, AI depth, and vertical integration. Humana suspended guidance — untouchable. CVS has structural issues with its retail segment. At 16x P/E, UNH is the most compelling defensive large-cap in the market.</p>
+        </div>
+        <div><div class="sl">Scenario Probabilities</div>
+          <div class="pbar" id="unh-pbar"></div>
+          <div class="plbl"><span>🐂 Bull 38%</span><span>⚖️ Base 42%</span><span>🐻 Bear 20%</span></div>
+          <div class="scg">
+            <div class="sc bull"><div class="scl">Bull</div><div class="scp">38% probability</div><div class="sct">$340–375</div><div class="scd">Q1 beats EPS, Optum delivers ahead of plan, AI savings exceed $1B guide. Medicare margin recovery arrives early. Multiple re-rates to 20–22x.</div></div>
+            <div class="sc neu"><div class="scl">Base</div><div class="scp">42% probability</div><div class="sct">$310–340</div><div class="scd">In-line Q1. Steady Optum growth. Stock slowly re-rates toward $373 consensus as 9–10% annual EPS compounding is priced in.</div></div>
+            <div class="sc bear"><div class="scl">Bear</div><div class="scp">20% probability</div><div class="sct">$230–255</div><div class="scd">DOJ action escalates. Medical cost trend spikes >12%. Earnings cut at April 21. Multiple compresses to 13–14x on regulatory fear. Stop at $245.</div></div>
+          </div>
+        </div>
+        <div><div class="sl">Interactive Financial Model</div>
+          <div class="mdl">
+            <div class="scbtns">
+              <button class="scb bull-a" id="unh-bb" onclick="setS('unh','bull')">Bull Case</button>
+              <button class="scb" id="unh-nb" onclick="setS('unh','neu')">Base Case</button>
+              <button class="scb" id="unh-rb" onclick="setS('unh','bear')">Bear Case</button>
+            </div>
+            <div class="sliders">
+              <div class="slr"><label>Adj. EPS Growth</label><input type="range" id="unh-r" min="-8" max="18" step="1" value="10" oninput="cUNH()"><span class="sv" id="unh-rv">10%</span></div>
+              <div class="slr"><label>P/E Multiple</label><input type="range" id="unh-p" min="11" max="26" step="1" value="19" oninput="cUNH()"><span class="sv" id="unh-pv">19x</span></div>
+            </div>
+            <div class="mets">
+              <div class="met"><div class="ml2">Base Adj. EPS</div><div class="mv2" id="unh-base">$17.75</div></div>
+              <div class="met"><div class="ml2">Est. 2026 EPS</div><div class="mv2 mpos" id="unh-me">—</div></div>
+              <div class="met"><div class="ml2">P/E Applied</div><div class="mv2" id="unh-mp">—</div></div>
+              <div class="met"><div class="ml2">Price Target</div><div class="mv2 mpos" id="unh-mpt">—</div></div>
+            </div>
+            <div class="cw2"><canvas id="unh-chart"></canvas></div>
+            <p class="mnote">Base adj. EPS $17.75 (company 2026 guide). Entry $279 · Stop $245 · Targets: Bull $357, Base $325, Bear $245. April 21 earnings is the primary risk event.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AVGO -->
+  <div class="pp" id="pp-avgo">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">AVGO</span><span class="cn">Broadcom Inc. — Held from Yesterday</span><span class="bdg bs">Strong Buy</span><span class="bdg" style="background:#d5eef5;color:#0e6680">Maintained</span></div>
+        <div class="hmeta"><span>Entry: $298.00</span><span>Shares: 6</span><span>Position: $1,788</span><span>29-analyst avg PT: $431</span><span>AI Rev +106% YoY</span><span>Weight: 17.9%</span></div>
+      </div>
+      <div class="cbody">
+        <div class="row">
+          <span class="hold-pill"><span class="hold-dot" style="background:#1a9c3e"></span>Holding Timeframe: 8–12 Weeks</span>
+          <span class="tag">Primary catalyst: Q2 Earnings June 4</span>
+          <span class="tag">Structural AI infrastructure position</span>
+        </div>
+        <div><div class="sl">Position Update</div>
+          <p class="thesis">We entered AVGO yesterday at $298. We are holding through today — the ceasefire developments are modestly bullish as they reduce stagflation risk that threatened to slow hyperscaler capex. Today's AMD +3% move is noise vs. AVGO's structural story. Q1 AI semiconductor revenue was +106% YoY. Q2 guidance of $22B is up 47% YoY. The $73B+ backlog secured through 2028 doesn't care about day-to-day oil prices. This is our longest-duration hold in the portfolio. Bull probability upgraded from 38% to 42% today on ceasefire developments.</p>
+        </div>
+        <div><div class="sl">Pros & Cons</div>
+          <div class="pcg">
+            <div class="pcb"><div class="pct p">Pros</div><ul class="pcl pros">
+              <li>AI semiconductor rev: Q1 +106% YoY; Q2 guide +140% YoY to $10.7B</li>
+              <li>Q2 revenue guide $22B (+47% YoY) — record quarter expected June 4</li>
+              <li>$73B+ backlog through 2026; supply chain secured through 2028</li>
+              <li>5 hyperscaler custom chip programs in volume; 6th >1GW deploying 2027</li>
+              <li>68% EBITDA margins — exceptional efficiency at $1.6T scale</li>
+            </ul></div>
+            <div class="pcb"><div class="pct c">Cons</div><ul class="pcl cons">
+              <li>Revenue concentrated — 3 hyperscalers drive most AI upside</li>
+              <li>VMware integration complexity remains operational wildcard</li>
+              <li>Non-AI business growth is flat — dependent on AI cycle sustaining</li>
+              <li>8–12 week hold means sitting through significant volatility</li>
+            </ul></div>
+          </div>
+        </div>
+        <div><div class="sl">Competitor Comparison</div>
+          <div class="cw"><table class="ct">
+            <thead><tr><th>Metric</th><th>AVGO ★</th><th>NVDA</th><th>MRVL</th><th>AMD</th></tr></thead>
+            <tbody>
+              <tr class="hl"><td>AI Rev Growth</td><td class="win">106%→140%</td><td class="win">200%+</td><td>~70%</td><td class="lose">~30%</td></tr>
+              <tr><td>Custom ASIC Moat</td><td class="win">Google, Meta, Apple, OpenAI, Anthropic</td><td>N/A (GPU)</td><td>Google, MSFT</td><td class="lose">None</td></tr>
+              <tr><td>EBITDA Margin</td><td class="win">68%</td><td class="win">~55%</td><td>~30%</td><td class="lose">~24%</td></tr>
+              <tr><td>Today's Move</td><td>Flat</td><td>Modest up</td><td>Modest up</td><td class="win">+3%</td></tr>
+              <tr><td>Why Not Instead</td><td>—</td><td>Also held; complementary positions</td><td>Smaller, less diversified hyperscaler base</td><td>No custom silicon moat; GPU still behind Blackwell by 12–18 months</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div><div class="sl">Updated Scenario Probabilities (Ceasefire Improvement)</div>
+          <div class="pbar" id="avgo-pbar"></div>
+          <div class="plbl"><span>🐂 Bull 42%</span><span>⚖️ Base 40%</span><span>🐻 Bear 18%</span></div>
+          <div class="scg">
+            <div class="sc bull"><div class="scl">Bull</div><div class="scp">42% — upgraded</div><div class="sct">$500–540</div><div class="scd">Ceasefire removes stagflation risk. Hyperscaler capex accelerates. June 4 blowout beats guidance. Apple ASIC announcement. Multiple expands to 60x+.</div></div>
+            <div class="sc neu"><div class="scl">Base</div><div class="scp">40%</div><div class="sct">$390–440</div><div class="scd">Steady execution on hyperscaler backlogs. VMware stabilizes. Grinds toward $431 analyst consensus over 12 months.</div></div>
+            <div class="sc bear"><div class="scl">Bear</div><div class="scp">18% — improved</div><div class="sct">$220–260</div><div class="scd">War escalates, forcing hyperscaler capex review. Custom ASIC programs delayed. Broad semi selloff. Stop at $255.</div></div>
+          </div>
+        </div>
+        <div><div class="sl">Interactive Financial Model</div>
+          <div class="mdl">
+            <div class="scbtns">
+              <button class="scb bull-a" id="avgo-bb" onclick="setS('avgo','bull')">Bull Case</button>
+              <button class="scb" id="avgo-nb" onclick="setS('avgo','neu')">Base Case</button>
+              <button class="scb" id="avgo-rb" onclick="setS('avgo','bear')">Bear Case</button>
+            </div>
+            <div class="sliders">
+              <div class="slr"><label>Revenue Growth</label><input type="range" id="avgo-r" min="20" max="78" step="1" value="55" oninput="cAVGO()"><span class="sv" id="avgo-rv">55%</span></div>
+              <div class="slr"><label>EBITDA Margin</label><input type="range" id="avgo-m" min="55" max="75" step="1" value="68" oninput="cAVGO()"><span class="sv" id="avgo-mv">68%</span></div>
+              <div class="slr"><label>P/E Multiple</label><input type="range" id="avgo-p" min="25" max="65" step="1" value="46" oninput="cAVGO()"><span class="sv" id="avgo-pv">46x</span></div>
+            </div>
+            <div class="mets">
+              <div class="met"><div class="ml2">Est. Revenue FY26</div><div class="mv2 mpos" id="avgo-mr">—</div></div>
+              <div class="met"><div class="ml2">Est. EBITDA</div><div class="mv2 mpos" id="avgo-mo">—</div></div>
+              <div class="met"><div class="ml2">Est. EPS</div><div class="mv2" id="avgo-me">—</div></div>
+              <div class="met"><div class="ml2">Price Target</div><div class="mv2 mpos" id="avgo-mpt">—</div></div>
+            </div>
+            <div class="cw2"><canvas id="avgo-chart"></canvas></div>
+            <p class="mnote">Base: $47.1B FY25 revenue · 4.72B shares · Net income ≈ 47% of EBITDA. Entry $298 · Stop $255 · Targets: Bull $520, Base $415, Bear $240. June 4 earnings is the key event.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- XOM -->
+  <div class="pp" id="pp-xom">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">XOM</span><span class="cn">ExxonMobil — Trimming to Half</span><span class="bdg bw">Trim to Half — Ceasefire Risk</span></div>
+        <div class="hmeta"><span>Entry: $121.00</span><span>Shares: 9 (trimmed from 18)</span><span>Position: $1,089</span><span>Ceasefire binary tonight</span><span>Weight: 10.9%</span></div>
+      </div>
+      <div class="cbody">
+        <div class="row">
+          <span class="hold-pill"><span class="hold-dot" style="background:#c0392b"></span>Holding Timeframe: 1–2 Weeks Maximum</span>
+          <span class="tag">Binary: ceasefire = exit · escalation = add back</span>
+          <span class="tag">Q1 Earnings April 24</span>
+        </div>
+        <div><div class="sl">Position Update — Trim, Don't Exit</div>
+          <p class="thesis">The ceasefire talk changes the risk profile materially. Brent has already fallen from $141 to $109 — 23% off the peak. A 45-day deal announcement could drop oil another 15–20% in a single session. We are selling 9 of our 18 notional shares at $121 to lock in gains and reduce binary risk. We KEEP the other 9 because Trump's Tuesday ultimatum is real — escalation could send Brent back to $130+. This is disciplined risk management, not panic. Stop on remaining half: $104. If ceasefire signed → exit remaining. If escalation → add back to full position.</p>
+        </div>
+        <div><div class="sl">Pros & Cons</div>
+          <div class="pcg">
+            <div class="pcb"><div class="pct p">Why Keep Half</div><ul class="pcl pros">
+              <li>Trump Tuesday deadline is credible — escalation sends oil back to $130+</li>
+              <li>Even ceasefire: oil structurally elevated post-conflict (capacity depletion)</li>
+              <li>XOM April 24 earnings likely to be a record on war-era oil prices</li>
+              <li>Permian production compounding regardless of war outcome</li>
+            </ul></div>
+            <div class="pcb"><div class="pct c">Why Trim Half</div><ul class="pcl cons">
+              <li>45-day ceasefire actively discussed — oil crashed 13% on weaker signals in March</li>
+              <li>Brent already down from $141 to $109 — much of the trade is made</li>
+              <li>Strong jobs report gives Fed more reason to be hawkish — not ideal for risk assets</li>
+              <li>Holding full position through a binary event is gambling, not investing</li>
+            </ul></div>
+          </div>
+        </div>
+        <div><div class="sl">Competitor Comparison (Summary)</div>
+          <div class="cw"><table class="ct">
+            <thead><tr><th>Metric</th><th>XOM ★</th><th>CVX</th><th>BP</th><th>Shell</th></tr></thead>
+            <tbody>
+              <tr class="hl"><td>Op. Margin</td><td class="win">11.8%</td><td>9.8%</td><td class="lose">~6%</td><td>~8%</td></tr>
+              <tr><td>Hormuz Exposure</td><td class="win">Low (Permian)</td><td>Moderate</td><td class="lose">High</td><td class="lose">Very High (Qatar LNG)</td></tr>
+              <tr><td>P/E</td><td class="win">~24x</td><td>30x</td><td>~12x</td><td>~10x</td></tr>
+              <tr><td>Peace Deal Impact</td><td>Moderate hit</td><td>Moderate</td><td class="lose">Largest relief + Qatar</td><td class="lose">Largest relief + LNG</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div><div class="sl">Updated Scenario Probabilities (High Ceasefire Risk)</div>
+          <div class="pbar" id="xom-pbar"></div>
+          <div class="plbl"><span>🐂 Bull 28%</span><span>⚖️ Base 37%</span><span>🐻 Bear 35%</span></div>
+          <div class="scg">
+            <div class="sc bull"><div class="scl">Escalation Bull</div><div class="scp">28%</div><div class="sct">+20–28%</div><div class="scd">Tuesday escalation. Brent retests $130+. Half position still captures significant upside. April 24 earnings smash estimates.</div></div>
+            <div class="sc neu"><div class="scl">Stalemate Base</div><div class="scp">37%</div><div class="sct">+3–8%</div><div class="scd">Talks drag on. Oil stabilizes $95–115. Half position keeps us invested without excessive binary downside.</div></div>
+            <div class="sc bear"><div class="scl">Ceasefire Bear</div><div class="scp">35%</div><div class="sct">–15–20%</div><div class="scd">45-day deal signed. Brent drops 15–20%. Stop at $104 limits damage on remaining half. Exit immediately on deal.</div></div>
+          </div>
+        </div>
+        <div><div class="sl">Interactive Financial Model — Oil Price Sensitivity</div>
+          <div class="mdl">
+            <div class="scbtns">
+              <button class="scb bull-a" id="xom-bb" onclick="setS('xom','bull')">Escalation</button>
+              <button class="scb" id="xom-nb" onclick="setS('xom','neu')">Stalemate</button>
+              <button class="scb" id="xom-rb" onclick="setS('xom','bear')">Ceasefire</button>
+            </div>
+            <div class="sliders">
+              <div class="slr"><label>Brent Price ($/bbl)</label><input type="range" id="xom-o" min="65" max="140" step="1" value="120" oninput="cXOM()"><span class="sv" id="xom-ov">$120</span></div>
+              <div class="slr"><label>Op. Margin</label><input type="range" id="xom-m" min="6" max="18" step="1" value="14" oninput="cXOM()"><span class="sv" id="xom-mv">14%</span></div>
+              <div class="slr"><label>Revenue Multiplier</label><input type="range" id="xom-rm" min="0.70" max="1.45" step="0.05" value="1.20" oninput="cXOM()"><span class="sv" id="xom-rmv">1.20x</span></div>
+            </div>
+            <div class="mets">
+              <div class="met"><div class="ml2">Est. Annual Revenue</div><div class="mv2 mpos" id="xom-mr">—</div></div>
+              <div class="met"><div class="ml2">Est. Op. Income</div><div class="mv2 mpos" id="xom-mo">—</div></div>
+              <div class="met"><div class="ml2">Est. Net Income</div><div class="mv2" id="xom-mn">—</div></div>
+              <div class="met"><div class="ml2">Stock Return</div><div class="mv2 mpos" id="xom-mret">—</div></div>
+            </div>
+            <div class="cw2"><canvas id="xom-chart"></canvas></div>
+            <p class="mnote">Base: $333B annual revenue at ~$95/bbl pre-war. Entry $121 · Stop (remaining half) $104 · Exit trigger: ceasefire announcement. April 24 earnings catalyst.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SECTORS ========== -->
+<div class="sec" id="sec-sectors">
+  <p style="font-size:12px;color:var(--text2);margin-bottom:12px;line-height:1.6">Near-term tactical view on all 11 S&P sectors — updated for the April 6 ceasefire developments, Trump Tuesday deadline, blowout jobs report, and Friday CPI risk. Rating = 3–6 month outlook for an aggressive portfolio.</p>
+  <div class="secg">
+    <div class="secc"><div class="sech"><span class="secn">Technology / AI Semiconductors</span><span class="secr sr-bull">Overweight ★★★</span></div><div class="secb">AI capex supercycle intact — hyperscaler spend at record $484B in 2026. Tech down 7% YTD is the entry opportunity. AVGO held, NVDA on watchlist. Nasdaq +0.7% today while market is flat — rotation back has started. Lowest P/E-to-growth of any sector. This is the highest conviction medium-term overweight in the portfolio.</div><div class="secat">Catalyst: NVDA earnings late May · Hyperscaler Q1 capex commentary</div></div>
+    <div class="secc"><div class="sech"><span class="secn">Healthcare</span><span class="secr sr-bull">Overweight ★★★</span></div><div class="secb">Rotation into defensives is happening today — UNH +1.7%. Healthcare underperformed S&P by a wide margin over 2.5 years: prime entry window. AI integration (Optum model) is transformative. Aging demographics are structural. Policy headwinds have largely cleared. UNH is our position here; watching ISRG and ELV as adds.</div><div class="secat">Catalyst: UNH Apr 21 · CMS Medicare rate decisions · Drug pricing legislation</div></div>
+    <div class="secc"><div class="sech"><span class="secn">Aerospace & Defense</span><span class="secr sr-bull">Overweight ★★★</span></div><div class="secb">The structural long that survives a ceasefire. Defense budgets accelerate post-conflict, not before. A&D earnings projected +52% in 2026 — strongest of any S&P sector for second consecutive year. LMT from yesterday's briefing remains a core watchlist add. Ceasefire news is one-day noise; multi-year contract momentum is the driver.</div><div class="secat">Catalyst: LMT Apr earnings · Congressional defense authorization · NATO pledges</div></div>
+    <div class="secc"><div class="sech"><span class="secn">Communication Services</span><span class="secr sr-bull">Overweight ★★</span></div><div class="secb">NFLX is today's pick and the best single-name opportunity. Meta and Alphabet's AI monetization stories remain intact. Goldman's NFLX upgrade signals the sector is re-attracting institutional attention after the Iran selloff. Top-performing sector in 2024 and 2025 — not abandoning the trend.</div><div class="secat">Catalyst: NFLX Apr 16 · Meta Q1 ad revenue · Alphabet Q1 cloud</div></div>
+    <div class="secc"><div class="sech"><span class="secn">Financials</span><span class="secr sr-bull">Overweight ★★</span></div><div class="secb">Morgan Stanley flagged this morning: S&P carving near-term floor, recommending financials and cyclicals. Strong jobs report supports loan quality. Elevated rates help NIMs. JPM's Dimon letter out today; JPM +0.4%. GS and JPM are the two names we are watching for addition this week post-Tuesday binary resolution.</div><div class="secat">Catalyst: Big bank earnings mid-April · Fed Minutes Wednesday · CPI Friday</div></div>
+    <div class="secc"><div class="sech"><span class="secn">Utilities (Power Infrastructure)</span><span class="secr sr-bull">Overweight ★★</span></div><div class="secb">AI data center power demand has transformed utilities from defensive boring to aggressive growth. Goldman: data centers will represent 8%+ of U.S. power by 2030. NextEra, Constellation, Vistra are the picks. Power infrastructure is the utilities play — not traditional regulated electric. Multi-year structural overweight.</div><div class="secat">Catalyst: AI power contract announcements · Nuclear relicensing · CPI energy component</div></div>
+    <div class="secc"><div class="sech"><span class="secn">Energy</span><span class="secr sr-caut">Trim — Binary Risk</span></div><div class="secb">Still +33% YTD — best sector in the market. But we are trimming XOM today on ceasefire talks. A 45-day deal = 15–20% oil crash in hours. Half XOM held; no new energy exposure added today. Post-conflict, oil structurally elevated — medium-term hold, not an exit thesis. Re-add on escalation confirmation.</div><div class="secat">Catalyst: Trump Tuesday deadline · 45-day ceasefire vote · XOM Apr 24 earnings</div></div>
+    <div class="secc"><div class="sech"><span class="secn">Industrials</span><span class="secr sr-neu">Neutral — Selective</span></div><div class="secb">Earnings growth 15.5% expected — strong fundamentals. AI data center construction and defense buildout are the best sub-sectors. OBBBA $130B business tax cuts help manufacturers. But forward P/E near 25x is not cheap and tariff supply chain risk is real. Prefer Eaton, Vertiv for power equipment. Avoid China supply chain names.</div><div class="secat">Catalyst: Q1 earnings · Manufacturing ISM · Tariff policy</div></div>
+    <div class="secc"><div class="sech"><span class="secn">Consumer Discretionary</span><span class="secr sr-bear">Underweight</span></div><div class="secb">Weakest fundamental picture in the market. Amazon adding fuel surcharges April 17; UPS, FedEx, airlines all straining. Ryanair warning 5–10% summer flight cancellations. Consumer hit by war-driven fuel inflation on top of tariff-driven goods inflation. Avoid airlines and retail entirely. Only catalyst: ceasefire announcement.</div><div class="secat">Catalyst: Ceasefire announcement only</div></div>
+    <div class="secc"><div class="sech"><span class="secn">Consumer Staples</span><span class="secr sr-neu">Neutral</span></div><div class="secb">Defensive but structurally weak revenue growth. Walmart sounding warning bells per today's analysis. Input cost inflation squeezes margins. Offers stability but not the aggressive growth our portfolio targets. Would revisit if war worsens significantly beyond current pricing. Not adding.</div><div class="secat">Catalyst: Walmart earnings signal · CPI Friday</div></div>
+    <div class="secc"><div class="sech"><span class="secn">Real Estate</span><span class="secr sr-bear">Underweight</span></div><div class="secb">Rate-sensitive at the worst time. Today's blowout jobs report gives Fed cover to stay hawkish — bad for leveraged REITs. 10Y at 4.29% creates real financing cost pressure. Office remains structurally challenged post-COVID. Exception: senior housing REITs (aging demographic + supply constraints) and data center REITs — niche only.</div><div class="secat">Catalyst: Fed Minutes Wed · CPI Friday · Rate path clarity</div></div>
+    <div class="secc"><div class="sech"><span class="secn">Materials</span><span class="secr sr-neu">Neutral — Copper Only</span></div><div class="secb">Copper is the one opportunity — AI data center buildout + energy transition drive structural demand while supply is constrained. Gold at $5,061 is phenomenal but easy money is made. Silver has more room. Broader materials face energy input cost pressure. No broad materials position; watching copper-focused names (FCX) for addition.</div><div class="secat">Catalyst: Copper supply data · China demand · Ceasefire (reduces input costs)</div></div>
+  </div>
+</div>
+
+<!-- ========== PORTFOLIO ========== -->
+<div class="sec" id="sec-portfolio">
+  <div class="port-stats">
+    <div class="ps"><div class="psl">Total Value</div><div class="psv">$10,000</div></div>
+    <div class="ps"><div class="psl">Invested</div><div class="psv">$6,780</div></div>
+    <div class="ps"><div class="psl">Crypto Margin</div><div class="psv">$1,524</div></div>
+    <div class="ps"><div class="psl">Free Cash</div><div class="psv">$1,696</div></div>
+    <div class="ps"><div class="psl">Day P&L</div><div class="psv" style="color:var(--amb)">$0.00</div></div>
+  </div>
+  <div class="port-layout">
+    <div>
+      <div class="sl" style="margin-bottom:8px">Equity Holdings</div>
+      <table class="ptable">
+        <thead><tr><th>Ticker</th><th>Name</th><th>Entry</th><th>Qty</th><th>Value</th><th>Stop</th><th>Target</th><th>P&L</th><th>P&L%</th><th>Hold</th></tr></thead>
+        <tbody>
+          <tr><td>NFLX</td><td>Netflix</td><td>$97.50</td><td>20</td><td>$1,950</td><td>$82</td><td>$120</td><td style="color:var(--amb)">$0</td><td style="color:var(--amb)">0.00%</td><td>2–4W</td></tr>
+          <tr><td>UNH</td><td>UnitedHealth</td><td>$279.00</td><td>7</td><td>$1,953</td><td>$245</td><td>$373</td><td style="color:var(--amb)">$0</td><td style="color:var(--amb)">0.00%</td><td>4–8W</td></tr>
+          <tr><td>AVGO</td><td>Broadcom</td><td>$298.00</td><td>6</td><td>$1,788</td><td>$255</td><td>$431</td><td style="color:var(--amb)">$0</td><td style="color:var(--amb)">0.00%</td><td>8–12W</td></tr>
+          <tr><td>XOM</td><td>ExxonMobil (½)</td><td>$121.00</td><td>9</td><td>$1,089</td><td>$104</td><td>$145</td><td style="color:var(--amb)">$0</td><td style="color:var(--amb)">0.00%</td><td>1–2W</td></tr>
+          <tr style="font-weight:700;background:var(--bg2)"><td colspan="4" style="text-align:left;font-weight:700">Equity Total</td><td>$6,780</td><td>—</td><td>—</td><td style="color:var(--amb)">$0</td><td style="color:var(--amb)">0.00%</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <div class="sl" style="margin-top:14px;margin-bottom:8px">Crypto Futures (Margin Deployed)</div>
+      <table class="ptable">
+        <thead><tr><th>Asset</th><th>Side</th><th>Entry</th><th>Size</th><th>Notional</th><th>Margin</th><th>Lev.</th><th>Stop</th><th>Target</th><th>Hold</th></tr></thead>
+        <tbody>
+          <tr><td>BTC/USD</td><td><span class="side-long">LONG</span></td><td>$69,500</td><td>0.05 BTC</td><td>$3,475</td><td>$700</td><td>5x</td><td>$63,000</td><td>$80,000</td><td>2–4W</td></tr>
+          <tr><td>ETH/USD</td><td><span class="side-long">LONG</span></td><td>$2,200</td><td>0.7 ETH</td><td>$1,540</td><td>$514</td><td>3x</td><td>$1,850</td><td>$2,800</td><td>2–3W</td></tr>
+          <tr><td>SOL/USD</td><td><span class="side-short">SHORT</span></td><td>$86.00</td><td>9 SOL</td><td>$774</td><td>$310</td><td>2.5x</td><td>$95</td><td>$68</td><td>1–2W</td></tr>
+          <tr style="font-weight:700;background:var(--bg2)"><td colspan="5" style="text-align:left;font-weight:700">Crypto Total</td><td>$1,524</td><td>—</td><td colspan="2">—</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:10px;font-size:11px;color:var(--text3);line-height:1.6">
+        <strong>Cash:</strong> $1,696 (16.96%) — Held for: new opportunities post-Tuesday binary, Financials adds (JPM/GS), and emergency margin buffer for crypto positions.<br>
+        <strong>Portfolio Rules:</strong> Max single position 25% · Max sector 40% · Always maintain 15% cash floor · Crypto futures max 20% of total capital · Stop losses are firm — no exceptions.
+      </div>
+    </div>
+    <div>
+      <div class="port-chart-wrap">
+        <div class="sl">Allocation</div>
+        <div class="port-chart-area"><canvas id="port-chart"></canvas></div>
+        <div class="port-legend">
+          <div class="pleg-item"><span class="pleg-dot" style="background:#378add"></span>NFLX — 19.5%</div>
+          <div class="pleg-item"><span class="pleg-dot" style="background:#6c3483"></span>UNH — 19.5%</div>
+          <div class="pleg-item"><span class="pleg-dot" style="background:#1a9c3e"></span>AVGO — 17.9%</div>
+          <div class="pleg-item"><span class="pleg-dot" style="background:#e67e22"></span>XOM — 10.9%</div>
+          <div class="pleg-item"><span class="pleg-dot" style="background:#f39c12"></span>BTC Futures — 7.0%</div>
+          <div class="pleg-item"><span class="pleg-dot" style="background:#8e44ad"></span>ETH Futures — 5.1%</div>
+          <div class="pleg-item"><span class="pleg-dot" style="background:#e74c3c"></span>SOL Short — 3.1%</div>
+          <div class="pleg-item"><span class="pleg-dot" style="background:#95a5a6"></span>Cash — 17.0%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== HISTORY ========== -->
+<div class="sec" id="sec-history">
+  <div class="hist-stats">
+    <div class="hs"><div class="hsl">Portfolio Value</div><div class="hsv" style="color:var(--text)">$10,000</div></div>
+    <div class="hs"><div class="hsl">Total P&L</div><div class="hsv" style="color:var(--amb)">$0.00</div></div>
+    <div class="hs"><div class="hsl">YTD Return</div><div class="hsv" style="color:var(--amb)">0.00%</div></div>
+    <div class="hs"><div class="hsl">Win Rate</div><div class="hsv" style="color:var(--text3)">—</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:14px">
+    <div class="met"><div class="ml2">Trades Open</div><div class="mv2">7</div></div>
+    <div class="met"><div class="ml2">Trades Closed</div><div class="mv2">0</div></div>
+    <div class="met"><div class="ml2">Avg Hold Time</div><div class="mv2" style="color:var(--text3)">—</div></div>
+    <div class="met"><div class="ml2">Sharpe Ratio</div><div class="mv2" style="color:var(--text3)">—</div></div>
+    <div class="met"><div class="ml2">Max Drawdown</div><div class="mv2" style="color:var(--text3)">—</div></div>
+    <div class="met"><div class="ml2">Best Trade</div><div class="mv2" style="color:var(--text3)">—</div></div>
+    <div class="met"><div class="ml2">Worst Trade</div><div class="mv2" style="color:var(--text3)">—</div></div>
+    <div class="met"><div class="ml2">Realized P&L</div><div class="mv2" style="color:var(--amb)">$0</div></div>
+  </div>
+  <div class="sl" style="margin-bottom:8px">Trade Log — All Entries (Day 1: April 6, 2026)</div>
+  <table class="trade-table">
+    <thead><tr><th>Date</th><th>Ticker</th><th>Type</th><th>Side</th><th>Qty</th><th>Entry Price</th><th>Position $</th><th>Stop</th><th>Target</th><th>Rationale</th><th>Status</th><th>P&L</th></tr></thead>
+    <tbody>
+      <tr><td>Apr 6</td><td><strong>NFLX</strong></td><td>Equity</td><td><span class="side-long">LONG</span></td><td>20</td><td>$97.50</td><td>$1,950</td><td>$82</td><td>$120</td><td>Goldman Buy upgrade; merger overhang cleared; Q1 Apr 16</td><td>Open</td><td style="color:var(--amb)">$0</td></tr>
+      <tr><td>Apr 6</td><td><strong>UNH</strong></td><td>Equity</td><td><span class="side-long">LONG</span></td><td>7</td><td>$279.00</td><td>$1,953</td><td>$245</td><td>$373</td><td>Defensive rotation; AI integration; cheap P/E; Apr 21 earnings</td><td>Open</td><td style="color:var(--amb)">$0</td></tr>
+      <tr><td>Apr 6</td><td><strong>AVGO</strong></td><td>Equity</td><td><span class="side-long">LONG</span></td><td>6</td><td>$298.00</td><td>$1,788</td><td>$255</td><td>$431</td><td>Carried from day 1; AI custom silicon; Jun 4 earnings catalyst</td><td>Open</td><td style="color:var(--amb)">$0</td></tr>
+      <tr><td>Apr 6</td><td><strong>XOM</strong></td><td>Equity</td><td><span class="side-long">LONG</span></td><td>9</td><td>$121.00</td><td>$1,089</td><td>$104</td><td>$145</td><td>Half position; ceasefire risk trim; binary tonight; Apr 24 earnings</td><td>Open</td><td style="color:var(--amb)">$0</td></tr>
+      <tr><td>Apr 6</td><td><strong>BTC</strong></td><td>Futures</td><td><span class="side-long">LONG</span></td><td>0.05</td><td>$69,500</td><td>$3,475N</td><td>$63,000</td><td>$80,000</td><td>Ceasefire→risk-on rally; digital gold; post-halving supply crunch</td><td>Open</td><td style="color:var(--amb)">$0</td></tr>
+      <tr><td>Apr 6</td><td><strong>ETH</strong></td><td>Futures</td><td><span class="side-long">LONG</span></td><td>0.7</td><td>$2,200</td><td>$1,540N</td><td>$1,850</td><td>$2,800</td><td>Tech rotation; L2 growth; underperformed BTC YTD; oversold</td><td>Open</td><td style="color:var(--amb)">$0</td></tr>
+      <tr><td>Apr 6</td><td><strong>SOL</strong></td><td>Futures</td><td><span class="side-short">SHORT</span></td><td>9</td><td>$86.00</td><td>$774N</td><td>$95</td><td>$68</td><td>High-beta altcoin hedge; war escalation = SOL down hard; Alpenglow delayed</td><td>Open</td><td style="color:var(--amb)">$0</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:14px;background:var(--bg2);border-radius:var(--rl);padding:12px 14px">
+    <div class="sl" style="margin-bottom:8px">Performance Template — Updated Each Session</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;font-size:12px;color:var(--text2)">
+      <div><strong>Daily tracking:</strong> Mark portfolio to market each close. Note VIX level, Brent price, key news. Log any stop triggers or target hits.</div>
+      <div><strong>Weekly review:</strong> Calculate week P&L, assess position thesis validity, review macro changes. Adjust position sizes if necessary.</div>
+      <div><strong>Monthly:</strong> Calculate Sharpe ratio, max drawdown, win rate, best/worst trades. Compare vs. S&P 500 benchmark.</div>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:var(--text3)"><strong>Key Metrics to Track:</strong> Total Return vs. S&P 500 benchmark · Rolling 30-day Sharpe · Max Drawdown (peak to trough) · Win Rate (closed trades) · Avg Win / Avg Loss ratio · Sector concentration limits · Cash cushion health · Crypto futures funding rate costs</div>
+  </div>
+  <div style="margin-top:12px;background:var(--bg2);border-radius:var(--rl);padding:12px 14px">
+    <div class="sl" style="margin-bottom:8px">Yearly Returns (Tracking Starts Today)</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <div style="text-align:center;min-width:80px"><div style="font-size:10px;color:var(--text3)">2026 YTD</div><div style="font-size:18px;font-weight:800;color:var(--amb)">0.00%</div><div style="font-size:10px;color:var(--text3)">Day 1</div></div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.7;flex:1">Future sessions will populate monthly and yearly P&L data here. We will track returns vs. the S&P 500 benchmark and Nasdaq benchmark. The goal: outperform both by at least 15 percentage points annually through active, thesis-driven position management. All winning trades will document the catalyst hit; all losing trades will document the lesson learned.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== CRYPTO ========== -->
+<div class="sec" id="sec-crypto">
+  <div class="crypto-tabs">
+    <button class="crtab on" onclick="showCrypto('btc',this)">₿ Bitcoin</button>
+    <button class="crtab" onclick="showCrypto('eth',this)">Ξ Ethereum</button>
+    <button class="crtab" onclick="showCrypto('sol',this)">◎ Solana</button>
+    <button class="crtab" onclick="showCrypto('fut',this)">📋 Futures Summary</button>
+  </div>
+
+  <!-- BTC -->
+  <div class="crpanel on" id="crp-btc">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk" style="font-size:26px">₿ BTC</span><span class="cn">Bitcoin / USD</span><span class="bdg bs">Long — 5x Futures</span></div>
+        <div class="hmeta"><span>Entry: $69,500</span><span>Size: 0.05 BTC notional</span><span>Margin: $700</span><span>Stop: $63,000</span><span>Target: $80,000</span><span>Hold: 2–4 weeks</span></div>
+      </div>
+      <div class="cbody">
+        <div><div class="sl">Outlook & Trade Setup</div>
+          <p class="thesis">Bitcoin is down ~45% from its October 2025 all-time high of $126K. At $69,500, BTC is trading at a key technical support zone. The structural bull case remains intact: ETF inflows from Morgan Stanley, Merrill Lynch, and Vanguard are absorbing more than 100% of new BTC supply. Post-halving supply crunch is real — fewer than 1.32M BTC remain to be mined. Standard Chartered maintains a $150K year-end target. The near-term catalyst is binary: ceasefire → risk-on rally sends BTC toward $80K; escalation → BTC initially dips but finds support on its digital-gold narrative. We go long here at $69,500 with 5x leverage. Stop at $63,000 limits loss to $350 on margin. Risk/reward: 1:1.5 on a 2-week swing.</p>
+        </div>
+        <div class="crypto-layout">
+          <div>
+            <div class="sl">Technical Setup</div>
+            <div style="font-size:12px;color:var(--text2);line-height:1.7">
+              <div>📍 <strong>Entry:</strong> $69,500 — testing support near 200-day MA</div>
+              <div>🛑 <strong>Stop:</strong> $63,000 — below key support cluster (–9.4%)</div>
+              <div>🎯 <strong>Target 1:</strong> $75,000 — recent resistance (+7.9%)</div>
+              <div>🎯 <strong>Target 2:</strong> $80,000 — psychological level (+15.1%)</div>
+              <div>📊 <strong>Leverage:</strong> 5x · Liquidation ~$55,600 (well below stop)</div>
+              <div>⏰ <strong>Holding:</strong> 2–4 weeks swing trade</div>
+              <div>🔑 <strong>Trigger to add:</strong> Ceasefire confirmed → add 0.02 BTC</div>
+              <div>🚨 <strong>Trigger to exit:</strong> Escalation dip below $66K → reassess</div>
+            </div>
+          </div>
+          <div>
+            <div class="sl">Key Metrics</div>
+            <div style="font-size:12px;color:var(--text2);line-height:1.7">
+              <div>🏔️ <strong>ATH:</strong> ~$126,000 (Oct 2025)</div>
+              <div>📉 <strong>Current Drawdown:</strong> –44.8% from ATH</div>
+              <div>📈 <strong>Halving:</strong> April 2024 (supply cut active)</div>
+              <div>🏦 <strong>ETF flows:</strong> Absorbing >100% new supply</div>
+              <div>🎯 <strong>StanChart target:</strong> $150,000 EOY 2026</div>
+              <div>💰 <strong>Bernstein target:</strong> $200,000 by 2027</div>
+              <div>📊 <strong>Institutional:</strong> Brown, Harvard endowments in</div>
+              <div>⚡ <strong>Correlation:</strong> Decoupling from equities noted</div>
+            </div>
+          </div>
+        </div>
+        <div><div class="sl">Scenario Analysis — BTC Futures Position</div>
+          <div class="pbar" id="btc-pbar"></div>
+          <div class="plbl"><span>🐂 Bull 40%</span><span>⚖️ Base 35%</span><span>🐻 Bear 25%</span></div>
+          <div class="scg">
+            <div class="sc bull"><div class="scl">Bull</div><div class="scp">40% probability</div><div class="sct">$78K–$85K</div><div class="scd">Ceasefire signed this week. Risk-on wave. Institutional FOMO re-activates. ETF inflows surge. BTC breaks $75K resistance and runs to $80–85K. Our 0.05 BTC position gains ~$500–750 at 5x leverage.</div></div>
+            <div class="sc neu"><div class="scl">Base</div><div class="scp">35% probability</div><div class="sct">$70K–$76K</div><div class="scd">War drags on, uncertainty persists. BTC consolidates $68–76K range. Modest gain or flat on position. Hold and monitor for breakout catalyst.</div></div>
+            <div class="sc bear"><div class="scl">Bear</div><div class="scp">25% probability</div><div class="scd">$63K–$67K</div><div class="sct">Escalation + macro shock. BTC dips hard on risk-off. Stop at $63K triggered. Loss limited to ~$350 margin (50% of $700 margin deployed). Move to cash.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ETH -->
+  <div class="crpanel" id="crp-eth">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk" style="font-size:26px">Ξ ETH</span><span class="cn">Ethereum / USD</span><span class="bdg bb">Long — 3x Futures</span></div>
+        <div class="hmeta"><span>Entry: $2,200</span><span>Size: 0.7 ETH notional</span><span>Margin: $514</span><span>Stop: $1,850</span><span>Target: $2,800</span><span>Hold: 2–3 weeks</span></div>
+      </div>
+      <div class="cbody">
+        <div><div class="sl">Outlook & Trade Setup</div>
+          <p class="thesis">Ethereum has massively underperformed Bitcoin in 2026, falling from $3,224 at start of year to ~$2,200 — a 31% decline vs. BTC's smaller pullback. This underperformance creates an asymmetric catch-up trade if conditions normalize. The Layer-2 ecosystem (Arbitrum, Optimism, Base) is absorbing millions of daily transactions. DeFi total value locked remains structurally growing. The Fusaka upgrade concern (weakened tokenomics) is a real risk but is largely priced in at these levels. Goldman's long-term ETH thesis (Fundstrat's Tom Lee: mid-to-high four figures) supports this as a swing long. 3x leverage is more conservative given higher uncertainty vs. BTC.</p>
+        </div>
+        <div class="crypto-layout">
+          <div>
+            <div class="sl">Technical Setup</div>
+            <div style="font-size:12px;color:var(--text2);line-height:1.7">
+              <div>📍 <strong>Entry:</strong> $2,200 — near key psychological support</div>
+              <div>🛑 <strong>Stop:</strong> $1,850 — below critical support (–15.9%)</div>
+              <div>🎯 <strong>Target 1:</strong> $2,500 — near-term resistance (+13.6%)</div>
+              <div>🎯 <strong>Target 2:</strong> $2,800 — major resistance level (+27.3%)</div>
+              <div>📊 <strong>Leverage:</strong> 3x · Liquidation ~$1,467 (well below stop)</div>
+              <div>⏰ <strong>Holding:</strong> 2–3 weeks swing</div>
+              <div>🔑 <strong>Key:</strong> Take half profits at $2,500, run rest to $2,800</div>
+              <div>📎 <strong>Correlation:</strong> Closely follows BTC — stop = BTC stop</div>
+            </div>
+          </div>
+          <div>
+            <div class="sl">Key Metrics</div>
+            <div style="font-size:12px;color:var(--text2);line-height:1.7">
+              <div>🏔️ <strong>2025 ATH:</strong> ~$4,800</div>
+              <div>📉 <strong>Current Drawdown:</strong> ~54% from ATH</div>
+              <div>⬇️ <strong>YTD vs BTC:</strong> ETH underperformed by ~23 ppts</div>
+              <div>🏦 <strong>ETF flows:</strong> ETH ETFs underperforming BTC ETFs</div>
+              <div>🛠️ <strong>Fusaka upgrade:</strong> Tokenomics concern (priced in)</div>
+              <div>📊 <strong>Tom Lee target:</strong> Mid-to-high four figures 2026</div>
+              <div>🔗 <strong>L2 TVL:</strong> Arbitrum, Base growing strongly</div>
+              <div>⚡ <strong>Note:</strong> Smaller position than BTC — higher uncertainty</div>
+            </div>
+          </div>
+        </div>
+        <div><div class="sl">Scenario Analysis — ETH Futures Position</div>
+          <div class="pbar" id="eth-pbar"></div>
+          <div class="plbl"><span>🐂 Bull 35%</span><span>⚖️ Base 38%</span><span>🐻 Bear 27%</span></div>
+          <div class="scg">
+            <div class="sc bull"><div class="scl">Bull</div><div class="scp">35% probability</div><div class="sct">$2,700–$2,900</div><div class="scd">Ceasefire → risk-on. ETH catches up to BTC performance. L2 activity surges. Fusaka concerns fade as on-chain data remains healthy. 3x leverage generates ~$360–520 gain on 0.7 ETH.</div></div>
+            <div class="sc neu"><div class="scl">Base</div><div class="scp">38% probability</div><div class="sct">$2,300–$2,500</div><div class="scd">Slow recovery in line with BTC. ETH underperformance narrows but doesn't close fully. Modest gain; take half off at $2,500 and trail stop on remainder.</div></div>
+            <div class="sc bear"><div class="scl">Bear</div><div class="scp">27% probability</div><div class="sct">$1,850–$2,000</div><div class="scd">Escalation + Fusaka tokenomics fears resurface. ETH breaks support. Stop at $1,850 triggered. Margin loss ~$257 (50% of $514 margin). ETH is higher beta than BTC — largest risk in crypto book.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOL -->
+  <div class="crpanel" id="crp-sol">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk" style="font-size:26px">◎ SOL</span><span class="cn">Solana / USD</span><span class="bdg br">Short — 2.5x Futures (Hedge)</span></div>
+        <div class="hmeta"><span>Entry: $86.00</span><span>Size: 9 SOL notional</span><span>Margin: $310</span><span>Stop: $95</span><span>Target: $68</span><span>Hold: 1–2 weeks</span></div>
+      </div>
+      <div class="cbody">
+        <div><div class="sl">Outlook & Short Setup</div>
+          <p class="thesis">We are SHORT SOL as a portfolio hedge and tactical trade. This is NOT a long-term fundamental short — Solana's Alpenglow upgrade is genuinely compelling and the ecosystem is growing. This is a tactical 1–2 week swing short based on: (1) SOL fell 64% from its $295 January peak to ~$105 in early April on trade war concerns — it has bounced to $86 but the bounce looks corrective, not structural; (2) High-beta altcoins get hit harder than BTC in risk-off environments; (3) If Trump escalates Tuesday, SOL could retest $68–72 quickly; (4) This short partially hedges our BTC and ETH longs. If ceasefire → SOL may rally more than BTC; we accept that loss (stop at $95) as the cost of insurance. Risk/reward: 2.5x leverage, stop –10.5% loss, target +20.9% gain.</p>
+        </div>
+        <div class="crypto-layout">
+          <div>
+            <div class="sl">Technical Setup (Short)</div>
+            <div style="font-size:12px;color:var(--text2);line-height:1.7">
+              <div>📍 <strong>Entry Short:</strong> $86 — bounced into resistance</div>
+              <div>🛑 <strong>Stop (cover):</strong> $95 — above resistance cluster (+10.5%)</div>
+              <div>🎯 <strong>Target 1 (cover):</strong> $75 (–12.8% from entry)</div>
+              <div>🎯 <strong>Target 2 (cover):</strong> $68 — major support (–20.9%)</div>
+              <div>📊 <strong>Leverage:</strong> 2.5x — conservative given alt volatility</div>
+              <div>⏰ <strong>Holding:</strong> 1–2 weeks max</div>
+              <div>🔑 <strong>Cover signal:</strong> Ceasefire confirmed immediately</div>
+              <div>🔑 <strong>Add signal:</strong> Escalation + break below $80</div>
+            </div>
+          </div>
+          <div>
+            <div class="sl">Key Metrics</div>
+            <div style="font-size:12px;color:var(--text2);line-height:1.7">
+              <div>🏔️ <strong>Jan ATH:</strong> ~$295 (TRUMP memecoin peak)</div>
+              <div>📉 <strong>YTD decline:</strong> ~–71% from Jan peak</div>
+              <div>🔼 <strong>From April low:</strong> SOL bounced from ~$105</div>
+              <div>🛠️ <strong>Alpenglow:</strong> Major upgrade in pipeline (bullish LT)</div>
+              <div>📊 <strong>ETF:</strong> Spot SOL ETPs launched Oct 2025</div>
+              <div>⚠️ <strong>Risk:</strong> High beta — cuts both ways fast</div>
+              <div>💡 <strong>This is a hedge:</strong> Not a fundamental short</div>
+              <div>🎯 <strong>Sizing:</strong> Smallest crypto position ($310 margin)</div>
+            </div>
+          </div>
+        </div>
+        <div><div class="sl">Scenario Analysis — SOL Short Position</div>
+          <div class="pbar" id="sol-pbar"></div>
+          <div class="plbl"><span>🐻 Short Wins 45%</span><span>⚖️ Flat 28%</span><span>🐂 Short Loses 27%</span></div>
+          <div class="scg">
+            <div class="sc bull"><div class="scl">Short Wins (Bear for SOL)</div><div class="scp">45% probability</div><div class="sct">$68–$75</div><div class="scd">War escalates Tuesday. Risk-off hits high-beta altcoins hardest. SOL tests $68–72 support. Short generates ~$105–165 gain at 2.5x leverage on $310 margin.</div></div>
+            <div class="sc neu"><div class="scl">Sideways</div><div class="scp">28% probability</div><div class="sct">$80–$90</div><div class="scd">BTC consolidates, SOL drifts with it. Short is flat to slight profit. Close for minimal gain/loss after 1 week. Redeploy margin elsewhere.</div></div>
+            <div class="sc bear"><div class="scl">Short Loses (Bull for SOL)</div><div class="scp">27% probability</div><div class="sct">$93–$100</div><div class="scd">Ceasefire → SOL rips higher as the riskiest major crypto. Stop at $95 triggers. Loss ~$80 on $310 margin (26%). We accept this as cost of portfolio hedge insurance.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FUTURES SUMMARY -->
+  <div class="crpanel" id="crp-fut">
+    <div class="card">
+      <div class="chd"><div class="sl">Crypto Futures Book — Full Summary</div>
+        <div class="hmeta"><span>Total Margin: $1,524</span><span>Total Notional: $5,789</span><span>Avg Leverage: ~3.8x</span><span>Net: Long BTC/ETH, Short SOL</span></div>
+      </div>
+      <div class="cbody">
+        <table class="fut-table">
+          <thead><tr><th>Asset</th><th>Side</th><th>Entry</th><th>Current</th><th>Size</th><th>Notional</th><th>Margin</th><th>Lev.</th><th>Liq. Price</th><th>Stop</th><th>T1</th><th>T2</th><th>Holding</th><th>Rationale</th><th>P&L</th></tr></thead>
+          <tbody>
+            <tr><td><strong>BTC</strong></td><td><span class="side-long">LONG</span></td><td>$69,500</td><td>$69,500</td><td>0.05 BTC</td><td>$3,475</td><td>$700</td><td>5x</td><td>~$55,600</td><td>$63,000</td><td>$75,000</td><td>$80,000</td><td>2–4W</td><td>Ceasefire rally; ETF inflows; halving supply crunch; digital gold war bid</td><td style="color:var(--amb)">$0</td></tr>
+            <tr><td><strong>ETH</strong></td><td><span class="side-long">LONG</span></td><td>$2,200</td><td>$2,200</td><td>0.7 ETH</td><td>$1,540</td><td>$514</td><td>3x</td><td>~$1,467</td><td>$1,850</td><td>$2,500</td><td>$2,800</td><td>2–3W</td><td>Underperformed BTC by 23 ppts YTD; L2 ecosystem growth; catch-up trade</td><td style="color:var(--amb)">$0</td></tr>
+            <tr><td><strong>SOL</strong></td><td><span class="side-short">SHORT</span></td><td>$86.00</td><td>$86.00</td><td>9 SOL</td><td>$774</td><td>$310</td><td>2.5x</td><td>~$120</td><td>$95</td><td>$75</td><td>$68</td><td>1–2W</td><td>High-beta hedge; war escalation = SOL hit hardest; bounce into resistance</td><td style="color:var(--amb)">$0</td></tr>
+          </tbody>
+        </table>
+        <div class="divider"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;font-size:12px;color:var(--text2)">
+          <div><strong>Net Crypto Exposure:</strong><br>Long $5,015 notional BTC+ETH<br>Short $774 notional SOL<br>Net Long: $4,241</div>
+          <div><strong>Risk Management:</strong><br>Max loss if all stops hit: ~$687<br>Max gain if all targets hit: ~$1,450<br>Risk/Reward ratio: 1:2.1</div>
+          <div><strong>Key Triggers:</strong><br>Ceasefire → Close SOL short; Add BTC<br>Escalation → Hold; Add ETH<br>CPI hot Friday → Reduce longs</div>
+        </div>
+        <div class="divider"></div>
+        <div><div class="sl">Crypto Macro Backdrop</div>
+          <p class="thesis" style="font-size:12px">Bitcoin hit an all-time high above $126K in October 2025 before pulling back ~45% to the current $69,500 level. The structural bull case remains: ETF inflows from Morgan Stanley, Merrill Lynch, and Vanguard are absorbing more than 100% of new BTC supply. The U.S. CLARITY Act is unlocking institutional capital. Bitwise expects over 100 new crypto-linked ETF products in the U.S. in 2026. Fewer than 1.32M BTC remain to be mined with an estimated 3–4M permanently lost. The post-halving supply dynamic is the most powerful fundamental force in the market. Short-term, the Iran binary and Friday CPI are the key variables for crypto prices this week.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="disclaim">Apex Capital Briefing — simulated advisory for educational and entertainment purposes only. Not real financial advice. All investing involves risk of loss including total loss of capital. Futures trading involves additional leverage risk. Scenario probabilities and financial models are illustrative projections only. Crypto prices highly volatile. Consult a licensed financial advisor before making any investment decisions.</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+// ---- MAIN TABS ----
+function showMain(id,btn){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.mt').forEach(t=>t.classList.remove('on'));
+  document.getElementById('sec-'+id).classList.add('on');
+  btn.classList.add('on');
+}
+// ---- PICK TABS ----
+function showPick(id,btn){
+  document.querySelectorAll('.pp').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.pt').forEach(t=>t.classList.remove('on'));
+  document.getElementById('pp-'+id).classList.add('on');
+  btn.classList.add('on');
+}
+// ---- CRYPTO TABS ----
+function showCrypto(id,btn){
+  document.querySelectorAll('.crpanel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.crtab').forEach(t=>t.classList.remove('on'));
+  document.getElementById('crp-'+id).classList.add('on');
+  btn.classList.add('on');
+}
+// ---- PROB BARS ----
+function pb(id,bull,neu,bear){
+  const el=document.getElementById(id);
+  if(!el)return;
+  el.innerHTML='<div class="pb-b" style="width:'+bull+'%"></div><div class="pb-n" style="width:'+neu+'%"></div><div class="pb-r" style="width:'+bear+'%"></div>';
+}
+function initPBars(){
+  pb('macro-pbar',28,45,27);
+  pb('nflx-pbar',42,38,20);
+  pb('unh-pbar',38,42,20);
+  pb('avgo-pbar',42,40,18);
+  pb('xom-pbar',28,37,35);
+  pb('btc-pbar',40,35,25);
+  pb('eth-pbar',35,38,27);
+  pb('sol-pbar',45,28,27);
+}
+// ---- CHART REGISTRY ----
+const CHS={};
+function mkC(id,labels,datasets,opts){
+  if(CHS[id])try{CHS[id].destroy()}catch(e){}
+  const ctx=document.getElementById(id);if(!ctx)return;
+  CHS[id]=new Chart(ctx,{type:'bar',data:{labels,datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:datasets.length>1,position:'bottom',labels:{boxWidth:9,font:{size:10}}}},scales:{x:{ticks:{font:{size:10}}},y:{ticks:{font:{size:10}}}},...(opts||{})}});
+}
+// ---- SCENARIO PRESETS ----
+const PRESETS={
+  nflx:{bull:{r:22,m:30,p:44},neu:{r:14,m:25,p:35},bear:{r:5,m:19,p:24}},
+  unh:{bull:{r:13,p:22},neu:{r:9,p:18},bear:{r:-5,p:13}},
+  avgo:{bull:{r:68,m:71,p:60},neu:{r:50,m:68,p:46},bear:{r:26,m:60,p:30}},
+  xom:{bull:{o:130,m:16,rm:1.40},neu:{o:105,m:12,rm:1.10},bear:{o:78,m:8,rm:0.78}}
+};
+function setS(t,s){
+  const p=PRESETS[t][s];
+  const cls=s==='bull'?'bull-a':s==='neu'?'neu-a':'bear-a';
+  ['bb','nb','rb'].forEach(b=>{const el=document.getElementById(t+'-'+b);if(el)el.className='scb'});
+  const map={bull:'bb',neu:'nb',bear:'rb'};
+  const btn=document.getElementById(t+'-'+map[s]);
+  if(btn)btn.className='scb '+cls;
+  if(t==='nflx'){document.getElementById('nflx-r').value=p.r;document.getElementById('nflx-m').value=p.m;document.getElementById('nflx-p').value=p.p;cNFLX();}
+  else if(t==='unh'){document.getElementById('unh-r').value=p.r;document.getElementById('unh-p').value=p.p;cUNH();}
+  else if(t==='avgo'){document.getElementById('avgo-r').value=p.r;document.getElementById('avgo-m').value=p.m;document.getElementById('avgo-p').value=p.p;cAVGO();}
+  else if(t==='xom'){document.getElementById('xom-o').value=p.o;document.getElementById('xom-m').value=p.m;document.getElementById('xom-rm').value=p.rm;cXOM();}
+}
+// ---- NFLX ----
+function cNFLX(){
+  const r=+document.getElementById('nflx-r').value;
+  const m=+document.getElementById('nflx-m').value;
+  const pe=+document.getElementById('nflx-p').value;
+  document.getElementById('nflx-rv').textContent=r+'%';
+  document.getElementById('nflx-mv').textContent=m+'%';
+  document.getElementById('nflx-pv').textContent=pe+'x';
+  const rev=+(51.1*(1+r/100)).toFixed(1);
+  const oi=+(rev*m/100).toFixed(1);
+  const ni=+(rev*0.13).toFixed(1); // ~13% net margin
+  const eps=+(ni/1.8).toFixed(2);
+  const pt=Math.round(eps*pe);
+  document.getElementById('nflx-mr').textContent='$'+rev+'B';
+  document.getElementById('nflx-mo').textContent='$'+oi+'B';
+  document.getElementById('nflx-me').textContent='$'+eps;
+  document.getElementById('nflx-mpt').textContent='$'+pt;
+  const col=pt>=115?'#27ae60':pt>=88?'#c0870a':'#c0392b';
+  document.getElementById('nflx-mpt').style.color=col;
+  mkC('nflx-chart',['Bear ($83)','Base ($120)','Bull ($138)','Scenario'],[{label:'Price Target ($)',data:[83,120,138,pt],backgroundColor:['#f09595','#b4b2a9','#97c459',col],borderRadius:4}]);
+}
+// ---- UNH ----
+function cUNH(){
+  const eg=+document.getElementById('unh-r').value;
+  const pe=+document.getElementById('unh-p').value;
+  document.getElementById('unh-rv').textContent=eg+'%';
+  document.getElementById('unh-pv').textContent=pe+'x';
+  const eps=+(17.75*(1+eg/100)).toFixed(2);
+  const pt=Math.round(eps*pe);
+  document.getElementById('unh-base').textContent='$17.75';
+  document.getElementById('unh-me').textContent='$'+eps;
+  document.getElementById('unh-mp').textContent=pe+'x';
+  document.getElementById('unh-mpt').textContent='$'+pt;
+  const col=pt>=310?'#27ae60':pt>=245?'#c0870a':'#c0392b';
+  document.getElementById('unh-mpt').style.color=col;
+  mkC('unh-chart',['Bear ($245)','Base ($320)','Bull ($357)','Scenario'],[{label:'Price Target ($)',data:[245,320,357,pt],backgroundColor:['#f09595','#b4b2a9','#97c459',col],borderRadius:4}]);
+}
+// ---- AVGO ----
+function cAVGO(){
+  const r=+document.getElementById('avgo-r').value;
+  const m=+document.getElementById('avgo-m').value;
+  const pe=+document.getElementById('avgo-p').value;
+  document.getElementById('avgo-rv').textContent=r+'%';
+  document.getElementById('avgo-mv').textContent=m+'%';
+  document.getElementById('avgo-pv').textContent=pe+'x';
+  const rev=+(47.1*(1+r/100)).toFixed(1);
+  const ebitda=+(rev*m/100).toFixed(1);
+  const eps=+((ebitda*0.47)/4.72).toFixed(2);
+  const pt=Math.round(eps*pe);
+  document.getElementById('avgo-mr').textContent='$'+rev+'B';
+  document.getElementById('avgo-mo').textContent='$'+ebitda+'B';
+  document.getElementById('avgo-me').textContent='$'+eps;
+  document.getElementById('avgo-mpt').textContent='$'+pt;
+  const col=pt>=390?'#27ae60':pt>=260?'#c0870a':'#c0392b';
+  document.getElementById('avgo-mpt').style.color=col;
+  mkC('avgo-chart',['Bear ($240)','Base ($415)','Bull ($520)','Scenario'],[{label:'Price Target ($)',data:[240,415,520,pt],backgroundColor:['#f09595','#b4b2a9','#97c459',col],borderRadius:4}]);
+}
+// ---- XOM ----
+function cXOM(){
+  const o=+document.getElementById('xom-o').value;
+  const m=+document.getElementById('xom-m').value;
+  const rm=+document.getElementById('xom-rm').value;
+  document.getElementById('xom-ov').textContent='$'+o;
+  document.getElementById('xom-mv').textContent=m+'%';
+  document.getElementById('xom-rmv').textContent=rm.toFixed(2)+'x';
+  const rev=Math.round(333*rm);
+  const oi=Math.round(rev*m/100);
+  const ni=Math.round(oi*0.65);
+  const ret=Math.round(((ni/30)-1)*100);
+  document.getElementById('xom-mr').textContent='$'+rev+'B';
+  document.getElementById('xom-mo').textContent='$'+oi+'B';
+  document.getElementById('xom-mn').textContent='$'+ni+'B';
+  const retEl=document.getElementById('xom-mret');
+  retEl.textContent=(ret>=0?'+':'')+ret+'%';
+  retEl.style.color=ret>=15?'#27ae60':ret>=0?'#c0870a':'#c0392b';
+  mkC('xom-chart',['Ceasefire ($78/bbl)','Stalemate ($105/bbl)','Escalation ($130/bbl)','Scenario'],[
+    {label:'Revenue ($B)',data:[260,366,449,rev],backgroundColor:['#f09595','#b4b2a9','#97c459','#378add'],borderRadius:4},
+    {label:'Net Income ($B)',data:[11,29,47,ni],backgroundColor:['#fcebeb','#d3d1c7','#c0dd97','#85b7eb'],borderRadius:4}
+  ]);
+}
+// ---- PORTFOLIO CHART ----
+function initPortChart(){
+  const ctx=document.getElementById('port-chart');if(!ctx)return;
+  CHS['port']=new Chart(ctx,{type:'doughnut',data:{labels:['NFLX','UNH','AVGO','XOM','BTC Fut','ETH Fut','SOL Short','Cash'],datasets:[{data:[19.5,19.5,17.9,10.9,7.0,5.1,3.1,17.0],backgroundColor:['#378add','#6c3483','#1a9c3e','#e67e22','#f39c12','#8e44ad','#e74c3c','#95a5a6'],borderWidth:2,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}}});
+}
+// ---- INIT ----
+window.addEventListener('load',function(){
+  initPBars();
+  setTimeout(function(){
+    setS('nflx','bull');
+    setS('unh','bull');
+    setS('avgo','bull');
+    setS('xom','bull');
+    initPortChart();
+  },400);
+});
+</script>
+</body>
+</html>

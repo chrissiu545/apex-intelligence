@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apex Capital · April 7 2026 — Post-Ceasefire Evening Edition</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fff;--bg2:#f5f5f3;--bg3:#ebebea;--bg4:#e0e0de;
+  --text:#1a1a18;--text2:#5a5a56;--text3:#8a8a85;
+  --bdr:rgba(0,0,0,.11);--bdr2:rgba(0,0,0,.20);
+  --grn:#27ae60;--grn-bg:#eaf3de;--grn-drk:#27500a;--grn-bdr:#97c459;
+  --red:#c0392b;--red-bg:#fcebeb;--red-drk:#791f1f;--red-bdr:#f09595;
+  --amb:#c0870a;--amb-bg:#faeeda;--amb-drk:#854f0b;
+  --blu:#185fa5;--blu-bg:#e6f1fb;
+  --r:8px;--rl:12px;
+  --sans:system-ui,-apple-system,sans-serif;
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:14px;line-height:1.5;padding:16px;max-width:960px;margin:0 auto}
+.firm{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--text3);text-transform:uppercase;margin-bottom:3px}
+.hdr-row{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:3px}
+h1{font-size:22px;font-weight:700}
+.hdr-note{font-size:12px;background:var(--grn-bg);padding:3px 10px;border-radius:var(--r);font-weight:600;color:var(--grn-drk)}
+.subtitle{font-size:12px;color:var(--text2);margin-bottom:14px;line-height:1.5}
+
+.ticker-bar{display:flex;gap:14px;flex-wrap:wrap;background:var(--bg2);border:0.5px solid var(--bdr);border-radius:var(--r);padding:9px 14px;margin-bottom:14px;align-items:center}
+.ti{display:flex;flex-direction:column;gap:1px;min-width:60px}
+.tl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.07em}
+.tv{font-size:13px;font-weight:700}
+.up{color:var(--grn)}.dn{color:var(--red)}.neu{color:var(--amb)}
+
+.alert-bar{border:0.5px solid;border-radius:var(--r);padding:10px 14px;margin-bottom:14px;font-size:12px;line-height:1.6}
+.alert-grn{background:var(--grn-bg);border-color:var(--grn-bdr);color:var(--grn-drk)}
+.alert-amb{background:var(--amb-bg);border-color:var(--amb-drk);color:var(--amb-drk)}
+.alert-red{background:var(--red-bg);border-color:var(--red-bdr);color:var(--red-drk)}
+
+.main-tabs{display:flex;gap:0;border-bottom:1px solid var(--bdr);margin-bottom:16px;overflow-x:auto}
+.mt{padding:8px 16px;font-size:12px;font-weight:600;border:none;background:transparent;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;font-family:var(--sans);letter-spacing:.01em}
+.mt.on{color:var(--text);border-bottom-color:var(--text)}
+.mt:hover:not(.on){color:var(--text2)}
+.sec{display:none}.sec.on{display:block}
+
+.card{background:var(--bg);border:0.5px solid var(--bdr);border-radius:var(--rl);overflow:hidden;margin-bottom:12px}
+.chd{padding:13px 17px 11px;border-bottom:0.5px solid var(--bdr)}
+.trow{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:5px}
+.tk{font-size:21px;font-weight:800}
+.cn{font-size:13px;color:var(--text2)}
+.bdg{font-size:10px;padding:2px 7px;border-radius:var(--r);font-weight:700}
+.bs{background:var(--grn-bg);color:var(--grn-drk)}
+.bb{background:var(--blu-bg);color:var(--blu)}
+.bw{background:var(--amb-bg);color:var(--amb-drk)}
+.br{background:var(--red-bg);color:var(--red-drk)}
+.hmeta{font-size:11px;color:var(--text2);display:flex;gap:12px;flex-wrap:wrap}
+.cbody{padding:13px 17px;display:flex;flex-direction:column;gap:13px}
+.sl{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+.thesis{font-size:13px;line-height:1.7;color:var(--text)}
+
+.hold-pill{display:inline-flex;align-items:center;gap:5px;background:var(--bg2);border:0.5px solid var(--bdr2);border-radius:var(--r);padding:4px 10px;font-size:11px;font-weight:600;color:var(--text2)}
+.hold-dot{width:7px;height:7px;border-radius:50%}
+.action-pill{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:var(--r);border:0.5px solid;font-size:11px;font-weight:700}
+.action-sell{background:var(--red-bg);border-color:var(--red-bdr);color:var(--red-drk)}
+.action-hold{background:var(--grn-bg);border-color:var(--grn-bdr);color:var(--grn-drk)}
+.action-add{background:var(--blu-bg);border-color:#185fa5;color:var(--blu)}
+.action-watch{background:var(--amb-bg);border-color:var(--amb-drk);color:var(--amb-drk)}
+
+.pcg{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.pcb{background:var(--bg2);border-radius:var(--r);padding:9px 11px}
+.pct{font-size:10px;font-weight:700;margin-bottom:5px}
+.pct.p{color:var(--grn-drk)}.pct.c{color:var(--red-drk)}
+.pcl{list-style:none;display:flex;flex-direction:column;gap:4px}
+.pcl li{font-size:11px;color:var(--text2);line-height:1.4;padding-left:14px;position:relative}
+.pcl li::before{position:absolute;left:0;font-weight:700}
+.pros li::before{content:'+';color:var(--grn)}.cons li::before{content:'–';color:var(--red)}
+
+.pbar{display:flex;height:7px;border-radius:4px;overflow:hidden;margin-bottom:3px}
+.pb-b{background:#639922}.pb-n{background:#888780}.pb-r{background:#e24b4a}
+.plbl{display:flex;justify-content:space-between;font-size:10px;color:var(--text2);margin-bottom:6px}
+
+.scg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}
+.sc{border-radius:var(--r);padding:9px 11px;border:0.5px solid}
+.sc.bull{background:var(--grn-bg);border-color:var(--grn-bdr)}
+.sc.neu{background:var(--bg2);border-color:var(--bdr2)}
+.sc.bear{background:var(--red-bg);border-color:var(--red-bdr)}
+.scl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px}
+.sc.bull .scl{color:#27500a}.sc.neu .scl{color:var(--text2)}.sc.bear .scl{color:#791f1f}
+.scp{font-size:10px;font-weight:600;margin-bottom:2px;opacity:.8}
+.sc.bull .scp{color:#3b6d11}.sc.neu .scp{color:var(--text2)}.sc.bear .scp{color:#a32d2d}
+.sct{font-size:16px;font-weight:800;margin-bottom:3px}
+.sc.bull .sct{color:#3b6d11}.sc.neu .sct{color:var(--text)}.sc.bear .sct{color:#a32d2d}
+.scd{font-size:10px;line-height:1.4}
+.sc.bull .scd{color:#3b6d11}.sc.neu .scd{color:var(--text2)}.sc.bear .scd{color:#993535}
+
+/* OPEN FORECAST */
+.forecast-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:14px}
+.fc{background:var(--bg);border:0.5px solid var(--bdr);border-radius:var(--rl);padding:12px 14px}
+.fc-label{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px;font-weight:700}
+.fc-val{font-size:20px;font-weight:800}
+.fc-sub{font-size:10px;color:var(--text2);margin-top:2px}
+.fc-range{font-size:10px;color:var(--text3);margin-top:3px}
+
+/* POSITION TABLE */
+.port-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:14px}
+.ps{background:var(--bg2);border-radius:var(--r);padding:9px 11px}
+.psl{font-size:9px;color:var(--text3);margin-bottom:2px;text-transform:uppercase;letter-spacing:.06em}
+.psv{font-size:16px;font-weight:800}
+
+.ptable{width:100%;border-collapse:collapse;font-size:12px}
+.ptable th{font-size:10px;font-weight:700;color:var(--text3);text-align:right;padding:6px 8px;border-bottom:0.5px solid var(--bdr);background:var(--bg2)}
+.ptable th:first-child,.ptable th:nth-child(2){text-align:left}
+.ptable td{padding:7px 8px;border-bottom:0.5px solid var(--bdr);text-align:right;color:var(--text2);font-size:11px;vertical-align:middle}
+.ptable td:first-child{text-align:left;font-weight:700;color:var(--text)}
+.ptable td:nth-child(2){text-align:left}
+.ptable tr:last-child td{border-bottom:none}
+.side-long{background:var(--grn-bg);color:var(--grn-drk);font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;display:inline-block}
+.side-short{background:var(--red-bg);color:var(--red-drk);font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;display:inline-block}
+.act-trim{background:var(--red-bg);color:var(--red-drk);font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;display:inline-block}
+.act-hold{background:var(--grn-bg);color:var(--grn-drk);font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;display:inline-block}
+.act-cover{background:var(--amb-bg);color:var(--amb-drk);font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;display:inline-block}
+.act-add{background:var(--blu-bg);color:var(--blu);font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;display:inline-block}
+
+/* HISTORY */
+.trade-table{width:100%;border-collapse:collapse;font-size:12px}
+.trade-table th{font-size:10px;font-weight:700;color:var(--text3);text-align:left;padding:6px 8px;border-bottom:0.5px solid var(--bdr);background:var(--bg2)}
+.trade-table td{padding:6px 8px;border-bottom:0.5px solid var(--bdr);color:var(--text2);font-size:11px}
+.trade-table tr:last-child td{border-bottom:none}
+
+.cw2{position:relative;width:100%;height:200px}
+.divider{height:0.5px;background:var(--bdr);margin:10px 0}
+.mnote{font-size:10px;color:var(--text3);margin-top:7px;line-height:1.5}
+.met{background:var(--bg);border-radius:var(--r);padding:8px 10px;border:0.5px solid var(--bdr)}
+.ml2{font-size:9px;color:var(--text3);margin-bottom:2px}
+.mv2{font-size:15px;font-weight:800}
+.mpos{color:var(--grn)}.mneg{color:var(--red)}.mwrn{color:var(--amb)}
+.mets{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:12px}
+
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tag{font-size:10px;padding:2px 8px;border-radius:var(--r);font-weight:600;background:var(--bg3);color:var(--text2)}
+.disclaim{margin-top:14px;padding:9px 13px;background:var(--bg2);border-radius:var(--r);font-size:10px;color:var(--text3);line-height:1.6}
+
+@media(max-width:620px){
+  .forecast-grid,.port-stats,.pcg,.scg,.mets{grid-template-columns:1fr 1fr}
+  .main-tabs{gap:0}.mt{padding:7px 10px;font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<nav style="background: var(--bg2); border-bottom: 1px solid var(--bdr); padding: 14px 24px; font-family: var(--sans); -webkit-font-smoothing: antialiased;">
+    <div style="max-width: 960px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+        <a href="../index.html" style="text-decoration: none; color: var(--blu); font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+            <span style="font-size: 16px; line-height: 0;">←</span> Apex Intelligence Portal
+        </a>
+        <span style="text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px; font-weight: 700; color: var(--text3);">Internal Briefing | APR 7 EVENING</span>
+    </div>
+</nav>
+
+<div class="firm">Apex Capital · Aggressive Growth Portfolio</div>
+<div class="hdr-row">
+  <h1>April 7, 2026 — Evening Edition: Ceasefire Confirmed</h1>
+  <span class="hdr-note">🕊️ 2-Week Ceasefire — Markets Ripping</span>
+</div>
+<p class="subtitle">Trump announces 2-week ceasefire brokered by Pakistan · Hormuz reopens conditionally · WTI crashes from $117 → $94 (–16%) · BTC surges to $72,700 · S&P 500 futures +2.5% · Nasdaq 100 futures +3% · Full position review and Wednesday open predictions inside</p>
+
+<div class="alert-bar alert-grn">
+  🕊️ <strong>CEASEFIRE CONFIRMED:</strong> Trump announced a 2-week suspension of strikes on Iran, mediated by Pakistan PM Shehbaz Sharif. Iran agreed to reopen the Strait of Hormuz for 2 weeks via coordination with Iranian armed forces. WTI oil crashed from $117 to ~$94 (–16%). S&P 500 futures surged +2.5%, Nasdaq 100 +3%, Dow futures +1,000 pts. Bitcoin jumped to $72,700. <strong>This is the bull scenario. Tomorrow's open will be a gap-up. Action required on XOM before Wednesday open.</strong>
+</div>
+
+<div class="alert-bar alert-amb">
+  ⚠️ <strong>KEY CAVEAT:</strong> This is a 2-week ceasefire, NOT a permanent peace deal. Iran retains nominal control of Hormuz under the framework. EIA: oil supply will not return to pre-conflict levels until late 2026 even with the strait reopening. GasBuddy analyst Patrick De Haan warns the ceasefire likely means "another two weeks of status quo with barely anything getting through." Do not treat this as a resolved conflict. Two-week countdown clock starts now.
+</div>
+
+<div class="ticker-bar">
+  <div class="ti"><span class="tl">S&P Futures</span><span class="tv up">+2.5%</span></div>
+  <div class="ti"><span class="tl">Nasdaq Fut.</span><span class="tv up">+3.0%</span></div>
+  <div class="ti"><span class="tl">Dow Futures</span><span class="tv up">+1,000 pts</span></div>
+  <div class="ti"><span class="tl">WTI Oil</span><span class="tv dn">~$94</span></div>
+  <div class="ti"><span class="tl">Brent</span><span class="tv dn">~$97</span></div>
+  <div class="ti"><span class="tl">BTC</span><span class="tv up">$72,700</span></div>
+  <div class="ti"><span class="tl">ETH</span><span class="tv up">~$2,273</span></div>
+  <div class="ti"><span class="tl">Gold</span><span class="tv up">+2.5%</span></div>
+  <div class="ti"><span class="tl">10Y UST</span><span class="tv up">Falling</span></div>
+  <div class="ti"><span class="tl">VIX</span><span class="tv up">Collapsing</span></div>
+</div>
+
+<div class="main-tabs">
+  <button class="mt on" onclick="showMain('situation',this)">🕊️ Situation</button>
+  <button class="mt" onclick="showMain('open',this)">📈 Open Predictions</button>
+  <button class="mt" onclick="showMain('actions',this)">⚡ Required Actions</button>
+  <button class="mt" onclick="showMain('portfolio',this)">💼 Portfolio Update</button>
+  <button class="mt" onclick="showMain('risks',this)">⚠️ Risks Ahead</button>
+  <button class="mt" onclick="showMain('history',this)">📊 Trade Log</button>
+</div>
+
+<!-- ========== SITUATION ========== -->
+<div class="sec on" id="sec-situation">
+  <div class="card">
+    <div class="chd"><div class="sl">What Happened Tonight — Timeline</div></div>
+    <div class="cbody">
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div style="display:flex;gap:12px;padding:9px 0;border-bottom:0.5px solid var(--bdr)">
+          <span style="font-size:10px;font-weight:700;color:var(--text3);min-width:55px;flex-shrink:0">~3PM ET</span>
+          <span style="font-size:12px;color:var(--text2)">Pakistan PM Shehbaz Sharif publicly requests Trump extend deadline 2 weeks. Iran positively reviews Pakistan proposal.</span>
+        </div>
+        <div style="display:flex;gap:12px;padding:9px 0;border-bottom:0.5px solid var(--bdr)">
+          <span style="font-size:10px;font-weight:700;color:var(--text3);min-width:55px;flex-shrink:0">~5PM ET</span>
+          <span style="font-size:12px;color:var(--text2)">S&P 500 erases session lows and closes +0.08% as ceasefire hopes build. AVGO surges +6% on Google/Anthropic deal. Nasdaq closes +0.1%.</span>
+        </div>
+        <div style="display:flex;gap:12px;padding:9px 0;border-bottom:0.5px solid var(--bdr)">
+          <span style="font-size:10px;font-weight:700;color:var(--text3);min-width:55px;flex-shrink:0">~7:30PM ET</span>
+          <span style="font-size:12px;color:var(--text2)">Trump posts on Truth Social announcing the 2-week ceasefire: "I agree to suspend the bombing and attack of Iran for a period of two weeks. This will be a double sided CEASEFIRE!" Iran received a 10-point proposal — called a "workable basis."</span>
+        </div>
+        <div style="display:flex;gap:12px;padding:9px 0;border-bottom:0.5px solid var(--bdr)">
+          <span style="font-size:10px;font-weight:700;color:var(--text3);min-width:55px;flex-shrink:0">~7:45PM ET</span>
+          <span style="font-size:12px;color:var(--text2)"><strong style="color:var(--red)">WTI oil crashes from $117 → ~$94 in under 30 minutes. –16% in half an hour.</strong> Natural gas, gasoline, and heating oil all collapse simultaneously. XOM and energy stocks will gap down hard at tomorrow's open.</span>
+        </div>
+        <div style="display:flex;gap:12px;padding:9px 0;border-bottom:0.5px solid var(--bdr)">
+          <span style="font-size:10px;font-weight:700;color:var(--text3);min-width:55px;flex-shrink:0">~8PM ET</span>
+          <span style="font-size:12px;color:var(--text2)"><strong style="color:var(--grn)">Bitcoin surges to $72,700 (+5.7% from $68,758). ETH rises +7.4% to $2,273.</strong> SOL short stop at $95 is now at risk. S&P futures +2.5%, Nasdaq 100 futures +3%, Dow futures +1,000 pts.</span>
+        </div>
+        <div style="display:flex;gap:12px;padding:9px 0">
+          <span style="font-size:10px;font-weight:700;color:var(--text3);min-width:55px;flex-shrink:0">~8:30PM ET</span>
+          <span style="font-size:12px;color:var(--text2)">Iran FM confirms safe passage through Hormuz for 2 weeks via coordination with Iranian forces. Israel agrees. Asia markets pricing in 3%+ open. Japan Nikkei futures +3%. Gold +2.5%, silver +4.6%.</span>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div>
+        <div class="sl">What This Means for the Portfolio</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:6px">
+          <div style="background:var(--red-bg);border-radius:var(--r);padding:9px 11px">
+            <div style="font-size:10px;font-weight:700;color:var(--red-drk);margin-bottom:5px">❌ HURTS — XOM (20% Position)</div>
+            <div style="font-size:11px;color:var(--red-drk);line-height:1.5">Oil collapsed $23/bbl tonight. XOM was positioned as the escalation hedge. XOM will gap down 10–15% at tomorrow's open. <strong>TRIM AGGRESSIVELY at the open.</strong> Target: reduce from 20% to 8–10%. This was the plan — execute it.</div>
+          </div>
+          <div style="background:var(--grn-bg);border-radius:var(--r);padding:9px 11px">
+            <div style="font-size:10px;font-weight:700;color:var(--grn-drk);margin-bottom:5px">✅ BENEFITS — NFLX, AVGO, UNH</div>
+            <div style="font-size:11px;color:var(--grn-drk);line-height:1.5">Ceasefire = consumer confidence rebounds = good for NFLX. Inflation pressure eases = rate cut hopes revive = AVGO multiple expands. UNH holds as institutional quality name. All three gap up at open.</div>
+          </div>
+          <div style="background:var(--grn-bg);border-radius:var(--r);padding:9px 11px">
+            <div style="font-size:10px;font-weight:700;color:var(--grn-drk);margin-bottom:5px">⚡ CRYPTO — Acting NOW</div>
+            <div style="font-size:11px;color:var(--grn-drk);line-height:1.5">BTC at $72,700 — take 50% off the long tonight. SOL short stop at $95 may be triggered — be ready to cover. ETH up 7.4%. Crypto reacted immediately; don't wait for stock open.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div>
+        <div class="sl">Ceasefire Terms — What We Know</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.8;background:var(--bg2);border-radius:var(--r);padding:10px 12px">
+          <strong>Duration:</strong> 2 weeks from tonight (expires ~April 21, 2026 — the same day as UNH earnings)<br>
+          <strong>Hormuz:</strong> Iran agrees to allow marine traffic for 2 weeks via coordination with Iranian armed forces — NOT unconditional opening<br>
+          <strong>Strikes:</strong> US and Israel suspend bombing and attacks on Iran<br>
+          <strong>Iran's asks (10-point plan, not yet agreed):</strong> Sanctions removal, frozen asset release, compensation for damages, retained control of Hormuz under a framework<br>
+          <strong>Critical risk:</strong> Iran's statement includes "continued Iranian control over the Strait of Hormuz" — this was NOT what Trump demanded. The 2 weeks is for final negotiations, not a done deal.<br>
+          <strong>EIA warning:</strong> Even with reopening, oil supply will not return close to pre-conflict levels until late 2026. Production shut-ins were 9.1M bbl/day in April.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== OPEN PREDICTIONS ========== -->
+<div class="sec" id="sec-open">
+  <div class="card">
+    <div class="chd"><div class="sl">Wednesday April 8 Market Open Predictions</div>
+      <p class="thesis" style="margin-top:4px">S&P 500 futures are currently +2.5% and Nasdaq 100 futures +3%. These are the overnight signals. Here is our position-by-position prediction for the open, with confidence levels and the action to take in the first 30 minutes of trading.</p>
+    </div>
+    <div class="cbody">
+
+      <!-- Forecast cards -->
+      <div class="forecast-grid">
+        <div class="fc">
+          <div class="fc-label">S&P 500 Open</div>
+          <div class="fc-val up">+2.2%</div>
+          <div class="fc-sub">~6,761 at open</div>
+          <div class="fc-range">Range: +1.8% to +3.0%</div>
+        </div>
+        <div class="fc">
+          <div class="fc-label">Nasdaq 100 Open</div>
+          <div class="fc-val up">+2.8%</div>
+          <div class="fc-sub">~22,630 implied</div>
+          <div class="fc-range">Range: +2.2% to +3.5%</div>
+        </div>
+        <div class="fc">
+          <div class="fc-label">WTI Oil</div>
+          <div class="fc-val dn">~$92–96</div>
+          <div class="fc-sub">Down from $114 open</div>
+          <div class="fc-range">EIA: elevated above $76 for 2026</div>
+        </div>
+        <div class="fc">
+          <div class="fc-label">VIX</div>
+          <div class="fc-val up">~16–18</div>
+          <div class="fc-sub">Down from 24.2</div>
+          <div class="fc-range">Fear exits fast on ceasefire</div>
+        </div>
+      </div>
+
+      <!-- Position-by-position predictions -->
+      <div>
+        <div class="sl">Position-by-Position Open Predictions</div>
+        <div style="display:flex;flex-direction:column;gap:9px;margin-top:8px">
+
+          <div style="border:0.5px solid var(--red-bdr);border-radius:var(--r);padding:10px 13px;background:var(--red-bg)">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <span style="font-weight:700;font-size:14px">XOM — ExxonMobil</span>
+              <span class="act-trim">⬇ TRIM HARD AT OPEN</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:11px;color:var(--red-drk)">
+              <div><strong>Predicted open:</strong> –10% to –14%<br>~$138–$145 vs. $161 close</div>
+              <div><strong>Why:</strong> Oil –16% overnight. XOM correlates ~0.7x to oil moves. War premium fully unwinds in energy sector. "Sell on news" for energy is now fully in effect.</div>
+              <div><strong>Action:</strong> Sell 60–70% of XOM position at open. Keep 30–40% for April 24 earnings — oil at $94 is still 40% above pre-war levels. Do not fully exit.</div>
+            </div>
+          </div>
+
+          <div style="border:0.5px solid var(--grn-bdr);border-radius:var(--r);padding:10px 13px;background:var(--grn-bg)">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <span style="font-weight:700;font-size:14px">AVGO — Broadcom</span>
+              <span class="act-hold">✅ HOLD STRONG</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:11px;color:var(--grn-drk)">
+              <div><strong>Predicted open:</strong> +4% to +6%<br>~$339–$346 vs. $326 close</div>
+              <div><strong>Why:</strong> Google/Anthropic deal announced today (+6% already priced in). Ceasefire = AI capex cycle resumes unimpeded. Lower oil = lower inflation = rates fall = growth multiple expands. Nasdaq +3% lifts all tech.</div>
+              <div><strong>Action:</strong> Hold all shares through June 4 earnings. This is the portfolio's best structural position. Do not sell into the gap-up — it is justified and likely to continue.</div>
+            </div>
+          </div>
+
+          <div style="border:0.5px solid var(--grn-bdr);border-radius:var(--r);padding:10px 13px;background:var(--grn-bg)">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <span style="font-weight:700;font-size:14px">NFLX — Netflix</span>
+              <span class="act-hold">✅ HOLD — Add on Dip if Below $102</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:11px;color:var(--grn-drk)">
+              <div><strong>Predicted open:</strong> +3% to +5%<br>~$101–$103 vs. $98.57 close</div>
+              <div><strong>Why:</strong> Consumer confidence rebounds on ceasefire. Goldman Buy at $120 supported. Inflation relief is directly positive for consumer spend and streaming willingness. April 16 earnings now a cleaner bull case.</div>
+              <div><strong>Action:</strong> Hold existing position. If NFLX opens below $101, consider using a portion of the $1,500 cash reserve to add shares — but limit any add to $500 max to keep position below 20% of portfolio.</div>
+            </div>
+          </div>
+
+          <div style="border:0.5px solid var(--grn-bdr);border-radius:var(--r);padding:10px 13px;background:var(--grn-bg)">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <span style="font-weight:700;font-size:14px">UNH — UnitedHealth</span>
+              <span class="act-hold">✅ HOLD — Thesis Unchanged</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:11px;color:var(--grn-drk)">
+              <div><strong>Predicted open:</strong> +1% to +3%<br>~$306–$312 vs. $303 close</div>
+              <div><strong>Why:</strong> Healthcare is a quality hold regardless of war resolution. Ceasefire is mildly positive (rate cut hopes revive, making UNH dividend relatively more attractive). Earnings April 21 is still the key catalyst.</div>
+              <div><strong>Action:</strong> Hold all shares through April 21 earnings. Stop remains at $245. The +8.6% gain from $279 entry is solid. No action needed at open tomorrow.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Cash deployment -->
+      <div>
+        <div class="sl">$1,500 Cash Reserve — Deployment Plan</div>
+        <p class="thesis" style="margin-top:4px">The cash reserve was held specifically for this moment. The ceasefire is the trigger. Here is how to deploy it at Wednesday's open, in order of priority:</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px;font-size:12px">
+          <div style="background:var(--blu-bg);border-radius:var(--r);padding:9px 11px;color:var(--blu)">
+            <strong>Priority 1 — Add NFLX ($500)</strong><br>
+            Deploy $500 into NFLX if it opens between $99–$103. April 16 earnings thesis is now cleaner with ceasefire tailwind. Brings NFLX to ~18% of portfolio.
+          </div>
+          <div style="background:var(--blu-bg);border-radius:var(--r);padding:9px 11px;color:var(--blu)">
+            <strong>Priority 2 — Add AVGO ($500)</strong><br>
+            Add $500 to AVGO on any dip in first 30 min of trading. Google/Anthropic deal + ceasefire is a powerful catalyst combination. Brings AVGO to ~20%.
+          </div>
+          <div style="background:var(--bg2);border-radius:var(--r);padding:9px 11px;color:var(--text2)">
+            <strong>Priority 3 — Keep $500 in Reserve</strong><br>
+            Hold $500 in cash. The ceasefire is 2 weeks, not permanent. If talks collapse in Week 2, you'll want dry powder to re-add XOM or buy a GLD position.
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- XOM proceeds reinvestment -->
+      <div>
+        <div class="sl">XOM Trim Proceeds — What to Do With the Cash</div>
+        <p class="thesis" style="margin-top:4px">Selling 60–70% of XOM at the open generates approximately $1,100–$1,300 in cash. Here is the reinvestment plan from XOM trim proceeds specifically:</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-top:8px;font-size:11px">
+          <div style="background:var(--grn-bg);border-radius:var(--r);padding:8px 10px;color:var(--grn-drk)"><strong>AVGO ($400)</strong><br>Add to the best structural position in the portfolio. AI capex cycle is now unimpeded.</div>
+          <div style="background:var(--grn-bg);border-radius:var(--r);padding:8px 10px;color:var(--grn-drk)"><strong>NFLX ($300)</strong><br>Consumer tailwind confirmed. April 16 catalyst is now clean. Add before earnings.</div>
+          <div style="background:var(--blu-bg);border-radius:var(--r);padding:8px 10px;color:var(--blu)"><strong>JPM or GS ($300)</strong><br>Ceasefire = financial normalisation signal. Banks benefit from improved credit conditions.</div>
+          <div style="background:var(--bg2);border-radius:var(--r);padding:8px 10px;color:var(--text2)"><strong>Cash Reserve ($300)</strong><br>Keep as buffer. Week 2 of ceasefire is uncertain. Talks could collapse.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="chd"><div class="sl">Broader Market Open Context — What Will Lead and Lag</div></div>
+    <div class="cbody">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div>
+          <div class="sl" style="color:var(--grn-drk)">Sectors Leading Higher</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.8;margin-top:5px">
+            <div>🚀 <strong>Technology / AI:</strong> NVDA, AVGO, MSFT all gap up 3–5%. Growth multiple expands as rate cut hopes revive. This is the biggest winner.</div>
+            <div>🛒 <strong>Consumer Discretionary:</strong> Amazon, retail, travel all recover. Fuel surcharges may be reversed. Airlines gap up 5–8%.</div>
+            <div>🏦 <strong>Financials:</strong> JPM, GS, BAC all rally on improved economic outlook and credit quality. Loan growth recovers with lower oil.</div>
+            <div>📡 <strong>Communication Services:</strong> NFLX, META, GOOGL all gap up on consumer confidence and ad spend recovery.</div>
+            <div>🏭 <strong>Industrials:</strong> Supply chain confidence returns. Shipping and logistics stocks rip.</div>
+          </div>
+        </div>
+        <div>
+          <div class="sl" style="color:var(--red-drk)">Sectors Selling Off</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.8;margin-top:5px">
+            <div>🛢️ <strong>Energy:</strong> XOM, CVX, OXY all gap down 10–15%. War premium exits in a single session. This is a violent and fast unwind — sell into it.</div>
+            <div>🛡️ <strong>Defense:</strong> LMT, NOC, RTX all sell on news. Conflict winding down = contract pipeline expectations reset lower. Accept the defense miss.</div>
+            <div>🥇 <strong>Gold / Safe Havens:</strong> Gold may actually rise on ceasefire (dollar falls, rate cut expectations rise). Silver up 4.6% overnight is confirmation.</div>
+            <div>🔋 <strong>Utilities (Energy hedges):</strong> NextEra, Vistra pulled back from their war-era highs. Still hold as AI power play, but war-premium is exiting.</div>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div style="background:var(--amb-bg);border-radius:var(--r);padding:10px 12px;font-size:12px;color:var(--amb-drk)">
+        ⚠️ <strong>Critical Timing Note:</strong> Gap-up opens often fade by 10AM ET. The first 15–30 minutes of trading tomorrow will be the highest prices of the session for many stocks as algorithmic and retail buyers rush in. <strong>Do not chase the gap.</strong> For XOM, sell immediately at open. For NFLX/AVGO adds, wait 15–20 minutes for the initial spike to fade before entering — you will likely get a better price than the opening print.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== REQUIRED ACTIONS ========== -->
+<div class="sec" id="sec-actions">
+  <div class="alert-bar alert-amb">
+    ⏰ <strong>Stock market opens 9:30AM ET Wednesday April 8. Crypto is live NOW.</strong> Crypto actions must be taken tonight. Stock actions at the open tomorrow.
+  </div>
+  <div class="card">
+    <div class="chd"><div class="sl">Action List — Tonight (Crypto) and Tomorrow Morning (Stocks)</div></div>
+    <div class="cbody">
+
+      <div>
+        <div class="sl" style="color:var(--grn-drk)">🟢 TONIGHT — Crypto (Act Now, Market Is Open)</div>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:6px">
+          <div style="background:var(--grn-bg);border:0.5px solid var(--grn-bdr);border-radius:var(--r);padding:10px 12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+              <strong style="color:var(--grn-drk)">BTC Long — Take 50% Profit at $72,700</strong>
+              <span class="action-sell">SELL HALF NOW</span>
+            </div>
+            <div style="font-size:11px;color:var(--grn-drk);line-height:1.5">BTC hit $72,700 — Target 1 achieved. Entry was $69,500. Sell 50% (close 0.025 BTC position). Lock in +$160 profit on half. Let the other 50% run toward Target 2 ($80K) with a trailing stop at $70,000. The ceasefire is 2 weeks — BTC could continue running but don't hold 100% into the uncertainty.</div>
+          </div>
+          <div style="background:var(--amb-bg);border:0.5px solid var(--amb-drk);border-radius:var(--r);padding:10px 12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+              <strong style="color:var(--amb-drk)">SOL Short — Cover Immediately if Stop Hit</strong>
+              <span class="action-watch">MONITOR — STOP AT $95</span>
+            </div>
+            <div style="font-size:11px;color:var(--amb-drk);line-height:1.5">SOL will rally on ceasefire news. Check if the $95 stop has been triggered. If SOL is above $90 right now, cover the position immediately — do not wait for the stop to hit. The short was portfolio insurance; its job is done. At $79.94 entry close, we made +7.1% (+$54). If stop hits at $95, loss is ~$45. Either way, close this trade tonight.</div>
+          </div>
+          <div style="background:var(--grn-bg);border:0.5px solid var(--grn-bdr);border-radius:var(--r);padding:10px 12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+              <strong style="color:var(--grn-drk)">ETH Long — Hold, Move Stop to $2,050</strong>
+              <span class="action-hold">HOLD — TRAIL STOP</span>
+            </div>
+            <div style="font-size:11px;color:var(--grn-drk);line-height:1.5">ETH rallied +7.4% to $2,273 — almost back to our $2,200 entry. Now approaching break-even and then profit. Move stop from $1,850 to $2,050 to lock in reduced downside. Target 1 ($2,500) is now more achievable. ETH catch-up trade vs. BTC is working. Hold through the next few days.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div>
+        <div class="sl" style="color:var(--amb-drk)">🟡 TOMORROW — Stocks (9:30AM ET Open)</div>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:6px">
+          <div style="background:var(--red-bg);border:0.5px solid var(--red-bdr);border-radius:var(--r);padding:10px 12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+              <strong style="color:var(--red-drk)">XOM — Sell 60–70% at Market Open</strong>
+              <span class="action-sell">SELL 60–70% AT OPEN</span>
+            </div>
+            <div style="font-size:11px;color:var(--red-drk);line-height:1.5">XOM will gap down 10–15% (~$138–$145 range). Do not hesitate — sell into the initial open. The war premium is leaving the stock. We keep 30–40% (approximately $600–$800 worth) because: (1) oil at $94 is still 40% above pre-war, (2) April 24 earnings are still a near-record at $94/bbl, (3) the ceasefire is only 2 weeks and could fail. Set a new stop on remaining position at $128. Do NOT sell on the open dip and then re-buy hoping for a bounce — this is a trend change, not a dip.</div>
+          </div>
+          <div style="background:var(--grn-bg);border:0.5px solid var(--grn-bdr);border-radius:var(--r);padding:10px 12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+              <strong style="color:var(--grn-drk)">AVGO — Hold All, Consider Adding After 15 Min</strong>
+              <span class="action-add">HOLD / ADD AFTER 15 MIN</span>
+            </div>
+            <div style="font-size:11px;color:var(--grn-drk);line-height:1.5">AVGO will open +4–6%. Hold all existing shares — this is a justified gap-up driven by real news (Google/Anthropic deal today + ceasefire). After 15–20 minutes, if AVGO pulls back from open to +3% range, add $400 from cash reserve. Do not buy the first 15 minutes — let algorithmic sellers exhaust themselves before adding.</div>
+          </div>
+          <div style="background:var(--grn-bg);border:0.5px solid var(--grn-bdr);border-radius:var(--r);padding:10px 12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+              <strong style="color:var(--grn-drk)">NFLX — Hold, Add $300 After 15 Min if Below $103</strong>
+              <span class="action-add">HOLD / OPPORTUNISTIC ADD</span>
+            </div>
+            <div style="font-size:11px;color:var(--grn-drk);line-height:1.5">NFLX will open +3–5%. Hold all existing shares. After 15 min, if NFLX is below $103, add $300 from cash or XOM proceeds. April 16 earnings are now a cleaner story: ceasefire = consumer confidence up = streaming spending stable. This brings total NFLX allocation to ~18%.</div>
+          </div>
+          <div style="background:var(--grn-bg);border:0.5px solid var(--grn-bdr);border-radius:var(--r);padding:10px 12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+              <strong style="color:var(--grn-drk)">UNH — Hold, No Action Needed</strong>
+              <span class="action-hold">HOLD — NO ACTION</span>
+            </div>
+            <div style="font-size:11px;color:var(--grn-drk);line-height:1.5">UNH opens modestly higher +1–3%. Hold through April 21 earnings. No changes to the thesis. The defensive story held during the war and the position will benefit from the broader market rally. Stop at $245 remains in place.</div>
+          </div>
+          <div style="background:var(--blu-bg);border:0.5px solid #185fa5;border-radius:var(--r);padding:10px 12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+              <strong style="color:var(--blu)">JPM or GS — New Position ($300 from XOM proceeds)</strong>
+              <span class="action-add">NEW ENTRY — AFTER 15 MIN</span>
+            </div>
+            <div style="font-size:11px;color:var(--blu);line-height:1.5">Ceasefire signals economic normalisation. Financials were on the watchlist for post-resolution entry — this is that moment. JPM or GS, $300 position (3% of portfolio). Earnings in mid-April will be a key catalyst. Buy after the first 15 minutes — let the gap-up settle.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== PORTFOLIO UPDATE ========== -->
+<div class="sec" id="sec-portfolio">
+  <div class="port-stats">
+    <div class="ps"><div class="psl">Portfolio Value (Est.)</div><div class="psv up">~$10,580</div></div>
+    <div class="ps"><div class="psl">Tonight Est. P&L</div><div class="psv up" style="color:var(--grn)">+$580</div></div>
+    <div class="ps"><div class="psl">2-Day Return</div><div class="psv" style="color:var(--grn)">+5.8%</div></div>
+    <div class="ps"><div class="psl">vs. S&P 500</div><div class="psv" style="color:var(--grn)">+6.7%</div></div>
+    <div class="ps"><div class="psl">vs. Nasdaq</div><div class="psv" style="color:var(--grn)">+5.5%</div></div>
+  </div>
+
+  <div class="card">
+    <div class="chd"><div class="sl">Current Positions — Post-Ceasefire Status &amp; Estimated P&L</div></div>
+    <div class="cbody">
+      <div class="sl">Equity Holdings — Next Trade: Wednesday 9:30AM ET</div>
+      <table class="ptable" style="margin-top:6px">
+        <thead><tr><th>Ticker</th><th>Action Tomorrow</th><th>Entry</th><th>Est. Open</th><th>Position</th><th>Est. P&L</th><th>New Stop</th><th>Next Catalyst</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>NFLX</td>
+            <td><span class="act-hold">Hold / Add $300</span></td>
+            <td>$97.50</td>
+            <td style="color:var(--grn)">~$102–103</td>
+            <td>$1,500</td>
+            <td style="color:var(--grn)">+$68 est.</td>
+            <td>$85</td>
+            <td>Apr 16 Q1</td>
+          </tr>
+          <tr>
+            <td>UNH</td>
+            <td><span class="act-hold">Hold — No Action</span></td>
+            <td>$279.00</td>
+            <td style="color:var(--grn)">~$307–312</td>
+            <td>$1,200</td>
+            <td style="color:var(--grn)">+$110 est.</td>
+            <td>$245</td>
+            <td>Apr 21 Q1</td>
+          </tr>
+          <tr>
+            <td>AVGO</td>
+            <td><span class="act-hold">Hold / Add $400</span></td>
+            <td>$298.00</td>
+            <td style="color:var(--grn)">~$338–346</td>
+            <td>$1,500</td>
+            <td style="color:var(--grn)">+$203 est.</td>
+            <td>$270</td>
+            <td>Jun 4 Q2</td>
+          </tr>
+          <tr>
+            <td>XOM</td>
+            <td><span class="act-trim">Sell 60–70% at Open</span></td>
+            <td>~$135 blended</td>
+            <td style="color:var(--red)">~$138–145</td>
+            <td>$2,000</td>
+            <td style="color:var(--amb)">~+$60 est. (oil crash offsetting gains)</td>
+            <td>$128 (residual)</td>
+            <td>Apr 24 Q1</td>
+          </tr>
+          <tr>
+            <td>JPM/GS</td>
+            <td><span class="act-add">New $300 Entry</span></td>
+            <td>Market open</td>
+            <td style="color:var(--grn)">Gap up +3–4%</td>
+            <td>$300 new</td>
+            <td style="color:var(--text3)">New position</td>
+            <td>TBD</td>
+            <td>Apr earnings</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="divider"></div>
+
+      <div class="sl">Crypto Positions — Active Right Now</div>
+      <table class="ptable" style="margin-top:6px">
+        <thead><tr><th>Asset</th><th>Current Price</th><th>P&L</th><th>Action Tonight</th><th>Remaining Stop</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>BTC Long</td>
+            <td style="color:var(--grn)">$72,700 (+5.7%)</td>
+            <td style="color:var(--grn)">+$190 est.</td>
+            <td><span class="act-trim">Sell 50% now. Trail stop $70K on rest</span></td>
+            <td>$70,000 (trailing)</td>
+          </tr>
+          <tr>
+            <td>ETH Long</td>
+            <td style="color:var(--grn)">$2,273 (+7.4%)</td>
+            <td style="color:var(--grn)">+$58 est.</td>
+            <td><span class="act-hold">Hold. Move stop to $2,050</span></td>
+            <td>$2,050 (raised)</td>
+          </tr>
+          <tr>
+            <td>SOL Short</td>
+            <td style="color:var(--red)">Likely near $87–93</td>
+            <td style="color:var(--amb)">At risk of stop</td>
+            <td><span class="act-cover">Cover immediately if above $90</span></td>
+            <td>$95 — do not move</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top:10px;font-size:11px;color:var(--text3);line-height:1.7;background:var(--bg2);border-radius:var(--r);padding:10px 12px">
+        <strong>Post-Ceasefire Portfolio Strategy:</strong> The war premium exits energy and defense. The peace dividend flows into tech, consumer, and financials. The 2-week clock means this rally may be fragile — keep $500 in cash reserve regardless. Update stops on all positions upward to lock in gains. The next critical date is April 21 (UNH earnings + ceasefire Week 2 deadline). Monitor Hormuz traffic data daily — the strait reopening has to actually happen, not just be announced.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== RISKS AHEAD ========== -->
+<div class="sec" id="sec-risks">
+  <div class="card">
+    <div class="chd"><div class="sl">Forward Risks — Why This Is Not Over</div></div>
+    <div class="cbody">
+
+      <div class="sl">The 2-Week Clock — What Could Go Wrong</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:6px">
+        <div style="background:var(--red-bg);border-radius:var(--r);padding:9px 11px">
+          <div style="font-size:11px;font-weight:700;color:var(--red-drk);margin-bottom:4px">🚨 Risk 1: Iran retains control of Hormuz under the framework</div>
+          <div style="font-size:11px;color:var(--red-drk);line-height:1.5">Iran's ceasefire statement included "continued Iranian control over the Strait of Hormuz." This is NOT what Trump demanded — he wanted unconditional reopening. The 10-point Iranian proposal has not been agreed to. If talks break down in Week 2, escalation returns and the entire war-premium trade reverts. Keep XOM stub position for exactly this scenario.</div>
+        </div>
+        <div style="background:var(--amb-bg);border-radius:var(--r);padding:9px 11px">
+          <div style="font-size:11px;font-weight:700;color:var(--amb-drk);margin-bottom:4px">⚠️ Risk 2: Oil supply restoration takes months, not days</div>
+          <div style="font-size:11px;color:var(--amb-drk);line-height:1.5">EIA warns: "We've never seen the strait reopen. Full restoration of flows will take months." Gulf producers shut in 9.1 million bbl/day in April. Even with the strait open, tankers must re-route, insurers must re-engage, and production must restart. Oil at $94 may not fall much further — GasBuddy's analyst says "another two weeks of status quo." Inflation relief will be slower than markets expect.</div>
+        </div>
+        <div style="background:var(--amb-bg);border-radius:var(--r);padding:9px 11px">
+          <div style="font-size:11px;font-weight:700;color:var(--amb-drk);margin-bottom:4px">⚠️ Risk 3: Friday CPI Still Matters</div>
+          <div style="font-size:11px;color:var(--amb-drk);line-height:1.5">Friday's March CPI was set when oil was above $100/bbl all month. Even with tonight's oil crash, March CPI will be hot. The market may rally on ceasefire and then get a reality check from hot inflation data Friday. Do not be fully positioned for the bull case before CPI.</div>
+        </div>
+        <div style="background:var(--bg2);border-radius:var(--r);padding:9px 11px;border:0.5px solid var(--bdr2)">
+          <div style="font-size:11px;font-weight:700;color:var(--text2);margin-bottom:4px">💡 Risk 4: Gap-Up Fades Are Common</div>
+          <div style="font-size:11px;color:var(--text2);line-height:1.5">S&P futures are +2.5%. Historical pattern: large gap-up opens on geopolitical resolution often fade 30–50% intraday as profit-takers emerge. The S&P may open at 6,760, run to 6,800, and close near 6,720. Do not chase. Buy NFLX and AVGO adds after the first 15–20 minutes, not at the opening print.</div>
+        </div>
+        <div style="background:var(--bg2);border-radius:var(--r);padding:9px 11px;border:0.5px solid var(--bdr2)">
+          <div style="font-size:11px;font-weight:700;color:var(--text2);margin-bottom:4px">💡 Risk 5: Netflix Earnings Still a Binary Event (April 16)</div>
+          <div style="font-size:11px;color:var(--text2);line-height:1.5">The ceasefire improves the macro setup for NFLX but doesn't change the fundamental question: did subscriber growth rebound in Q1? If Netflix misses on subs, the stock will sell off regardless of geopolitics. Stop at $85 post-add. Keep the position sized correctly — no more than 18–20% of portfolio.</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div>
+        <div class="sl">Updated Macro Scenario Probabilities — Post Ceasefire</div>
+        <div class="pbar" id="macro-pbar"></div>
+        <div class="plbl"><span>🐂 Bull 52%</span><span>⚖️ Base 32%</span><span>🐻 Bear 16%</span></div>
+        <div class="scg">
+          <div class="sc bull">
+            <div class="scl">Bull — 52%</div><div class="scp">Upgraded from 22%</div>
+            <div class="sct">Peace Deal Holds</div>
+            <div class="scd">2-week ceasefire converts to permanent deal. Hormuz fully reopens by late April. Oil falls to $80–85. Fed signals cuts. S&P runs to 7,000+. NFLX, AVGO, UNH all hit targets by June.</div>
+          </div>
+          <div class="sc neu">
+            <div class="scl">Base — 32%</div><div class="scp">Adjusted from 45%</div>
+            <div class="sct">Stalemate 2.0</div>
+            <div class="scd">Ceasefire holds for 2 weeks, talks drag, Hormuz partially open but flows remain constrained. Oil stabilizes $90–100. S&P oscillates 6,600–7,000. Markets slowly digest the relief rally.</div>
+          </div>
+          <div class="sc bear">
+            <div class="scl">Bear — 16%</div><div class="scp">Reduced from 33%</div>
+            <div class="sct">Talks Collapse Week 2</div>
+            <div class="scd">Iran's 10-point demands are rejected. Week 2 deadline passes without agreement. Escalation resumes. Oil spikes back toward $115. This is why we keep a cash reserve and the XOM stub position.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div>
+        <div class="sl">Retail Monitoring Checklist — Next 2 Weeks</div>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-top:6px;font-size:12px">
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:0.5px solid var(--bdr)"><span style="background:var(--red-bg);color:var(--red-drk);font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:1px">URGENT</span><span><strong>Tonight:</strong> Close SOL short if above $90. Take 50% BTC profit at $72,700. Move ETH stop to $2,050.</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:0.5px solid var(--bdr)"><span style="background:var(--red-bg);color:var(--red-drk);font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:1px">URGENT</span><span><strong>Wed 9:30AM:</strong> Sell 60–70% of XOM immediately. Do not wait for a bounce that may not come.</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:0.5px solid var(--bdr)"><span style="background:var(--amb-bg);color:var(--amb-drk);font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:1px">HIGH</span><span><strong>Wed 9:45–10AM:</strong> Add AVGO ($400) and NFLX ($300) after initial gap-up settles. Enter JPM/GS new position ($300).</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:0.5px solid var(--bdr)"><span style="background:var(--amb-bg);color:var(--amb-drk);font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:1px">HIGH</span><span><strong>Friday Apr 10:</strong> March CPI report. If CPI comes in hot (expected given March oil levels), prepare for rate cut hopes to fade and growth stocks to pull back 2–3%. This is a buying opportunity if it happens, not a sell signal.</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:0.5px solid var(--bdr)"><span style="background:var(--grn-bg);color:var(--grn-drk);font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:1px">MONITOR</span><span><strong>Daily Apr 8–21:</strong> Watch Hormuz shipping volume data. If tankers are not actually transiting, oil won't fall and the market rally is on borrowed time.</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:0.5px solid var(--bdr)"><span style="background:var(--grn-bg);color:var(--grn-drk);font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:1px">MONITOR</span><span><strong>Apr 16:</strong> Netflix Q1 earnings — the biggest single risk event for the portfolio. Stop at $85 post-add is firm.</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:6px 0"><span style="background:var(--grn-bg);color:var(--grn-drk);font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:1px">MONITOR</span><span><strong>Apr 21:</strong> UNH earnings AND the 2-week ceasefire expires on the same day. This date is a dual binary event. Be positioned and have a plan before it arrives.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== TRADE LOG ========== -->
+<div class="sec" id="sec-history">
+  <div class="mets">
+    <div class="met"><div class="ml2">Portfolio Value (Est.)</div><div class="mv2 mpos">~$10,580</div></div>
+    <div class="met"><div class="ml2">Total Est. P&L (2 days)</div><div class="mv2 mpos">+$580</div></div>
+    <div class="met"><div class="ml2">vs S&P 500 (–0.9% + futures)</div><div class="mv2 mpos">+6.7% alpha</div></div>
+    <div class="met"><div class="ml2">Best Position</div><div class="mv2 mpos">AVGO +15.4%</div></div>
+  </div>
+
+  <div class="card">
+    <div class="chd"><div class="sl">Trade Log — All Positions, Post-Ceasefire Status</div></div>
+    <div class="cbody">
+      <table class="trade-table">
+        <thead><tr><th>Date</th><th>Ticker</th><th>Type</th><th>Side</th><th>Entry</th><th>Now</th><th>P&L $</th><th>P&L %</th><th>Wed Action</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Apr 6</td><td><strong>NFLX</strong></td><td>Equity</td><td><span class="side-long">LONG</span></td><td>$97.50</td><td>~$102</td><td style="color:var(--grn)">+$68</td><td style="color:var(--grn)">+4.5%</td><td><span class="act-hold">Hold / Add</span></td><td>Open</td></tr>
+          <tr><td>Apr 6</td><td><strong>UNH</strong></td><td>Equity</td><td><span class="side-long">LONG</span></td><td>$279.00</td><td>~$309</td><td style="color:var(--grn)">+$109</td><td style="color:var(--grn)">+10.8%</td><td><span class="act-hold">Hold</span></td><td>Open</td></tr>
+          <tr><td>Apr 6</td><td><strong>AVGO</strong></td><td>Equity</td><td><span class="side-long">LONG</span></td><td>$298.00</td><td>~$340</td><td style="color:var(--grn)">+$211</td><td style="color:var(--grn)">+14.1%</td><td><span class="act-hold">Hold / Add</span></td><td>Open</td></tr>
+          <tr><td>Apr 6–7</td><td><strong>XOM</strong></td><td>Equity</td><td><span class="side-long">LONG</span></td><td>~$135</td><td>~$141 (futures)</td><td style="color:var(--amb)">+$44</td><td style="color:var(--amb)">+4.4%</td><td><span class="act-trim">Sell 60–70%</span></td><td>Trimming</td></tr>
+          <tr><td>Apr 7</td><td><strong>BTC</strong></td><td>Futures</td><td><span class="side-long">LONG</span></td><td>$69,500</td><td>$72,700</td><td style="color:var(--grn)">+$190</td><td style="color:var(--grn)">+4.6%</td><td><span class="act-trim">Sell 50% NOW</span></td><td>Partial Exit</td></tr>
+          <tr><td>Apr 6</td><td><strong>ETH</strong></td><td>Futures</td><td><span class="side-long">LONG</span></td><td>$2,200</td><td>$2,273</td><td style="color:var(--grn)">+$27</td><td style="color:var(--grn)">+3.3%</td><td><span class="act-hold">Hold, Stop → $2,050</span></td><td>Open</td></tr>
+          <tr><td>Apr 6</td><td><strong>SOL Short</strong></td><td>Futures</td><td><span class="side-short">SHORT</span></td><td>$86.00</td><td>Likely ~$87–93</td><td style="color:var(--amb)">At risk</td><td style="color:var(--amb)">—</td><td><span class="act-cover">Cover if above $90</span></td><td>Closing</td></tr>
+          <tr><td>Apr 8</td><td><strong>JPM / GS</strong></td><td>Equity</td><td><span class="side-long">LONG (new)</span></td><td>At open</td><td>—</td><td>—</td><td>—</td><td><span class="act-add">Enter $300 after 15 min</span></td><td>Pending</td></tr>
+        </tbody>
+      </table>
+
+      <div class="divider"></div>
+
+      <div>
+        <div class="sl">Model Feedback Loop — Day 2 Lessons</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.7;background:var(--bg2);border-radius:var(--r);padding:10px 12px">
+          <strong>What the sensitivity matrix predicted — and what actually happened:</strong><br>
+          ✅ The matrix correctly showed XOM as the oil-shock winner and the primary ceasefire loser. Oil –16% → XOM –10–15% is within the predicted range.<br>
+          ✅ BTC was correctly identified as the most immediate ceasefire reactor (24/7 trading). $72,700 at 8PM vs. our $72K Target 1 — nearly exact.<br>
+          ✅ The "correlation goes to 1.0 in a crisis" warning held — when ceasefire hit, BTC and equities rallied simultaneously, exactly as predicted.<br>
+          ⚠️ What the model underestimated: the speed of the oil crash (–16% in 30 minutes) and the magnitude of equity futures response (+3% Nasdaq vs. our +1.8% base prediction).<br>
+          <strong>Lesson:</strong> In binary geopolitical events, the magnitude of the move exceeds the model estimate — size positions accordingly and have clear pre-set action triggers, not decisions to make in the moment.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="disclaim">Apex Capital Evening Briefing — April 7, 2026. Post-ceasefire update produced for educational and informational purposes only. Not financial advice. All position estimates are approximations based on after-hours/futures prices and actual open prices may vary significantly. The 2-week ceasefire is not a permanent peace deal — all risks identified herein remain active. Consult a licensed financial advisor before making investment decisions. This report is a collaboration between Claude (Anthropic), with analytical frameworks reviewed against OpenAI and Gemini inputs. Next full briefing: Wednesday April 8, 2026 — post-open update.</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+function showMain(id,btn){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.mt').forEach(t=>t.classList.remove('on'));
+  document.getElementById('sec-'+id).classList.add('on');btn.classList.add('on');
+}
+function pb(id,bull,neu,bear){
+  const el=document.getElementById(id);if(!el)return;
+  el.innerHTML='<div class="pb-b" style="width:'+bull+'%"></div><div class="pb-n" style="width:'+neu+'%"></div><div class="pb-r" style="width:'+bear+'%"></div>';
+}
+window.addEventListener('load',function(){
+  pb('macro-pbar',52,32,16);
+});
+</script>
+</body>
+</html>

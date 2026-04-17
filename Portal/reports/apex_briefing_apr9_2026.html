@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="../theme.css">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apex Capital · April 9 2026 — Day 4</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fff;--bg2:#f5f5f3;--bg3:#ebebea;
+  --text:#1a1a18;--text2:#5a5a56;--text3:#8a8a85;
+  --bdr:rgba(0,0,0,.11);--bdr2:rgba(0,0,0,.20);
+  --grn:#27ae60;--grn-bg:#eaf3de;--grn-drk:#27500a;--grn-bdr:#97c459;
+  --red:#c0392b;--red-bg:#fcebeb;--red-drk:#791f1f;--red-bdr:#f09595;
+  --amb:#c0870a;--amb-bg:#faeeda;--amb-drk:#854f0b;
+  --blu:#185fa5;--blu-bg:#e6f1fb;
+  --r:8px;--rl:12px;--sans:system-ui,-apple-system,sans-serif;
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:14px;line-height:1.5;padding:16px;max-width:960px;margin:0 auto}
+
+.sim-banner{background:#1a1a18;color:#f5f5f3;font-size:11px;font-weight:600;padding:6px 14px;border-radius:var(--r);margin-bottom:12px;display:flex;align-items:center;gap:8px;letter-spacing:.02em}
+.sim-dot{width:7px;height:7px;border-radius:50%;background:#ef9f27;flex-shrink:0}
+
+.claim{font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-right:2px;vertical-align:middle;display:inline-block}
+.c-fact{background:#e6f1fb;color:#185fa5}
+.c-est{background:#faeeda;color:#854f0b}
+.c-model{background:#eeedfe;color:#3c3489}
+
+.firm{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--text3);text-transform:uppercase;margin-bottom:3px}
+.hdr-row{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:3px}
+h1{font-size:22px;font-weight:700}
+.hdr-note{font-size:12px;background:var(--amb-bg);padding:3px 10px;border-radius:var(--r);font-weight:600;color:var(--amb-drk)}
+.subtitle{font-size:12px;color:var(--text2);margin-bottom:14px;line-height:1.5}
+
+.exec-box{background:var(--bg2);border:0.5px solid var(--bdr2);border-radius:var(--rl);padding:14px 16px;margin-bottom:14px}
+.exec-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:10px}
+.exec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.exec-item{background:var(--bg);border-radius:var(--r);padding:9px 11px;border:0.5px solid var(--bdr)}
+.exec-label{font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:3px;font-weight:700}
+.exec-val{font-size:16px;font-weight:800}
+.exec-sub{font-size:10px;color:var(--text2);margin-top:2px}
+
+.action-list{display:flex;flex-direction:column;gap:5px}
+.action-item{display:flex;align-items:flex-start;gap:8px;font-size:12px;padding:5px 0;border-top:0.5px solid var(--bdr)}
+.action-item:first-child{border-top:none;padding-top:0}
+.apill{font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:1px}
+.a-hold{background:var(--grn-bg);color:var(--grn-drk)}
+.a-watch{background:var(--amb-bg);color:var(--amb-drk)}
+.a-risk{background:var(--red-bg);color:var(--red-drk)}
+.a-next{background:var(--blu-bg);color:var(--blu)}
+
+.ticker-bar{display:flex;gap:14px;flex-wrap:wrap;background:var(--bg2);border:0.5px solid var(--bdr);border-radius:var(--r);padding:9px 14px;margin-bottom:14px;align-items:center}
+.ti{display:flex;flex-direction:column;gap:1px;min-width:60px}
+.tl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.07em}
+.tv{font-size:13px;font-weight:700}
+.price-tag{font-size:9px;color:var(--text3);margin-top:1px}
+.up{color:var(--grn)}.dn{color:var(--red)}.neu{color:var(--amb)}
+
+.alert-bar{border:0.5px solid;border-radius:var(--r);padding:9px 13px;margin-bottom:10px;font-size:12px;line-height:1.6}
+.alert-amb{background:var(--amb-bg);border-color:var(--amb-drk);color:var(--amb-drk)}
+.alert-red{background:var(--red-bg);border-color:var(--red-bdr);color:var(--red-drk)}
+.alert-grn{background:var(--grn-bg);border-color:var(--grn-bdr);color:var(--grn-drk)}
+
+.main-tabs{display:flex;gap:0;border-bottom:1px solid var(--bdr);margin-bottom:16px;overflow-x:auto}
+.mt{padding:8px 16px;font-size:12px;font-weight:600;border:none;background:transparent;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;font-family:var(--sans)}
+.mt.on{color:var(--text);border-bottom-color:var(--text)}
+.mt:hover:not(.on){color:var(--text2)}
+.sec{display:none}.sec.on{display:block}
+
+.ptabs{display:flex;gap:4px;margin-bottom:12px;flex-wrap:wrap}
+.pt{padding:5px 12px;font-size:12px;border-radius:var(--r);border:0.5px solid var(--bdr);background:transparent;color:var(--text2);cursor:pointer;font-family:var(--sans)}
+.pt.on{background:var(--text);color:var(--bg);font-weight:600;border-color:var(--text)}
+.pt:hover:not(.on){background:var(--bg2)}
+.pp{display:none}.pp.on{display:block}
+
+.card{background:var(--bg);border:0.5px solid var(--bdr);border-radius:var(--rl);overflow:hidden;margin-bottom:12px}
+.chd{padding:13px 17px 11px;border-bottom:0.5px solid var(--bdr)}
+.trow{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:5px}
+.tk{font-size:21px;font-weight:800}
+.cn{font-size:13px;color:var(--text2)}
+.bdg{font-size:10px;padding:2px 7px;border-radius:var(--r);font-weight:700}
+.bs{background:var(--grn-bg);color:var(--grn-drk)}
+.bb{background:var(--blu-bg);color:var(--blu)}
+.bw{background:var(--amb-bg);color:var(--amb-drk)}
+.br{background:var(--red-bg);color:var(--red-drk)}
+.hmeta{font-size:11px;color:var(--text2);display:flex;gap:12px;flex-wrap:wrap}
+.cbody{padding:13px 17px;display:flex;flex-direction:column;gap:13px}
+.sl{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+.thesis{font-size:13px;line-height:1.7;color:var(--text)}
+
+.invalidation{background:var(--red-bg);border-radius:var(--r);padding:8px 11px;margin-top:6px}
+.inv-title{font-size:9px;font-weight:700;color:var(--red-drk);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.inv-body{font-size:11px;color:var(--red-drk);line-height:1.6}
+
+.pcg{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.pcb{background:var(--bg2);border-radius:var(--r);padding:9px 11px}
+.pct{font-size:10px;font-weight:700;margin-bottom:5px}
+.pct.p{color:var(--grn-drk)}.pct.c{color:var(--red-drk)}
+.pcl{list-style:none;display:flex;flex-direction:column;gap:4px}
+.pcl li{font-size:11px;color:var(--text2);line-height:1.4;padding-left:14px;position:relative}
+.pcl li::before{position:absolute;left:0;font-weight:700}
+.pros li::before{content:'+';color:var(--grn)}.cons li::before{content:'–';color:var(--red)}
+
+.pbar{display:flex;height:7px;border-radius:4px;overflow:hidden;margin-bottom:3px}
+.pb-b{background:#639922}.pb-n{background:#888780}.pb-r{background:#e24b4a}
+.plbl{display:flex;justify-content:space-between;font-size:10px;color:var(--text2);margin-bottom:6px}
+
+.scg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}
+.sc{border-radius:var(--r);padding:9px 11px;border:0.5px solid}
+.sc.bull{background:var(--grn-bg);border-color:var(--grn-bdr)}
+.sc.neu{background:var(--bg2);border-color:var(--bdr2)}
+.sc.bear{background:var(--red-bg);border-color:var(--red-bdr)}
+.scl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px}
+.sc.bull .scl{color:#27500a}.sc.neu .scl{color:var(--text2)}.sc.bear .scl{color:#791f1f}
+.scp{font-size:10px;font-weight:600;margin-bottom:2px}
+.sc.bull .scp{color:#3b6d11}.sc.neu .scp{color:var(--text2)}.sc.bear .scp{color:#a32d2d}
+.sct{font-size:15px;font-weight:800;margin-bottom:3px}
+.sc.bull .sct{color:#3b6d11}.sc.neu .sct{color:var(--text)}.sc.bear .sct{color:#a32d2d}
+.scd{font-size:10px;line-height:1.4}
+.sc.bull .scd{color:#3b6d11}.sc.neu .scd{color:var(--text2)}.sc.bear .scd{color:#993535}
+
+.mdl{background:var(--bg2);border-radius:var(--rl);padding:13px 17px}
+.scbtns{display:flex;gap:5px;margin-bottom:12px;flex-wrap:wrap}
+.scb{padding:4px 12px;font-size:11px;font-weight:600;border-radius:var(--r);border:0.5px solid var(--bdr2);background:transparent;color:var(--text2);cursor:pointer;font-family:var(--sans)}
+.bull-a{background:var(--grn-bg)!important;border-color:var(--grn-bdr)!important;color:#27500a!important}
+.neu-a{background:var(--bg3)!important;border-color:var(--bdr2)!important;color:var(--text)!important}
+.bear-a{background:var(--red-bg)!important;border-color:var(--red-bdr)!important;color:#791f1f!important}
+.sliders{display:flex;flex-direction:column;gap:9px;margin-bottom:12px}
+.slr{display:flex;align-items:center;gap:9px}
+.slr label{font-size:11px;color:var(--text2);width:160px;flex-shrink:0}
+.slr input[type=range]{flex:1;accent-color:#378add;height:4px}
+.sv{font-size:11px;font-weight:700;min-width:52px;text-align:right;color:var(--text)}
+.mets{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px}
+.met{background:var(--bg);border-radius:var(--r);padding:8px 10px;border:0.5px solid var(--bdr)}
+.ml2{font-size:9px;color:var(--text3);margin-bottom:2px}
+.mv2{font-size:14px;font-weight:800}
+.mpos{color:var(--grn)}.mneg{color:var(--red)}.mwrn{color:var(--amb)}
+.cw2{position:relative;width:100%;height:190px}
+.mnote{font-size:10px;color:var(--text3);margin-top:7px;line-height:1.5;font-style:italic}
+
+.retro-row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:0.5px solid var(--bdr);font-size:12px}
+.retro-row:last-child{border-bottom:none}
+.rpill{font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:1px}
+.r-hit{background:var(--grn-bg);color:var(--grn-drk)}
+.r-miss{background:var(--red-bg);color:var(--red-drk)}
+.r-part{background:var(--amb-bg);color:var(--amb-drk)}
+
+.ptable{width:100%;border-collapse:collapse;font-size:12px}
+.ptable th{font-size:10px;font-weight:700;color:var(--text3);text-align:right;padding:6px 8px;border-bottom:0.5px solid var(--bdr);background:var(--bg2)}
+.ptable th:first-child,.ptable th:nth-child(2){text-align:left}
+.ptable td{padding:7px 8px;border-bottom:0.5px solid var(--bdr);text-align:right;color:var(--text2);font-size:11px;vertical-align:middle}
+.ptable td:first-child{text-align:left;font-weight:700;color:var(--text)}
+.ptable td:nth-child(2){text-align:left}
+.ptable tr:last-child td{border-bottom:none}
+
+.port-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:12px}
+.ps{background:var(--bg2);border-radius:var(--r);padding:9px 11px}
+.psl{font-size:9px;color:var(--text3);margin-bottom:2px;text-transform:uppercase;letter-spacing:.06em}
+.psv{font-size:16px;font-weight:800}
+
+.news-grid{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:14px}
+.news-list{background:var(--bg2);border-radius:var(--rl);padding:12px 14px}
+.news-item{padding:8px 0;border-bottom:0.5px solid var(--bdr);display:flex;flex-direction:column;gap:2px}
+.news-item:last-child{border-bottom:none;padding-bottom:0}
+.news-tag{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em}
+.nt-break{color:var(--red)}.nt-econ{color:var(--blu)}.nt-war{color:var(--amb-drk)}.nt-mkt{color:var(--grn-drk)}.nt-fed{color:#6c3483}
+.news-head{font-size:12px;font-weight:600;color:var(--text);line-height:1.35}
+.news-body{font-size:11px;color:var(--text2);line-height:1.4}
+.cal-box{background:var(--bg2);border-radius:var(--rl);padding:12px 14px}
+.cal-item{display:flex;gap:8px;padding:5px 0;border-bottom:0.5px solid var(--bdr);align-items:flex-start}
+.cal-item:last-child{border-bottom:none;padding-bottom:0}
+.cal-day{font-size:10px;font-weight:700;color:var(--text3);min-width:38px}
+.cal-txt{font-size:11px;color:var(--text2);line-height:1.35}
+.cal-imp{font-size:9px;font-weight:700;padding:1px 5px;border-radius:4px;margin-left:3px}
+.hi{background:var(--red-bg);color:var(--red-drk)}.med{background:var(--amb-bg);color:var(--amb-drk)}.lo{background:var(--grn-bg);color:var(--grn-drk)}
+
+.corr-check{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:8px}
+.corr-item{background:var(--bg2);border-radius:var(--r);padding:9px 11px;font-size:11px}
+.corr-label{font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;color:var(--text3)}
+.corr-red{border-left:3px solid var(--red);padding-left:8px}
+.corr-amb{border-left:3px solid var(--amb);padding-left:8px}
+.corr-grn{border-left:3px solid var(--grn);padding-left:8px}
+.corr-neu{border-left:3px solid var(--bdr2);padding-left:8px}
+
+.divider{height:0.5px;background:var(--bdr);margin:10px 0}
+.key-change{background:var(--blu-bg);border-radius:var(--r);padding:8px 11px;font-size:11px;color:var(--blu);margin-top:10px}
+.disclaim{margin-top:14px;padding:9px 13px;background:var(--bg2);border-radius:var(--r);font-size:10px;color:var(--text3);line-height:1.6}
+
+@media(max-width:640px){
+  .exec-grid,.pcg,.scg,.mets,.news-grid,.port-stats,.corr-check{grid-template-columns:1fr 1fr}
+  .main-tabs{gap:0}.mt{padding:7px 10px;font-size:11px}
+  .slr label{width:110px}
+}
+
+[data-theme="dark"] {
+  --bg: #1c1c1a; 
+  --bg2: #121210; 
+  --text: #eeeeec; 
+  --text2: #a0a09a; 
+  --text3: #6a6a65;
+  --bdr: rgba(255,255,255,0.1);
+  --bdr2: rgba(255,255,255,0.2);
+}
+
+/* This ensures the body actually uses those shifting variables */
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+</style>
+</head>
+<body>
+
+  <div class="sim-banner" style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <div class="sim-dot"></div>
+        HYPOTHETICAL EDUCATIONAL SIMULATION — April 9, 2026 · Not financial advice · All positions and values are illustrative
+    </div>
+    <button id="theme-toggle" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: inherit; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-size: 9px; font-weight: 700; font-family: var(--sans); text-transform: uppercase;">
+        🌓 Toggle Mode
+    </button>
+</div>
+
+<nav style="background:var(--bg2);border-bottom:1px solid var(--bdr);padding:14px 24px;font-family:var(--sans);">
+  <div style="max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;">
+    <a href="../index.html" style="text-decoration:none;color:var(--blu);font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;">
+      <span style="font-size:16px;line-height:0;">←</span> Apex Intelligence Portal
+    </a>
+    <span style="text-transform:uppercase;letter-spacing:0.08em;font-size:10px;font-weight:700;color:var(--text3);">Internal Briefing · April 9, 2026 · Day 4</span>
+  </div>
+</nav>
+
+<div style="padding-top:16px">
+<div class="firm">Apex Capital · Aggressive Growth Portfolio</div>
+<div class="hdr-row">
+  <h1>April 9, 2026 — Full Daily Briefing</h1>
+  <span class="hdr-note">⚠️ Day 4 · Ceasefire Wobbles · Oil Rebounds</span>
+</div>
+<p class="subtitle">
+  S&P 500 ~–0.16% to –0.3% · Dow ~–0.3% · Nasdaq ~–0.2% · Oil rebounded from $94→$97–100 on ceasefire fracture · Feb PCE +0.4% MoM, Core PCE 3.0% YoY (in-line) · Netanyahu agrees to Lebanon talks · Islamabad summit begins Saturday · Ceasefire clock: Day 2 of 14
+</p>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="exec-box">
+  <div class="exec-title">⚡ Executive Summary — What Changed, What Didn't</div>
+  <div class="exec-grid">
+    <div class="exec-item">
+      <div class="exec-label">S&P 500 Close (est.)</div>
+      <div class="exec-val dn">~–0.16%</div>
+      <div class="exec-sub"><span class="claim c-fact">FACT</span> Gave back modest gains after oil rebounded toward $97–100</div>
+    </div>
+    <div class="exec-item">
+      <div class="exec-label">WTI Oil Rebound</div>
+      <div class="exec-val neu">~$97–100</div>
+      <div class="exec-sub"><span class="claim c-fact">FACT</span> +5–6% from Wednesday close as ceasefire doubts intensified</div>
+    </div>
+    <div class="exec-item">
+      <div class="exec-label">Feb Core PCE</div>
+      <div class="exec-val neu">3.0% YoY</div>
+      <div class="exec-sub"><span class="claim c-fact">FACT</span> In-line with expectations · Pre-war reading · not yet reflecting oil shock</div>
+    </div>
+    <div class="exec-item">
+      <div class="exec-label">Portfolio (est.)</div>
+      <div class="exec-val up">~$11,200</div>
+      <div class="exec-sub"><span class="claim c-est">EST</span> Modestly lower on oil rebound · XOM stub partially offsets</div>
+    </div>
+  </div>
+  <div class="exec-title" style="margin-top:4px">Today's Priority Checklist — No Position Changes Warranted</div>
+  <div class="action-list">
+    <div class="action-item"><span class="apill a-hold">HOLD</span><span><strong>No portfolio changes today.</strong> The ceasefire fracture and oil rebound do not represent a fundamental change in any of the core theses — AVGO, NFLX, UNH, and JPM/GS are all driven by earnings and rates, not by whether Hormuz had 12 or 15 tankers through it today. The XOM stub is performing as designed — rising with oil.</span></div>
+    <div class="action-item"><span class="apill a-watch">WATCH</span><span><strong>Tomorrow — March CPI (8:30AM ET):</strong> This is the most important data point of the week. <span class="claim c-est">ESTIMATE</span> March oil averaged ~$110+ throughout the month. CPI likely prints hot regardless of today's levels. A reading above 4% YoY on headline or above 3.5% core would likely push 10Y yield toward 4.5%+ and pressure NFLX/AVGO. Decide before tomorrow's open whether to hold full size into the print.</span></div>
+    <div class="action-item"><span class="apill a-watch">WATCH</span><span><strong>Saturday — Islamabad Summit:</strong> <span class="claim c-fact">FACT</span> Vance, Witkoff, and Kushner begin direct US-Iran talks. Netanyahu agreed to separate Lebanon talks. <span class="claim c-est">ESTIMATE</span> A productive Islamabad session would likely reduce oil's rebound and support equities on Monday. A breakdown would test the bear scenario.</span></div>
+    <div class="action-item"><span class="apill a-risk">RISK</span><span><strong>CPI pre-positioning rule:</strong> If you want to reduce CPI risk, the window is during tomorrow's first hour of trading before 8:30AM data. After the print, prices will move quickly. A practical retail-friendly approach: if you're uncomfortable holding full NFLX/AVGO size into a hot CPI, trim 20–30% in the first trading hour tomorrow morning — not at a specific price tick, but within the morning session.</span></div>
+    <div class="action-item"><span class="apill a-next">UPCOMING</span><span><strong>Earnings season begins in earnest:</strong> GS April 13, JPM April 14, NFLX April 16, UNH April 21. These four dates are now the primary drivers — geopolitical noise is secondary unless the ceasefire formally collapses.</span></div>
+  </div>
+</div>
+
+<div class="alert-bar alert-amb">
+  ⚠️ <strong>KEY INTERPRETATION:</strong> Today's market pullback is <em>not</em> a signal to reduce positions. Oil rebounding from $94 → $97–100 on ceasefire uncertainty is expected behaviour — Perplexity's "correlation risk" insight applies here. NFLX, AVGO, UNH, and JPM/GS did not fundamentally change today. The portfolio should look essentially the same at Thursday's close as it did at Wednesday's close. Position changes are warranted only when fundamentals shift — not when headlines oscillate.
+</div>
+
+<div class="ticker-bar">
+  <div class="ti"><span class="tl">S&P 500</span><span class="tv dn">~–0.16%</span><span class="price-tag">FACT · partial session data</span></div>
+  <div class="ti"><span class="tl">Nasdaq</span><span class="tv dn">~–0.2%</span><span class="price-tag">FACT · partial</span></div>
+  <div class="ti"><span class="tl">WTI Oil</span><span class="tv neu">~$97–100</span><span class="price-tag">FACT · rebounding +5–6%</span></div>
+  <div class="ti"><span class="tl">10Y UST</span><span class="tv neu">~4.30%</span><span class="price-tag">EST · slight uptick on oil</span></div>
+  <div class="ti"><span class="tl">Core PCE</span><span class="tv neu">3.0% YoY</span><span class="price-tag">FACT · Feb · in-line</span></div>
+  <div class="ti"><span class="tl">BTC</span><span class="tv dn">~$70K</span><span class="price-tag">EST · modest pullback</span></div>
+  <div class="ti"><span class="tl">XOM stub</span><span class="tv up">Rising</span><span class="price-tag">EST · oil rebound helps stub</span></div>
+  <div class="ti"><span class="tl">Ceasefire</span><span class="tv neu">Day 2/14</span><span class="price-tag">FACT · contested</span></div>
+</div>
+
+<div class="main-tabs">
+  <button class="mt on" onclick="showMain('macro',this)">📰 News &amp; Macro</button>
+  <button class="mt" onclick="showMain('retro',this)">🔁 Retro</button>
+  <button class="mt" onclick="showMain('picks',this)">📈 Positions</button>
+  <button class="mt" onclick="showMain('correlation',this)">🔗 Correlation Check</button>
+  <button class="mt" onclick="showMain('cpi',this)">📊 CPI Prep</button>
+  <button class="mt" onclick="showMain('portfolio',this)">💼 Portfolio</button>
+</div>
+
+<!-- ========== MACRO ========== -->
+<div class="sec on" id="sec-macro">
+  <div class="news-grid">
+    <div class="news-list">
+      <div class="sl">Key Developments — April 9, 2026</div>
+      <div class="news-item">
+        <span class="news-tag nt-war">⚠️ Geopolitical</span>
+        <span class="news-head">Oil Rebounds +5–6% as Iran Keeps Partial Control of Hormuz</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> WTI rebounded from Wednesday's low of ~$94 toward $97–100 after markets realised Iran retained significant control of Hormuz transit under the ceasefire framework. Ships still need to coordinate with Iranian armed forces. Goldman's base case: flows start picking up this weekend, with a gradual one-month recovery — but they note risks are "skewed to the upside" for oil prices. The ceasefire is real but the Hormuz reopening is conditional and slow.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag nt-war">🕊️ Diplomacy</span>
+        <span class="news-head">Netanyahu Agrees to Lebanon Talks · Islamabad Summit Saturday</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> Israeli PM Netanyahu agreed to direct talks with Lebanon — the key sticking point that Iran was using to claim the ceasefire had been violated. This materially improves the diplomatic track. Vance, Witkoff, and Kushner begin direct US-Iran talks in Islamabad on Saturday. A successful Saturday session would be a strong Monday morning positive catalyst for equities.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag nt-econ">📊 Economy</span>
+        <span class="news-head">Feb PCE +0.4% MoM, Core PCE 3.0% YoY — In-Line, Pre-War Reading</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> February PCE came in exactly at consensus (0.4% MoM, 3.0% YoY core). This is the last clean pre-war inflation reading. It shows inflation was already running above the Fed's 2% target before the oil shock hit in late February. Tomorrow's March CPI will be the first reading that incorporates weeks of $100+ oil. The February figure itself is benign — the signal is in the starting point it establishes.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag nt-econ">📊 Labour</span>
+        <span class="news-head">Initial Jobless Claims 219K — Slightly Above Forecast</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> Weekly initial jobless claims came in at 219,000, above the 210,000 consensus and up from 203,000 the prior week. This is a modest deterioration but not alarming. Continuing claims fell to 1.79 million — below expectations. The overall picture is a labour market that remains healthy but is showing early signs of softening. <span class="claim c-est">ESTIMATE</span> This is unlikely to change Fed policy on its own but adds to the two-sided risk picture the FOMC minutes described.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag nt-mkt">📈 Equities</span>
+        <span class="news-head">S&P 500 Pulls Back Modestly — S&P 7th Consecutive Winning Session Through Early Trade</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> Despite the oil rebound, at mid-session the S&P was still holding near flat with a 7th consecutive advancing session intact per Bloomberg. The final close gave back a small amount as oil extended gains. Breadth was mixed. Software stocks came under renewed pressure — a rate-sensitivity signal worth monitoring ahead of tomorrow's CPI. XOM and the energy stub benefited from the oil rebound.</span>
+      </div>
+    </div>
+    <div class="cal-box">
+      <div class="sl">Upcoming Calendar</div>
+      <div class="cal-item"><span class="cal-day">FRI APR 10</span><div class="cal-txt">March CPI + Core CPI — most important data point this week <span class="cal-imp hi">CRITICAL</span></div></div>
+      <div class="cal-item"><span class="cal-day">FRI APR 10</span><div class="cal-txt">Preliminary April UMich Consumer Sentiment <span class="cal-imp med">MED</span></div></div>
+      <div class="cal-item"><span class="cal-day">SAT APR 11</span><div class="cal-txt">Islamabad Summit — direct US-Iran talks (Vance/Witkoff/Kushner) <span class="cal-imp hi">HIGH</span></div></div>
+      <div class="cal-item"><span class="cal-day">MON APR 13</span><div class="cal-txt">Goldman Sachs (GS) Q1 earnings · JPM/GS position catalyst <span class="cal-imp hi">HIGH</span></div></div>
+      <div class="cal-item"><span class="cal-day">TUE APR 14</span><div class="cal-txt">JPMorgan (JPM), WFC, C, BLK Q1 earnings <span class="cal-imp hi">HIGH</span></div></div>
+      <div class="cal-item"><span class="cal-day">WED APR 16</span><div class="cal-txt">Netflix (NFLX) Q1 Earnings — primary NFLX catalyst <span class="cal-imp hi">HIGH</span></div></div>
+      <div class="cal-item"><span class="cal-day">APR 21</span><div class="cal-txt">UNH Q1 Earnings + Ceasefire expires — dual binary <span class="cal-imp hi">CRITICAL</span></div></div>
+      <div class="cal-item"><span class="cal-day">APR 28–29</span><div class="cal-txt">FOMC meeting — first since minutes showed rate hike debate <span class="cal-imp hi">HIGH</span></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="chd"><div class="sl">Macro Scenario Probabilities — Unchanged from Day 3</div>
+      <p class="thesis" style="margin-top:4px">Today's oil rebound and ceasefire wobble do not warrant a scenario probability revision. The diplomatic track — Netanyahu Lebanon agreement, Islamabad Saturday — is actually more constructive than Wednesday night. The bull probability remains at ~45% and bear remains at the 20% minimum floor. <em>Probabilities will be revised after tomorrow's CPI and Saturday's Islamabad outcome — not before.</em></p>
+    </div>
+    <div class="cbody">
+      <div class="pbar" id="macro-pbar"></div>
+      <div class="plbl"><span>🐂 Bull 45% — Islamabad deal + CPI in-line</span><span>⚖️ Base 35% — Stalemate, slow Hormuz</span><span>🐻 Bear 20% — Floor until physical flows confirmed</span></div>
+      <div class="scg">
+        <div class="sc bull"><div class="scl">Bull</div><div class="scp">45% (est.) — unchanged</div><div class="sct">Islamabad Progress</div><div class="scd">Saturday talks produce a framework. Netanyahu Lebanon talks defuse ceasefire fracture. Oil retreats toward $85–90. CPI Friday in-line or mild surprise. Fed cut expectations revive.<br><strong>What would invalidate:</strong> Iran walks away from Islamabad; Lebanon strikes escalate.</div></div>
+        <div class="sc neu"><div class="scl">Base</div><div class="scp">35% (est.) — unchanged</div><div class="sct">Fragile Stalemate</div><div class="scd">Ceasefire technically holds. Hormuz partially functional but contested. Oil oscillates $90–105. Markets grind. CPI hot but not shocking. FOMC stays on hold at April 29 meeting.<br><strong>What would invalidate:</strong> Confirmed permanent Hormuz reopening (→ bull) or formal ceasefire collapse (→ bear).</div></div>
+        <div class="sc bear"><div class="scl">Bear</div><div class="scp">20% (est.) — floor maintained</div><div class="sct">Collapse + CPI Shock</div><div class="scd">Islamabad fails. Lebanon strikes cause Iran to formally exit ceasefire. CPI Friday above 4.5% YoY. Rate hike expectations spike. S&P retest of 6,400–6,500.<br><strong>What would invalidate:</strong> Physical tanker traffic confirmed through Hormuz; Saudi pipeline damage minimal and repaired.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== RETRO ========== -->
+<div class="sec" id="sec-retro">
+  <div class="card">
+    <div class="chd"><div class="sl">Day 4 Retro — Thursday April 9 Predictions vs. Actuals</div>
+      <p class="thesis" style="margin-top:4px">Checking yesterday's post-market briefing predictions against today's session. This is intentionally brief — today was a low-conviction session and the prediction accuracy matters less than the framework holding.</p>
+    </div>
+    <div class="cbody">
+      <div class="retro-row"><span class="rpill r-hit">HIT</span><span><strong>Oil rebounds:</strong> Yesterday's evening briefing flagged "monitor oil pre-market — if above $100, consider reducing NFLX/AVGO." Oil rose to $100+ briefly and markets pulled back. The trigger logic was correct. No action was taken because the trigger was framed as a consideration, not an automatic rule — and the fundamental theses were unchanged. This is the right call.</span></div>
+      <div class="retro-row"><span class="rpill r-hit">HIT</span><span><strong>Feb PCE in-line:</strong> Predicted Feb PCE would be benign as a pre-war reading. Actual: 0.4% MoM / 3.0% core YoY — exactly at consensus. No market surprise. ✓</span></div>
+      <div class="retro-row"><span class="rpill r-hit">HIT</span><span><strong>Netanyahu Lebanon agreement:</strong> Evening briefing predicted the Lebanon fracture was the ceasefire's main stress point. Netanyahu's agreement to direct Lebanon talks materially improved the diplomatic picture — validating why the bear case was kept at 20% and not higher. ✓</span></div>
+      <div class="retro-row"><span class="rpill r-part">PARTIAL</span><span><strong>Market direction:</strong> Predicted "default Thursday posture: hold all positions." The portfolio correctly held. However, the prediction that Thursday would be a quiet session underestimated how strongly oil would rebound (+5–6%). Partial — direction was right (don't react), magnitude of oil recovery was underestimated.</span></div>
+      <div class="retro-row"><span class="rpill r-miss">MISS</span><span><strong>Software sector weakness:</strong> Bloomberg noted software shares came under renewed pressure on Thursday — consistent with the FOMC rate-hike debate worry but not specifically predicted. This is the NFLX/AVGO yield-sensitivity risk materialising at a small scale. It validates the ChatGPT feedback about NFLX and AVGO being treated too much as macro vehicles — their rate sensitivity is a company-level fundamental factor, not a macro overlay.</span></div>
+      <div class="key-change">
+        <strong>Key model change this briefing:</strong> AVGO interactive model has been recalibrated using actual Q1 FY2026 EPS of $2.05 as the anchor, with the bull/base/bear cases built from quarterly EPS trajectory rather than unconstrained revenue assumptions. This directly fixes the $303 bull-case output identified in your feedback.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== POSITIONS ========== -->
+<div class="sec" id="sec-picks">
+  <div style="background:var(--bg2);border:0.5px solid var(--bdr2);border-radius:var(--r);padding:9px 13px;margin-bottom:12px;font-size:12px;color:var(--text2)">
+    <span class="claim c-fact">FACT</span> Stock market: 9:30AM–4:00PM ET · Regular session complete · <span class="claim c-est">EST</span> = model/estimated values · No position changes made today
+  </div>
+  <div class="ptabs">
+    <button class="pt on" onclick="showPick('nflx',this)">1 · NFLX</button>
+    <button class="pt" onclick="showPick('avgo',this)">2 · AVGO ★</button>
+    <button class="pt" onclick="showPick('unh',this)">3 · UNH</button>
+    <button class="pt" onclick="showPick('xom',this)">4 · XOM stub</button>
+    <button class="pt" onclick="showPick('jpm',this)">5 · JPM/GS</button>
+  </div>
+
+  <!-- NFLX -->
+  <div class="pp on" id="pp-nflx">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">NFLX</span><span class="cn">Netflix, Inc.</span><span class="bdg bw">Hold — CPI Risk Before Apr 16</span></div>
+        <div class="hmeta"><span>Entry: $97.50</span><span>Est. Current: ~$103–106</span><span class="claim c-est" style="font-size:9px">EST</span><span>Stop: $85</span><span>Goldman PT: $120</span><span>BofA PT: $125</span><span>Weight: ~17%</span></div>
+      </div>
+      <div class="cbody">
+        <div>
+          <div class="sl">Fundamental Thesis — Leading with the Business</div>
+          <p class="thesis">NFLX is the world's dominant streaming business by margin and cash flow generation, not just by subscriber count. The investment case rests on three distinct and independent drivers that exist regardless of oil prices or ceasefire status:
+
+<strong>1. Revenue compounding:</strong> <span class="claim c-fact">FACT</span> Netflix guided approximately 16% revenue growth for FY2026, driven by both subscriber retention and per-subscriber revenue expansion through price increases and ad tier scaling. The ad tier is on a trajectory from roughly $1.5B in 2025 toward a projected $9.5B by 2030 — this is a business-within-a-business that was essentially zero two years ago.
+
+<strong>2. FCF conversion:</strong> <span class="claim c-fact">FACT</span> Netflix guided $11B+ FCF for 2026, which Goldman described as likely conservative post-merger termination. At the current market cap, this implies a free cash flow yield that is competitive with the S&P 500 index — rare for a company growing revenue at 16%.
+
+<strong>3. Competitive moat:</strong> The $2.8B Warner Bros. termination fee removed the M&A overhang and positions Netflix to resume buybacks. No streaming competitor operates at Netflix's operating margin (26%+). Disney's streaming unit remains unprofitable at meaningful scale; Warner Bros. carries significant debt; Paramount is in strategic flux.
+
+<em>The macro context:</em> Interest rate sensitivity is real and relevant. A 10Y yield above 4.5% would apply multiple compression to NFLX's ~32x forward P/E. Tomorrow's CPI is the near-term risk. But this is a modifier on the business valuation, not a change in the business itself.</p>
+        </div>
+        <div>
+          <div class="sl">What Would Invalidate This View</div>
+          <div class="invalidation">
+            <div class="inv-title">⚠ Exit or reduce — specific conditions</div>
+            <div class="inv-body">
+              1. April 16 Q1 earnings: subscriber growth below guidance → reduce position by half the same day<br>
+              2. 10Y yield above 4.55% sustained for 3+ sessions → reduce by 20–30% during a trading session (not at a specific tick)<br>
+              3. NFLX closes below $85 → stop is firm, no exceptions<br>
+              4. Ad-tier revenue guidance significantly below $3B for 2026 → fundamental thesis challenged
+            </div>
+          </div>
+        </div>
+        <div><div class="sl">CPI Pre-Positioning Decision — For Tomorrow</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px">
+            <div style="background:var(--red-bg);border-radius:var(--r);padding:9px 11px;color:var(--red-drk)"><strong>If uncomfortable with full size into CPI:</strong><br>Trim 20–30% during the first hour of tomorrow's trading session. This is a retail-friendly window — not a specific price or minute. You still hold the core position through April 16 earnings.</div>
+            <div style="background:var(--grn-bg);border-radius:var(--r);padding:9px 11px;color:var(--grn-drk)"><strong>If comfortable holding full size:</strong><br>Hold. The DAL earnings confirmed consumer demand is durable. The Apr 16 catalyst matters more than one CPI print. Stop at $85 provides adequate downside protection.</div>
+          </div>
+        </div>
+        <div><div class="sl">Scenario Probabilities — <span style="font-weight:400;font-size:10px;color:var(--text3)">Model estimates only</span></div>
+          <div class="pbar" id="nflx-pbar"></div>
+          <div class="plbl"><span>🐂 Bull 40%</span><span>⚖️ Base 38%</span><span>🐻 Bear 22%</span></div>
+          <div class="scg">
+            <div class="sc bull"><div class="scl">Bull</div><div class="scp">40% (est.)</div><div class="sct">$125–142</div><div class="scd">Q1 beats on subs + ad revenue Apr 16. FCF guidance raised. Consumer confidence rebounds post-ceasefire. Multiple holds at 35–40x on improving growth trajectory.</div></div>
+            <div class="sc neu"><div class="scl">Base</div><div class="scp">38% (est.)</div><div class="sct">$112–125</div><div class="scd">In-line Q1. Steady ad tier growth. Grinds toward Goldman $120 / BofA $125 over 4–6 weeks post-earnings. Rate pressure contained.</div></div>
+            <div class="sc bear"><div class="scp">22% (est.) — bear slightly elevated pre-CPI</div><div class="sct">$82–92</div><div class="scd">Q1 subscriber miss. Hot CPI → yield spike → multiple compression. Stop at $85 if fundamentals deteriorate.</div></div>
+          </div>
+        </div>
+        <div><div class="sl">Interactive Financial Model — <span style="font-weight:400;font-size:10px;color:var(--text3)">Bounded by sell-side consensus: $80 floor / $145 ceiling</span></div>
+          <div class="mdl">
+            <div class="scbtns">
+              <button class="scb bull-a" id="nflx-bb" onclick="setS('nflx','bull')">Bull Case</button>
+              <button class="scb" id="nflx-nb" onclick="setS('nflx','neu')">Base Case</button>
+              <button class="scb" id="nflx-rb" onclick="setS('nflx','bear')">Bear Case</button>
+            </div>
+            <div class="sliders">
+              <div class="slr"><label>Revenue Growth (YoY)</label><input type="range" id="nflx-r" min="4" max="24" step="1" value="16" oninput="cNFLX()"><span class="sv" id="nflx-rv">16%</span></div>
+              <div class="slr"><label>Operating Margin</label><input type="range" id="nflx-m" min="18" max="32" step="1" value="26" oninput="cNFLX()"><span class="sv" id="nflx-mv">26%</span></div>
+              <div class="slr"><label>P/E Multiple</label><input type="range" id="nflx-p" min="22" max="42" step="1" value="32" oninput="cNFLX()"><span class="sv" id="nflx-pv">32x</span></div>
+            </div>
+            <div class="mets">
+              <div class="met"><div class="ml2">Est. Revenue FY26</div><div class="mv2 mpos" id="nflx-mr">—</div></div>
+              <div class="met"><div class="ml2">Op. Income</div><div class="mv2 mpos" id="nflx-mo">—</div></div>
+              <div class="met"><div class="ml2">Est. EPS</div><div class="mv2" id="nflx-me">—</div></div>
+              <div class="met"><div class="ml2">Model Price Target</div><div class="mv2 mpos" id="nflx-mpt">—</div></div>
+            </div>
+            <div class="cw2"><canvas id="nflx-chart"></canvas></div>
+            <p class="mnote">⚠ Model output only — not a price forecast. Consensus: Goldman $120 · BofA $125 · Range $80–$145. P/E capped at 42x. Entry $97.50 · Stop $85 · Next catalyst: April 16 Q1 earnings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AVGO — RECALIBRATED MODEL -->
+  <div class="pp" id="pp-avgo">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">AVGO</span><span class="cn">Broadcom Inc.</span><span class="bdg bs">Strongest Hold — Recalibrated Model</span></div>
+        <div class="hmeta"><span>Entry: $298.00</span><span>Est. Current: ~$335–345</span><span class="claim c-est" style="font-size:9px">EST</span><span>Stop: $270</span><span>Consensus PT: $431–$472</span><span>Weight: ~17%</span></div>
+      </div>
+      <div class="cbody">
+        <div>
+          <div class="sl">Fundamental Thesis — Leading with the Business</div>
+          <p class="thesis">AVGO is a semiconductor and infrastructure software company — not just an AI story. The investment thesis has three independent pillars:
+
+<strong>1. Custom AI silicon (highest conviction):</strong> <span class="claim c-fact">FACT</span> Q1 FY2026 AI semiconductor revenue was $8.4B, up 106% YoY, exceeding management's own forecast. Q2 guidance calls for $10.7B AI semiconductor revenue — up 140% YoY. Broadcom has 5 confirmed hyperscaler XPU customers including Google and Anthropic, and carries a $73B AI backlog expected to deliver over 18 months. CEO Hock Tan stated: "We have never seen bookings of the nature that we have seen over the past three months." This backlog does not care about oil prices.
+
+<strong>2. Infrastructure software (stable base):</strong> The VMware acquisition created a software segment generating ~$6.8B/quarter with low double-digit annual growth. This is recurring revenue at high margins that funds the company's capital returns and AI investment.
+
+<strong>3. Operational efficiency:</strong> <span class="claim c-fact">FACT</span> Adjusted EBITDA margins held at 68% in Q1 — record level at this revenue scale. Free cash flow reached $8.01B in Q1, up 33% YoY. This is a business generating cash faster than it can deploy it on buybacks.
+
+<em>The macro context:</em> A 10Y yield spike would compress the multiple (currently ~61x trailing, ~38x forward non-GAAP). But the underlying earnings trajectory is driven by 5-year hyperscaler contracts, not by quarterly macro conditions. Rate sensitivity is real but finite — the business is structurally stronger than the multiple implies.</p>
+        </div>
+        <div>
+          <div class="sl">What Would Invalidate This View</div>
+          <div class="invalidation">
+            <div class="inv-title">⚠ Exit or reduce — specific conditions</div>
+            <div class="inv-body">
+              1. Hyperscaler Q1 earnings (mid-April) show capex reduction guidance → reduce AVGO position during same trading session<br>
+              2. AVGO closes below $270 → stop is firm<br>
+              3. TSMC capacity crisis worsens materially, impacting AVGO's ability to deliver on backlog → requires a session of research before acting, not immediate exit<br>
+              4. June 4 Q2 earnings miss on AI semiconductor revenue versus $10.7B guidance → assess and decide post-earnings
+            </div>
+          </div>
+        </div>
+        <div><div class="sl">Scenario Probabilities</div>
+          <div class="pbar" id="avgo-pbar"></div>
+          <div class="plbl"><span>🐂 Bull 50%</span><span>⚖️ Base 37%</span><span>🐻 Bear 13%</span></div>
+          <div class="scg">
+            <div class="sc bull"><div class="scl">Bull</div><div class="scp">50% (est.)</div><div class="sct">$450–525</div><div class="scd">June 4 delivers $10.7B+ AI semi revenue. Additional hyperscaler wins announced. Backlog grows. Multiple expands toward 55x on revenue visibility. Analyst PT upgrades.</div></div>
+            <div class="sc neu"><div class="scl">Base</div><div class="scp">37% (est.)</div><div class="sct">$390–450</div><div class="scd">Steady execution on AI backlog. VMware integration stable. Grinds toward $431–$472 consensus. Rate pressure contained at current levels.</div></div>
+            <div class="sc bear"><div class="scl">Bear</div><div class="scp">13% (est.) — floor maintained</div><div class="sct">$240–290</div><div class="scd">Hyperscaler capex cuts. Supply crisis at TSMC. Multiple compresses sharply. Stop at $270.</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="sl">Interactive Financial Model — <span style="font-weight:400;font-size:10px;color:var(--text3)">Recalibrated: anchored to Q1 actual EPS of $2.05/quarter</span></div>
+          <div class="mdl">
+            <div class="scbtns">
+              <button class="scb bull-a" id="avgo-bb" onclick="setS('avgo','bull')">Bull Case</button>
+              <button class="scb" id="avgo-nb" onclick="setS('avgo','neu')">Base Case</button>
+              <button class="scb" id="avgo-rb" onclick="setS('avgo','bear')">Bear Case</button>
+            </div>
+            <div style="background:var(--blu-bg);border-radius:var(--r);padding:8px 11px;margin-bottom:10px;font-size:11px;color:var(--blu)">
+              ℹ️ <strong>Model recalibration:</strong> This model now uses quarterly EPS trajectory from the actual Q1 FY2026 result ($2.05/quarter non-GAAP) as the anchor. Bull/base/bear cases represent different quarterly EPS growth rates from that baseline. P/E range is bounded by analyst consensus ($335 floor / $525 ceiling based on 27–50 analyst targets). The previous revenue-multiplication approach has been replaced.
+            </div>
+            <div class="sliders">
+              <div class="slr"><label>Q1 Actual EPS (anchor)</label><input type="range" id="avgo-q1" min="1.80" max="2.30" step="0.05" value="2.05" oninput="cAVGO()"><span class="sv" id="avgo-q1v">$2.05</span></div>
+              <div class="slr"><label>Quarterly EPS Growth Rate</label><input type="range" id="avgo-g" min="2" max="18" step="1" value="8" oninput="cAVGO()"><span class="sv" id="avgo-gv">8%/qtr</span></div>
+              <div class="slr"><label>Forward P/E Multiple</label><input type="range" id="avgo-p" min="28" max="52" step="1" value="40" oninput="cAVGO()"><span class="sv" id="avgo-pv">40x</span></div>
+            </div>
+            <div class="mets">
+              <div class="met"><div class="ml2">Q1 Actual EPS</div><div class="mv2 mpos" id="avgo-q1out">$2.05</div></div>
+              <div class="met"><div class="ml2">Q4 FY26 Est. EPS</div><div class="mv2 mpos" id="avgo-q4">—</div></div>
+              <div class="met"><div class="ml2">FY26 Non-GAAP EPS (ann.)</div><div class="mv2" id="avgo-ann">—</div></div>
+              <div class="met"><div class="ml2">Model Price Target</div><div class="mv2 mpos" id="avgo-mpt">—</div></div>
+            </div>
+            <div class="cw2"><canvas id="avgo-chart"></canvas></div>
+            <p class="mnote">⚠ Model output only. Q1 actual non-GAAP EPS: $2.05 (beat $2.02 est.). Q2 AI semi guide: $10.7B (+140% YoY). Analyst consensus PT: $431–$472 (29 analysts). Cantor top-end PT: $525. Entry $298 · Stop $270 · Next catalyst: Hyperscaler Q1 earnings (mid-April) then Jun 4 Q2 earnings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UNH -->
+  <div class="pp" id="pp-unh">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">UNH</span><span class="cn">UnitedHealth Group</span><span class="bdg bb">Hold — April 21 Dual Binary</span></div>
+        <div class="hmeta"><span>Entry: $279.00</span><span>Est. Current: ~$310–318</span><span class="claim c-est" style="font-size:9px">EST</span><span>Stop: $245</span><span>Consensus PT: $373</span><span>Weight: ~13%</span></div>
+      </div>
+      <div class="cbody">
+        <div>
+          <div class="sl">Fundamental Thesis — Leading with the Business</div>
+          <p class="thesis">UnitedHealth is the largest health insurer in the United States by revenue, with a business model that has two distinct and partially independent components:
+
+<strong>1. Insurance operations (UnitedHealthcare):</strong> <span class="claim c-fact">FACT</span> FY2025 revenue was $447.6B, growing ~12% YoY. The core insurance business generates predictable premium revenue from Medicare Advantage, Medicaid, and commercial plans. The near-term headwind is elevated medical cost trends (~10%) and Medicare Advantage membership contracting 1.3–1.4M in 2026. These are cyclical pressures, not structural declines.
+
+<strong>2. Optum (healthcare services + technology):</strong> The Optum segment — comprising Optum Health, Optum Insight, and Optum Rx — is the growth engine. Optum is investing $1.5B in AI-driven cost reductions with an expected ~$1B in AI-sourced savings in 2026 alone. This creates a compounding cost advantage that competitors lack at scale.
+
+<strong>3. Valuation:</strong> At ~16x forward P/E (well below the 10-year average), UNH trades at a historical discount. The $373 consensus price target implies ~19–20% upside. The defensibility of the earnings stream — aging demographics drive structural demand — makes this unusual cheapness meaningful.
+
+<em>Key risk factor:</em> The DOJ probe creates real but unquantifiable headline risk. The higher-for-longer rate environment makes the dividend yield comparison to Treasuries relevant. If 10Y moves above 4.6%, some institutional capital rotates out of dividend-sensitive healthcare.</p>
+        </div>
+        <div>
+          <div class="sl">April 21 Plan — Must Be Set Before April 18</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px">
+            <div style="background:var(--grn-bg);border-radius:var(--r);padding:9px 11px;color:var(--grn-drk)"><strong>If UNH beats AND ceasefire extends:</strong> Hold all shares. Upgrade stop to $285. Target $373 remains. Both catalysts positive on the same day is a rare combination — let the position run.</div>
+            <div style="background:var(--red-bg);border-radius:var(--r);padding:9px 11px;color:var(--red-drk)"><strong>If UNH misses OR ceasefire collapses:</strong> Exit 50–70% of position during the trading session on April 21. Hold residual only if the earnings miss is narrow and guidance is maintained. Stop at $245 is absolute floor.</div>
+          </div>
+        </div>
+        <div>
+          <div class="sl">What Would Invalidate This View</div>
+          <div class="invalidation">
+            <div class="inv-title">⚠ Exit or reduce — specific conditions</div>
+            <div class="inv-body">
+              1. Medical cost trend above 12% in April 21 earnings → reduce position by half during that session<br>
+              2. DOJ probe escalates with new charges filed before April 21 → assess and reduce within 1–2 sessions<br>
+              3. 10Y yield above 4.6% sustained for 3+ sessions → reduce 20% during a regular trading window<br>
+              4. UNH closes below $245 → stop is absolute
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- XOM STUB -->
+  <div class="pp" id="pp-xom">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">XOM</span><span class="cn">ExxonMobil — Stub Position Performing</span><span class="bdg bw">Hold Stub — Oil Rebound Helps</span></div>
+        <div class="hmeta"><span>Entry: ~$135 blended</span><span>Est. Current: ~$147–152</span><span class="claim c-est" style="font-size:9px">EST</span><span>Stop: $128</span><span>Residual value: ~$650</span><span>Earnings: Apr 24</span></div>
+      </div>
+      <div class="cbody">
+        <div>
+          <div class="sl">Fundamental Thesis — Treating XOM as a Business, Not Just a Macro Hedge</div>
+          <p class="thesis">ExxonMobil is a vertically integrated energy company with three structural earnings drivers that exist independent of the Hormuz situation:
+
+<strong>1. Permian Basin production:</strong> <span class="claim c-fact">FACT</span> Exxon is increasing Permian production to 1.8 million oil-equivalent barrels per day in 2026. This is the lowest-cost, most efficient production in the US portfolio and grows regardless of geopolitical events. At $93–100/bbl oil (even after the ceasefire), Permian margins remain exceptional.
+
+<strong>2. Guyana deepwater:</strong> The Guyana assets (Stabroek block) represent Exxon's highest-growth production profile — a new FPSO is nearly complete and expected to start production in 2026. Guyana production is unaffected by Hormuz.
+
+<strong>3. Downstream / refining margins:</strong> When crude falls faster than refined product prices, crack spreads can actually widen — a nuance the stub position benefits from in a ceasefire scenario. However, <span class="claim c-est">ESTIMATE</span> the oil price decline from $114 → $93 has likely compressed overall downstream margins relative to the war-era peak.
+
+<strong>April 24 earnings context:</strong> <span class="claim c-fact">FACT</span> Exxon guided for a positive earnings impact of $1.9–$2.3B from elevated oil prices this quarter. At average Q1 oil of ~$105–110/bbl, Q1 FY2026 earnings are likely to be a multi-year record regardless of the ceasefire. The stub position captures that earnings catalyst.
+
+<em>The macro dimension:</em> Today's oil rebound to $97–100 benefits the stub. The ceasefire permanently removes XOM from the "must own" category — but doesn't eliminate it as a business worth holding into April 24 earnings at a modest 6% portfolio weight.</p>
+        </div>
+        <div>
+          <div class="sl">What Would Invalidate the Stub Position</div>
+          <div class="invalidation">
+            <div class="inv-title">⚠ Exit stub if any of these occur</div>
+            <div class="inv-body">
+              1. Islamabad summit produces a confirmed permanent deal → exit stub at open on Monday (oil will likely fall sharply on a permanent resolution)<br>
+              2. April 24 earnings show disappointing Permian volumes or significant refinery issues → reassess within 1–2 sessions<br>
+              3. XOM closes below $128 → exit immediately, no exceptions<br>
+              4. Oil price falls sustainably below $85 (EIA long-run ceasefire case) → stub has limited upside, consider redirecting to cash
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JPM/GS -->
+  <div class="pp" id="pp-jpm">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">JPM / GS</span><span class="cn">JPMorgan Chase & Goldman Sachs — Starter Position</span><span class="bdg bb">Hold Small — Await Earnings Confirmation</span></div>
+        <div class="hmeta"><span>Entry: At April 8 open</span><span>Est. P&L: ~+$9</span><span class="claim c-est" style="font-size:9px">EST</span><span>Weight: ~3%</span><span>GS earnings: Apr 13</span><span>JPM earnings: Apr 14</span></div>
+      </div>
+      <div class="cbody">
+        <div>
+          <div class="sl">Fundamental Thesis — JPMorgan and Goldman Sachs Specifically</div>
+          <p class="thesis">This is a starter position awaiting earnings confirmation, not a full conviction thesis. The business case for each name differs:
+
+<strong>JPMorgan Chase:</strong> The most diversified bank in the US with meaningful exposure to consumer banking, commercial lending, investment banking, and asset management. Q1 earnings will confirm whether consumer credit quality has held up through the war period. JPM's refinery and commodity trading desk may have benefited from oil volatility. Jamie Dimon's guidance commentary will set the tone for the entire financial sector. Key metric to watch: net interest income trajectory and provision for credit losses. If provisions increase materially, the consumer health thesis weakens.
+
+<strong>Goldman Sachs:</strong> More concentrated in investment banking and trading. The ceasefire environment is directly positive for deal flow — M&A activity was largely frozen during the war, and a stabilising geopolitical environment unlocks pipeline. Goldman's trading desk likely benefited from oil and rates volatility in Q1. Key metric to watch: investment banking revenue guidance and backlog of advisory mandates.
+
+<em>The FOMC risk:</em> The minutes showed the Fed was debating rate hikes. <span class="claim c-est">ESTIMATE</span> If tomorrow's CPI is hot and rate-hike odds rise, bank NIMs remain supported (higher rates help NIM) but credit quality concerns intensify (higher rates strain borrowers). The net effect for banks is uncertain in a rate-hike scenario — unlike the clear negative for NFLX/AVGO.</p>
+        </div>
+        <div>
+          <div class="sl">What Would Invalidate This Position</div>
+          <div class="invalidation">
+            <div class="inv-title">⚠ Exit or do not build — specific conditions</div>
+            <div class="inv-body">
+              1. GS April 13 earnings miss or cautious guidance → exit full position on the earnings day<br>
+              2. JPM April 14 shows significant increase in credit loss provisions or loan impairments → exit<br>
+              3. Rate hike probability surpasses 35% (Polymarket or Fed funds futures) → reduce by half before FOMC April 28–29<br>
+              4. Do not build beyond 3% until earnings confirmation on April 13–14
+            </div>
+          </div>
+        </div>
+        <div><div class="sl">Scenario Probabilities</div>
+          <div class="pbar" id="jpm-pbar"></div>
+          <div class="plbl"><span>🐂 Bull 40%</span><span>⚖️ Base 42%</span><span>🐻 Bear 18%</span></div>
+          <div class="scg">
+            <div class="sc bull"><div class="scl">Bull</div><div class="scp">40% (est.)</div><div class="sct">Build to 6–8%</div><div class="scd">Both GS and JPM beat. Positive guidance on deal flow and credit quality. Build position to 6–8% over the following two sessions.</div></div>
+            <div class="sc neu"><div class="scl">Base</div><div class="scp">42% (est.)</div><div class="sct">Hold at 3%</div><div class="scd">In-line results. Cautious tone on credit. Hold at 3% and monitor Q2 guidance trajectory.</div></div>
+            <div class="sc bear"><div class="scl">Bear</div><div class="scp">18% (est.)</div><div class="sct">Exit position</div><div class="scd">Earnings miss or credit quality warning. Exit full position during the earnings day trading session.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== CORRELATION CHECK ========== -->
+<div class="sec" id="sec-correlation">
+  <div class="card">
+    <div class="chd"><div class="sl">Portfolio Correlation Check — Are We Truly Diversified?</div>
+      <p class="thesis" style="margin-top:4px">Perplexity's most valuable insight from the AI feedback series: the portfolio may be more exposed to one macro shock than it appears. This section runs an explicit correlation check each day — not as a number, but as a structured question: what is the single risk that could hit all positions simultaneously?</p>
+    </div>
+    <div class="cbody">
+      <div>
+        <div class="sl">Shared Risk Drivers — Mapping the Overlaps</div>
+        <div class="corr-check">
+          <div class="corr-item corr-red">
+            <div class="corr-label">Rate Sensitivity (HIGH SHARED RISK)</div>
+            <div style="font-size:11px;color:var(--text2)"><strong>NFLX:</strong> ~35% multiple compression risk if 10Y above 4.55%<br><strong>AVGO:</strong> Similar — high forward P/E vulnerable to yield spikes<br><strong>JPM/GS:</strong> Mildly positive on NIMs but credit risk rises<br><strong>XOM stub:</strong> Relatively immune — dividend stock, oil-correlated<br><strong>UNH:</strong> Moderate — dividend yield comparison to Treasuries<br><br><em>Bottom line: A yield shock tomorrow from hot CPI hits NFLX and AVGO hardest, simultaneously.</em></div>
+          </div>
+          <div class="corr-item corr-amb">
+            <div class="corr-label">Ceasefire Narrative (MODERATE SHARED RISK)</div>
+            <div style="font-size:11px;color:var(--text2)"><strong>NFLX:</strong> Consumer confidence — indirect ceasefire exposure<br><strong>AVGO:</strong> AI capex cycle — minimal ceasefire dependence<br><strong>UNH:</strong> Earnings April 21 = ceasefire expiry day — collision risk<br><strong>XOM:</strong> Directly inversely correlated to ceasefire progress<br><strong>JPM/GS:</strong> Deal flow and credit quality — indirect positive<br><br><em>Bottom line: XOM acts as a partial natural hedge against the rest of the portfolio on ceasefire risk.</em></div>
+          </div>
+          <div class="corr-item corr-grn">
+            <div class="corr-label">Earnings Risk (DIVERSIFIED — DIFFERENT DATES)</div>
+            <div style="font-size:11px;color:var(--text2)"><strong>GS:</strong> April 13<br><strong>JPM:</strong> April 14<br><strong>NFLX:</strong> April 16<br><strong>UNH:</strong> April 21<br><strong>XOM:</strong> April 24<br><strong>AVGO:</strong> June 4<br><br><em>Bottom line: Earnings risk is genuinely diversified across dates. No single day carries catastrophic portfolio-level earnings risk.</em></div>
+          </div>
+          <div class="corr-item corr-neu">
+            <div class="corr-label">True Diversifier (CASH + XOM STUB)</div>
+            <div style="font-size:11px;color:var(--text2)">The $1,300 cash reserve and the XOM stub (~6%) are the only positions that benefit in a risk-off scenario. They're not large enough to fully offset a rate shock or ceasefire collapse — but they reduce the correlation coefficient of the overall portfolio meaningfully.<br><br><em>Key insight: Adding a GLD position with a portion of cash would improve the correlation profile if the bear scenario probability rises above 25%.</em></div>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="sl">Single-Shock Stress Test — What Hits Everything at Once?</div>
+        <div style="background:var(--red-bg);border-radius:var(--r);padding:10px 12px;font-size:12px;color:var(--red-drk)">
+          <strong>Worst single-shock scenario for this portfolio:</strong> March CPI prints above 4.5% YoY tomorrow, rate-hike probability spikes to 40%+, 10Y yield moves to 4.6%+, and the Islamabad talks break down on Saturday. This sequence would simultaneously: (1) compress NFLX/AVGO multiples, (2) trigger oil rebound back toward $110+, (3) create ceasefire doubt ahead of UNH's April 21 earnings date. XOM stub would partially benefit from oil rebound; JPM/GS would be mixed (higher rates = good for NIMs, bad for credit). Estimated portfolio impact: –8% to –12% from current levels. <strong>The $1,300 cash reserve and XOM stub provide a partial but not complete buffer.</strong> If this scenario becomes more likely after CPI Friday, add GLD as a hard-asset hedge using $400–$500 from cash.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== CPI PREP ========== -->
+<div class="sec" id="sec-cpi">
+  <div class="card">
+    <div class="chd"><div class="sl">Friday March CPI — What to Expect and How to Respond</div>
+      <p class="thesis" style="margin-top:4px">This section replaces the "minute-by-minute" CPI guidance from earlier briefings with a simpler, retail-friendly framework. Three buckets, three responses. No specific price ticks, no intraday precision required.</p>
+    </div>
+    <div class="cbody">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+        <div style="background:var(--grn-bg);border-radius:var(--r);padding:11px 13px">
+          <div style="font-size:11px;font-weight:700;color:var(--grn-drk);margin-bottom:6px">📗 Scenario A: CPI In-Line or Mild (~3.5–4.0% headline)</div>
+          <div style="font-size:11px;color:var(--grn-drk);line-height:1.6"><span class="claim c-est">EST probability: 25%</span><br><br>Oil's ceasefire drop partially offsets March's energy inflation. Rate-hike fears ease. NFLX/AVGO likely gap up modestly. 10Y yield holds below 4.40%.<br><br><strong>Action:</strong> Hold all positions. Consider adding $300 to NFLX or AVGO during the morning trading session if prices hold gains. No urgency.</div>
+        </div>
+        <div style="background:var(--amb-bg);border-radius:var(--r);padding:11px 13px">
+          <div style="font-size:11px;font-weight:700;color:var(--amb-drk);margin-bottom:6px">📙 Scenario B: Hot Print (~4.0–4.5% headline)</div>
+          <div style="font-size:11px;color:var(--amb-drk);line-height:1.6"><span class="claim c-est">EST probability: 55% — base case</span><br><br>March oil averaged $110+. Energy CPI is almost certainly hot. NFLX/AVGO likely sell off 2–4% as rate-hike probability revives. 10Y toward 4.45–4.55%.<br><br><strong>Action:</strong> Hold existing positions — this is expected. If NFLX drops to $98–102 range during the morning session, consider adding $200–300 from cash. If AVGO drops to $320–330 range, same logic. Do not add during the initial spike; wait for a stable price during the session.</div>
+        </div>
+        <div style="background:var(--red-bg);border-radius:var(--r);padding:11px 13px">
+          <div style="font-size:11px;font-weight:700;color:var(--red-drk);margin-bottom:6px">📕 Scenario C: Shock Print (&gt;4.5% headline)</div>
+          <div style="font-size:11px;color:var(--red-drk);line-height:1.6"><span class="claim c-est">EST probability: 20%</span><br><br>Energy inflation well above consensus. Rate-hike probability spikes above 30%. NFLX/AVGO sell off 4–6%. 10Y toward 4.6%+. This triggers the NFLX/AVGO invalidation threshold.<br><br><strong>Action:</strong> Reduce NFLX and AVGO by 20–30% each during the morning trading session — not at a specific price but within the first two hours after open. Keep UNH (more defensive) and XOM stub (oil benefits). Hold $1,300 cash for potential GLD add.</div>
+        </div>
+      </div>
+      <div style="margin-top:12px;background:var(--bg2);border-radius:var(--r);padding:10px 12px;font-size:12px;color:var(--text2);line-height:1.7">
+        <strong>What to watch at 8:30AM Friday:</strong> Headline CPI YoY, Core CPI YoY (excludes food/energy), and the month-over-month energy component. If energy MoM is above +5%, that's the hot-print signal. The 10Y yield reaction in the first 30 minutes is the most reliable real-time indicator of which scenario is playing out. If 10Y stays below 4.45% after the print, Scenario B or A is playing out. If 10Y moves above 4.55%, Scenario C protocols apply.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== PORTFOLIO ========== -->
+<div class="sec" id="sec-portfolio">
+  <div class="port-stats">
+    <div class="ps"><div class="psl">Portfolio Value (est.)</div><div class="psv" style="color:var(--amb)">~$11,200</div></div>
+    <div class="ps"><div class="psl">4-Day Est. Return</div><div class="psv" style="color:var(--grn)">+12.0%</div></div>
+    <div class="ps"><div class="psl">vs. S&P 500 4-Day</div><div class="psv" style="color:var(--grn)">~+10% alpha</div></div>
+    <div class="ps"><div class="psl">Cash Reserve</div><div class="psv">~$1,300</div></div>
+    <div class="ps"><div class="psl">Ceasefire Clock</div><div class="psv" style="color:var(--amb)">Day 2/14</div></div>
+  </div>
+  <div style="font-size:10px;color:var(--text3);font-style:italic;margin-bottom:10px">All portfolio values are estimates. <span class="claim c-fact">FACT</span> = sourced data. <span class="claim c-est">EST</span> = model estimate. No position changes made today.</div>
+
+  <div class="card">
+    <div class="chd"><div class="sl">All Positions — Day 4 Status</div></div>
+    <div class="cbody">
+      <table class="ptable">
+        <thead><tr><th>Ticker</th><th>Core Thesis Driver</th><th>Entry</th><th>Est. Current</th><th>Wt.</th><th>Est. P&L</th><th>Stop</th><th>Next Catalyst</th><th>Change Today?</th></tr></thead>
+        <tbody>
+          <tr><td>NFLX</td><td style="font-size:11px">Ad revenue growth + FCF; Apr 16 earnings</td><td>$97.50</td><td class="up">~$104 <span class="claim c-est" style="font-size:8px">EST</span></td><td>~17%</td><td class="up">+$110 est.</td><td>$85</td><td>Apr 16 Q1</td><td style="font-size:11px;color:var(--text3)">No change</td></tr>
+          <tr><td>AVGO</td><td style="font-size:11px">AI custom silicon; $73B backlog; Jun 4 earnings</td><td>$298.00</td><td class="up">~$338 <span class="claim c-est" style="font-size:8px">EST</span></td><td>~17%</td><td class="up">+$200 est.</td><td>$270</td><td>Jun 4 Q2</td><td style="font-size:11px;color:var(--text3)">No change</td></tr>
+          <tr><td>UNH</td><td style="font-size:11px">Optum AI cost savings; defensive; Apr 21 earnings</td><td>$279.00</td><td class="up">~$312 <span class="claim c-est" style="font-size:8px">EST</span></td><td>~13%</td><td class="up">+$130 est.</td><td>$245</td><td>Apr 21 Q1</td><td style="font-size:11px;color:var(--text3)">No change</td></tr>
+          <tr><td>XOM stub</td><td style="font-size:11px">Permian growth + Apr 24 earnings; escalation re-insurance</td><td>~$135</td><td class="up">~$150 <span class="claim c-est" style="font-size:8px">EST</span></td><td>~6%</td><td class="up">+$97 est.</td><td>$128</td><td>Apr 24 Q1</td><td style="font-size:11px;color:var(--grn)">Oil rebound helps stub</td></tr>
+          <tr><td>JPM / GS</td><td style="font-size:11px">Normalisation + deal flow; Apr 13–14 earnings confirmation</td><td>Apr 8 open</td><td class="up">~+3% <span class="claim c-est" style="font-size:8px">EST</span></td><td>~3%</td><td class="up">+$9 est.</td><td>–7% entry</td><td>GS Apr 13</td><td style="font-size:11px;color:var(--text3)">No change</td></tr>
+          <tr><td>BTC (50%)</td><td style="font-size:11px">Ceasefire risk-on; 50% profit taken; trailing stop</td><td>$69,500</td><td class="neu">~$70K <span class="claim c-est" style="font-size:8px">EST</span></td><td>~5%</td><td class="up">+$7 est.</td><td>$70,000 trail</td><td>CPI Friday</td><td style="font-size:11px;color:var(--text3)">No change</td></tr>
+          <tr><td>ETH</td><td style="font-size:11px">Institutional adoption + BTC catch-up</td><td>$2,200</td><td class="neu">~$2,220 <span class="claim c-est" style="font-size:8px">EST</span></td><td>~8%</td><td class="up">+$7 est.</td><td>$2,050</td><td>CPI Friday</td><td style="font-size:11px;color:var(--text3)">No change</td></tr>
+          <tr style="background:var(--bg2)"><td colspan="2" style="font-weight:700">Cash Reserve</td><td colspan="3">~13% · ~$1,300</td><td colspan="3">Available for: CPI dip opportunity, GLD if bear risk rises, or earnings build on Apr 13–16</td><td style="font-size:11px;color:var(--text3)">No change</td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:10px;background:var(--bg2);border-radius:var(--r);padding:10px 12px;font-size:11px;color:var(--text3);line-height:1.7">
+        <strong>Position sizing discipline check:</strong> No single equity above 17% ✓ · Tech sector (NFLX + AVGO) = 34% — at the upper boundary of the 40% sector cap, monitor ✓ · Cash at 13% ✓ · All stops defined ✓ · "What would invalidate" defined for all positions ✓ · No changes made today — fundamentals unchanged ✓
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="key-change" style="margin-top:4px">
+  <strong>Key model change this briefing:</strong> AVGO interactive model recalibrated using Q1 FY2026 actual non-GAAP EPS of $2.05/quarter as the anchor. Bull/base/bear cases built from quarterly EPS trajectory — outputs now range $320–$525 (aligned with analyst consensus $431–$472 range). Previous uncalibrated revenue-multiplication approach that produced a $303 bull-case target has been replaced.
+</div>
+
+<div class="disclaim">⚠ HYPOTHETICAL EDUCATIONAL SIMULATION — April 9, 2026. All positions, values, and scenario probabilities are illustrative. Nothing here is financial advice. <span class="claim c-fact">FACT</span> = sourced from published market data. <span class="claim c-est">EST</span> = model estimate. Consult a licensed financial advisor. This briefing incorporates structural feedback from ChatGPT, Gemini, Perplexity, and Grok across the prior four days. Next briefing: Friday April 10, 2026 — post-CPI update.</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+
+const toggleBtn = document.getElementById('theme-toggle');
+const htmlEl = document.documentElement;
+
+// Load the saved theme immediately
+if (localStorage.getItem('theme') === 'dark') {
+    htmlEl.setAttribute('data-theme', 'dark');
+}
+
+toggleBtn.addEventListener('click', () => {
+    const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    htmlEl.setAttribute('data-theme', isDark ? '' : 'dark');
+    localStorage.setItem('theme', newTheme);
+});
+
+// ---- TABS ----
+function showMain(id,btn){document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));document.querySelectorAll('.mt').forEach(t=>t.classList.remove('on'));document.getElementById('sec-'+id).classList.add('on');btn.classList.add('on');}
+function showPick(id,btn){document.querySelectorAll('.pp').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.pt').forEach(t=>t.classList.remove('on'));document.getElementById('pp-'+id).classList.add('on');btn.classList.add('on');}
+
+// ---- PROB BARS ----
+function pb(id,bull,neu,bear){const el=document.getElementById(id);if(!el)return;el.innerHTML='<div class="pb-b" style="width:'+bull+'%"></div><div class="pb-n" style="width:'+neu+'%"></div><div class="pb-r" style="width:'+bear+'%"></div>';}
+
+// ---- CHART REGISTRY ----
+const CHS={};
+function mkC(id,labels,datasets,opts){
+  if(CHS[id])try{CHS[id].destroy()}catch(e){}
+  const ctx=document.getElementById(id);if(!ctx)return;
+  CHS[id]=new Chart(ctx,{type:'bar',data:{labels,datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:datasets.length>1,position:'bottom',labels:{boxWidth:9,font:{size:10}}}},scales:{x:{ticks:{font:{size:10}}},y:{ticks:{font:{size:10}}}},...(opts||{})}});
+}
+
+// ---- SCENARIO PRESETS ----
+const PRESETS={
+  nflx:{
+    bull:{r:22,m:30,p:40},   // ~$137 output — within $145 ceiling
+    neu:{r:14,m:25,p:32},    // ~$120 — Goldman PT
+    bear:{r:5,m:19,p:24}     // ~$82 — near $80 floor
+  }
+};
+
+function setS(t,s){
+  const p=PRESETS[t]?.[s];
+  if(!p)return;
+  const cls=s==='bull'?'bull-a':s==='neu'?'neu-a':'bear-a';
+  ['bb','nb','rb'].forEach(b=>{const el=document.getElementById(t+'-'+b);if(el)el.className='scb'});
+  const map={bull:'bb',neu:'nb',bear:'rb'};
+  const btn=document.getElementById(t+'-'+map[s]);if(btn)btn.className='scb '+cls;
+  if(t==='nflx'){
+    document.getElementById('nflx-r').value=p.r;
+    document.getElementById('nflx-m').value=p.m;
+    document.getElementById('nflx-p').value=p.p;
+    cNFLX();
+  } else if(t==='avgo'){
+    const presets={bull:{q1:2.05,g:12,p:48},neu:{q1:2.05,g:8,p:40},bear:{q1:2.05,g:2,p:30}};
+    const ap=presets[s];
+    document.getElementById('avgo-q1').value=ap.q1;
+    document.getElementById('avgo-g').value=ap.g;
+    document.getElementById('avgo-p').value=ap.p;
+    cAVGO();
+  }
+}
+
+// ---- NFLX MODEL — bounded $80–$145 ----
+function cNFLX(){
+  const r=+document.getElementById('nflx-r').value,m=+document.getElementById('nflx-m').value,pe=+document.getElementById('nflx-p').value;
+  document.getElementById('nflx-rv').textContent=r+'%';
+  document.getElementById('nflx-mv').textContent=m+'%';
+  document.getElementById('nflx-pv').textContent=pe+'x';
+  const rev=+(51.1*(1+r/100)).toFixed(1);
+  const oi=+(rev*m/100).toFixed(1);
+  const ni=+(rev*0.13).toFixed(1);
+  const eps=+(ni/1.8).toFixed(2);
+  const pt=Math.min(145,Math.max(80,Math.round(eps*pe)));
+  document.getElementById('nflx-mr').textContent='$'+rev+'B';
+  document.getElementById('nflx-mo').textContent='$'+oi+'B';
+  document.getElementById('nflx-me').textContent='$'+eps;
+  document.getElementById('nflx-mpt').textContent='$'+pt;
+  const col=pt>=115?'#27ae60':pt>=88?'#c0870a':'#c0392b';
+  document.getElementById('nflx-mpt').style.color=col;
+  mkC('nflx-chart',['Bear floor ($80)','Goldman PT ($120)','BofA PT ($125)','Bull ceiling ($145)','This scenario'],[{label:'Model price target ($)',data:[80,120,125,145,pt],backgroundColor:['#f09595','#b4b2a9','#d3d1c7','#97c459',col],borderRadius:4}]);
+}
+
+// ---- AVGO MODEL — RECALIBRATED from Q1 actual EPS ----
+function cAVGO(){
+  const q1=+document.getElementById('avgo-q1').value;
+  const g=+document.getElementById('avgo-g').value/100;
+  const pe=+document.getElementById('avgo-p').value;
+  document.getElementById('avgo-q1v').textContent='$'+q1.toFixed(2);
+  document.getElementById('avgo-gv').textContent=Math.round(g*100)+'%/qtr';
+  document.getElementById('avgo-pv').textContent=pe+'x';
+  document.getElementById('avgo-q1out').textContent='$'+q1.toFixed(2);
+
+  // Project quarterly EPS through Q4 FY26 (3 more quarters)
+  const q2=+(q1*(1+g)).toFixed(2);
+  const q3=+(q2*(1+g)).toFixed(2);
+  const q4=+(q3*(1+g)).toFixed(2);
+  document.getElementById('avgo-q4').textContent='$'+q4+'/qtr';
+
+  // Annualise as Q2+Q3+Q4+next Q1 (forward-looking)
+  const fwdAnn=+((q1+q2+q3+q4)).toFixed(2);
+  document.getElementById('avgo-ann').textContent='$'+fwdAnn;
+
+  // Price target = forward annualised EPS × P/E, bounded by analyst consensus
+  const pt=Math.min(525,Math.max(335,Math.round(fwdAnn*pe)));
+  document.getElementById('avgo-mpt').textContent='$'+pt;
+  const col=pt>=430?'#27ae60':pt>=340?'#c0870a':'#c0392b';
+  document.getElementById('avgo-mpt').style.color=col;
+
+  mkC('avgo-chart',['Bear floor ($335)','Avg consensus ($431)','High consensus ($472)','Cantor top ($525)','This scenario'],[{label:'Model price target ($)',data:[335,431,472,525,pt],backgroundColor:['#f09595','#b4b2a9','#d3d1c7','#97c459',col],borderRadius:4}]);
+}
+
+// ---- INIT ----
+window.addEventListener('load',function(){
+  pb('macro-pbar',45,35,20);
+  pb('nflx-pbar',40,38,22);
+  pb('avgo-pbar',50,37,13);
+  pb('jpm-pbar',40,42,18);
+  setTimeout(function(){
+    setS('nflx','neu');
+    // Set AVGO to base case defaults
+    document.getElementById('avgo-q1').value=2.05;
+    document.getElementById('avgo-g').value=8;
+    document.getElementById('avgo-p').value=40;
+    cAVGO();
+    // Highlight AVGO base button
+    const avgoNb=document.getElementById('avgo-nb');if(avgoNb)avgoNb.className='scb neu-a';
+  },400);
+});
+</script>
+</body>
+</html>

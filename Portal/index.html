@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Capital | Intelligence Portal</title>
+    
+    <link rel="stylesheet" href="theme.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23185fa5%22/><path d=%22M20 75 L50 25 L80 75 Z%22 fill=%22white%22/><path d=%22M50 25 L65 50 L50 40 L35 50 Z%22 fill=%22%23e6f1fb%22 opacity=%220.8%22/></svg>">
+
+    <style>
+
+        .container { 
+            max-width: 650px; 
+            margin: 0 auto; 
+            padding: 80px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 64px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 32px;
+        }
+
+        h1 { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; margin: 0; }
+        .subtitle { color: var(--text3); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+        
+        .section-label { width: 100%; font-size: 13px; font-weight: 600; color: var(--text2); margin-bottom: 16px; text-align: left; }
+
+        .report-card { 
+            display: block; width: 100%; background: var(--bg); padding: 24px; margin-bottom: 16px; 
+            border-radius: 12px; text-decoration: none; color: inherit; border: 1px solid var(--border);
+            transition: all 0.2s ease; box-sizing: border-box; text-align: left;
+        }
+
+        .report-card:hover { border-color: var(--text3); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .date-tag { font-size: 11px; color: var(--accent); font-weight: 700; margin-bottom: 6px; display: block; }
+        .report-title { font-size: 18px; font-weight: 600; display: block; margin-bottom: 4px; }
+        .summary { font-size: 14px; color: var(--text2); }
+
+        footer { width: 100%; text-align: center; margin-top: 100px; font-size: 12px; color: var(--text3); border-top: 1px solid var(--border); padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div style="display: flex; justify-content: flex-end; padding: 12px 24px;">
+        <button id="theme-toggle" style="background:none; border:1px solid var(--border); color:var(--text2); padding:6px 10px; border-radius:6px; cursor:pointer; font-size:11px; font-family:var(--sans);">
+            🌓 Toggle Mode
+        </button>
+    </div>
+    
+    <div id="ticker-wrapper" style="border-bottom: 1px solid var(--border); overflow: hidden; width: 100%;">
+        <div id="tradingview-widget"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="subtitle">Proprietary Research & Analysis</div>
+            <h1>Apex Intelligence Portal</h1>
+        </header>
+
+        <span class="section-label">Latest Intelligence</span>
+        
+        <a href="reports/apex_briefing_apr17_2026.html" class="report-card">
+            <span class="date-tag">APRIL 17, 2026 — DAY 10</span>
+            <span class="report-title">NFLX Post-Earnings · UNH April 21 Plan</span>
+            <span class="summary">Evaluating the NFLX re-entry performance. Activating the "Decision Tree" for the April 21 UNH Q1 earnings and ceasefire expiry dual-binary.</span>
+        </a>
+
+        <a href="reports/apex_briefing_apr16_2026.html" class="report-card">
+            <span class="date-tag">APRIL 16, 2026 — DAY 9</span>
+            <span class="report-title">NFLX Earnings Night · Re-Entry Executed</span>
+            <span class="summary">Managing the $175 re-entry for NFLX and AVGO as the Q1 print hits. Analyzing the harvest rules and the UNH "Dual-Binary" plan for April 21.</span>
+        </a>
+
+        <a href="reports/apex_briefing_apr15_2026.html" class="report-card">
+            <span class="date-tag">APRIL 15, 2026 — DAY 8</span>
+            <span class="report-title">Re-Entry Fired · NFLX Earnings Eve</span>
+            <span class="summary">Executing re-entry for NFLX and AVGO positions. Analyzing risk/reward skew ahead of the Q1 earnings print and the $175 tactical level.</span>
+        </a>
+
+        <a href="reports/apex_briefing_apr14_2026.html" class="report-card">
+            <span class="date-tag">APRIL 14, 2026 — DAY 7</span>
+            <span class="report-title">JPM Beat · Scale-Up Triggered</span>
+            <span class="summary">J.P. Morgan earnings outperformance provides a tactical floor. Activating the scale-up trigger for financials while maintaining AVGO and NFLX stops.</span>
+        </a>
+
+        <a href="reports/apex_briefing_apr13_2026.html" class="report-card">
+            <span class="date-tag">APRIL 13, 2026 — DAY 6</span>
+            <span class="report-title">Islamabad Failed · Blockade Active</span>
+            <span class="summary">Transitioning to defensive posturing as geopolitical risk spikes. Adjusting stop-losses for AVGO and NFLX to protect post-CPI gains.</span>
+        </a>
+        
+        <a href="reports/apex_briefing_apr10_2026.html" class="report-card">
+            <span class="date-tag">APRIL 10, 2026 — DAY 5</span>
+            <span class="report-title">CPI Post-Print & Tactical Scaling</span>
+            <span class="summary">Stabilizing the NFLX and AVGO projections post-CPI. Adjusting regional risk hedges as the Islamabad Summit concludes.</span>
+        </a>
+        
+        <a href="reports/apex_briefing_apr9_2026.html" class="report-card">
+            <span class="date-tag">APRIL 9, 2026 — MID-DAY</span>
+            <span class="report-title">Post-CPI Shock & Islamabad Summit</span>
+            <span class="summary">Analyzing the 4.1% CPI print impact on the 10Y Yield and adjusting tactical hedges for the Islamabad Summit outcomes.</span>
+        </a>
+        
+        <a href="reports/apex_apr8_evening.html" class="report-card">
+            <span class="date-tag">APRIL 8, 2026 — EVENING</span>
+            <span class="report-title">Post-Market: Normalization & Deal Flow</span>
+            <span class="summary">Shift from macro-fear to sector-specific recovery; adjusting for the Islamabad Summit and normalizing 10Y yields.</span>
+        </a>
+
+        <a href="reports/apex_briefing_apr8_2026.html" class="report-card">
+            <span class="date-tag">APRIL 8, 2026</span>
+            <span class="report-title">Ceasefire Stabilization & CPI Prep</span>
+            <span class="summary">Managing the $93 oil pivot, monitoring the DXY recovery, and prepping portfolio hedges for the upcoming inflation data.</span>
+        </a>
+
+        <a href="reports/apex_briefing_apr7_2026_evening.html" class="report-card">
+            <span class="date-tag">APRIL 7, 2026 — EVENING</span>
+            <span class="report-title">Post-Ceasefire Sentiment & Action Plan</span>
+            <span class="summary">Stabilization following the 2-week ceasefire announcement; adjusting position triggers for the April 8 open.</span>
+        </a>
+
+        <a href="reports/apex_briefing_apr7_2026_full.html" class="report-card">
+            <span class="date-tag">APRIL 7, 2026 — MID-DAY</span>
+            <span class="report-title">Tariff Shock & Fibonacci Breakdown</span>
+            <span class="summary">Analysis of IEEPA retaliation impacts on EUR/USD and structural pressure on the DXY.</span>
+        </a>
+        
+        <a href="reports/apex_full_briefing_apr6.html" class="report-card">
+            <span class="date-tag">APRIL 6, 2026</span>
+            <span class="report-title">Full Market Update & Portfolio Distribution</span>
+            <span class="summary">Comprehensive strategy covering oil-driven inflation, equity targets, and crypto scenario modeling.</span>
+        </a>
+
+        <footer>
+            &copy; 2026 Apex Capital. For internal use only.
+        </footer>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlEl = document.documentElement;
+        const widgetContainer = document.getElementById('tradingview-widget');
+
+        // Function to load/reload the TradingView Widget
+        function loadTicker(theme) {
+            // Clear previous widget
+            widgetContainer.innerHTML = '';
+            
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
+            script.async = true;
+            
+            // Configuration
+            const config = {
+                "symbols": [
+                    { "proName": "FOREXCOM:SPX500", "title": "S&P 500" },
+                    { "proName": "NASDAQ:NDAQ", "title": "NASDAQ" },
+                    { "proName": "TVC:USOIL", "title": "WTI OIL" },
+                    { "proName": "TVC:GOLD", "title": "GOLD" },
+                    { "proName": "BITSTAMP:BTCUSD", "title": "BITCOIN" },
+                    { "proName": "BITSTAMP:ETHUSD", "title": "ETHEREUM" },
+                    { "proName": "FRED:DGS10", "title": "10Y YIELD" }
+                ],
+                "showSymbolLogo": true,
+                "colorTheme": theme, // This is the magic variable
+                "isTransparent": true,
+                "displayMode": "adaptive",
+                "locale": "en"
+            };
+            
+            script.text = JSON.stringify(config);
+            widgetContainer.appendChild(script);
+        }
+
+        // 1. Initial Load Logic
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            htmlEl.setAttribute('data-theme', 'dark');
+        }
+        loadTicker(savedTheme); // Load widget with correct theme on startup
+
+        // 2. Toggle Logic
+        toggleBtn.addEventListener('click', () => {
+            const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+            const newTheme = isDark ? 'light' : 'dark';
+            
+            // Update Page
+            htmlEl.setAttribute('data-theme', isDark ? '' : 'dark');
+            localStorage.setItem('theme', newTheme);
+            
+            // Update Widget
+            loadTicker(newTheme);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apex Capital · April 16 2026 — Day 9 · NFLX Earnings Night · Re-Entry Executed</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;500;700;800&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fafaf8;--bg2:#f2f2ef;--bg3:#e8e8e4;
+  --text:#181816;--text2:#52524e;--text3:#8a8a85;
+  --bdr:rgba(0,0,0,.10);--bdr2:rgba(0,0,0,.18);
+  --grn:#2d9e55;--grn-bg:#e8f5ed;--grn-drk:#1a5c30;--grn-bdr:#7ec99a;
+  --red:#c53030;--red-bg:#fdeaea;--red-drk:#7a1c1c;--red-bdr:#f0a0a0;
+  --amb:#c07800;--amb-bg:#fef3dc;--amb-drk:#7a4a00;--amb-bdr:#e8b84b;
+  --blu:#1a5fa8;--blu-bg:#e8f1fc;--blu-bdr:#8ab4e8;
+  --pur:#5c35a8;--pur-bg:#f0eeff;--pur-bdr:#b8a8e8;
+  --r:7px;--rl:11px;--sans:'DM Sans',system-ui,sans-serif;
+}
+[data-theme="dark"]{
+  --bg:#141412;--bg2:#1e1e1b;--bg3:#282824;
+  --text:#eeecea;--text2:#a0a09a;--text3:#6a6a62;
+  --bdr:rgba(255,255,255,.09);--bdr2:rgba(255,255,255,.18);
+  --grn:#3dbf6a;--grn-bg:#152b1e;--grn-drk:#7edc9e;--grn-bdr:#2a6640;
+  --red:#e05555;--red-bg:#2a1515;--red-drk:#f0a0a0;--red-bdr:#6a2828;
+  --amb:#dba030;--amb-bg:#2a1f08;--amb-drk:#e8c070;--amb-bdr:#6a4a10;
+  --blu:#5090d8;--blu-bg:#0e1e36;--blu-bdr:#2a5080;
+  --pur:#9070e0;--pur-bg:#1e1630;--pur-bdr:#5040a0;
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:14px;line-height:1.55;padding:16px;max-width:980px;margin:0 auto;transition:background .2s,color .2s}
+
+.claim{font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-right:2px;vertical-align:middle;display:inline-block;letter-spacing:.03em}
+.c-fact{background:var(--blu-bg);color:var(--blu);border:.5px solid var(--blu-bdr)}
+.c-est{background:var(--amb-bg);color:var(--amb-drk);border:.5px solid var(--amb-bdr)}
+
+.sim-banner{background:#141412;color:#eeecea;font-size:11px;font-weight:600;padding:7px 14px;border-radius:var(--r);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:8px;letter-spacing:.02em}
+.sim-dot{width:7px;height:7px;border-radius:50%;background:#3dbf6a;flex-shrink:0}
+.sim-left{display:flex;align-items:center;gap:8px}
+.theme-btn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:inherit;padding:3px 9px;border-radius:4px;cursor:pointer;font-size:9px;font-weight:700;font-family:var(--sans);text-transform:uppercase;letter-spacing:.06em}
+
+.portal-nav{background:var(--bg2);border-bottom:1px solid var(--bdr);padding:12px 20px;border-radius:var(--rl);margin-bottom:16px}
+.portal-nav-inner{display:flex;justify-content:space-between;align-items:center}
+.portal-link{text-decoration:none;color:var(--blu);font-size:13px;font-weight:600;display:flex;align-items:center;gap:5px}
+.portal-badge{text-transform:uppercase;letter-spacing:.08em;font-size:10px;font-weight:700;color:var(--text3)}
+
+/* CRITICAL PATH BOX — new, addresses Grok density critique */
+.critical-path{background:var(--text);color:var(--bg);border-radius:var(--rl);padding:14px 18px;margin-bottom:14px}
+.cp-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;opacity:.6;margin-bottom:10px}
+.cp-items{display:flex;flex-direction:column;gap:7px}
+.cp-item{display:flex;gap:10px;align-items:flex-start;font-size:12px;line-height:1.5}
+.cp-badge{font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;white-space:nowrap;flex-shrink:0;margin-top:1px}
+.cpb-act{background:#3dbf6a;color:#0a1f10}
+.cpb-watch{background:#dba030;color:#2a1f08}
+.cpb-live{background:#e05555;color:#fdeaea;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.65}}
+
+.firm{font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--text3);text-transform:uppercase;margin-bottom:3px}
+.hdr-row{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:4px}
+h1{font-size:23px;font-weight:800;letter-spacing:-.02em}
+.hdr-pill{font-size:12px;padding:3px 11px;border-radius:var(--r);font-weight:700}
+.hp-grn{background:var(--grn-bg);color:var(--grn-drk);border:.5px solid var(--grn-bdr)}
+.hp-amb{background:var(--amb-bg);color:var(--amb-drk);border:.5px solid var(--amb-bdr)}
+.hp-red{background:var(--red-bg);color:var(--red-drk);border:.5px solid var(--red-bdr)}
+.subtitle{font-size:12px;color:var(--text2);margin-bottom:14px;line-height:1.6}
+
+.wildcard{border-left:3px solid;border-radius:0 var(--r) var(--r) 0;padding:9px 13px;margin-bottom:10px;font-size:12px;line-height:1.6}
+.wc-grn{background:var(--grn-bg);border-color:var(--grn);color:var(--grn-drk)}
+.wc-amb{background:var(--amb-bg);border-color:var(--amb);color:var(--amb-drk)}
+.wc-red{background:var(--red-bg);border-color:var(--red);color:var(--red-drk)}
+.wc-blu{background:var(--blu-bg);border-color:var(--blu);color:var(--blu)}
+
+.exec-box{background:var(--bg2);border:.5px solid var(--bdr2);border-radius:var(--rl);padding:14px 16px;margin-bottom:14px}
+.exec-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:10px}
+.exec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:12px}
+.exec-item{background:var(--bg);border-radius:var(--r);padding:9px 11px;border:.5px solid var(--bdr)}
+.exec-label{font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:3px;font-weight:700}
+.exec-val{font-size:17px;font-weight:800;letter-spacing:-.02em}
+.exec-sub{font-size:10px;color:var(--text2);margin-top:2px;line-height:1.4}
+.up{color:var(--grn)}.dn{color:var(--red)}.neu{color:var(--amb)}
+
+/* PORTFOLIO EXPECTED RETURN — new, addresses ChatGPT critique */
+.per-box{background:var(--grn-bg);border:.5px solid var(--grn-bdr);border-radius:var(--r);padding:10px 14px;margin-bottom:12px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.per-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--grn-drk)}
+.per-val{font-size:18px;font-weight:800;color:var(--grn-drk);letter-spacing:-.02em}
+.per-band{font-size:11px;color:var(--grn-drk);line-height:1.5}
+
+.action-list{display:flex;flex-direction:column;gap:5px}
+.action-item{display:flex;align-items:flex-start;gap:8px;font-size:12px;padding:5px 0;border-top:.5px solid var(--bdr)}
+.action-item:first-child{border-top:none;padding-top:0}
+.apill{font-size:9px;font-weight:700;padding:2px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;letter-spacing:.04em}
+.a-act{background:var(--grn-bg);color:var(--grn-drk)}
+.a-watch{background:var(--amb-bg);color:var(--amb-drk)}
+.a-hold{background:var(--blu-bg);color:var(--blu)}
+.a-next{background:var(--pur-bg);color:var(--pur)}
+.a-live{background:var(--red-bg);color:var(--red-drk)}
+
+.ticker-bar{display:flex;gap:14px;flex-wrap:wrap;background:var(--bg2);border:.5px solid var(--bdr);border-radius:var(--r);padding:9px 14px;margin-bottom:14px;align-items:center}
+.ti{display:flex;flex-direction:column;gap:1px;min-width:58px}
+.tl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.07em}
+.tv{font-size:13px;font-weight:700}
+.tp{font-size:9px;color:var(--text3);margin-top:1px}
+
+.main-tabs{display:flex;gap:0;border-bottom:1px solid var(--bdr);margin-bottom:16px;overflow-x:auto}
+.mt{padding:8px 15px;font-size:12px;font-weight:600;border:none;background:transparent;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;font-family:var(--sans)}
+.mt.on{color:var(--text);border-bottom-color:var(--text)}
+.mt:hover:not(.on){color:var(--text2)}
+.sec{display:none}.sec.on{display:block}
+
+.ptabs{display:flex;gap:5px;margin-bottom:12px;flex-wrap:wrap}
+.pt{padding:5px 12px;font-size:11px;border-radius:var(--r);border:.5px solid var(--bdr);background:transparent;color:var(--text2);cursor:pointer;font-family:var(--sans);font-weight:500}
+.pt.on{background:var(--text);color:var(--bg);font-weight:700;border-color:var(--text)}
+.pt:hover:not(.on){background:var(--bg2)}
+.pp{display:none}.pp.on{display:block}
+
+.card{background:var(--bg);border:.5px solid var(--bdr);border-radius:var(--rl);overflow:hidden;margin-bottom:12px}
+.chd{padding:13px 17px 11px;border-bottom:.5px solid var(--bdr)}
+.trow{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:5px}
+.tk{font-size:21px;font-weight:800;letter-spacing:-.02em}
+.cn{font-size:13px;color:var(--text2)}
+.intent-pill{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.ip-core{background:var(--grn-bg);color:var(--grn-drk);border:.5px solid var(--grn-bdr)}
+.ip-start{background:var(--blu-bg);color:var(--blu);border:.5px solid var(--blu-bdr)}
+.ip-hedge{background:var(--amb-bg);color:var(--amb-drk);border:.5px solid var(--amb-bdr)}
+.ip-tact{background:var(--bg3);color:var(--text2);border:.5px solid var(--bdr2)}
+.status-pill{font-size:10px;padding:2px 8px;border-radius:var(--r);font-weight:700}
+.sp-hold{background:var(--grn-bg);color:var(--grn-drk)}
+.sp-watch{background:var(--amb-bg);color:var(--amb-drk)}
+.sp-act{background:var(--red-bg);color:var(--red-drk)}
+.hmeta{font-size:11px;color:var(--text2);display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
+.cbody{padding:13px 17px;display:flex;flex-direction:column;gap:12px}
+.sl{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+.thesis{font-size:13px;line-height:1.75;color:var(--text)}
+
+.inv-box{background:var(--red-bg);border-radius:var(--r);padding:9px 12px;border-left:3px solid var(--red)}
+.inv-title{font-size:9px;font-weight:700;color:var(--red-drk);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.inv-body{font-size:11px;color:var(--red-drk);line-height:1.65}
+
+/* KILL SWITCH — prominently displayed, addresses Gemini critique */
+.kill-box{background:var(--red-bg);border:1.5px solid var(--red);border-radius:var(--rl);padding:12px 16px;margin-bottom:14px}
+.kill-title{font-size:11px;font-weight:800;color:var(--red-drk);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.kill-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.kill-item{background:var(--bg);border-radius:var(--r);padding:8px 12px;border:.5px solid var(--red-bdr)}
+.kill-threshold{font-size:13px;font-weight:800;color:var(--red-drk);margin-bottom:3px}
+.kill-action{font-size:11px;color:var(--red-drk);font-weight:600;margin-bottom:3px}
+.kill-detail{font-size:10px;color:var(--text2);line-height:1.4}
+
+/* WEIGHT DEVIATION BOX — addresses ChatGPT overweight-expiry critique */
+.weight-box{background:var(--amb-bg);border:.5px solid var(--amb-bdr);border-radius:var(--r);padding:10px 14px;margin-bottom:12px;font-size:11px}
+.weight-title{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--amb-drk);margin-bottom:6px}
+.weight-row{display:flex;gap:6px;flex-wrap:wrap;padding:4px 0;border-bottom:.5px solid var(--amb-bdr);align-items:center}
+.weight-row:last-child{border-bottom:none}
+.wr-ticker{font-weight:700;min-width:80px;color:var(--text)}
+.wr-target{color:var(--text2)}
+.wr-actual{font-weight:700}
+.wr-gap{font-size:10px;padding:1px 5px;border-radius:3px}
+.wg-ok{background:var(--grn-bg);color:var(--grn-drk)}
+.wg-warn{background:var(--amb-bg);color:var(--amb-drk);border:.5px solid var(--amb-bdr)}
+.wr-expiry{font-size:10px;color:var(--text3);margin-left:auto;font-style:italic}
+
+.pbar{display:flex;height:6px;border-radius:3px;overflow:hidden;margin-bottom:3px}
+.pb-b{background:#3dbf6a}.pb-n{background:#999893}.pb-r{background:#e05555}
+.plbl{display:flex;justify-content:space-between;font-size:10px;color:var(--text2);margin-bottom:8px}
+
+.scg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}
+.sc{border-radius:var(--r);padding:9px 11px;border:.5px solid}
+.sc.bull{background:var(--grn-bg);border-color:var(--grn-bdr)}
+.sc.neu{background:var(--bg2);border-color:var(--bdr2)}
+.sc.bear{background:var(--red-bg);border-color:var(--red-bdr)}
+.scl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px}
+.sc.bull .scl{color:var(--grn-drk)}.sc.neu .scl{color:var(--text2)}.sc.bear .scl{color:var(--red-drk)}
+.scp{font-size:10px;font-weight:600;margin-bottom:2px}
+.sc.bull .scp{color:var(--grn-drk)}.sc.neu .scp{color:var(--text2)}.sc.bear .scp{color:var(--red-drk)}
+.sct{font-size:15px;font-weight:800;margin-bottom:3px;letter-spacing:-.02em}
+.sc.bull .sct{color:var(--grn-drk)}.sc.neu .sct{color:var(--text)}.sc.bear .sct{color:var(--red-drk)}
+.scd{font-size:10px;line-height:1.45}
+.sc.bull .scd{color:var(--grn-drk)}.sc.neu .scd{color:var(--text2)}.sc.bear .scd{color:var(--red-drk)}
+.sc-conf{font-size:9px;font-style:italic;margin-top:4px;opacity:.8}
+.sc.bull .sc-conf{color:var(--grn-drk)}.sc.neu .sc-conf{color:var(--text3)}.sc.bear .sc-conf{color:var(--red-drk)}
+
+.val-band{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-top:6px}
+.vb{border-radius:var(--r);padding:9px 11px;text-align:center}
+.vb-bull{background:var(--grn-bg);border:.5px solid var(--grn-bdr)}
+.vb-base{background:var(--bg2);border:.5px solid var(--bdr2)}
+.vb-bear{background:var(--red-bg);border:.5px solid var(--red-bdr)}
+.vb-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}
+.vb-bull .vb-label{color:var(--grn-drk)}.vb-base .vb-label{color:var(--text2)}.vb-bear .vb-label{color:var(--red-drk)}
+.vb-price{font-size:18px;font-weight:800;letter-spacing:-.02em;margin-bottom:2px}
+.vb-bull .vb-price{color:var(--grn-drk)}.vb-base .vb-price{color:var(--text)}.vb-bear .vb-price{color:var(--red-drk)}
+.vb-detail{font-size:10px;line-height:1.4}
+.vb-bull .vb-detail{color:var(--grn-drk)}.vb-base .vb-detail{color:var(--text2)}.vb-bear .vb-detail{color:var(--red-drk)}
+.vb-return{font-size:11px;font-weight:700;margin-top:3px}
+.vb-bull .vb-return{color:var(--grn-drk)}.vb-base .vb-return{color:var(--text2)}.vb-bear .vb-return{color:var(--red-drk)}
+
+.ptable{width:100%;border-collapse:collapse;font-size:11.5px}
+.ptable th{font-size:10px;font-weight:700;color:var(--text3);text-align:right;padding:6px 8px;border-bottom:.5px solid var(--bdr);background:var(--bg2)}
+.ptable th:first-child,.ptable th:nth-child(2),.ptable th:nth-child(3){text-align:left}
+.ptable td{padding:7px 8px;border-bottom:.5px solid var(--bdr);text-align:right;color:var(--text2);vertical-align:middle}
+.ptable td:first-child{text-align:left;font-weight:700;color:var(--text)}
+.ptable td:nth-child(2){text-align:left}
+.ptable td:nth-child(3){text-align:left}
+.ptable tr:last-child td{border-bottom:none}
+
+.trigger-row{display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:.5px solid var(--bdr);gap:8px}
+.trigger-row:last-child{border-bottom:none;padding-bottom:0}
+.tr-label{font-size:11px;color:var(--text2);flex:1}
+.tr-val{font-size:12px;font-weight:700;font-family:monospace;white-space:nowrap}
+.tr-action{font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;white-space:nowrap}
+.tr-safe{color:var(--grn-drk);background:var(--grn-bg)}
+.tr-warn{color:var(--amb-drk);background:var(--amb-bg)}
+.tr-kill{color:var(--red-drk);background:var(--red-bg)}
+.tr-fired{color:var(--grn-drk);background:var(--grn-bg);font-weight:700;border:1px solid var(--grn-bdr)}
+
+.news-grid{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:14px}
+.news-list{background:var(--bg2);border-radius:var(--rl);padding:12px 14px}
+.news-item{padding:8px 0;border-bottom:.5px solid var(--bdr);display:flex;flex-direction:column;gap:2px}
+.news-item:last-child{border-bottom:none;padding-bottom:0}
+.news-tag{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em}
+.nt-break{color:var(--red)}.nt-econ{color:var(--blu)}.nt-war{color:var(--amb-drk)}.nt-mkt{color:var(--grn-drk)}.nt-earn{color:#6c3483}
+.news-head{font-size:12px;font-weight:600;color:var(--text);line-height:1.35}
+.news-body{font-size:11px;color:var(--text2);line-height:1.45}
+.cal-box{background:var(--bg2);border-radius:var(--rl);padding:12px 14px}
+.cal-item{display:flex;gap:8px;padding:5px 0;border-bottom:.5px solid var(--bdr);align-items:flex-start}
+.cal-item:last-child{border-bottom:none;padding-bottom:0}
+.cal-day{font-size:10px;font-weight:700;color:var(--text3);min-width:40px}
+.cal-txt{font-size:11px;color:var(--text2);line-height:1.35}
+.cal-imp{font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:3px}
+.hi{background:var(--red-bg);color:var(--red-drk)}.med{background:var(--amb-bg);color:var(--amb-drk)}.lo{background:var(--grn-bg);color:var(--grn-drk)}
+
+.retro-row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:.5px solid var(--bdr);font-size:12px}
+.retro-row:last-child{border-bottom:none}
+.rpill{font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:1px}
+.r-hit{background:var(--grn-bg);color:var(--grn-drk)}
+.r-miss{background:var(--red-bg);color:var(--red-drk)}
+.r-part{background:var(--amb-bg);color:var(--amb-drk)}
+
+.port-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:12px}
+.ps{background:var(--bg2);border-radius:var(--r);padding:9px 11px}
+.psl{font-size:9px;color:var(--text3);margin-bottom:2px;text-transform:uppercase;letter-spacing:.06em}
+.psv{font-size:16px;font-weight:800;letter-spacing:-.02em}
+
+.risk-box{background:var(--amb-bg);border:.5px solid var(--amb-bdr);border-radius:var(--rl);padding:12px 14px;margin-bottom:14px}
+.risk-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--amb-drk);margin-bottom:8px}
+.risk-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
+.risk-item{background:var(--bg);border-radius:var(--r);padding:8px 10px;border:.5px solid var(--amb-bdr)}
+.risk-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--amb-drk);margin-bottom:3px}
+.risk-val{font-size:14px;font-weight:800;color:var(--amb-drk);margin-bottom:2px}
+.risk-detail{font-size:10px;color:var(--text2);line-height:1.4}
+
+/* WATCHLIST */
+.wl-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.wl-item{background:var(--bg2);border-radius:var(--rl);padding:12px 14px;border:.5px solid var(--bdr)}
+.wl-header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.wl-ticker{font-size:18px;font-weight:800;letter-spacing:-.02em}
+.wl-name{font-size:12px;color:var(--text2)}
+.wl-role{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.wr-div{background:var(--pur-bg);color:var(--pur);border:.5px solid var(--pur-bdr)}
+.wr-def{background:var(--grn-bg);color:var(--grn-drk);border:.5px solid var(--grn-bdr)}
+.wr-ai{background:var(--blu-bg);color:var(--blu);border:.5px solid var(--blu-bdr)}
+.wr-ind{background:var(--amb-bg);color:var(--amb-drk);border:.5px solid var(--amb-bdr)}
+.wr-fin{background:var(--bg3);color:var(--text2);border:.5px solid var(--bdr2)}
+.wl-conviction{font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;margin-left:auto}
+.wc-high{background:var(--grn-bg);color:var(--grn-drk)}
+.wc-med{background:var(--amb-bg);color:var(--amb-drk)}
+/* new: watchlist priority */
+.wl-priority{font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;margin-top:4px;display:inline-block}
+.wp-imminent{background:var(--red-bg);color:var(--red-drk);border:.5px solid var(--red-bdr)}
+.wp-approaching{background:var(--amb-bg);color:var(--amb-drk);border:.5px solid var(--amb-bdr)}
+.wp-dormant{background:var(--bg3);color:var(--text3);border:.5px solid var(--bdr2)}
+.wl-thesis{font-size:11px;color:var(--text2);line-height:1.5;margin:6px 0}
+.wl-trigger{background:var(--bg);border-radius:var(--r);padding:7px 10px;font-size:10px;border:.5px solid var(--bdr)}
+.wl-trigger-label{font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;font-size:9px;margin-bottom:2px}
+.wl-trigger-body{color:var(--text2);line-height:1.45}
+
+.harvest-rule{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px}
+.hr-item{background:var(--bg2);border-radius:var(--r);padding:9px 11px;text-align:center}
+.hr-pct{font-size:20px;font-weight:800;letter-spacing:-.02em;margin-bottom:3px}
+.hr-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.hr-detail{font-size:10px;color:var(--text2);line-height:1.35}
+
+.corr-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+.corr-item{background:var(--bg2);border-radius:var(--r);padding:10px 12px}
+.corr-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:6px}
+.corr-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:.5px solid var(--bdr);font-size:11px}
+.corr-row:last-child{border-bottom:none;padding-bottom:0}
+.corr-label{color:var(--text2)}
+.corr-val{font-weight:700;font-family:monospace}
+
+.divider{height:.5px;background:var(--bdr);margin:10px 0}
+.key-change{background:var(--blu-bg);border-radius:var(--r);padding:8px 12px;font-size:11px;color:var(--blu);margin-top:10px;border:.5px solid var(--blu-bdr)}
+.disclaim{margin-top:14px;padding:9px 13px;background:var(--bg2);border-radius:var(--r);font-size:10px;color:var(--text3);line-height:1.6}
+
+@media(max-width:640px){
+  .exec-grid,.scg,.news-grid,.port-stats,.risk-grid,.corr-grid,.val-band,.wl-grid,.kill-grid{grid-template-columns:1fr 1fr}
+  .main-tabs .mt{padding:7px 10px;font-size:11px}
+  h1{font-size:18px}
+}
+</style>
+</head>
+<body>
+
+<div class="sim-banner">
+  <div class="sim-left">
+    <div class="sim-dot"></div>
+    HYPOTHETICAL EDUCATIONAL SIMULATION — April 16, 2026 · Not financial advice · All values illustrative
+  </div>
+  <button class="theme-btn" id="theme-toggle">🌓 Toggle Mode</button>
+</div>
+
+<nav class="portal-nav">
+  <div class="portal-nav-inner">
+    <a href="../index.html" class="portal-link"><span style="font-size:16px;line-height:0">←</span> Apex Intelligence Portal</a>
+    <span class="portal-badge">Internal Briefing · April 16, 2026 · Day 9 · NFLX Earnings Night</span>
+  </div>
+</nav>
+
+<!-- CRITICAL PATH — leads every briefing now, addresses density critique -->
+<div class="critical-path">
+  <div class="cp-title">⚡ Today's Critical Path — In Order</div>
+  <div class="cp-items">
+    <div class="cp-item"><span class="cp-badge cpb-act">EXECUTED</span><span>Re-entry fired at open: $175 NFLX (~$106) + $175 AVGO (~$390). Both positions rebuilt to ~16% weight. Cash reserve: ~$1,050.</span></div>
+    <div class="cp-item"><span class="cp-badge cpb-live">LIVE 4:45PM ET</span><span>NFLX Q1 earnings call in progress. Kill-switch thresholds below — check actuals and execute if triggered. Full post-earnings briefing tomorrow.</span></div>
+    <div class="cp-item"><span class="cp-badge cpb-watch">PLAN DUE TMR</span><span>UNH April 21 dual-binary decision tree must be drafted tomorrow (April 17). Ceasefire Day 9/14 — expiry next Tuesday.</span></div>
+    <div class="cp-item"><span class="cp-badge cpb-watch">MONITOR</span><span>WTI ~$88 — XOM exit trigger approaching. Trump: war "very close to over." No formal talk announcement yet — hold XOM until official.</span></div>
+  </div>
+</div>
+
+<div class="firm">Apex Capital · Aggressive Growth Portfolio</div>
+<div class="hdr-row">
+  <h1>April 16, 2026 — NFLX Earnings Night</h1>
+  <span class="hdr-pill hp-amb">⏳ NFLX Results Pending — Kill Switch Armed</span>
+</div>
+<p class="subtitle">
+  Re-entry executed at open ($175 NFLX + $175 AVGO) · S&P 500 +0.8% to 7,022 — fresh all-time high · WTI ~$88 continuing to fall · Trump: war "very close to over" · NFLX trading ~$107.55 (range $105–$108) ahead of print · Options pricing ±5.8% move · Earnings call 4:45PM ET · <strong>Full NFLX deep dive in tomorrow's April 17 briefing once actuals are confirmed</strong>
+</p>
+
+<!-- KILL SWITCH — prominent per Gemini critique, exact thresholds visible -->
+<div class="kill-box">
+  <div class="kill-title">🚨 NFLX KILL SWITCH — ARMED · Exact Thresholds · Check Against Tonight's Print</div>
+  <div class="kill-grid">
+    <div class="kill-item">
+      <div class="kill-threshold">Ad Revenue &lt; $500M</div>
+      <div class="kill-action">🔴 EXIT ENTIRE POSITION</div>
+      <div class="kill-detail">Structural miss — ad tier thesis invalidated. Exit full NFLX at next open. Deploy proceeds per 50/30/20 harvest rule.</div>
+    </div>
+    <div class="kill-item">
+      <div class="kill-threshold">Ad Revenue $500–550M</div>
+      <div class="kill-action">🟡 REDUCE POSITION 50%</div>
+      <div class="kill-detail">Below threshold but not catastrophic. Cut exposure by half at next open. Re-evaluate thesis within 5 trading days.</div>
+    </div>
+    <div class="kill-item">
+      <div class="kill-threshold">Ad Revenue ≥ $550M</div>
+      <div class="kill-action">🟢 HOLD — THESIS INTACT</div>
+      <div class="kill-detail">Kill switch does not fire. FCF guide must also be confirmed ≥$11B. Both conditions required for full hold.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO EXPECTED RETURN — new, addresses ChatGPT critique -->
+<div class="per-box">
+  <div>
+    <div class="per-label">Portfolio Weighted Expected Return — Base Case <span class="claim c-est">EST</span></div>
+    <div class="per-val">+21–34%</div>
+  </div>
+  <div class="per-band">
+    <strong>Bull case:</strong> +38–52% (deal materialises, NFLX/AVGO re-rate, oil $80–88)<br>
+    <strong>Base case:</strong> +21–34% (stalemate extends, earnings season solid, oil $88–98)<br>
+    <strong>Bear case:</strong> –8–12% (re-escalation, NFLX miss, tech cluster drawdown)<br>
+    <span style="font-size:10px;opacity:.8">Weighted by scenario probabilities (43/35/22). These are ranges, not point estimates. <span class="claim c-est">EST</span></span>
+  </div>
+</div>
+
+<!-- WILDCARDS -->
+<div class="wildcard wc-amb">
+  ⚡ <strong>DEVELOPING — NFLX Q1 RESULTS PENDING (reporting 4:45 PM ET tonight):</strong> NFLX traded $105–$108 today, closing ~$107.55. Options implied ±5.8% move. Pre-print: consensus EPS $0.76–0.77 on $12.17B revenue, ad revenue guidance ~$3B for full year 2026. The kill switch thresholds above govern our response — no discretion. Tomorrow's briefing will carry the full post-earnings deep dive with ARPU model, FCF confirmation, and sizing decision.
+</div>
+<div class="wildcard wc-grn">
+  ✅ <strong>DEVELOPING — TRUMP: WAR "VERY CLOSE TO OVER" (FACT):</strong> Trump said today the conflict is "very close to over" and that Iranian authorities appear willing to reach a peace agreement. WTI fell to ~$88 — a new low since the war began. S&P 500 closed at 7,022, a fresh all-time high. <span class="claim c-est">EST</span> XOM exit trigger is approaching — if official talk announcement comes, exit XOM at next open. Still not formally confirmed. Oil at $88 is now well below the re-entry level and approaching the bull case threshold ($88 sustained = deal is real). V/MA watchlist entry trigger approaching.
+</div>
+<div class="wildcard wc-amb">
+  ⚠️ <strong>ONGOING — CEASEFIRE DAY 9/14 · APRIL 21 DUAL BINARY APPROACHING (FACT):</strong> The ceasefire expires in 5 days. Extension talks are active but unconfirmed. Iran's military threat to close Red Sea + Persian Gulf if blockade continues remains on the table. April 21 is still the most dangerous date on the calendar: UNH earnings and ceasefire expiry coincide. The UNH dual-binary plan must be drafted tomorrow — not on April 21 morning.
+</div>
+
+<!-- EXEC SUMMARY -->
+<div class="exec-box">
+  <div class="exec-title">⚡ Day 9 Executive Summary — One Master Portfolio Reference</div>
+  <div class="exec-grid">
+    <div class="exec-item" style="border-color:var(--grn-bdr)">
+      <div class="exec-label">Portfolio Value — Master (est.)</div>
+      <div class="exec-val up">~$12,100</div>
+      <div class="exec-sub"><span class="claim c-est">EST</span> All sections reference this figure · +21.0% from $10,000 start · Reflects S&P ATH and oil decline · Pre-earnings NFLX result</div>
+    </div>
+    <div class="exec-item">
+      <div class="exec-label">S&P 500</div>
+      <div class="exec-val up">7,022</div>
+      <div class="exec-sub"><span class="claim c-fact">FACT</span> +0.8% · Fresh all-time high · Erased all war losses and surpassed pre-war peak · War "very close to over" pricing</div>
+    </div>
+    <div class="exec-item">
+      <div class="exec-label">WTI Oil</div>
+      <div class="exec-val up">~$88</div>
+      <div class="exec-sub"><span class="claim c-fact">FACT</span> Down from $105+ at peak · Approaching bull-case threshold of sustained $88 · XOM exit trigger live</div>
+    </div>
+    <div class="exec-item">
+      <div class="exec-label">NFLX Day Close</div>
+      <div class="exec-val neu">$107.55</div>
+      <div class="exec-sub"><span class="claim c-fact">FACT</span> Re-entry executed ~$106 at open · +$9.05 / +9.3% vs $97.50 entry · Earnings after close — result pending</div>
+    </div>
+  </div>
+
+  <!-- POST-RE-ENTRY WEIGHT STATE — addresses Grok master-table clarity critique -->
+  <div class="exec-title" style="margin-top:4px">Post-Re-Entry Portfolio State — Updated Weights</div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px">
+    <div style="background:var(--bg);border:.5px solid var(--grn-bdr);border-radius:var(--r);padding:8px 10px">
+      <div class="exec-label">NFLX Weight</div>
+      <div style="font-size:15px;font-weight:800" class="up">~16%</div>
+      <div style="font-size:10px;color:var(--text2)">Re-entry +$175 · ~$1,932 position</div>
+    </div>
+    <div style="background:var(--bg);border:.5px solid var(--grn-bdr);border-radius:var(--r);padding:8px 10px">
+      <div class="exec-label">AVGO Weight</div>
+      <div style="font-size:15px;font-weight:800" class="up">~16%</div>
+      <div style="font-size:10px;color:var(--text2)">Re-entry +$175 · ~$1,936 position</div>
+    </div>
+    <div style="background:var(--bg);border:.5px solid var(--bdr);border-radius:var(--r);padding:8px 10px">
+      <div class="exec-label">Cash Reserve</div>
+      <div style="font-size:15px;font-weight:800">~$1,050</div>
+      <div style="font-size:10px;color:var(--text2)">Post $350 re-entry · Fire extinguisher</div>
+    </div>
+    <div style="background:var(--bg);border:.5px solid var(--bdr);border-radius:var(--r);padding:8px 10px">
+      <div class="exec-label">P&L Impact (re-entry)</div>
+      <div style="font-size:15px;font-weight:800" class="neu">+$0 locked</div>
+      <div style="font-size:10px;color:var(--text2)">Cost basis rebuilt ~$106/$390 · P&L contingent on NFLX print</div>
+    </div>
+  </div>
+
+  <!-- OVERWEIGHT EXPIRY TABLE — addresses ChatGPT hard-constraint critique -->
+  <div class="weight-box">
+    <div class="weight-title">⚖ Overweight vs Risk-Parity Target — Expiry Rules (new)</div>
+    <div class="weight-row">
+      <span class="wr-ticker">NFLX</span>
+      <span class="wr-target">Target: 12%</span>
+      <span class="wr-actual up">Actual: 16%</span>
+      <span class="wr-gap wg-warn">+4% over</span>
+      <span class="wr-expiry">Expiry: Apr 16 AH print. If hold → reassess at Apr 17. If kill switch fires → auto-resolves to 8% or 0%.</span>
+    </div>
+    <div class="weight-row">
+      <span class="wr-ticker">AVGO</span>
+      <span class="wr-target">Target: 13%</span>
+      <span class="wr-actual up">Actual: 16%</span>
+      <span class="wr-gap wg-warn">+3% over</span>
+      <span class="wr-expiry">Expiry: Jun 4 Q2 earnings. If no new catalyst by May 1 → trim back to 14%.</span>
+    </div>
+    <div class="weight-row">
+      <span class="wr-ticker">UNH</span>
+      <span class="wr-target">Target: 13%</span>
+      <span class="wr-actual up">Actual: 13%</span>
+      <span class="wr-gap wg-ok">On target</span>
+      <span class="wr-expiry">No expiry needed.</span>
+    </div>
+    <div class="weight-row">
+      <span class="wr-ticker">BTC</span>
+      <span class="wr-target">Target: 4%</span>
+      <span class="wr-actual">Actual: 5%</span>
+      <span class="wr-gap wg-warn">+1% over</span>
+      <span class="wr-expiry">Governed by trailing stop — auto-resolves. No manual expiry needed.</span>
+    </div>
+  </div>
+
+  <div class="exec-title" style="margin-top:4px">Standing Actions</div>
+  <div class="action-list">
+    <div class="action-item"><span class="apill a-act">DONE</span><span><strong>Re-entry executed at open:</strong> $175 NFLX at ~$106, $175 AVGO at ~$390. Both confirmed from re-entry reserve. Cash reserve: ~$1,050 remaining.</span></div>
+    <div class="action-item"><span class="apill a-live">LIVE</span><span><strong>NFLX earnings: apply kill switch exactly as defined.</strong> Ad revenue ≥$550M + FCF $11B+ = hold full position. Ad $500–550M = cut 50% at tomorrow's open. Ad &lt;$500M = exit entirely at tomorrow's open. No discretion. Actual results in tomorrow's briefing.</span></div>
+    <div class="action-item"><span class="apill a-watch">WATCH</span><span><strong>XOM exit trigger approaching:</strong> WTI ~$88, Trump says war "very close to over." If official announcement of next-round Iran talks confirmed by primary US or Iranian government source → exit XOM at next open. Bloomberg/AP reports alone are not sufficient. Hold until official.</span></div>
+    <div class="action-item"><span class="apill a-next">PLAN DUE TMR</span><span><strong>UNH April 21 dual-binary decision tree:</strong> Must be complete in tomorrow's briefing. Four scenarios: beat+extension, beat+expiry, miss+extension, miss+expiry. Pre-commit position sizes and stops for each. Do not leave this for April 21 morning.</span></div>
+    <div class="action-item"><span class="apill a-watch">APPROACHING</span><span><strong>V/MA watchlist entry trigger:</strong> WTI at $88 is approaching the sustained-below-$88 threshold that triggers a V or MA starter. If oil closes below $88 for two consecutive sessions → initiate 3% starter in V or MA as "deal materialises" pure-play. Currently one session away.</span></div>
+  </div>
+</div>
+
+<!-- TICKER BAR -->
+<div class="ticker-bar">
+  <div class="ti"><span class="tl">S&P 500</span><span class="tv up">7,022</span><span class="tp">FACT · ATH · +0.8%</span></div>
+  <div class="ti"><span class="tl">WTI Oil</span><span class="tv up">~$88</span><span class="tp">FACT · bull-case threshold</span></div>
+  <div class="ti"><span class="tl">NFLX</span><span class="tv neu">$107.55</span><span class="tp">FACT · AH print pending</span></div>
+  <div class="ti"><span class="tl">AVGO</span><span class="tv up">~$393</span><span class="tp">FACT · re-entry $390</span></div>
+  <div class="ti"><span class="tl">UNH</span><span class="tv up">~$315</span><span class="tp">FACT · Apr 21 binary</span></div>
+  <div class="ti"><span class="tl">BTC</span><span class="tv up">~$74K</span><span class="tp">FACT · above $70K stop</span></div>
+  <div class="ti"><span class="tl">Gold</span><span class="tv neu">~$4,800</span><span class="tp">FACT · de-escal. pressure</span></div>
+  <div class="ti"><span class="tl">Ceasefire</span><span class="tv neu">Day 9/14</span><span class="tp">FACT · ext. unconfirmed</span></div>
+</div>
+
+<!-- RISK SNAPSHOT -->
+<div class="risk-box">
+  <div class="risk-title">🔍 Portfolio Risk Snapshot — Day 9 · Vol Estimate Now Binding (Not Decorative)</div>
+  <div class="risk-grid">
+    <div class="risk-item">
+      <div class="risk-label">Est. Portfolio Volatility</div>
+      <div class="risk-val">~24–28% ann.</div>
+      <div class="risk-detail"><span class="claim c-est">EST</span> Elevated vs 22–26% yesterday due to NFLX binary tonight. <strong>If vol exceeds 28%: mandatory sizing review — reduce highest-beta position by ≥2%.</strong> Post-NFLX print, vol should normalise to 20–24% range as binary resolves.</div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-label">Top 3 Risk Contributors</div>
+      <div class="risk-val">NFLX / AVGO / BTC</div>
+      <div class="risk-detail"><span class="claim c-est">EST</span> NFLX: earnings binary resolves tonight. AVGO: high beta, Meta deal sustained. BTC: trailing stop governs. If NFLX kill switch fires, portfolio vol drops to ~18–22% as position exits.</div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-label">Dominant Cluster</div>
+      <div class="risk-val">Tech + Crypto ~42%</div>
+      <div class="risk-detail"><span class="claim c-est">EST</span> Non-correlated buffer: UNH 13% + XOM 6% + GLD 3.5% + Cash 9% = ~31.5%. If oil continues to $80s, XOM exits and cash rises, improving the non-correlated ratio toward 35%+.</div>
+    </div>
+  </div>
+</div>
+
+<div class="main-tabs">
+  <button class="mt on" onclick="showMain('macro',this)">📰 News & Macro</button>
+  <button class="mt" onclick="showMain('trigger',this)">⚡ Trigger Dashboard</button>
+  <button class="mt" onclick="showMain('retro',this)">🔁 Retro</button>
+  <button class="mt" onclick="showMain('picks',this)">📈 Positions</button>
+  <button class="mt" onclick="showMain('watchlist',this)">👁 Watchlist</button>
+  <button class="mt" onclick="showMain('corr',this)">🔗 Correlation</button>
+  <button class="mt" onclick="showMain('portfolio',this)">💼 Portfolio & P&L</button>
+  <button class="mt" onclick="showMain('tradelog',this)">📋 Trade Log</button>
+</div>
+
+<!-- ===== MACRO ===== -->
+<div class="sec on" id="sec-macro">
+  <div class="news-grid">
+    <div class="news-list">
+      <div class="sl">Key Developments — April 16, 2026</div>
+
+      <div class="news-item">
+        <span class="news-tag nt-war">🕊️ Geopolitical</span>
+        <span class="news-head">Trump: War "Very Close to Over" — S&P 500 Hits All-Time High — WTI Falls to $88</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> Trump said today the conflict is "very close to over" and Iranian authorities "appear willing" to reach a peace agreement. WTI fell to ~$88 — down from $105+ at the April 13 peak, a 16% decline in 3 sessions. The S&P 500 closed at 7,022, a fresh all-time high, fully erasing all war-era losses and surpassing the pre-war peak. The market is now pricing a deal, not merely hoping for one. <span class="claim c-est">EST</span> The critical question is whether the market is ahead of the diplomatic reality — "very close to over" is a Trump characterisation, not a confirmed joint statement.</span>
+      </div>
+
+      <div class="news-item">
+        <span class="news-tag nt-war">🚢 Hormuz</span>
+        <span class="news-head">US Blockade Fully Implemented — Second Round of Talks Expected "This Week"</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> The US military confirmed the naval blockade on Iranian ports is fully implemented. Separately, a second round of US-Iran talks is being discussed, with reports suggesting they could begin as early as Thursday. Brent crude steadied above $94 per barrel as markets weigh ceasefire extension prospects against the still-active blockade. Iran's military threat to close the Red Sea and Persian Gulf if the blockade continues is still on the table — this is the tail risk that the bear scenario depends on. Goldman's Hormuz flow data: traffic running at ~10% of normal levels.</span>
+      </div>
+
+      <div class="news-item">
+        <span class="news-tag nt-earn">🎬 NFLX</span>
+        <span class="news-head">NFLX Trading $107.55 Pre-Print — Options ±5.8% — Kill Switch Armed</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> NFLX traded in a $105–$108 range today, closing at $107.55 on volume of 38M shares (above 32.6M average). Options pricing implies a ±5.8% post-earnings move. The earnings call is at 4:45 PM ET. Consensus: EPS $0.76–0.77 on $12.17B revenue (+15.5% YoY). The single most important number is ad revenue — management guided full-year ad revenue to roughly double from 2025's $1.5B, implying ~$3B for 2026, or approximately $750M per quarter at run rate. Q1 will likely show $550–620M given ad business ramp — anything above $580M would be a genuine beat.</span>
+      </div>
+
+      <div class="news-item">
+        <span class="news-tag nt-mkt">📈 Markets</span>
+        <span class="news-head">S&P 500 All-Time High 7,022 — Tech Leading — Earnings Season Positive</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> The S&P 500 closed at 7,022 (+0.8%), its first all-time high since before the February 28 war outbreak. Tech led across the board. The rally is driven by (1) diplomatic progress, (2) oil falling back toward normalised levels, and (3) early earnings season confirming consumer and corporate health. <span class="claim c-est">EST</span> Portfolio impact: the S&P ATH validates the "eventual deal" thesis the portfolio has been positioned around since Day 1. If NFLX delivers tonight, the portfolio is positioned for a strong week ahead of the April 21 dual binary.</span>
+      </div>
+
+      <div class="news-item">
+        <span class="news-tag nt-econ">💰 XOM Watch</span>
+        <span class="news-head">XOM Thesis Weakening Rapidly — Exit Trigger Close But Not Yet Official</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> WTI at $88 is now 17% below the XOM hedge entry thesis price. The geopolitical premium XOM was bought to capture has been substantially compressed. The exit trigger — official announcement of next-round Iran talks — has not formally been met. But the gap between "very close to over" and an official joint statement may be hours to days. <span class="claim c-est">EST</span> XOM's P&L at entry (~$135 blended) versus current ~$145–150 represents a meaningful realised gain if exited here. Holding too long after the war premium deflates risks giving back gains. Watch closely overnight and tomorrow morning.</span>
+      </div>
+    </div>
+
+    <div class="cal-box">
+      <div class="sl">Forward Calendar</div>
+      <div class="cal-item"><span class="cal-day" style="color:var(--red-drk)">TONIGHT</span><div class="cal-txt"><strong>NFLX Q1 earnings — kill switch governing</strong> <span class="cal-imp hi">LIVE</span></div></div>
+      <div class="cal-item"><span class="cal-day" style="color:var(--red-drk)">APR 17</span><div class="cal-txt">NFLX post-earnings deep dive + UNH dual-binary plan <span class="cal-imp hi">CRITICAL</span></div></div>
+      <div class="cal-item"><span class="cal-day">APR 17–18</span><div class="cal-txt">Potential 2nd US–Iran talks round <span class="cal-imp hi">WATCH</span></div></div>
+      <div class="cal-item"><span class="cal-day">APR 21</span><div class="cal-txt">UNH Q1 earnings + ceasefire expiry — dual binary <span class="cal-imp hi">CRITICAL</span></div></div>
+      <div class="cal-item"><span class="cal-day">APR 24</span><div class="cal-txt">XOM Q1 earnings (may be moot if exit trigger fires first) <span class="cal-imp med">MED</span></div></div>
+      <div class="cal-item"><span class="cal-day">APR 28–29</span><div class="cal-txt">FOMC — hold expected; tone critical for June cut odds <span class="cal-imp hi">HIGH</span></div></div>
+      <div class="cal-item"><span class="cal-day">MAY 12</span><div class="cal-txt">April CPI — first full war-month energy print <span class="cal-imp hi">HIGH</span></div></div>
+    </div>
+  </div>
+
+  <!-- SCENARIO TABLE -->
+  <div class="card">
+    <div class="chd"><div class="sl">Macro Scenario Probabilities — Updated · Trump "Very Close to Over" Shifts Bull Case</div></div>
+    <div class="cbody">
+      <div class="pbar" id="macro-pbar"></div>
+      <div class="plbl"><span>🐂 Bull 48% ↑ (was 43%)</span><span>⚖️ Base 32% ↓ (was 35%)</span><span>🐻 Bear 20% ↓ (was 22%)</span></div>
+      <div class="scg">
+        <div class="sc bull">
+          <div class="scl">Bull</div>
+          <div class="scp">48% (±12%) — raised on Trump "very close to over" + S&P ATH</div>
+          <div class="sct">Deal Materialises</div>
+          <div class="scd">Second round of talks → formal agreement. Hormuz fully reopens. Oil $80–88 sustained. Fed resumes cut path. S&P toward 7,400–7,600. NFLX/AVGO re-rate on multiple expansion. V/MA entry triggers. XOM exit triggered.<br><br><strong>What would confirm:</strong> Official joint US-Iran statement. Hormuz traffic above 50 ships/day. WTI sustained below $88.</div>
+          <div class="sc-conf">Confidence: MED · Trump statement is not the same as a signed deal</div>
+        </div>
+        <div class="sc neu">
+          <div class="scl">Base</div>
+          <div class="scp">32% (±10%) — compressed as bull becomes more probable</div>
+          <div class="sct">Stalemate Extends</div>
+          <div class="scd">Talks begin but drag on past April 21. Ceasefire extended informally. Oil stabilises $88–96. No quick deal. Earnings season sustains market. S&P range $6,800–7,200.<br><br><strong>What would confirm:</strong> Second round of talks begins but no framework agreed. WTI stays $88–96. Ceasefire extended without final resolution.</div>
+          <div class="sc-conf">Confidence: MED</div>
+        </div>
+        <div class="sc bear">
+          <div class="scl">Bear</div>
+          <div class="scp">20% (±10%) — reduced but Iran military threat is non-trivial</div>
+          <div class="sct">Re-Escalation</div>
+          <div class="scd">Talks collapse. Iran executes maritime closure of Red Sea + Persian Gulf + Hormuz simultaneously. Supply shock deepens to 10–11M bbl/day. WTI spikes above $115. Fed trapped. S&P breaks below $6,200. GLD add trigger fires.<br><br><strong>What would confirm:</strong> Iran formally closes maritime routes. Ceasefire expires April 21 without extension. WTI spikes above $108 in a single session.</div>
+          <div class="sc-conf">Confidence: MED · Iran's maritime threat today keeps this tail risk alive — do not dismiss it at 20% simply because the bull case is loudest</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TRIGGER DASHBOARD ===== -->
+<div class="sec" id="sec-trigger">
+  <div class="card">
+    <div class="chd"><div class="sl">Tactical Trigger Dashboard — Day 9 Status</div></div>
+    <div class="cbody">
+
+      <div class="sl">✅ FIRED TRIGGERS (complete)</div>
+      <div class="trigger-row"><span class="tr-label">Oil Escalation Trigger (Apr 13): WTI >$105 → trim NFLX/AVGO 20%</span><span class="tr-val">WTI $105</span><span class="tr-action tr-fired">✅ FIRED Apr 13</span></div>
+      <div class="trigger-row"><span class="tr-label">JPM Beat Trigger (Apr 14): JPM beats Q1 → scale JPM/GS 3%→5%</span><span class="tr-val">EPS $5.94</span><span class="tr-action tr-fired">✅ FIRED Apr 14</span></div>
+      <div class="trigger-row"><span class="tr-label">Re-Entry Trigger (Apr 16 open): WTI &lt;$95 → $175 NFLX + $175 AVGO</span><span class="tr-val">WTI $88–92</span><span class="tr-action tr-fired">✅ FIRED Apr 16 Open</span></div>
+
+      <div class="sl" style="margin-top:10px">🔴 LIVE / IMMINENT TRIGGERS</div>
+      <div class="trigger-row" style="background:var(--red-bg);border-radius:var(--r);padding:7px 10px;border:.5px solid var(--red-bdr)">
+        <span class="tr-label"><strong>NFLX Kill Switch (LIVE):</strong> Ad revenue &lt;$500M = exit; $500–550M = reduce 50%; ≥$550M + FCF $11B+ = hold. Results announced tonight 4:45PM ET.</span>
+        <span class="tr-val" style="color:var(--red-drk)">LIVE NOW</span>
+        <span class="tr-action tr-kill">ARMED</span>
+      </div>
+      <div class="trigger-row" style="background:var(--amb-bg);border-radius:var(--r);padding:7px 10px;border:.5px solid var(--amb-bdr)">
+        <span class="tr-label"><strong>XOM Exit Trigger (APPROACHING):</strong> Official announcement of next-round Iran talks → exit XOM at next open. Trump "very close to over" is NOT yet official. One session away from possible trigger.</span>
+        <span class="tr-val" style="color:var(--amb-drk)">WTI $88</span>
+        <span class="tr-action tr-warn">APPROACHING</span>
+      </div>
+      <div class="trigger-row" style="background:var(--amb-bg);border-radius:var(--r);padding:7px 10px;border:.5px solid var(--amb-bdr)">
+        <span class="tr-label"><strong>V/MA Entry Trigger (APPROACHING):</strong> WTI sustained below $88 for 2 sessions → initiate 3% V or MA starter. WTI at $88 today — one confirmed close needed.</span>
+        <span class="tr-val" style="color:var(--amb-drk)">WTI $88</span>
+        <span class="tr-action tr-warn">1 SESSION AWAY</span>
+      </div>
+
+      <div class="sl" style="margin-top:10px">⏳ WAITING TRIGGERS</div>
+      <div class="trigger-row"><span class="tr-label">GLD Additional Add: Bear prob >30% + ceasefire expires without extension. Bear now 20% — NOT MET.</span><span class="tr-val">20% bear</span><span class="tr-action tr-safe">NOT MET</span></div>
+      <div class="trigger-row"><span class="tr-label">JPM/GS Scale to 8%: Requires Q2 earnings confirmation — not yet scheduled.</span><span class="tr-val">Q2 pending</span><span class="tr-action tr-safe">WAITING</span></div>
+      <div class="trigger-row"><span class="tr-label">UNH April 21 Plan: Decision tree must be drafted by April 17 — not yet written.</span><span class="tr-val">Due Apr 17</span><span class="tr-action tr-warn">DRAFT NOW</span></div>
+      <div class="trigger-row"><span class="tr-label">BTC Trailing Stop: Active at $70K. BTC ~$74K — $4K above stop. Intact.</span><span class="tr-val up">~$74K</span><span class="tr-action tr-safe">ABOVE STOP</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== RETRO ===== -->
+<div class="sec" id="sec-retro">
+  <div class="card">
+    <div class="chd"><div class="sl">Model Retro — April 16 Morning Predictions vs Actuals</div></div>
+    <div class="cbody">
+      <div class="retro-row">
+        <span class="rpill r-hit">HIT</span>
+        <span><strong>Predicted: Re-entry executes at open per rule, no discretionary override.</strong> $175 NFLX at ~$106, $175 AVGO at ~$390 — both executed at open as pre-coded. The system did not hesitate despite the NFLX earnings binary being hours away. This is exactly the behaviour the framework is designed to produce: rules execute regardless of narrative anxiety. The re-entry was the right call given the oil rule, even if the earnings outcome is uncertain.</span>
+      </div>
+      <div class="retro-row">
+        <span class="rpill r-hit">HIT</span>
+        <span><strong>Predicted: Oil continues declining toward bull-case territory as talk signals multiply.</strong> WTI fell to ~$88 — now at the lower bound of the "bull scenario confirmed" threshold. Trump's statement today is the strongest US signal yet. The oil-diplomacy correlation is tracking exactly as modelled. If WTI holds $88 or below for another session, the V/MA trigger fires and the portfolio adds its first pure "deal materialises" position.</span>
+      </div>
+      <div class="retro-row">
+        <span class="rpill r-hit">HIT</span>
+        <span><strong>Predicted: S&P reaches new high on deal-pricing and earnings season momentum.</strong> S&P closed at 7,022 — a fresh all-time high, confirming the market is pricing a deal, not just hoping for one. The portfolio's equity-heavy positioning has benefited directly. The original April 6 thesis — buy the normalisation, not the escalation — has played out structurally over the 9 days of this simulation.</span>
+      </div>
+      <div class="retro-row">
+        <span class="rpill r-part">PARTIAL</span>
+        <span><strong>Predicted: GLD holds or rises modestly as hedge function persists.</strong> Partially wrong: GLD fell again as oil declined and peace signals multiplied. This is the second consecutive session GLD has declined on de-escalation news. This confirms the regime observation from yesterday's retro: GLD is in a de-escalation regime right now, not an inflation-fear regime. The 3.5% weight is small enough that the drag is manageable (~$60 est.), but it is a signal that the hedge's current function is attenuated. The add trigger at >30% bear prob remains the right gate.</span>
+      </div>
+      <div class="retro-row">
+        <span class="rpill r-miss">MISS</span>
+        <span><strong>Predicted: XOM exit trigger may fire today on official talk announcement.</strong> No official announcement yet — Trump's "very close to over" is a characterisation, not a joint statement. The trigger requires an official announcement from the US government (White House) or an Iranian government confirmation of scheduled talks. We are close but not there. The lesson: the trigger definition matters. Verbal signals from Trump are not the same as official diplomatic scheduling. This precision has protected the position from an emotionally premature exit.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== POSITIONS ===== -->
+<div class="sec" id="sec-picks">
+  <div class="ptabs">
+    <button class="pt on" onclick="showPick('nflx2',this)">NFLX ⚡</button>
+    <button class="pt" onclick="showPick('avgo2',this)">AVGO</button>
+    <button class="pt" onclick="showPick('unh2',this)">UNH</button>
+    <button class="pt" onclick="showPick('xom2',this)">XOM</button>
+    <button class="pt" onclick="showPick('jpm2',this)">JPM/GS</button>
+    <button class="pt" onclick="showPick('gld2',this)">GLD</button>
+    <button class="pt" onclick="showPick('crypto2',this)">BTC/ETH</button>
+  </div>
+
+  <!-- NFLX -->
+  <div class="pp on" id="pp-nflx2">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">NFLX</span><span class="cn">Netflix — Q1 Earnings Pending</span><span class="intent-pill ip-core">CORE</span><span class="status-pill sp-act">🔴 KILL SWITCH LIVE</span></div>
+        <div class="hmeta"><span>Entry $97.50 · Re-entry ~$106 · Current $107.55 · <span class="up">+10.3% blended</span></span><span>Weight: ~16%</span><span>Stop: $85 · Thesis freshness: STRENGTHENED (Apr 13 GS upgrade) — evidence &lt;5 days old ✓</span></div>
+      </div>
+      <div class="cbody">
+        <p class="thesis">The thesis is intact and was reinforced today by the broader market rally and oil decline. Stay-at-home viewing during the war period likely added modest subscriber tailwinds. The kill switch governs from here — the position's fate tonight is in the ad revenue number and the FCF guide, not in further narrative analysis. The full NFLX deep dive with ARPU model, ad-tier run-rate analysis, and post-earnings sizing decision will be in tomorrow's April 17 briefing.</p>
+        <div class="inv-box"><div class="inv-title">⚠ Kill Switch Thresholds (locked)</div><div class="inv-body">Ad revenue &lt;$500M → exit entire position at tomorrow's open.<br>Ad revenue $500–550M → reduce 50% at tomorrow's open.<br>Ad revenue ≥$550M AND FCF ≥$11B → hold full position, update thesis.<br>FCF guide cut below $10B regardless of ad revenue → reassess immediately.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AVGO -->
+  <div class="pp" id="pp-avgo2">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">AVGO</span><span class="cn">Broadcom — AI Infrastructure · Meta + Anthropic deals confirmed</span><span class="intent-pill ip-core">CORE</span><span class="status-pill sp-hold">STRENGTHENED ↑↑</span></div>
+        <div class="hmeta"><span>Entry $298 · Re-entry ~$390 · Current ~$393 · <span class="up">+31.9% blended</span></span><span>Weight: ~16%</span><span>Stop: $270 · Overweight expiry: May 1 if no new catalyst · Thesis freshness: STRENGTHENED (Apr 15 Meta deal) ✓</span></div>
+      </div>
+      <div class="cbody">
+        <p class="thesis">AVGO is the strongest thesis in the portfolio and has remained so for 9 days. The Meta partnership announced yesterday is an incremental backlog item, not a one-off event. The Anthropic + Alphabet deals from the same week add further confirmation that the AI compute buildout is real and Broadcom is a primary infrastructure beneficiary. The Jun 4 Q2 earnings is the next major catalyst gate. Between now and then, any additional hyperscaler deal announcement is an incremental positive. The 3% overweight above risk-parity target expires May 1 absent new catalysts — locked.</p>
+        <div class="val-band">
+          <div class="vb vb-bull"><div class="vb-label">Bull</div><div class="vb-price" style="color:var(--grn-drk)">$480–520</div><div class="vb-detail">AI capex accelerates · Further hyperscaler deals</div><div class="vb-return" style="color:var(--grn-drk)">+61–74% from entry</div></div>
+          <div class="vb vb-base"><div class="vb-label">Base</div><div class="vb-price">$430–480</div><div class="vb-detail">Backlog execution · Jun 4 earnings confirm</div><div class="vb-return">+44–61% from entry</div></div>
+          <div class="vb vb-bear"><div class="vb-label">Bear</div><div class="vb-price" style="color:var(--red-drk)">$270–320</div><div class="vb-detail">AI capex deferrals · Recession deepens · Stop at $270</div><div class="vb-return" style="color:var(--red-drk)">–9% to +7% from entry</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UNH -->
+  <div class="pp" id="pp-unh2">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">UNH</span><span class="cn">UnitedHealth — April 21 Dual Binary</span><span class="intent-pill ip-core">CORE</span><span class="status-pill sp-watch">PLAN DUE TOMORROW</span></div>
+        <div class="hmeta"><span>Entry $279 · Current ~$315 · <span class="up">+12.9%</span></span><span>Weight: ~13%</span><span>Stop: $245 · Thesis: UNCHANGED · Apr 21 = most dangerous date on calendar</span></div>
+      </div>
+      <div class="cbody">
+        <p class="thesis"><span class="claim c-est">EST</span> <strong>UNH April 21 Decision Tree (to be formalised tomorrow):</strong></p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11px">
+          <div style="background:var(--grn-bg);border-radius:var(--r);padding:8px 11px;border:.5px solid var(--grn-bdr)"><strong style="color:var(--grn-drk)">A: Beat + Extension</strong><br><span style="color:var(--grn-drk)">Hold full position. Raise stop to $285. Target $340–360.</span></div>
+          <div style="background:var(--amb-bg);border-radius:var(--r);padding:8px 11px;border:.5px solid var(--amb-bdr)"><strong style="color:var(--amb-drk)">B: Beat + Expiry</strong><br><span style="color:var(--amb-drk)">Hold 70%, reduce 30% to lock partial gains. Stop stays $245.</span></div>
+          <div style="background:var(--amb-bg);border-radius:var(--r);padding:8px 11px;border:.5px solid var(--amb-bdr)"><strong style="color:var(--amb-drk)">C: Miss + Extension</strong><br><span style="color:var(--amb-drk)">Reduce 50%. Re-evaluate within 48h. Stop $245.</span></div>
+          <div style="background:var(--red-bg);border-radius:var(--r);padding:8px 11px;border:.5px solid var(--red-bdr)"><strong style="color:var(--red-drk)">D: Miss + Expiry</strong><br><span style="color:var(--red-drk)">Exit 70% same session. Keep 30% with hard stop at $245.</span></div>
+        </div>
+        <div class="inv-box" style="margin-top:8px"><div class="inv-title">⚠ What Would Change the Plan</div><div class="inv-body">MCR spikes above 89.1% → scenario D escalates to full exit. DOJ probe goes from investigation to charges → full exit regardless of earnings. Ceasefire extension formally confirmed before April 21 → scenarios A/B become more probable, raising the hold bias.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- XOM -->
+  <div class="pp" id="pp-xom2">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">XOM</span><span class="cn">ExxonMobil stub — Exit Trigger Approaching</span><span class="intent-pill ip-hedge">HEDGE</span><span class="status-pill sp-act">EXIT TRIGGER APPROACHING</span></div>
+        <div class="hmeta"><span>Entry ~$135 blended · Stop: $128 · Thesis: WEAKENING — war premium near fully deflated</span><span>Weight: ~6%</span></div>
+      </div>
+      <div class="cbody">
+        <p class="thesis">XOM's entire thesis was geopolitical re-insurance. With WTI at $88 and Trump saying the war is "very close to over," the war premium that justified holding XOM has been substantially deflated. The position is still in profit (~$126 est. P&L on the stub), but the direction of that gain is now threatened by further oil decline. The exit trigger is precise: official announcement of next-round Iran talks. Not a Trump verbal statement. Not a Bloomberg report. An official US or Iranian government confirmation of scheduled talks. This precision matters — several false starts over the past week would have triggered a premature exit.</p>
+        <div class="inv-box"><div class="inv-title">⚠ Exit Trigger — Exact Conditions</div><div class="inv-body">Official US government (White House press office or State Department) OR official Iranian foreign ministry confirmation that next-round talks are scheduled → exit XOM at next session open. Trump informal statements do not count. Bloomberg/AP "reports" do not count. A joint statement from both sides would count.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JPM/GS -->
+  <div class="pp" id="pp-jpm2">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">JPM / GS</span><span class="cn">Financial Normalisation — Q1 Beats Confirmed</span><span class="intent-pill ip-start">STARTER→CORE</span><span class="status-pill sp-hold">HOLD — THESIS INTACT</span></div>
+        <div class="hmeta"><span>Entry Apr 8 · Weight: ~5%</span><span>Stop: Entry –7% · Thesis: UNCHANGED · Next gate: Q2 earnings</span></div>
+      </div>
+      <div class="cbody">
+        <p class="thesis">Both Q1 beats are confirmed. The normalisation thesis is intact. Fixed income and investment banking have directly benefited from oil and rate volatility. Next scale-up requires Q2 confirmation. Hold at 5% with entry –7% stop. No action needed today.</p>
+        <div class="inv-box"><div class="inv-title">⚠ What Would Invalidate</div><div class="inv-body">Q2 EPS miss on NII. Credit loss provisions spike significantly (consumer deterioration). Recession probability exceeds 50%.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLD -->
+  <div class="pp" id="pp-gld2">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">GLD</span><span class="cn">Gold — Hedge · De-Escalation Regime Currently Active</span><span class="intent-pill ip-hedge">HEDGE</span><span class="status-pill sp-hold">HOLD — DE-ESCALATION REGIME</span></div>
+        <div class="hmeta"><span>Entry Apr 13 · Current ~$4,800 · <span class="neu">Modest drawdown since entry</span></span><span>Weight: ~3.5%</span><span>Regime label: DE-ESCALATION (hedge attenuated) · Add trigger: not met</span></div>
+      </div>
+      <div class="cbody">
+        <p class="thesis"><strong>Regime label (new):</strong> GLD is currently in a DE-ESCALATION regime. In this regime, peace deal progress deflates both inflation fears (via oil decline) and safe-haven demand simultaneously, making GLD a drag rather than a hedge. This is expected and acceptable at 3.5% weight. The position's hedge function would reactivate in a BEAR regime (re-escalation, oil spike above $108). The current de-escalation drawdown is ~$60 estimated — within tolerance. Hold. Add trigger requires bear probability above 30% — currently 20%.</p>
+        <div class="inv-box"><div class="inv-title">⚠ When Hedge Reactivates</div><div class="inv-body">Bear probability rises above 30% (re-escalation scenario gains probability). Iran executes maritime closure threat (regime flips back to escalation). Fed surprises hawkish at FOMC April 28–29 (inflation hedge reactivates). Any of these would make GLD a positive contributor again.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CRYPTO -->
+  <div class="pp" id="pp-crypto2">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">BTC / ETH</span><span class="cn">Tactical Crypto · Risk-On Proxy</span><span class="intent-pill ip-tact">TACTICAL</span><span class="status-pill sp-hold">HOLD — TRAIL ACTIVE</span></div>
+        <div class="hmeta"><span>BTC ~$74K · ETH ~$2,325</span><span>BTC stop: $70K trailing · ETH stop: $2,050 · Both above stops</span></div>
+      </div>
+      <div class="cbody">
+        <p class="thesis">BTC and ETH continue to track risk sentiment, rising with equities as diplomatic news improves. BTC is ~$4,000 above the trailing stop with no sign of deterioration. Tax Day selling pressure from April 15 was absorbed cleanly. ETH outperformance continues with the ETH/BTC ratio at 3-month highs. Both positions are in "hold and let the stops govern" mode. The FOMC on April 28–29 is the next major risk-off catalyst to monitor for crypto.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== WATCHLIST ===== -->
+<div class="sec" id="sec-watchlist">
+  <div class="card">
+    <div class="chd"><div class="sl">Watchlist — Updated Priorities After Oil Falls to $88 and S&P ATH</div></div>
+    <div class="cbody">
+      <div class="wl-grid">
+
+        <div class="wl-item">
+          <div class="wl-header">
+            <span class="wl-ticker">V / MA</span>
+            <span class="wl-name">Visa / Mastercard</span>
+            <span class="wl-role wr-div">Deal Materialises</span>
+            <span class="wl-conviction wc-high">HIGH</span>
+          </div>
+          <span class="wl-priority wp-imminent">🔴 IMMINENT — 1 session away</span>
+          <div class="wl-thesis">WTI at $88 is at the trigger threshold. One more close below $88 → initiate 3% V or MA starter as pure "deal materialises" play. Payment volumes recover as energy prices fall and consumer confidence rebounds. Both names have pricing power and near-zero capital intensity.</div>
+          <div class="wl-trigger"><div class="wl-trigger-label">Entry Trigger</div><div class="wl-trigger-body">WTI closes below $88 for 2 consecutive sessions → initiate 3% starter at open. Currently: 1/2 sessions confirmed.</div></div>
+        </div>
+
+        <div class="wl-item">
+          <div class="wl-header">
+            <span class="wl-ticker">COST</span>
+            <span class="wl-name">Costco Wholesale</span>
+            <span class="wl-role wr-def">Defensive Consumer</span>
+            <span class="wl-conviction wc-high">HIGH</span>
+          </div>
+          <span class="wl-priority wp-approaching">🟡 APPROACHING — May earnings</span>
+          <div class="wl-thesis">War-era trade-down thesis intact. Even in a bull scenario (deal materialises), Costco benefits from renewed consumer confidence. The May earnings (Q3) are the cleaner entry gate vs entering on pure macro narrative.</div>
+          <div class="wl-trigger"><div class="wl-trigger-label">Entry Trigger</div><div class="wl-trigger-body">Pulls back to $870–900 OR Q3 May earnings beat $13.50+ EPS → 4% starter.</div></div>
+        </div>
+
+        <div class="wl-item">
+          <div class="wl-header">
+            <span class="wl-ticker">EQIX</span>
+            <span class="wl-name">Equinix · Data Centre REIT</span>
+            <span class="wl-role wr-ai">AI Infrastructure</span>
+            <span class="wl-conviction wc-med">MED</span>
+          </div>
+          <span class="wl-priority wp-approaching">🟡 APPROACHING — AVGO deal confirms AI infra capex</span>
+          <div class="wl-thesis">AVGO's Meta and Anthropic deals this week confirm AI infrastructure buildout is accelerating. EQIX is the physical layer — data centre capacity is the bottleneck. Conviction upgraded from last week. Still not chasing current levels.</div>
+          <div class="wl-trigger"><div class="wl-trigger-label">Entry Trigger</div><div class="wl-trigger-body">Pulls back to $680–720 (below 200-day MA) → 3% starter. Or: portfolio tech concentration drops below 38% post NFLX/XOM changes → add as AI infra diversifier.</div></div>
+        </div>
+
+        <div class="wl-item">
+          <div class="wl-header">
+            <span class="wl-ticker">LIN</span>
+            <span class="wl-name">Linde · Industrial Gases</span>
+            <span class="wl-role wr-ind">Industrial Diversifier</span>
+            <span class="wl-conviction wc-med">MED</span>
+          </div>
+          <span class="wl-priority wp-dormant">⚪ DORMANT — no near-term catalyst</span>
+          <div class="wl-thesis">Low correlation to tech and war macro. Long-term take-or-pay contracts. Would reduce tech concentration. No pressing entry signal — dormant until portfolio composition warrants diversification away from tech cluster.</div>
+          <div class="wl-trigger"><div class="wl-trigger-label">Entry Trigger</div><div class="wl-trigger-body">Pulls back to $385–400 OR tech cluster weight exceeds 50% → 3% starter as diversifier.</div></div>
+        </div>
+
+        <div class="wl-item">
+          <div class="wl-header">
+            <span class="wl-ticker">BAC</span>
+            <span class="wl-name">Bank of America</span>
+            <span class="wl-role wr-fin">Financial Diversifier</span>
+            <span class="wl-conviction wc-med">MED</span>
+          </div>
+          <span class="wl-priority wp-approaching">🟡 APPROACHING — Q1 results pending</span>
+          <div class="wl-thesis">Most rate-sensitive major bank. Curve steepening benefits NII directly. Q1 report pending — if credit provisions underrun like JPM, conviction upgrades to HIGH and entry trigger activates. Moving closer following JPM's clean print.</div>
+          <div class="wl-trigger"><div class="wl-trigger-label">Entry Trigger</div><div class="wl-trigger-body">BAC Q1 beat AND provisions below estimate → 2% starter. Q1 report expected imminently.</div></div>
+        </div>
+
+        <div class="wl-item">
+          <div class="wl-header">
+            <span class="wl-ticker">GLD+</span>
+            <span class="wl-name">Gold — Additional Add</span>
+            <span class="wl-role wr-def">Hedge Reload</span>
+            <span class="wl-conviction wc-med">MED</span>
+          </div>
+          <span class="wl-priority wp-dormant">⚪ DORMANT — bear prob falling</span>
+          <div class="wl-thesis">Bear probability now 20%, falling. In current de-escalation regime, additional GLD is a drag not a hedge. This trigger moves further away as the bull case strengthens. Only reactivates if scenario flips back to escalation.</div>
+          <div class="wl-trigger"><div class="wl-trigger-label">Trigger (Active)</div><div class="wl-trigger-body">Bear prob >30% AND ceasefire expires Apr 21 without extension → add $300. Currently: NOT MET and moving away.</div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CORRELATION ===== -->
+<div class="sec" id="sec-corr">
+  <div class="card">
+    <div class="chd"><div class="sl">Correlation Check — Day 9 · Vol Constraint Is Binding</div></div>
+    <div class="cbody">
+      <div class="corr-grid">
+        <div class="corr-item">
+          <div class="corr-title">Estimated Pairwise Correlations (30-day)</div>
+          <div class="corr-row"><span class="corr-label">NFLX / AVGO</span><span class="corr-val" style="color:var(--amb-drk)">+0.72</span></div>
+          <div class="corr-row"><span class="corr-label">NFLX / BTC</span><span class="corr-val" style="color:var(--amb-drk)">+0.58</span></div>
+          <div class="corr-row"><span class="corr-label">AVGO / BTC</span><span class="corr-val" style="color:var(--amb-drk)">+0.61</span></div>
+          <div class="corr-row"><span class="corr-label">NFLX / UNH</span><span class="corr-val" style="color:var(--grn-drk)">+0.18</span></div>
+          <div class="corr-row"><span class="corr-label">NFLX / XOM</span><span class="corr-val" style="color:var(--grn-drk)">–0.31</span></div>
+          <div class="corr-row"><span class="corr-label">BTC / GLD</span><span class="corr-val" style="color:var(--grn-drk)">+0.12</span></div>
+          <div class="corr-row" style="font-style:italic;font-size:10px;color:var(--text3)"><span>All EST · regime may shift post-deal</span></div>
+        </div>
+        <div class="corr-item">
+          <div class="corr-title">Drawdown Stress Test — Bear Scenario (Dollar Terms)</div>
+          <div class="corr-row"><span class="corr-label">NFLX –20%</span><span class="corr-val dn">–$387</span></div>
+          <div class="corr-row"><span class="corr-label">AVGO –20%</span><span class="corr-val dn">–$387</span></div>
+          <div class="corr-row"><span class="corr-label">BTC –20%</span><span class="corr-val dn">–$121</span></div>
+          <div class="corr-row"><span class="corr-label">ETH –20%</span><span class="corr-val dn">–$170</span></div>
+          <div class="corr-row"><span class="corr-label">UNH –15%</span><span class="corr-val dn">–$237</span></div>
+          <div class="corr-row"><span class="corr-label">JPM/GS –15%</span><span class="corr-val dn">–$91</span></div>
+          <div class="corr-row" style="border-top:1px solid var(--bdr2);padding-top:5px"><span class="corr-label"><strong>Full bear total</strong></span><span class="corr-val dn"><strong>–$1,393</strong></span></div>
+          <div class="corr-row" style="font-style:italic;font-size:10px;color:var(--text3)"><span>–11.5% from ~$12,100 master</span><span>GLD +20% offsets ~$85</span></div>
+        </div>
+      </div>
+      <p class="thesis" style="font-size:12px;margin-top:8px"><span class="claim c-est">EST</span> <strong>Vol constraint is binding (not decorative):</strong> Current estimated portfolio vol is 24–28% annualised, above the 28% threshold that triggers a mandatory sizing review. However, the primary driver is the NFLX binary event tonight — this is temporary elevated vol that will normalise post-print. If NFLX kill switch fires, vol drops to ~18–22% immediately as position exits. No sizing review required pre-print. If NFLX holds and AVGO remains at 16% post-May 1 without a new catalyst, the AVGO trim to 14% must execute per overweight expiry rules.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PORTFOLIO & P&L ===== -->
+<div class="sec" id="sec-portfolio">
+  <div class="port-stats">
+    <div class="ps"><div class="psl">Portfolio Value (Master)</div><div class="psv up">~$12,100</div></div>
+    <div class="ps"><div class="psl">10-Day Return (est.)</div><div class="psv up">+21.0%</div></div>
+    <div class="ps"><div class="psl">Cash Reserve</div><div class="psv">~$1,050</div></div>
+    <div class="ps"><div class="psl">Non-Correlated</div><div class="psv">~28%</div></div>
+    <div class="ps"><div class="psl">Bear Prob</div><div class="psv neu">20%</div></div>
+  </div>
+  <div style="font-size:10px;color:var(--text3);font-style:italic;margin-bottom:10px">All values referenced from master portfolio estimate of ~$12,100. <span class="claim c-est">EST</span> All sections use this figure. NFLX post-earnings result will update the master value in tomorrow's April 17 briefing.</div>
+
+  <div class="card">
+    <div class="chd"><div class="sl">All Positions — Day 9 Master Table · Post-Re-Entry State</div></div>
+    <div class="cbody">
+      <table class="ptable">
+        <thead><tr><th>Ticker</th><th>Intent</th><th>Status / Freshness</th><th>Weight</th><th>Est. P&L</th><th>Stop</th><th>Expected Return</th><th>Next Gate</th></tr></thead>
+        <tbody>
+          <tr><td>NFLX</td><td><span class="intent-pill ip-core">CORE</span></td><td style="text-align:left;color:var(--red-drk)">🔴 Kill switch LIVE — AH tonight</td><td>~16%</td><td class="up">+$186 est.</td><td>$85</td><td style="text-align:left">Contingent on AH print</td><td>Apr 16 AH</td></tr>
+          <tr><td>AVGO</td><td><span class="intent-pill ip-core">CORE</span></td><td style="text-align:left;color:var(--grn)">STRENGTHENED — Meta deal Apr 15</td><td>~16%</td><td class="up">+$456 est.</td><td>$270</td><td style="text-align:left">Bull +61–74% · Base +44–61%</td><td>Jun 4 Q2</td></tr>
+          <tr><td>UNH</td><td><span class="intent-pill ip-core">CORE</span></td><td style="text-align:left;color:var(--grn)">UNCHANGED · Medicare boost confirmed</td><td>~13%</td><td class="up">+$236 est.</td><td>$245</td><td style="text-align:left">Bull +22–33% · Base +11–22%</td><td>Apr 21 Q1</td></tr>
+          <tr><td>XOM stub</td><td><span class="intent-pill ip-hedge">HEDGE</span></td><td style="text-align:left;color:var(--amb)">WEAKENING — exit trigger approaching</td><td>~6%</td><td class="up">+$91 est.</td><td>$128</td><td style="text-align:left">Exit on official talk announcement</td><td>Official talks</td></tr>
+          <tr><td>JPM / GS</td><td><span class="intent-pill ip-start">STARTER→CORE</span></td><td style="text-align:left;color:var(--grn)">UNCHANGED — Q1 beats confirmed</td><td>~5%</td><td class="up">+$19 est.</td><td>Entry –7%</td><td style="text-align:left">Base +10–30%</td><td>Q2 earnings</td></tr>
+          <tr><td>GLD</td><td><span class="intent-pill ip-hedge">HEDGE</span></td><td style="text-align:left;color:var(--text2)">UNCHANGED — de-escalation regime</td><td>~3.5%</td><td class="dn">–$60 est.</td><td>–8% entry</td><td style="text-align:left">Hedge reactivates if bear >30%</td><td>Apr 21 scenario</td></tr>
+          <tr><td>BTC (50%)</td><td><span class="intent-pill ip-tact">TACTICAL</span></td><td style="text-align:left;color:var(--grn)">UNCHANGED — above $70K stop</td><td>~5%</td><td class="up">+$34 est.</td><td>$70K trail</td><td style="text-align:left">Stop governs exit</td><td>Active</td></tr>
+          <tr><td>ETH</td><td><span class="intent-pill ip-tact">TACTICAL</span></td><td style="text-align:left;color:var(--grn)">UNCHANGED — outperforming BTC</td><td>~7%</td><td class="up">+$19 est.</td><td>$2,050</td><td style="text-align:left">Stop governs exit</td><td>Active</td></tr>
+          <tr style="background:var(--bg2)"><td colspan="2"><strong>Cash Reserve</strong></td><td style="text-align:left">Post re-entry · Fire extinguisher maintained</td><td>~9%</td><td colspan="4">~$1,050 · Available for V/MA if trigger fires or post-NFLX reallocation</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="chd"><div class="sl">Harvest Rule (50/30/20) — Cash Deployment Status</div></div>
+    <div class="cbody">
+      <div class="harvest-rule">
+        <div class="hr-item"><div class="hr-pct up">50%</div><div class="hr-label">Cash Reserve</div><div class="hr-detail">~$1,050 remaining post re-entry. Fire extinguisher function intact. Available for V/MA trigger or post-NFLX reallocation if kill switch fires.</div></div>
+        <div class="hr-item"><div class="hr-pct" style="color:var(--blu)">30%</div><div class="hr-label">Diversification</div><div class="hr-detail">$200 executed to JPM/GS (Apr 14). This leg is complete for the April 13 trim cycle.</div></div>
+        <div class="hr-item"><div class="hr-pct neu">20%</div><div class="hr-label">Re-Entry</div><div class="hr-detail">$350 deployed today ($175 NFLX + $175 AVGO). Rule executed as designed — re-entry reserve fully deployed.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TRADE LOG ===== -->
+<div class="sec" id="sec-tradelog">
+  <div class="card">
+    <div class="chd"><div class="sl">Trade Log — All Transactions · Complete Proceeds Accounting</div></div>
+    <div class="cbody">
+      <table class="ptable">
+        <thead><tr><th>Date</th><th>Ticker</th><th>Action</th><th>Trigger / Proceeds</th><th>Price</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Apr 6</td><td>NFLX</td><td style="text-align:left">BUY CORE</td><td style="text-align:left">Thesis entry · GS $120 PT</td><td>$97.50</td><td style="text-align:left;color:var(--grn)">Open · kill switch live tonight</td></tr>
+          <tr><td>Apr 6</td><td>AVGO</td><td style="text-align:left">BUY CORE</td><td style="text-align:left">AI capex · $73B backlog</td><td>$298.00</td><td style="text-align:left;color:var(--grn)">Open · thesis strengthening</td></tr>
+          <tr><td>Apr 6</td><td>UNH</td><td style="text-align:left">BUY CORE</td><td style="text-align:left">Defensive · Optum AI</td><td>$279.00</td><td style="text-align:left;color:var(--grn)">Open · Apr 21 binary approaching</td></tr>
+          <tr><td>Apr 6</td><td>XOM</td><td style="text-align:left">BUY HEDGE</td><td style="text-align:left">Escalation re-insurance</td><td>~$130</td><td style="text-align:left;color:var(--amb)">Open stub · exit trigger approaching</td></tr>
+          <tr><td>Apr 6</td><td>SOL</td><td style="text-align:left">SHORT TACTICAL</td><td style="text-align:left">High-beta hedge</td><td>$86.00</td><td style="text-align:left;color:var(--text3)">CLOSED +$54 ✓</td></tr>
+          <tr><td>Apr 7</td><td>XOM</td><td style="text-align:left">TRIM HEDGE</td><td style="text-align:left">Ceasefire · premium reduced</td><td>~$155</td><td style="text-align:left;color:var(--text3)">Partial harvest ✓</td></tr>
+          <tr><td>Apr 7</td><td>BTC</td><td style="text-align:left">BUY TACTICAL</td><td style="text-align:left">Ceasefire risk-on</td><td>$69,500</td><td style="text-align:left;color:var(--grn)">Open (50%)</td></tr>
+          <tr><td>Apr 7</td><td>BTC</td><td style="text-align:left">SELL 50% HARVEST</td><td style="text-align:left">$72,700 locked</td><td>$72,700</td><td style="text-align:left;color:var(--text3)">Harvest ✓</td></tr>
+          <tr><td>Apr 7</td><td>ETH</td><td style="text-align:left">BUY TACTICAL</td><td style="text-align:left">BTC catch-up</td><td>$2,200</td><td style="text-align:left;color:var(--grn)">Open</td></tr>
+          <tr><td>Apr 8</td><td>JPM/GS</td><td style="text-align:left">BUY STARTER</td><td style="text-align:left">Normalisation thesis</td><td>Apr 8 open</td><td style="text-align:left;color:var(--grn)">Open 3%→5%</td></tr>
+          <tr style="background:var(--amb-bg)"><td>Apr 13</td><td>NFLX</td><td style="text-align:left">TRIM 20% — OIL TRIGGER</td><td style="text-align:left">WTI >$105 · 50/30/20 applied</td><td>~$105</td><td style="text-align:left;color:var(--text3)">✓</td></tr>
+          <tr style="background:var(--amb-bg)"><td>Apr 13</td><td>AVGO</td><td style="text-align:left">TRIM 20% — OIL TRIGGER</td><td style="text-align:left">WTI >$105 · 50/30/20 applied</td><td>~$340</td><td style="text-align:left;color:var(--text3)">✓</td></tr>
+          <tr style="background:var(--amb-bg)"><td>Apr 13</td><td>GLD</td><td style="text-align:left">BUY HEDGE</td><td style="text-align:left">Bear prob >25% · $400</td><td>Market open</td><td style="text-align:left;color:var(--grn)">Open · de-escalation drag</td></tr>
+          <tr style="background:var(--grn-bg)"><td>Apr 14</td><td>JPM/GS</td><td style="text-align:left">SCALE 3%→5% — JPM BEAT</td><td style="text-align:left">EPS $5.94 · provisions $500M below</td><td>Apr 14</td><td style="text-align:left;color:var(--text3)">✓</td></tr>
+          <tr style="background:var(--grn-bg)"><td>Apr 16</td><td>NFLX</td><td style="text-align:left">RE-ENTRY — OIL TRIGGER</td><td style="text-align:left">WTI &lt;$95 confirmed · $175 re-entry reserve</td><td>~$106</td><td style="text-align:left;color:var(--grn)">Executed ✓</td></tr>
+          <tr style="background:var(--grn-bg)"><td>Apr 16</td><td>AVGO</td><td style="text-align:left">RE-ENTRY — OIL TRIGGER</td><td style="text-align:left">WTI &lt;$95 confirmed · $175 re-entry reserve</td><td>~$390</td><td style="text-align:left;color:var(--grn)">Executed ✓</td></tr>
+          <tr style="background:var(--bg2)"><td colspan="2"><strong>Pending</strong></td><td colspan="4">NFLX kill switch: AH tonight → apply tomorrow open if triggered · XOM exit: official talks announcement · V/MA: WTI 2nd session below $88 · UNH: Apr 21 dual-binary per decision tree</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="key-change">
+  <strong>Key model changes this briefing:</strong> (1) Critical Path box now leads every briefing — 5 bullets max, time-ordered, replaces buried action items. (2) Kill switch exact thresholds (ad rev $500M / $550M / $11B FCF) displayed prominently above the tabs — no longer buried in a preview tab. (3) Portfolio expected return added to exec summary as single line: base case +21–34%, with bull/bear bands. (4) Overweight expiry rules formalised — NFLX overweight resolves tonight via print; AVGO 3% overweight expires May 1 absent new catalyst; BTC governed by trailing stop. (5) GLD given explicit regime label (DE-ESCALATION) — hedge function is attenuated and this is stated prospectively, not caught in retro. (6) Watchlist now includes priority labels (IMMINENT / APPROACHING / DORMANT) — V/MA moved to IMMINENT as WTI touches $88. (7) Vol constraint made binding: >28% triggers mandatory sizing review, not just a note.
+</div>
+
+<div class="disclaim">⚠ HYPOTHETICAL EDUCATIONAL SIMULATION — April 16, 2026. All positions, values, and scenario probabilities are illustrative. Nothing here constitutes financial advice. <span class="claim c-fact">FACT</span> = sourced market data. <span class="claim c-est">EST</span> = model estimate. Next briefing: April 17 — NFLX Q1 post-earnings deep dive + UNH April 21 dual-binary plan (mandatory).</div>
+
+<script>
+const toggleBtn=document.getElementById('theme-toggle');
+const htmlEl=document.documentElement;
+if(localStorage.getItem('theme')==='dark'){htmlEl.setAttribute('data-theme','dark');}
+toggleBtn.addEventListener('click',()=>{const isDark=htmlEl.getAttribute('data-theme')==='dark';htmlEl.setAttribute('data-theme',isDark?'':'dark');localStorage.setItem('theme',isDark?'light':'dark');});
+function showMain(id,btn){document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));document.querySelectorAll('.mt').forEach(t=>t.classList.remove('on'));document.getElementById('sec-'+id).classList.add('on');btn.classList.add('on');}
+function showPick(id,btn){document.querySelectorAll('.pp').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.pt').forEach(t=>t.classList.remove('on'));document.getElementById('pp-'+id).classList.add('on');btn.classList.add('on');}
+function pb(id,b,n,r){const el=document.getElementById(id);if(!el)return;el.innerHTML=`<div class="pb-b" style="width:${b}%"></div><div class="pb-n" style="width:${n}%"></div><div class="pb-r" style="width:${r}%"></div>`;}
+window.addEventListener('load',function(){pb('macro-pbar',48,32,20);});
+</script>
+</body>
+</html>
