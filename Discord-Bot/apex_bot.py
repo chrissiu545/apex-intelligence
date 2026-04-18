@@ -29,6 +29,10 @@ EXCLUDED_WORDS = {
 class ApexMonitor(discord.Client):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        # Load the master list into memory ONCE
+        with open("ticker_master.txt", "r") as f:
+            self.master_tickers = set(line.strip().upper() for line in f)
+        
         self.last_timestamp = 0
         self.watchlist = []
         self.update_watchlist()
@@ -64,7 +68,8 @@ class ApexMonitor(discord.Client):
                 # (unless they are in our manual_keywords list)
                 self.watchlist = [
                     word for word in combined 
-                    if word not in EXCLUDED_WORDS and (2 <= len(word) <= 5 or word in manual_keywords)
+                    if (word in self.master_tickers or word in manual_keywords)
+                    and word not in EXCLUDED_WORDS
                 ]
                 
                 print(f"✅ Watchlist updated: {self.watchlist}")
