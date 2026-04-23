@@ -23,7 +23,8 @@ EXCLUDED_WORDS = {
     "ANY", "WHY", "NOW", "HERE", "SOME", "SAME", "BOTH", "EACH", "INTO", "OVER",
     "HTML", "CSS", "MODE", "EDIT", "VIEW", "TEXT", "PART", "LIST", "ITEM", "FILE",
     "DATE", "HOUR", "STEP", "YEAR", "TERM", "SHOW", "PAST", "POST", "DONE", "DATA",
-    "REAL", "BACK", "FACT", "CASE", "DAYS", "SIZE", "TIME", "WELL", "MADE", "LOOK"
+    "REAL", "BACK", "FACT", "CASE", "DAYS", "SIZE", "TIME", "WELL", "MADE", "LOOK",
+    "IT", "DE", "HAS", "ON", "SO"
 }
 
 class ApexMonitor(discord.Client):
@@ -59,7 +60,7 @@ class ApexMonitor(discord.Client):
                 found_tickers = re.findall(r'\b[A-Z]{2,5}\b', text)
                 
                 # 2. Your must-track tactical keywords
-                manual_keywords = ["CEASEFIRE", "CPI", "MEDICARE", "BLOCKADE", "ISLAMABAD"]
+                manual_keywords = ["CEASEFIRE", "CPI", "BLOCKADE", "GLD", "V"]
                 
                 # 3. Combine and filter
                 combined = list(set(found_tickers + manual_keywords))
