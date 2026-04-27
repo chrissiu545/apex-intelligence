@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apex Capital · April 27, 2026 — Day 16 · V Exited · Iran Hormuz Proposal · AVGO Decision Week · GLD Re-Armed</title>
+<link rel="stylesheet" href="../apex-core.css">
+<style>
+/* Local overrides */
+.intent-pill{font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.04em;text-transform:uppercase}
+.ip-core{background:var(--blu-bg);color:var(--blu);border:.5px solid var(--blu-bdr)}
+.ip-hedge{background:var(--grn-bg);color:var(--grn-drk);border:.5px solid var(--grn-bdr)}
+.ip-tact{background:var(--pur-bg);color:var(--pur);border:.5px solid var(--pur-bdr)}
+.ip-exit{background:var(--red-bg);color:var(--red-drk);border:.5px solid var(--red-bdr)}
+.status-pill{font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.04em}
+.sp-hold{background:var(--bg3);color:var(--text2)}
+.sp-watch{background:var(--amb-bg);color:var(--amb-drk)}
+.sp-exit{background:var(--red-bg);color:var(--red-drk)}
+.sp-decision{background:var(--amb-bg);color:var(--amb-drk);border:.5px solid var(--amb-bdr)}
+
+.card{background:var(--bg2);border:.5px solid var(--bdr);border-radius:var(--rl);margin-bottom:14px}
+.chd{padding:10px 14px;border-bottom:.5px solid var(--bdr)}
+.sl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)}
+.cbody{padding:12px 14px}
+.trow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px}
+.tk{font-size:20px;font-weight:800;letter-spacing:-.02em}
+.cn{font-size:11px;color:var(--text2)}
+.hmeta{font-size:10px;color:var(--text3)}
+.thesis{font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:8px}
+.inv-box{background:var(--red-bg);border:.5px solid var(--red-bdr);border-radius:var(--r);padding:8px 12px;margin-top:6px}
+.inv-title{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--red-drk);margin-bottom:3px}
+.inv-body{font-size:11px;color:var(--red-drk);line-height:1.45}
+
+/* portfolio table */
+.ptable{width:100%;border-collapse:collapse;font-size:11px}
+.ptable th{text-align:center;padding:5px 8px;border-bottom:1px solid var(--bdr2);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);white-space:nowrap}
+.ptable td{text-align:center;padding:5px 8px;border-bottom:.5px solid var(--bdr)}
+.ptable tr:last-child td{border-bottom:none}
+
+/* scenario grid */
+.scg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px}
+.sc-item{border-radius:var(--r);padding:11px 13px;font-size:11px;line-height:1.55}
+.sc-bull{background:var(--grn-bg);border:.5px solid var(--grn-bdr)}
+.sc-base{background:var(--blu-bg);border:.5px solid var(--blu-bdr)}
+.sc-bear{background:var(--red-bg);border:.5px solid var(--red-bdr)}
+.sc-title{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
+.sc-bull .sc-title{color:var(--grn-drk)}
+.sc-base .sc-title{color:var(--blu)}
+.sc-bear .sc-title{color:var(--red-drk)}
+
+/* progress bar */
+.pb-wrap{height:8px;border-radius:4px;overflow:hidden;background:var(--bg3);display:flex;margin-bottom:12px}
+.pb-b{background:var(--grn);height:100%}
+.pb-n{background:var(--amb);height:100%}
+.pb-r{background:var(--red);height:100%}
+
+/* position tabs */
+.ptabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px}
+.pt{padding:5px 12px;font-size:11px;font-weight:600;border:.5px solid var(--bdr2);background:var(--bg2);color:var(--text3);cursor:pointer;border-radius:var(--r);font-family:var(--sans)}
+.pt.on{background:var(--text);color:var(--bg)}
+.pp{display:none}.pp.on{display:block}
+
+/* tab sections */
+.sec{display:none}.sec.on{display:block}
+
+/* decision box */
+.decision-box{background:var(--amb-bg);border:1.5px solid var(--amb-bdr);border-radius:var(--rl);padding:14px 16px;margin-bottom:14px}
+.decision-title{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--amb-drk);margin-bottom:10px}
+.decision-option{background:var(--bg);border-radius:var(--r);padding:10px 13px;margin-bottom:8px;border:.5px solid var(--amb-bdr);font-size:11px;color:var(--text2);line-height:1.55}
+.decision-option:last-child{margin-bottom:0}
+.do-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+
+/* val band */
+.val-band{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+.vb-item{background:var(--bg2);border-radius:var(--r);padding:9px 12px;border:.5px solid var(--bdr)}
+.vb-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:3px}
+.vb-val{font-size:16px;font-weight:800;letter-spacing:-.02em}
+
+/* retro */
+.retro-row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:.5px solid var(--bdr);font-size:12px}
+.retro-row:last-child{border-bottom:none}
+.rpill{font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:1px}
+.r-hit{background:var(--grn-bg);color:var(--grn-drk)}
+.r-miss{background:var(--red-bg);color:var(--red-drk)}
+.r-part{background:var(--amb-bg);color:var(--amb-drk)}
+.r-qual{font-size:9px;padding:1px 5px;border-radius:3px;margin-left:4px;font-style:italic}
+.rq-strong{background:var(--grn-bg);color:var(--grn-drk)}
+.rq-weak{background:var(--amb-bg);color:var(--amb-drk)}
+
+/* news */
+.news-item{display:flex;flex-direction:column;gap:3px;padding:10px 0;border-bottom:.5px solid var(--bdr)}
+.news-item:last-child{border-bottom:none}
+.news-tag{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em}
+.nt-break{color:var(--red)}.nt-econ{color:var(--blu)}.nt-war{color:var(--amb-drk)}.nt-mkt{color:var(--grn-drk)}.nt-earn{color:#6c3483}
+.news-head{font-size:12px;font-weight:600;line-height:1.35}
+.news-body{font-size:11px;color:var(--text2);line-height:1.45}
+
+/* cal */
+.cal-box{background:var(--bg2);border-radius:var(--rl);padding:12px 14px}
+.cal-item{display:flex;gap:8px;padding:5px 0;border-bottom:.5px solid var(--bdr);align-items:flex-start}
+.cal-item:last-child{border-bottom:none}
+.cal-day{font-size:10px;font-weight:700;color:var(--text3);min-width:44px}
+.cal-txt{font-size:11px;color:var(--text2);line-height:1.35}
+.cal-imp{font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:3px}
+.hi{background:var(--red-bg);color:var(--red-drk)}
+.med{background:var(--amb-bg);color:var(--amb-drk)}
+.lo{background:var(--grn-bg);color:var(--grn-drk)}
+
+/* watchlist */
+.wl-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:8px}
+.wl-card{background:var(--bg2);border:.5px solid var(--bdr);border-radius:var(--r);padding:11px 13px}
+.wl-ticker{font-size:16px;font-weight:800;margin-bottom:2px}
+.wl-name{font-size:10px;color:var(--text3);margin-bottom:5px}
+.wl-tag{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:2px 6px;border-radius:3px;margin-bottom:6px}
+.wlt-bull{background:var(--grn-bg);color:var(--grn-drk);border:.5px solid var(--grn-bdr)}
+.wlt-hedge{background:var(--blu-bg);color:var(--blu);border:.5px solid var(--blu-bdr)}
+.wlt-watch{background:var(--amb-bg);color:var(--amb-drk);border:.5px solid var(--amb-bdr)}
+.wlt-imm{background:var(--red-bg);color:var(--red-drk);border:.5px solid var(--red-bdr)}
+.wl-thesis{font-size:11px;color:var(--text2);line-height:1.5;margin-bottom:6px}
+.wl-entry{font-size:10px;color:var(--text3)}
+.wl-entry strong{color:var(--text)}
+.wl-gate{font-size:10px;font-style:italic;color:var(--text3);border-top:.5px solid var(--bdr);margin-top:6px;padding-top:5px}
+
+/* corr */
+.corr-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+.corr-item{background:var(--bg2);border-radius:var(--r);padding:10px 12px}
+.corr-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:6px}
+.corr-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:.5px solid var(--bdr);font-size:11px}
+.corr-row:last-child{border-bottom:none}
+.corr-label{color:var(--text2)}
+.corr-val{font-weight:700;font-family:monospace}
+
+/* port stats */
+.port-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:12px}
+.ps{background:var(--bg2);border-radius:var(--r);padding:9px 11px}
+.psl{font-size:9px;color:var(--text3);margin-bottom:2px;text-transform:uppercase;letter-spacing:.06em}
+.psv{font-size:16px;font-weight:800;letter-spacing:-.02em}
+</style>
+</head>
+<body>
+
+<div class="sim-banner">
+  <div class="sim-left"><div class="sim-dot"></div>HYPOTHETICAL EDUCATIONAL SIMULATION — April 27, 2026 · Day 16 · Not financial advice · All values illustrative</div>
+  <button class="theme-btn" id="theme-toggle">🌓 Toggle Mode</button>
+</div>
+
+<nav class="portal-nav">
+  <div class="portal-nav-inner">
+    <a href="../index.html" class="portal-link"><span style="font-size:16px;line-height:0">←</span> Apex Intelligence Portal</a>
+    <span class="portal-badge">Internal Briefing · April 27, 2026 · Day 16 · V Exited · Iran Hormuz-Only Proposal · AVGO Decision Week · GLD Re-Armed</span>
+  </div>
+</nav>
+
+<!-- CRITICAL PATH -->
+<div class="critical-path">
+  <div class="cp-title">⚡ Today's Critical Path — Day 16</div>
+  <div class="cp-items">
+    <div class="cp-item"><span class="cp-badge cpb-done">✅ V EXITED</span><span><strong>V exit executed as scheduled.</strong> No joint US-Iran statement was issued over the weekend. The exception clause was not met. V exits at Monday open, VWAP 10:00–10:30 AM ET, as per the default rule. Proceeds ~$185 est. join re-entry reserve. Total cash now ~$2,865 est. (~24%). Cash ceiling clock: Day 3 of 10 (deadline May 7).</span></div>
+    <div class="cp-item"><span class="cp-badge" style="background:#e05555;color:#fdeaea;animation:pulse 1.5s infinite">🔴 APR 29 — AVGO DECISION</span><span><strong>Decision deadline: April 29 EOD.</strong> Default = Option B (trim 16% → 13% at VWAP, May 1). Override requires: Meta IR/SEC filing or AVGO public management acknowledgment, OR qualifying mega-cap earnings commentary on AI capex (MSFT/AMZN/GOOGL/META report Apr 29). New input this briefing: <span class="claim c-fact">FACT</span> Broadcom stock all-time high was $429.31 on Apr 23. AVGO currently ~$417–420 range — resilient even as talks stalled. The Alphabet/AVGO Google Cloud expanded collaboration (announced Apr 23) is a press-reported catalyst, not an IR filing. Does not qualify alone. META partnership through 2029 (Apr 15 news) does not qualify as a new Apr 29 input. Decision rests on what mega-caps say on earnings calls Tuesday.</span></div>
+    <div class="cp-item"><span class="cp-badge cpb-watch">ARMED — GLD CONDITION 2</span><span><strong>GLD trigger re-armed at elevated bear prob.</strong> Talks collapsed over the weekend. <span class="claim c-est">EST</span> Bear probability rises to ~36–38% from Day 15's ~32%. Condition 1 (bear prob ≥30%) = FIRMLY MET. Condition 2 (ceasefire void declared or IRGC vessel fire on US) still not triggered — but the stalemate deepens. Iran gave Pakistan a list of "red lines" including Hormuz and nuclear issues. Trump says Iran can "call us." Araghchi now in Moscow meeting Putin. If any IRGC vessel fire or explicit ceasefire void declaration occurs this week, GLD add fires immediately (~+1.5% weight, ~$180 est. at $4,700/oz).</span></div>
+    <div class="cp-item"><span class="cp-badge cpb-watch">NEW — IRAN HORMUZ PROPOSAL</span><span><strong>Iran has submitted a new proposal: reopen Hormuz in exchange for lifting the US blockade and ending the war — nuclear talks deferred to Phase 2.</strong> <span class="claim c-fact">FACT</span> Via AP, PBS, Axios: the proposal was conveyed to the US through Pakistani mediators. Trump told journalists Iran sent a "much better" proposal after he canceled the Islamabad trip. The White House has received it but has not accepted — a senior official said the US will not negotiate through the press. <span class="claim c-est">EST</span> Expert analysis: unlikely to be accepted as-is because it removes US nuclear leverage. This is a stalemate-with-new-input situation, not a breakthrough. Trump's Situation Room meeting today on Iran is the next key watch. XOM R2 trigger (joint US-Iran official statement) still NOT met.</span></div>
+    <div class="cp-item"><span class="cp-badge cpb-watch">APR 30 — LLY EARNINGS</span><span><strong>LLY reports Q1 April 30 — 3% entry candidate from re-entry reserve.</strong> <span class="claim c-fact">FACT</span> LLY confirmed Q1 report April 30. Revenue forecast $17.60B. Market has priced in ±6.16% reaction (~$56). <span class="claim c-est">EST</span> LLY trading ~$884 (Apr 26 range: $871–$904). Entry gate: beat + guidance maintained → 3% position from re-entry reserve at VWAP April 30–May 1. LLY is the best correlation diversifier on the watchlist (~0.18 vs AVGO). New catalyst: LLY expanded partnership with Hims & Hers via LillyDirect (Apr 23). CMS flipped stance to cover Medicare GLP-1 obesity drugs (Apr 22) — major structural positive ahead of earnings.</span></div>
+    <div class="cp-item"><span class="cp-badge cpb-done">MAY 1 — XOM EARNINGS + AVGO TRIM</span><span>XOM Q1 earnings May 1. AVGO trim (Option B default) executes May 1 unless overridden by Apr 29 decision. WTI ~$95–97 today — elevated environment should support XOM beat. R2 exit trigger (joint official statement) not yet met. Stub held.</span></div>
+  </div>
+</div>
+
+<div class="firm">Apex Capital · Aggressive Growth Portfolio</div>
+<div class="hdr-row">
+  <h1>April 27, 2026 — V Exited · Iran Hormuz-Only Proposal · AVGO Decision Week · GLD Re-Armed</h1>
+  <span class="hdr-pill hp-amb">⚖️ Stalemate Deepens · New Iranian Proposal Circulating</span>
+</div>
+<p class="subtitle">
+  V exit executed at Monday open (default rule, no joint statement) · Iran submitted Hormuz-first proposal via Pakistan — nuclear talks deferred · Trump cancels Islamabad trip, says Iran "can call us" · Araghchi tours Oman, Islamabad, now Moscow meeting Putin · Trump Situation Room meeting today · WTI ~$95–97 (up from ~$95 Friday, volatile) · Brent ~$106–107 · AVGO ~$417–420 (resilient, near ATH) · BTC ~$77,856–78,670 (holding above $70K stop) · ETH ~$2,315–2,370 · GLD ~$4,699–4,745 · Bear prob rises to ~36–38% est. · Cash at ~24% — Day 3 of 10 ceiling clock · <strong>Decision Week: AVGO Apr 29, LLY Apr 30, XOM + AVGO trim May 1</strong>
+</p>
+
+<!-- WILDCARDS -->
+<div class="wildcard wc-amb">
+  🚢 <strong>IRAN SUBMITS HORMUZ-FIRST PROPOSAL — NUCLEAR TALKS DEFERRED — TRUMP SKEPTICAL (FACT/EST):</strong> <span class="claim c-fact">FACT</span> Via AP and Axios: Iran has offered to reopen the Strait of Hormuz if the US lifts its naval blockade and ends the war, with nuclear negotiations deferred to a later phase. The proposal was conveyed through Pakistani mediators. Trump told journalists Saturday Iran sent a "much better" proposal after he called off the Islamabad trip. The White House has received it but not accepted. A White House spokesperson said the US "holds the cards and will only make a deal that puts the American people first." Expert (INSS): "I have serious doubts the US will accept this offer, because then the US will lose leverage on the nuclear file." Araghchi told mediators that Iranian leadership is divided on nuclear concessions. <span class="claim c-est">EST</span> This proposal does not constitute a joint US-Iran statement. No portfolio trigger fires. The situation is: stalemate-with-new-variable. Trump's Situation Room meeting today is the next hard watch.
+</div>
+<div class="wildcard wc-red">
+  🔴 <strong>TALKS COLLAPSE CONFIRMED — ARAGHCHI IN MOSCOW, TRUMP SAYS "CALL US" — BEAR PROB RISES (FACT/EST):</strong> <span class="claim c-fact">FACT</span> Witkoff and Kushner trip canceled. Trump cited "infighting and confusion" in Iranian leadership. Araghchi did not meet with US officials in Islamabad — went to Oman, returned to Islamabad for Pakistan leadership meetings, now in Moscow meeting Putin. Putin told Araghchi: "We see how courageously and heroically the Iranian people are fighting." Russia reaffirmed strategic relationship with Iran. US blockade has now prevented 38 ships from entering/leaving Iranian ports per CENTCOM. <span class="claim c-est">EST</span> Bear probability estimate rises to ~36–38% from last briefing's ~29–32%. The stalemate is now locked in for the near term unless Trump's Situation Room meeting today produces a new US counter-proposal. GLD Condition 1 firmly met.
+</div>
+<div class="wildcard wc-grn">
+  📡 <strong>AVGO NEAR ALL-TIME HIGH — $429.31 ATH ON APR 23 — DECISION WEEK BEGINS (FACT/EST):</strong> <span class="claim c-fact">FACT</span> AVGO hit its all-time high of $429.31 on April 23, 2026. Current price ~$417–420, slightly below ATH but resilient. Meta-Broadcom partnership extended through 2029 (Apr 15). Google Cloud expanded collaboration (Apr 23). Anthropic expanded into Europe — TPU/Broadcom exposure continues. AVGO Q2 guidance (from last quarter): AI semiconductor revenue growth of 140% YoY. Next earnings: June 4. <span class="claim c-est">EST</span> The AVGO thesis is strengthening from the AI infrastructure side. The question for Apr 29 decision is whether any of MSFT/AMZN/GOOGL/META earnings call commentary constitutes qualifying "public management acknowledgment" of AVGO-specifically. Option A (hold to Jun 4) becomes more defensible with each additional partner announcement. Default remains Option B unless Apr 29 supplies a qualifying override.
+</div>
+
+<!-- EXEC SUMMARY -->
+<div class="exec-box">
+  <div class="exec-title">⚡ Day 16 Executive Summary</div>
+  <div class="exec-grid">
+    <div class="exec-item" style="border-color:var(--amb-bdr)">
+      <div class="exec-label">Portfolio Value (est.)</div>
+      <div class="exec-val up">~$12,030 est.</div>
+      <div class="exec-sub"><span class="claim c-est">EST</span> AVGO ~$418 (+~$12 from Day 15 close ~$415) · V exit removes ~$185 · Cash rises · BTC/ETH stable above stops · S&P Nasdaq +1.01% tailwind today (tech bid on Iran new proposal). Net: slight positive day.</div>
+    </div>
+    <div class="exec-item">
+      <div class="exec-label">Daily Change</div>
+      <div class="exec-val up">+~$90 est.</div>
+      <div class="exec-sub"><span class="claim c-est">EST</span> AVGO +~0.7% on 16% weight (+~$84 est.) · BTC flat · Nasdaq bid lifts semis. V exit proceeds move to cash. Small net positive.</div>
+    </div>
+    <div class="exec-item">
+      <div class="exec-label">Cumul. Realised Gain</div>
+      <div class="exec-val up">+~$570 est.</div>
+      <div class="exec-sub"><span class="claim c-est">EST</span> V exit at ~breakeven (entered near current price). No new realisations. UNH realised gain +~$210 from Apr 21 trim remains the largest realised item.</div>
+    </div>
+    <div class="exec-item">
+      <div class="exec-label">Cash (post V exit)</div>
+      <div class="exec-val neu">~$2,865 est.</div>
+      <div class="exec-sub"><span class="claim c-est">EST</span> ~$2,680 + V exit proceeds ~$185 = ~$2,865. ~24% of portfolio. Cash ceiling clock: Day 3 of 10 (deadline May 7 = deploy excess above 20% to lowest-vol position). Re-entry reserve: ~$379 (cooling ~$194 + V exit ~$185).</div>
+    </div>
+  </div>
+
+  <div class="exec-title" style="margin-top:4px">V Exit — Completed · Exception Not Met</div>
+  <div style="background:var(--grn-bg);border:.5px solid var(--grn-bdr);border-radius:var(--r);padding:10px 14px;margin-bottom:12px;font-size:11px;color:var(--grn-drk)">
+    <strong>✅ V exit executed at Monday open (April 25 VWAP 10:00–10:30 ET).</strong> No joint US-Iran statement was issued. Iran FM was in Islamabad but denied direct meeting with US officials. The exception clause required: State Dept + Iranian FM joint statement, or Pakistani government official confirmation of direct US-Iran dialogue with both parties. None of these were met. The rule worked exactly as designed: it filtered out White House press secretary statements and media reports of "progress" that did not constitute hard confirmation. <strong>Proceeds: ~$185 est. added to re-entry reserve. Total re-entry reserve: ~$379 est.</strong>
+  </div>
+
+  <div class="exec-title">Standing Actions — Decision Week</div>
+  <div class="action-list">
+    <div class="action-item"><span class="apill a-live">APR 29 EOD — AVGO DECISION</span><span><strong>Default = Option B (trim to 13% at VWAP May 1).</strong> Override requires qualifying AI capex commentary from MSFT/AMZN/GOOGL/META earnings calls OR Meta IR/SEC filing. Decision must be logged by April 29 EOD. FOMC meeting same day — rate decision also in focus.</span></div>
+    <div class="action-item"><span class="apill a-live">APR 30 — LLY ENTRY GATE</span><span><strong>LLY earnings April 30. If beat + guidance maintained → 3% entry from re-entry reserve at VWAP Apr 30–May 1.</strong> CMS Medicare GLP-1 coverage flip (Apr 22) + Hims & Hers integration (Apr 23) are positive pre-earnings inputs. Market has priced in ±6.16% reaction. Stop: –10% from entry.</span></div>
+    <div class="action-item"><span class="apill a-watch">GLD — CONDITION 2 ARMED</span><span><strong>Bear prob ~36–38% est. — Condition 1 firmly met.</strong> If ceasefire void declared or IRGC vessel fires on US naval asset this week: GLD add fires immediately (~+1.5%, ~$180 est.). No discretionary action today — rule governs.</span></div>
+    <div class="action-item"><span class="apill a-watch">XOM R2 — NOT YET</span><span><strong>XOM R2 exit trigger (joint official US-Iran statement) not met.</strong> Stub (~3%) held. Iran's Hormuz-only proposal does not constitute a joint statement. XOM Q1 earnings May 1. WTI ~$95–97 — elevated environment supports strong Q1 numbers. Watch: if Trump Situation Room today produces a formal US counter-proposal and Iran accepts → R2 trigger review.</span></div>
+    <div class="action-item"><span class="apill a-hold">HOLD ALL OTHERS</span><span>UNH (~9.75%), NFLX (~12%), BTC (~5%), ETH (~7%), JPM/GS (~7%) — all unchanged. R3 gate still triggered (NFLX/AVGO ~0.72, BTC/ETH ~0.78). No new capital to tech/crypto cluster. Cash ceiling Day 3.</span></div>
+  </div>
+</div>
+
+<!-- PER BOX -->
+<div class="per-box">
+  <div>
+    <div class="per-label">Portfolio Expected Return — Probability-Weighted</div>
+    <div class="per-val">+~21.8% est.</div>
+  </div>
+  <div class="per-band">
+    🐂 Bull (28% ↑): ~+35–42% · Iran accepts US counter-proposal · Hormuz reopens · AVGO confirms Option A · LLY beats · JPM/GS surge<br>
+    ⚖️ Base (36% →): ~+20–26% · Stalemate persists · AVGO Option B trim · Earnings-driven gains · Oil stays $90–100<br>
+    🐻 Bear (36% ↓): ~+4–9% · Ceasefire void declared · GLD condition 2 fires · WTI spikes above $110 · Stops govern BTC/ETH
+  </div>
+</div>
+<div id="macro-pbar" class="pb-wrap"></div>
+
+<!-- RISK SNAPSHOT -->
+<div class="risk-box">
+  <div class="risk-title">⚠ Risk Snapshot — Day 16</div>
+  <div class="risk-grid">
+    <div class="risk-item">
+      <div class="risk-label">Bear Prob Revision</div>
+      <div class="risk-val" style="color:var(--red-drk)">~36–38% ↑</div>
+      <div class="risk-detail"><span class="claim c-est">EST</span> Up from ~32% (Day 15). Talks collapse, Araghchi in Moscow, Putin backing Iran, 38 ships turned away by blockade. Stalemate entrenching. Condition 1 firmly met.</div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-label">Decision Week Concentration</div>
+      <div class="risk-val" style="color:var(--amb-drk)">HIGH</div>
+      <div class="risk-detail">Apr 29: AVGO decision + FOMC + MSFT/AMZN/GOOGL/META. Apr 30: LLY entry gate + AAPL + GDP. May 1: AVGO trim + XOM Q1 + War Powers deadline. Four major binary events in 72 hours.</div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-label">R3 Correlation Gate</div>
+      <div class="risk-val" style="color:var(--red-drk)">TRIGGERED</div>
+      <div class="risk-detail">NFLX/AVGO ~0.72, BTC/ETH ~0.78. Both above 0.70 threshold. No new capital to tech/crypto cluster. Post-AVGO trim (Option B), 3% freed — LLY is the preferred re-deploy (correlation ~0.18).</div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER BAR -->
+<div class="ticker-bar">
+  <div class="ti"><div class="tl">S&P 500</div><div class="tv up">~7,138–7,165</div><div class="tp"><span class="claim c-fact">FACT</span> +0.41–0.80% · Nasdaq +1.01–1.63%</div></div>
+  <div class="ti"><div class="tl">AVGO</div><div class="tv up">~$417–420</div><div class="tp"><span class="claim c-fact">FACT</span> Near ATH · $429.31 high Apr 23</div></div>
+  <div class="ti"><div class="tl">WTI</div><div class="tv up">~$95–97</div><div class="tp"><span class="claim c-fact">FACT</span> +~2% today · $95–96.85 range</div></div>
+  <div class="ti"><div class="tl">Brent</div><div class="tv up">~$106–107</div><div class="tp"><span class="claim c-fact">FACT</span> Up from ~$105 Friday</div></div>
+  <div class="ti"><div class="tl">GLD Spot</div><div class="tv neu">~$4,699–4,745</div><div class="tp"><span class="claim c-fact">FACT</span> Recovering · war-premium bid</div></div>
+  <div class="ti"><div class="tl">BTC</div><div class="tv neu">~$77,856–78,670</div><div class="tp"><span class="claim c-fact">FACT</span> Open $78,670 → ~$77,856 · above stop</div></div>
+  <div class="ti"><div class="tl">ETH</div><div class="tv neu">~$2,315–2,370</div><div class="tp"><span class="claim c-fact">FACT</span> Open $2,370 → $2,315 · above stop</div></div>
+  <div class="ti"><div class="tl">LLY (watchlist)</div><div class="tv up">~$884–904</div><div class="tp"><span class="claim c-fact">FACT</span> Apr 26 range $871–$904 · Q1 Apr 30</div></div>
+</div>
+
+<!-- AVGO DECISION BOX -->
+<div class="decision-box">
+  <div class="decision-title">🔴 AVGO Decision — Apr 29 EOD — Default = Option B · Override Window: Apr 29 Earnings</div>
+  <div class="decision-option">
+    <div class="do-label" style="color:var(--grn-drk)">Option A — HOLD to Jun 4 at 16% weight</div>
+    <strong>Requires (any one):</strong> (1) Meta IR/SEC filing explicitly naming Broadcom as custom chip partner · (2) AVGO public management acknowledgment on record · (3) Qualifying earnings call commentary from MSFT/AMZN/GOOGL/META on Apr 29 that specifically names Broadcom in AI capex context — management confirming Broadcom-specific spend on an earnings call may constitute "AVGO public management acknowledgment" by proxy. <br><br>
+    <strong>Status of current evidence:</strong> Meta-AVGO partnership through 2029 (Apr 15 — press release, not IR filing) · Google Cloud expanded collaboration (Apr 23 — press release) · Anthropic TPU/AVGO exposure (indirect) · AVGO Q2 guidance +140% AI rev (from last earnings — qualifies as mgmt acknowledgment, but is from the prior cycle, not Apr 29). <br><br>
+    <span class="claim c-est">EST</span> If META or GOOGL specifically names Broadcom on Apr 29 earnings call → Option A criteria likely met. If none name Broadcom specifically → default fires.
+  </div>
+  <div class="decision-option">
+    <div class="do-label" style="color:var(--amb-drk)">Option B — TRIM to 13% at VWAP May 1 (DEFAULT)</div>
+    Executes automatically unless Option A is affirmatively logged by Apr 29 EOD. Frees ~3% weight (~$360 est. at ~$418/sh). Proceeds split: (a) LLY entry if Apr 30 beat confirmed, or (b) cash buffer pending FOMC + earnings dust settling. AVGO stop remains at $270 — position still runs at 13%. Jun 4 earnings is the next expiry gate.
+  </div>
+</div>
+
+<!-- MAIN TABS -->
+<div class="main-tabs">
+  <button class="mt on" onclick="showMain('news',this)">📰 News & Macro</button>
+  <button class="mt" onclick="showMain('scenarios',this)">🎯 Scenarios</button>
+  <button class="mt" onclick="showMain('triggers',this)">⚡ Triggers</button>
+  <button class="mt" onclick="showMain('retro',this)">🔍 Retro</button>
+  <button class="mt" onclick="showMain('picks',this)">📊 Positions</button>
+  <button class="mt" onclick="showMain('watchlist',this)">👁 Watchlist</button>
+  <button class="mt" onclick="showMain('corr',this)">🔗 Correlation</button>
+  <button class="mt" onclick="showMain('port',this)">💼 Portfolio & P&L</button>
+  <button class="mt" onclick="showMain('tradelog',this)">📋 Trade Log</button>
+</div>
+
+<!-- NEWS TAB -->
+<div class="sec on" id="sec-news">
+  <div style="display:grid;grid-template-columns:1fr 300px;gap:12px">
+    <div>
+      <div class="news-item">
+        <span class="news-tag nt-war">🚢 Hormuz / Talks</span>
+        <span class="news-head">Iran Submits Hormuz-First Proposal — Reopen Strait for Lifting US Blockade + End of War — Nuclear Talks Deferred</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> Iran has offered to end its Hormuz chokehold in exchange for the US lifting its blockade and ending the war, with nuclear talks deferred to a later phase (AP, PBS, Axios). The proposal was conveyed via Pakistani mediators. Trump told journalists Iran sent a "much better" proposal on Saturday. The White House has received it but not accepted — spokesperson: "the US holds the cards." Expert analysis: unlikely to be accepted as the US would lose nuclear leverage. Araghchi gave Pakistani officials Iran's "red lines" including nuclear issues and Hormuz sovereignty. Iran's leadership is divided on nuclear concessions (Axios). <span class="claim c-est">EST</span> This is a substantive new variable — the proposal shows Iran is willing to move on Hormuz separately from nuclear. But it is not a breakthrough. It is an opening bid that defers the hardest issue. Trump's Situation Room meeting today is the critical next step. Portfolio impact: XOM R2 trigger still not met; GLD condition 1 firmly armed; bear prob stays elevated.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag nt-war">🇷🇺 Araghchi / Putin</span>
+        <span class="news-head">Araghchi Meets Putin in Moscow — Russia Reaffirms Strategic Iran Alliance — "Courageously Fighting for Sovereignty"</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> Iranian FM Araghchi met Putin and Lavrov in Moscow today. Putin declared Russia's continued strategic relationship with Iran and praised Iran's resistance. Araghchi said the meeting was "very good," lasting over 90 minutes, covering bilateral relations, regional developments, and expanded cooperation. Russia has offered to take custody of Iran's enriched uranium (store or reprocess on Russian soil) — Iran's FM said uranium "will under no circumstances be transferred anywhere." Iranian cargo ships are still transiting Hormuz in defiance of the US blockade according to latest shipping data. <span class="claim c-est">EST</span> The Moscow visit adds a geopolitical stabiliser for Iran. Russia's backing reduces Iran's urgency to negotiate. This is incrementally bearish for near-term deal probability — adds to the GLD condition 1 bear probability assessment.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag nt-econ">🛢️ Oil / IEA</span>
+        <span class="news-head">WTI ~$95–97 Monday Volatile · Brent ~$106–107 · IEA: Largest Energy Supply Shock on Record · War Week 9</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> WTI climbed above $96 early Monday before easing back toward $95 on Iran proposal reports. Brent hit $107 then pulled back toward $106. The IEA has described the Hormuz closure as the largest energy supply shock on record. Gas prices at pump: $4.11/gallon, up for 5th consecutive day (still below $4.17 peak on Apr 9). Citi raised Brent Q4 2026 base case to $80/barrel. The 52-week WTI range: $54.98–$117.63 — current price ~$96 is elevated but well off the intraday war peak. <span class="claim c-est">EST</span> WTI in the $90–100 range is the XOM sweet spot: high enough for strong Q1 earnings (May 1), low enough that the thesis hasn't fully de-risked. Pentagon: 6 months to clear mines even under a deal — oil premium is structurally sticky.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag nt-earn">💊 LLY Pre-Earnings</span>
+        <span class="news-head">LLY Q1 Apr 30 · CMS Flips to Cover Medicare GLP-1 Obesity · Hims & Hers LillyDirect Integration · Kelonia $7B Deal</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> Three material pre-earnings catalysts: (1) CMS reversed its stance on Medicare coverage of GLP-1 obesity drugs (Apr 22) — a major structural positive for Zepbound/Mounjaro demand trajectory. (2) Eli Lilly expanded partnership with Hims & Hers via LillyDirect (Apr 23) — Hims clinicians can now prescribe LLY GLP-1s fulfilled via LillyDirect. (3) LLY acquired Kelonia Therapeutics for up to $7B (Apr 27 announcement) — next-gen in-vivo CAR-T for cancer. Q1 revenue forecast: $17.60B. Market pricing ±6.16% reaction. LLY stock: ~$884 (Apr 26 range $871–$904), down ~22% from 52-week high of $1,133. <span class="claim c-est">EST</span> The three catalysts improve the beat probability. CMS Medicare flip alone adds hundreds of billions to the long-term addressable market. Orforglipron (oral weight-loss pill) launch planned Q2 2026 — prescription data showing slower-than-expected start for the pill (early weeks), but GLP-1 injectable demand remains strong.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag nt-mkt">📊 Decision Week Calendar</span>
+        <span class="news-head">Apr 29: FOMC + MSFT/AMZN/GOOGL/META · Apr 30: AAPL + LLY + GDP · May 1: XOM + CVX + AVGO Trim</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> CME: Fed funds rate probability of hold at 3.50–3.75% stands at 99.5% for Apr 29 meeting. So FOMC itself is not a surprise risk — the forward guidance language and any reference to inflation from oil prices is the watch. MSFT/AMZN/GOOGL/META earnings on Apr 29 are the AVGO override decision inputs. Apr 30: Q1 GDP first estimate + core PCE (inflation read). May 1: War Powers Act congressional deadline. <span class="claim c-est">EST</span> The FOMC hold is near-certain — the real risk is if Powell's language is more hawkish than expected on oil-driven inflation, which could suppress tech multiples. A hawkish surprise on Apr 29 would be incrementally negative for AVGO Option A thesis even with a good earnings backdrop.</span>
+      </div>
+    </div>
+    <div class="cal-box">
+      <div class="sl" style="margin-bottom:8px">Forward Calendar</div>
+      <div class="cal-item"><span class="cal-day" style="color:var(--grn-drk)">TODAY APR 27</span><div class="cal-txt">Trump Situation Room on Iran · V exit executes (VWAP 10:00–10:30) · GLD Condition 2 watch · Araghchi-Putin meeting Moscow <span class="cal-imp hi">BINARY</span></div></div>
+      <div class="cal-item"><span class="cal-day">APR 28</span><div class="cal-txt">Visa, Starbucks, UPS earnings · Iran situation evolving · Any IRGC incident would trigger GLD add <span class="cal-imp med">WATCH</span></div></div>
+      <div class="cal-item"><span class="cal-day" style="color:var(--red-drk)">APR 29</span><div class="cal-txt">AVGO decision by EOD · FOMC (hold ~99.5%) · MSFT, AMZN, GOOGL, META earnings · Option A override window <span class="cal-imp hi">DECISION</span></div></div>
+      <div class="cal-item"><span class="cal-day" style="color:var(--red-drk)">APR 30</span><div class="cal-txt">LLY Q1 earnings (beat → 3% entry) · AAPL earnings · Q1 GDP + core PCE · Mastercard <span class="cal-imp hi">LLY GATE</span></div></div>
+      <div class="cal-item"><span class="cal-day" style="color:var(--red-drk)">MAY 1</span><div class="cal-txt">AVGO trim executes (Option B default) · XOM Q1 earnings · War Powers deadline · CVX earnings <span class="cal-imp hi">MULTI-EVENT</span></div></div>
+      <div class="cal-item"><span class="cal-day">MAY 7</span><div class="cal-txt">Cash ceiling deploy — excess above 20% to lowest-vol position (Day 10/10) <span class="cal-imp med">CEILING</span></div></div>
+      <div class="cal-item"><span class="cal-day">JUN 4</span><div class="cal-txt">AVGO Q2 earnings — next formal expiry gate <span class="cal-imp lo">WATCH</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SCENARIOS TAB -->
+<div class="sec" id="sec-scenarios">
+  <div class="card">
+    <div class="chd"><div class="sl">Scenario Tree — Day 16 · Three Paths from Iran Situation + Decision Week</div></div>
+    <div class="cbody">
+      <div class="scg">
+        <div class="sc-item sc-bull">
+          <div class="sc-title">🐂 Bull — 28% est.</div>
+          <strong>Trigger chain:</strong> Trump Situation Room produces US counter-proposal → Iran accepts Hormuz-first framework → joint statement issued (meets XOM R2 trigger) → AVGO Apr 29 mega-caps name Broadcom → Option A confirmed → LLY beats Apr 30 → 3% LLY entry executes → FOMC hold with dovish language → oil pulls back toward $85 as deal signals cement<br><br>
+          <strong>Portfolio impact:</strong> XOM R2 stub exit at premium · GLD trigger disarms (bear prob drops below 30%) · AVGO held at 16% to Jun 4 · LLY 3% deployed · JPM/GS surge on normalisation thesis · BTC/ETH positive risk-on move<br><br>
+          <strong>Portfolio return in this path:</strong> ~+35–42%
+        </div>
+        <div class="sc-item sc-base">
+          <div class="sc-title">⚖️ Base — 36% est.</div>
+          <strong>Trigger chain:</strong> Stalemate persists — Iran proposal received, US doesn't accept (nuclear leverage concern) · Araghchi-Putin visit adds diplomatic complexity · No Condition 2 event · Apr 29 mega-caps don't specifically name Broadcom → Option B fires → AVGO trims to 13% May 1 · LLY beats modestly, 3% entry executes at Apr 30–May 1 VWAP · XOM Q1 beat on elevated WTI → stub held past R2 trigger · Cash ceiling requires partial deploy by May 7<br><br>
+          <strong>Portfolio impact:</strong> AVGO trim frees 3% → LLY seed position → portfolio more diversified entering May · Cash slowly deployed · GLD armed but Condition 2 not triggered<br><br>
+          <strong>Portfolio return in this path:</strong> ~+20–26%
+        </div>
+        <div class="sc-item sc-bear">
+          <div class="sc-title">🐻 Bear — 36% est.</div>
+          <strong>Trigger chain:</strong> Situation Room produces hardened US stance · Iran formally declares ceasefire void · IRGC mines or fires on a vessel → GLD Condition 2 fires (add ~+1.5%) · WTI spikes above $105–110 · FOMC language hawkish on inflation → tech multiples compress → AVGO decision defaults to Option B regardless · LLY misses earnings → entry gate stays closed · BTC/ETH stop-approach on risk-off<br><br>
+          <strong>Portfolio impact:</strong> GLD add (+1.5%) executes → hedge weight rises to ~5% · BTC at $70K trailing stop risk · ETH at $2,050 stop risk · XOM stub benefits from oil spike · Cash acts as buffer<br><br>
+          <strong>Portfolio return in this path:</strong> ~+4–9%
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--text3);font-style:italic"><span class="claim c-est">EST</span> Base and Bear are now tied at 36% each — the first time in this simulation. The Iran Hormuz proposal is a genuine new variable that slightly increases bull probability (from ~28% on Day 15 to ~28% still — the proposal could be accepted, even if unlikely). But the stalemate deepening and Russia-Iran alignment increases bear prob proportionally. Base probability falls slightly from Day 15's 38% → 36%. This is the highest bear probability reading since Day 1.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TRIGGERS TAB -->
+<div class="sec" id="sec-triggers">
+  <div class="card">
+    <div class="chd"><div class="sl">Live Trigger Tracker — Day 16</div></div>
+    <div class="cbody">
+
+      <div style="background:var(--grn-bg);border:.5px solid var(--grn-bdr);border-radius:var(--r);padding:10px 14px;margin-bottom:10px;font-size:11px;color:var(--grn-drk)">
+        <strong>✅ V Exit — EXECUTED.</strong> Default rule fired at April 27 Monday open VWAP 10:00–10:30 ET. No joint statement. Exception clause was not met. Rule classification: HIT (STRONG). Proceeds ~$185 → re-entry reserve. Total re-entry reserve: ~$379 est.
+      </div>
+
+      <div style="background:var(--amb-bg);border:.5px solid var(--amb-bdr);border-radius:var(--r);padding:10px 14px;margin-bottom:10px;font-size:11px;color:var(--amb-drk)">
+        <strong>⚠ GLD — Condition 1: MET (bear prob ~36–38% > 30%). Condition 2: NOT YET MET.</strong><br>
+        Condition 2 requires: (a) US or Iran formally declares ceasefire void, OR (b) IRGC fires on US naval vessel. Neither has occurred. Iran submitted Hormuz proposal — this is not a ceasefire void. Iranian cargo transiting Hormuz in defiance of US blockade continues but no confirmed hostile fire on US assets this weekend. GLD ~$4,699–4,745 spot. Add trigger: ~+1.5% weight (~$180 est.) fires the moment Condition 2 is confirmed. Monitoring continuously.
+      </div>
+
+      <div style="background:var(--bg2);border:.5px solid var(--bdr);border-radius:var(--r);padding:10px 14px;margin-bottom:10px;font-size:11px;color:var(--text2)">
+        <strong>⏳ AVGO Decision — Apr 29 EOD — Default = Option B.</strong><br>
+        Override window: Apr 29 MSFT/AMZN/GOOGL/META earnings. The question is whether any management team specifically names Broadcom in AI capex guidance. This is the only pathway remaining to Option A after Meta-AVGO press release (Apr 15 — press, not IR) and Google Cloud expanded collaboration (Apr 23 — press) failed to meet the hard standard. AVGO price ~$417–420, +0.5% above Day 15 close — the thesis is working but the rule requires documentation, not performance.
+      </div>
+
+      <div style="background:var(--bg2);border:.5px solid var(--bdr);border-radius:var(--r);padding:10px 14px;margin-bottom:10px;font-size:11px;color:var(--text2)">
+        <strong>⏳ LLY Entry Gate — Apr 30.</strong><br>
+        Beat + guidance maintained → 3% entry at VWAP Apr 30–May 1. Pre-earnings: (1) CMS Medicare GLP-1 coverage (Apr 22) ✅ structural positive. (2) Hims & Hers LillyDirect integration (Apr 23) ✅ channel expansion. (3) Kelonia $7B acquisition (Apr 27) — oncology expansion. (4) Orforglipron pill slow start — modest headwind. Revenue consensus: $17.60B. LLY at ~$884 is ~22% below 52-week high — room to run if beat is confirmed. Stop on entry: –10% (~$795 est.).
+      </div>
+
+      <div style="background:var(--bg2);border:.5px solid var(--bdr);border-radius:var(--r);padding:10px 14px;font-size:11px;color:var(--text2)">
+        <strong>⏳ XOM R2 Exit Trigger — NOT MET.</strong><br>
+        Requires: official US-Iran joint statement or framework announcement confirming direct negotiations. Iran's Hormuz proposal via Pakistan is NOT a joint statement — it is a unilateral proposal conveyed through intermediaries. The White House has received it but not accepted or co-signed. The R2 trigger requires BOTH parties to issue a statement. XOM stub (~3%) held. Q1 earnings May 1 — WTI ~$95–97 supports a strong Q1 result. Watch: Trump Situation Room today. If US formally responds with a counter-proposal that Iran co-signs → R2 trigger review immediately.
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- RETRO TAB -->
+<div class="sec" id="sec-retro">
+  <div class="card">
+    <div class="chd"><div class="sl">Retrospective — Day 15 → Day 16 Assessment</div></div>
+    <div class="cbody">
+
+      <div class="retro-row">
+        <span class="rpill r-hit">HIT</span>
+        <span class="r-qual rq-strong">STRONG</span>
+        <span><strong>V exit default rule executed cleanly.</strong> The rule was designed to filter out exactly what happened: White House press secretary confirmation of US delegation + Iran FM in the same city but no direct meeting acknowledgment. The exception clause (requiring State Dept + Iranian FM joint statement) was deliberately narrow and that narrowness was validated. V exited at ~breakeven with no slippage on the thesis. Rule classification: the rule worked.</span>
+      </div>
+
+      <div class="retro-row">
+        <span class="rpill r-hit">HIT</span>
+        <span class="r-qual rq-strong">STRONG</span>
+        <span><strong>Bear probability range correctly forecast.</strong> Day 15 called bear prob rising to ~33–35% if talks collapsed. Bear prob is now ~36–38% — the direction and magnitude were approximately right. The Araghchi-Putin meeting and Russia's explicit backing of Iran were not specifically modelled but are directionally consistent with the bear probability increase.</span>
+      </div>
+
+      <div class="retro-row">
+        <span class="rpill r-hit">HIT</span>
+        <span class="r-qual rq-strong">STRONG</span>
+        <span><strong>Iran's Hormuz-only proposal was partially anticipated.</strong> The Day 15 handoff note flagged: "Iran demanded the lifting of the US naval blockade as a pre-condition for talks." The formal proposal now separates Hormuz from nuclear — precisely the structure flagged as the likely Iranian opening gambit. The portfolio is correctly positioned for this stalemate: GLD armed, XOM stub held, cash building.</span>
+      </div>
+
+      <div class="retro-row">
+        <span class="rpill r-part">PARTIAL</span>
+        <span class="r-qual rq-weak">WEAK</span>
+        <span><strong>AVGO price behaviour: better than expected.</strong> AVGO hit $429.31 ATH on April 23 and is currently ~$417–420 — above Day 15's ~$415.36 close. The expected sector lift from Intel's Q1 beat materialised. The pull-back from the ATH is modest. This is incrementally positive for Option A (the thesis is performing) but does not change the documentation standard required for the override. Partial hit because the direction was right but the Apr 29 decision gap remains open.</span>
+      </div>
+
+      <div class="retro-row">
+        <span class="rpill r-hit">HIT</span>
+        <span class="r-qual rq-strong">STRONG</span>
+        <span><strong>LLY pre-earnings catalysts correctly identified.</strong> Day 15 identified LLY as the highest-priority watchlist candidate (correlation ~0.18, secular thesis). Since then: CMS Medicare GLP-1 flip (Apr 22), Hims LillyDirect integration (Apr 23), Kelonia deal (Apr 27). Three positive pre-earnings inputs materialised in the 3 days since last briefing — the thesis is accelerating into the Apr 30 earnings gate exactly as modelled.</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- POSITIONS TAB -->
+<div class="sec" id="sec-picks">
+  <div class="ptabs">
+    <button class="pt on" onclick="showPick('avgo16',this)">AVGO 🔴 Decision</button>
+    <button class="pt" onclick="showPick('unh16',this)">UNH ✅</button>
+    <button class="pt" onclick="showPick('nflx16',this)">NFLX</button>
+    <button class="pt" onclick="showPick('other16',this)">XOM · GLD · BTC/ETH · JPM/GS</button>
+  </div>
+
+  <div class="pp on" id="pp-avgo16">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">AVGO</span><span class="cn">~$417–420 · near ATH $429.31 · Decision Apr 29 EOD</span><span class="intent-pill ip-core">CORE</span><span class="status-pill sp-decision">⚠ DECISION APR 29</span></div>
+        <div class="hmeta"><span>Entry $298 · Current ~$419 · <span class="up">+40.6%</span> · 16% weight · Stop $270 · Decision Apr 29 → trim May 1 (default) or hold to Jun 4</span></div>
+      </div>
+      <div class="cbody">
+        <p class="thesis"><span class="claim c-fact">FACT</span> AVGO hit all-time high of $429.31 on April 23. Currently ~$417–420, resilient despite geopolitical stalemate. Q2 guidance from last earnings: AI semiconductor revenue +140% YoY. Meta-Broadcom partnership extended through 2029 (Apr 15). Google Cloud expanded collaboration (Apr 23). Anthropic European expansion (Apr 26) — TPU exposure. <span class="claim c-est">EST</span> The thesis is working — the stock performance vindicates the position. The Apr 29 decision is a rule compliance question, not a conviction question. If the mega-cap earnings produce a qualifying override, Option A is the right call. If not, Option B at 13% still captures the upside to Jun 4 with lower concentration risk.</p>
+        <div class="inv-box"><div class="inv-title">⚠ What Invalidates</div><div class="inv-body">Alphabet/Marvell partnership deepens at Broadcom's expense (TipRanks Apr 18 — monitor Apr 29 GOOGL call). Any mega-cap cuts AI capex. FOMC hawkish surprise compresses multiples. Price breaks $270.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pp" id="pp-unh16">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">UNH</span><span class="cn">~$354 · stable · Argus Buy $400 PT · stop $285</span><span class="intent-pill ip-core">CORE</span><span class="status-pill sp-hold">UNCHANGED</span></div>
+        <div class="hmeta"><span>Entry $279 · Current ~$354 · <span class="up">+26.9%</span> · 9.75% weight · Stop $285 · Next: Q2 Jul 16</span></div>
+      </div>
+      <div class="cbody">
+        <p class="thesis">Stable. No new UNH-specific news. Argus Buy at $400 PT intact. MCR 83.9% inflection thesis continuing. Stop at $285 protects +2.2% of the gain. No action until July 16 Q2 gate. Note: TipRanks Apr 21 flagged UnitedHealth "sees challenges with current Medicare weight loss drug plans" — monitoring for cross-exposure to the CMS GLP-1 Medicare flip. This could affect UNH's cost structure modestly but does not change the MCR inflection thesis.</p>
+        <div class="inv-box"><div class="inv-title">⚠ What Invalidates</div><div class="inv-body">Q2 MCR above 86%. DOJ charges. Guidance cut. Medicare weight-loss drug coverage materially raises UNH cost base. Price below $285.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pp" id="pp-nflx16">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">NFLX</span><span class="cn">~$93–94 · flat · Radford bid ongoing · Q2 trough thesis</span><span class="intent-pill ip-core">CORE</span><span class="status-pill sp-hold">UNCHANGED</span></div>
+        <div class="hmeta"><span>Entry $97.50 · Current ~$93 · <span class="dn">–4.6%</span> · 12% weight · Stop $85 · Exception expiry: Jul 16 · Wolfe Outperform</span></div>
+      </div>
+      <div class="cbody">
+        <p class="thesis">No new NFLX-specific catalysts this briefing. Post-earnings consolidation continues. Radford Studio acquisition bid ongoing. Wolfe Research Outperform intact. <span class="claim c-est">EST</span> Weight exception (12% vs 10% ranked-optimal) documented and expires at Jul 16 Q2 gate. The geopolitical stalemate is a neutral for NFLX — it has minimal direct Iran war exposure. No action today.</p>
+        <div class="inv-box"><div class="inv-title">⚠ What Invalidates</div><div class="inv-body">Second consecutive guide miss Jul 16. Price below $85 stop. R3 gate change enabling rebalance.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pp" id="pp-other16">
+    <div class="card">
+      <div class="chd"><div class="sl">XOM · GLD · BTC/ETH · JPM/GS — Day 16</div></div>
+      <div class="cbody">
+        <p class="thesis"><strong>XOM (~3% stub):</strong> <span class="claim c-fact">FACT</span> WTI ~$95–97 today, elevated. Q1 earnings May 1. <span class="claim c-est">EST</span> WTI at $95–97 for most of Q1 supports a strong earnings beat. The R2 trigger (joint official statement) is not met by Iran's Hormuz proposal — it requires both sides to co-sign. Stub held. If Trump's Situation Room today produces a formal US counter and Iran accepts before May 1, the R2 trigger fires immediately. Monitoring continuously.</p>
+        <p class="thesis"><strong>GLD (~3.5%):</strong> <span class="claim c-fact">FACT</span> GLD spot ~$4,699–4,745 today. <span class="claim c-est">EST</span> Bear prob ~36–38% — Condition 1 firmly met. Condition 2 not met. Gold is receiving a war-premium bid — elevated inflation from oil (IEA: largest energy supply shock on record) is a structural tailwind. But rate-hike risk from oil inflation is a headwind (gold is non-yielding). Net: GLD is performing its hedge function. Add trigger is loaded and waiting.</p>
+        <p class="thesis"><strong>BTC (~5%) / ETH (~7%):</strong> <span class="claim c-fact">FACT</span> BTC open $78,670 → pulled back to ~$77,856. ETH open $2,370 → ~$2,315. Both above stops ($70K trailing for BTC, $2,050 for ETH). <span class="claim c-est">EST</span> Iran new proposal + Nasdaq tech bid (+1%) is a mild positive. Options overhang cleared from last week. R3 gate keeps new capital out of this cluster.</p>
+        <p class="thesis"><strong>JPM/GS (~7%):</strong> At target weight. Financial normalisation thesis: Iran's Hormuz proposal is a new data point — if accepted, the yield curve normalisation + deal flow improvement thesis accelerates rapidly. If rejected, the stalemate thesis continues and JPM/GS holds its value as a defensive financial. FOMC hold on Apr 29 is near-certain. Watching for Powell language on oil-driven inflation and rate path.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WATCHLIST TAB -->
+<div class="sec" id="sec-watchlist">
+  <div class="card">
+    <div class="chd"><div class="sl">👁 Watchlist — Day 16 · LLY Imminent · Others Unchanged</div></div>
+    <div class="cbody">
+      <div style="background:var(--red-bg);border:.5px solid var(--red-bdr);border-radius:var(--r);padding:8px 12px;font-size:11px;color:var(--red-drk);margin-bottom:10px">⚠ <strong>LLY status upgraded to IMMINENT</strong> — earnings gate April 30. Three positive pre-earnings catalysts materialised since Day 15. Entry decision fires 24 hours from now.</div>
+      <div class="wl-grid">
+
+        <div class="wl-card">
+          <div class="wl-ticker">LLY</div>
+          <div class="wl-name">Eli Lilly · GLP-1 secular · Q1 Apr 30 · IMMINENT GATE</div>
+          <span class="wl-tag wlt-imm">🔴 IMMINENT — APR 30</span>
+          <div class="wl-thesis">Three new catalysts since Day 15: (1) CMS Medicare GLP-1 coverage flip (Apr 22) — structurally transforms the GLP-1 addressable market. (2) Hims & Hers LillyDirect integration (Apr 23) — new direct-to-consumer channel. (3) Kelonia $7B acquisition (Apr 27) — oncology expansion reduces GLP-1 single-product dependency. LLY at ~$884 is 22% below its $1,133 52-week high with a secular growth driver that doesn't care about Hormuz. Consensus Q1 rev: $17.60B. Market pricing ±6.16% reaction.</div>
+          <div class="wl-entry"><strong>Entry gate:</strong> Q1 beat + Q2 guidance maintained → 3% position at VWAP Apr 30–May 1 using re-entry reserve. <strong>Stop:</strong> –10% (~$795 est.). <strong>R3 check:</strong> LLY/AVGO ~0.18 — the best portfolio diversifier available. Actively reduces R3 pressure. <strong>Risk:</strong> Orforglipron pill slow start (early prescription data below expectations) — a miss here could weigh on guidance.</div>
+          <div class="wl-gate">Decision fires April 30 post-earnings. If miss or guidance cut → gate stays closed, re-entry reserve remains for May 7 ceiling deploy or later LLY dip entry.</div>
+        </div>
+
+        <div class="wl-card">
+          <div class="wl-ticker">EQIX</div>
+          <div class="wl-name">Equinix · Data centre REIT · AI infrastructure landlord</div>
+          <span class="wl-tag wlt-bull">BULL · AI INFRA · MAY 1 GATE</span>
+          <div class="wl-thesis">EQIX is the May 1 candidate for the AVGO trim proceeds (3% freed). Where AVGO is the chip layer, EQIX is the physical layer — data centres that house AI compute. Dividend component adds income the portfolio currently lacks. The AI infrastructure thesis is intact: Intel's Q1 beat, AVGO near ATH, mega-cap AI capex — all support EQIX as a beneficiary.</div>
+          <div class="wl-entry"><strong>Entry gate:</strong> AVGO Option B trim May 1 frees 3% → evaluate EQIX alongside any LLY decision. If LLY gate fires, EQIX may be deferred to May 7 ceiling deploy. <strong>R3 check:</strong> EQIX/AVGO ~0.48 — well below gate. <strong>Target:</strong> ~$920–960 range.</div>
+          <div class="wl-gate">Next review: May 1 after AVGO trim. Competing with LLY for re-deploy capital.</div>
+        </div>
+
+        <div class="wl-card">
+          <div class="wl-ticker">COST</div>
+          <div class="wl-name">Costco Wholesale · Consumer staples · Defensive growth</div>
+          <span class="wl-tag wlt-bull">BULL · DEFENSIVE · MAY 7 GATE</span>
+          <div class="wl-thesis">Bear scenario hedge candidate. If GLD Condition 2 fires and bear prob rises above 40%, COST becomes the preferred cash deployment target — it holds value in war-regime environments. Membership fee revenue is sticky. Currently the portfolio's bear scenario protection is GLD (armed) + cash buffer. COST adds defensive equity exposure if regime worsens.</div>
+          <div class="wl-entry"><strong>Entry gate:</strong> May 7 cash ceiling deploy (if cash remains above 20% after LLY/EQIX decisions) OR bear prob rises above 40% triggering defensive rebalance. <strong>R3 check:</strong> COST/AVGO ~0.32 — does not trigger gate.</div>
+          <div class="wl-gate">Next review: May 7 cash ceiling. Bear scenario accelerant.</div>
+        </div>
+
+        <div class="wl-card">
+          <div class="wl-ticker">BAC</div>
+          <div class="wl-name">Bank of America · Financial normalisation · Rate-sensitive</div>
+          <span class="wl-tag wlt-hedge">NORMALISATION · RATE-PLAY</span>
+          <div class="wl-thesis">More aggressive version of the JPM/GS thesis — BAC benefits more from yield curve steepening. If Iran proposal is accepted and Hormuz reopens, BAC is the maximum-leverage financial normalisation trade. But R3 check: BAC/JPM correlation ~0.72 — adding BAC creates a third pair above the gate threshold. This is blocked unless R3 gate deactivates.</div>
+          <div class="wl-entry"><strong>Entry gate:</strong> R3 gate deactivation required first (one pair drops below 0.70) OR portfolio grows sufficiently to add financial cluster. Iran deal confirmation is the thesis trigger. Currently blocked by R3.</div>
+          <div class="wl-gate">Dormant until R3 gate structure changes.</div>
+        </div>
+
+        <div class="wl-card">
+          <div class="wl-ticker">INTC</div>
+          <div class="wl-name">Intel · AI fab turnaround · Musk $3B catalyst</div>
+          <span class="wl-tag wlt-watch">WATCH · HIGH RISK · DEFERRED</span>
+          <div class="wl-thesis">Intel's +27% Q1 beat (Apr 24) validates the turnaround thesis. Musk/Tesla ~$3B fab commitment. Q2 guidance well above consensus. But R3 gate blocks new capital to the semiconductor cluster — INTC competes with AVGO for cluster weight. INTC/AVGO correlation ~0.68 est. — below gate but approaches it. Only possible post-AVGO trim, and even then EQIX is preferred for portfolio construction reasons.</div>
+          <div class="wl-entry"><strong>Entry gate:</strong> AVGO Option B trim May 1 + EQIX not selected → evaluate INTC. <strong>R3 check:</strong> ~0.68 — borderline. Lower risk than pure-play AI chip but higher risk than EQIX infrastructure REIT.</div>
+          <div class="wl-gate">Deferred pending AVGO trim and EQIX decision May 1.</div>
+        </div>
+
+        <div class="wl-card">
+          <div class="wl-ticker">V — Visa</div>
+          <div class="wl-name">Visa Inc. · Payments infrastructure · Normalisation play</div>
+          <span class="wl-tag wlt-watch">WATCH · REGIME-DEPENDENT</span>
+          <div class="wl-thesis">Visa-the-company benefits from a deal resolution: cross-border volumes normalise, Gulf commerce resumes. Not a short-term thesis. Currently blocked by capital allocation — the re-entry reserve is committed to LLY (if Apr 30 beat) and EQIX (if May 1 trim). Visa would compete for cash ceiling deploy capital on May 7 if both LLY and EQIX positions are initiated.</div>
+          <div class="wl-entry"><strong>Entry gate:</strong> Deal confirmation + May 7 ceiling deploy (if capital available). Visa/AVGO correlation ~0.45 — does not trigger R3.</div>
+          <div class="wl-gate">Dormant until LLY/EQIX capital allocation is resolved.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CORRELATION TAB -->
+<div class="sec" id="sec-corr">
+  <div class="card">
+    <div class="chd"><div class="sl">Correlation Matrix — Day 16 (R3 Required Every Briefing)</div></div>
+    <div class="cbody">
+      <div style="background:var(--red-bg);border-radius:var(--r);padding:8px 12px;font-size:11px;color:var(--red-drk);margin-bottom:8px">⚠ R3 gate FULLY TRIGGERED — 2 pairs above 0.70. No new capital to tech/crypto cluster. Post-AVGO Option B trim: LLY entry would be first new position under R3 (correlation ~0.18 — actively reduces cluster risk).</div>
+      <div class="corr-grid">
+        <div class="corr-item">
+          <div class="corr-title">Tech/Crypto Cluster Pairwise</div>
+          <div class="corr-row"><span class="corr-label">NFLX / AVGO</span><span class="corr-val" style="color:var(--red-drk)">0.72 ⚠ ABOVE GATE</span></div>
+          <div class="corr-row"><span class="corr-label">BTC / ETH</span><span class="corr-val" style="color:var(--red-drk)">0.78 ⚠ ABOVE GATE</span></div>
+          <div class="corr-row"><span class="corr-label">AVGO / BTC</span><span class="corr-val" style="color:var(--amb-drk)">0.63</span></div>
+          <div class="corr-row"><span class="corr-label">NFLX / BTC</span><span class="corr-val" style="color:var(--amb-drk)">0.60</span></div>
+          <div class="corr-row"><span class="corr-label">INTC (watchlist) / AVGO</span><span class="corr-val" style="color:var(--amb-drk)">~0.68 est.</span></div>
+        </div>
+        <div class="corr-item">
+          <div class="corr-title">Cross-Cluster & Watchlist</div>
+          <div class="corr-row"><span class="corr-label">LLY / AVGO (imminent)</span><span class="corr-val" style="color:var(--grn-drk)">~0.18 — lowest available</span></div>
+          <div class="corr-row"><span class="corr-label">EQIX / AVGO (watchlist)</span><span class="corr-val" style="color:var(--grn-drk)">~0.48</span></div>
+          <div class="corr-row"><span class="corr-label">COST / AVGO (watchlist)</span><span class="corr-val" style="color:var(--grn-drk)">~0.32</span></div>
+          <div class="corr-row"><span class="corr-label">BAC / JPM (blocked by R3)</span><span class="corr-val" style="color:var(--red-drk)">~0.72 — AT GATE</span></div>
+          <div class="corr-row"><span class="corr-label">LLY / UNH</span><span class="corr-val" style="color:var(--amb-drk)">~0.38 est.</span></div>
+          <div class="corr-row"><span class="corr-label">GLD / Tech cluster</span><span class="corr-val" style="color:var(--grn-drk)">~–0.15</span></div>
+        </div>
+      </div>
+      <p style="font-size:11px;color:var(--text3);font-style:italic"><span class="claim c-est">EST</span> LLY entry at 3% would be the first new position that actively REDUCES R3 pressure — the only watchlist candidate with this property. Post-AVGO Option B trim to 13%, the NFLX/AVGO pair may drift below 0.72 as AVGO concentration falls — monitor post-May 1.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO & P&L TAB -->
+<div class="sec" id="sec-port">
+  <div class="port-stats">
+    <div class="ps"><div class="psl">Portfolio Value (est.)</div><div class="psv up">~$12,030</div></div>
+    <div class="ps"><div class="psl">16-Day Return</div><div class="psv up">+20.3%</div></div>
+    <div class="ps"><div class="psl">Daily Change</div><div class="psv up">+~$90 est.</div></div>
+    <div class="ps"><div class="psl">Cumul. Realised Gain</div><div class="psv up">+~$570 est.</div></div>
+    <div class="ps"><div class="psl">Cash (post V exit)</div><div class="psv neu">~$2,865 (~24%)</div></div>
+  </div>
+  <div style="font-size:10px;color:var(--text3);font-style:italic;margin-bottom:10px"><span class="claim c-est">EST</span> AVGO near ATH is the primary driver of portfolio strength. V exit at ~breakeven removes 1.5% weight, raises cash to ~24%. Cash ceiling monitoring Day 3 of 10. Decision week (Apr 29–May 1) will reshape the portfolio meaningfully.</div>
+
+  <div class="card">
+    <div class="chd"><div class="sl">All Positions — Day 16 Master Table</div></div>
+    <div class="cbody">
+      <table class="ptable">
+        <thead><tr><th>Ticker</th><th>Intent</th><th>Status</th><th>Weight</th><th>Est. P&L (Unreal.)</th><th>Stop</th><th>Next Gate</th></tr></thead>
+        <tbody>
+          <tr style="background:var(--grn-bg)"><td>AVGO</td><td><span class="intent-pill ip-core">CORE</span></td><td style="text-align:left;color:var(--amb-drk)">~$418 · +40.6% · ATH $429.31 · Decision Apr 29</td><td>~16%</td><td class="up">+~$576 est.</td><td>$270</td><td style="text-align:left">Apr 29 decision · May 1 trim (default) · Jun 4</td></tr>
+          <tr style="background:var(--grn-bg)"><td>UNH (75%)</td><td><span class="intent-pill ip-core">CORE</span></td><td style="text-align:left;color:var(--grn)">✅ Stable · ~$354 · +26.9% · Argus Buy</td><td>~9.75%</td><td class="up">+~$366 est.</td><td>$285</td><td style="text-align:left">Q2 Jul 16</td></tr>
+          <tr><td>NFLX</td><td><span class="intent-pill ip-core">CORE</span></td><td style="text-align:left;color:var(--amb)">Flat · ~$93 · –4.6% from entry · exception: Jul 16</td><td>~12%</td><td class="dn">–~$53 est.</td><td>$85</td><td style="text-align:left">Q2 Jul 16</td></tr>
+          <tr><td>ETH</td><td><span class="intent-pill ip-tact">TACTICAL</span></td><td style="text-align:left;color:var(--grn)">~$2,315–2,370 · above $2,050 stop</td><td>~7%</td><td class="up">+~$21 est.</td><td>$2,050</td><td style="text-align:left">Stop governs</td></tr>
+          <tr><td>JPM/GS</td><td><span class="intent-pill ip-core">CORE</span></td><td style="text-align:left;color:var(--grn)">At target · ~7% · normalisation thesis</td><td>~7%</td><td class="up">+~$30 est.</td><td>Entry –7%</td><td style="text-align:left">Iran deal catalyst · FOMC Apr 29</td></tr>
+          <tr><td>BTC</td><td><span class="intent-pill ip-tact">TACTICAL</span></td><td style="text-align:left;color:var(--grn)">~$77,856–78,670 · above $70K trailing stop</td><td>~5%</td><td class="up">+~$43 est.</td><td>$70K trailing</td><td style="text-align:left">Stop governs</td></tr>
+          <tr><td>XOM</td><td><span class="intent-pill ip-hedge">HEDGE</span></td><td style="text-align:left;color:var(--grn)">~$150 · stub · WTI ~$96 · Q1 May 1</td><td>~3%</td><td class="up">+~$47 est.</td><td>$128</td><td style="text-align:left">May 1 Q1 · R2: Joint US-Iran statement</td></tr>
+          <tr><td>GLD</td><td><span class="intent-pill ip-hedge">HEDGE</span></td><td style="text-align:left;color:var(--amb)">~$4,699–4,745 · Condition 1 met · Condition 2 pending</td><td>~3.5%</td><td class="dn">–~$58 est.</td><td>–8% entry</td><td style="text-align:left">Condition 2: ceasefire void or IRGC fire</td></tr>
+          <tr style="background:var(--grn-bg)"><td>Cash</td><td colspan="2" style="text-align:left"><strong>Post V exit: ~$2,865 est. (~24%)</strong> · Re-entry reserve ~$379 · Day 3/10 ceiling</td><td>~24%</td><td colspan="3">Reserve: ~$379 earmarked for LLY (Apr 30) + EQIX (May 1) + ceiling deploy (May 7)</td></tr>
+          <tr style="background:var(--bg3)"><td>V</td><td><span class="intent-pill ip-exit">EXITED</span></td><td style="text-align:left;color:var(--text3)">✅ Exited Apr 27 open · VWAP 10:00–10:30 ET · ~breakeven · proceeds ~$185 to reserve</td><td>—</td><td class="neu">~$0</td><td>—</td><td style="text-align:left">CLOSED</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- TRADE LOG TAB -->
+<div class="sec" id="sec-tradelog">
+  <div class="card">
+    <div class="chd"><div class="sl">Trade Log — Day 16 (Cumulative)</div></div>
+    <div class="cbody">
+      <table class="ptable">
+        <thead><tr><th>Date</th><th>Ticker</th><th>Action</th><th>Trigger / Rule</th><th>Price (est.)</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Apr 6–21</td><td>Various</td><td style="text-align:left">Prior entries, trims, deploys</td><td style="text-align:left">See prior logs</td><td>Various</td><td style="text-align:left;color:var(--text3)">✓</td></tr>
+          <tr style="background:var(--grn-bg)"><td>Apr 21</td><td>UNH</td><td style="text-align:left">Scenario B 25% trim · stop $285</td><td style="text-align:left">EPS beat · expiry branch</td><td>~$340–345 VWAP</td><td style="text-align:left;color:var(--grn)">✅ +~$210 realised</td></tr>
+          <tr style="background:var(--grn-bg)"><td>Apr 23</td><td>CASH/JPM/GS</td><td style="text-align:left">50/30/20 deploy ~$970</td><td style="text-align:left">R1 cooling rule</td><td>Apr 23 open</td><td style="text-align:left;color:var(--grn)">✅ Executed</td></tr>
+          <tr style="background:var(--grn-bg)"><td><strong>APR 27</strong></td><td>V</td><td style="text-align:left">EXIT — full position · VWAP 10:00–10:30 ET</td><td style="text-align:left">No joint US-Iran statement. Default rule fires. Exception clause not met.</td><td>Apr 27 open</td><td style="text-align:left;color:var(--grn)">✅ EXECUTED · ~breakeven · ~$185 → reserve</td></tr>
+          <tr style="background:var(--amb-bg)"><td><strong>APR 29</strong></td><td>AVGO</td><td style="text-align:left">DECISION by EOD — default = Option B trim to 13% May 1</td><td style="text-align:left">R4 rule · Override: qualifying mega-cap earnings commentary Apr 29</td><td>—</td><td style="text-align:left;color:var(--amb-drk)">⚠ Decision required</td></tr>
+          <tr style="background:var(--amb-bg)"><td><strong>APR 30</strong></td><td>LLY</td><td style="text-align:left">ENTRY GATE — 3% position if Q1 beat + guidance</td><td style="text-align:left">Watchlist entry rule · Re-entry reserve deploy</td><td>Apr 30–May 1 VWAP</td><td style="text-align:left;color:var(--amb-drk)">⚠ Pending earnings</td></tr>
+          <tr style="background:var(--amb-bg)"><td><strong>MAY 1</strong></td><td>AVGO / XOM</td><td style="text-align:left">AVGO trim 16%→13% (Option B default) · XOM Q1 earnings</td><td style="text-align:left">R4 expiry · Earnings release</td><td>May 1 open</td><td style="text-align:left;color:var(--text3)">Pending Apr 29 decision</td></tr>
+          <tr style="background:var(--amb-bg)"><td><strong>MAY 1</strong></td><td>EQIX</td><td style="text-align:left">Evaluate entry with AVGO trim proceeds (if LLY gate fires, may defer to May 7)</td><td style="text-align:left">Watchlist entry rule · AVGO Option B proceeds</td><td>May 1</td><td style="text-align:left;color:var(--text3)">Pending May 1</td></tr>
+          <tr style="background:var(--bg2)"><td><strong>MAY 7</strong></td><td>Cash</td><td style="text-align:left">Cash ceiling deploy — excess above 20% to lowest-vol position</td><td style="text-align:left">10-day cash ceiling rule (DeepSeek)</td><td>—</td><td style="text-align:left;color:var(--text3)">Day 3 of 10</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="key-change">
+  <strong>Key structural changes this briefing (Day 16):</strong> (1) V exit executed cleanly at April 27 open — exception clause not met, default rule fired as designed. Cash rises to ~24%, re-entry reserve ~$379. (2) Bear probability rises to ~36–38% — first time bear equals base in this simulation. Araghchi-Putin alignment, 38 ships blocked, Iran red lines conveyed to mediators. (3) Iran submits Hormuz-first proposal via Pakistan — nuclear deferred. White House received but has not accepted. XOM R2 trigger not met. GLD Condition 1 firmly armed. (4) AVGO at all-time high $429.31 (Apr 23) — currently ~$417–420. Decision: Apr 29 EOD. (5) LLY upgraded to IMMINENT in watchlist — three pre-earnings catalysts: CMS Medicare GLP-1 flip (Apr 22), Hims LillyDirect integration (Apr 23), Kelonia $7B deal (Apr 27). Entry gate fires Apr 30. (6) Trump Situation Room meeting today on Iran — this is the next binary watch of the simulation. (7) Cash ceiling Day 3 of 10 — May 7 deploy deadline approaching. (8) Decision week Apr 29–May 1: AVGO decision + FOMC + MSFT/AMZN/GOOGL/META earnings + LLY gate + XOM Q1 + AVGO trim + War Powers deadline. Four major events in 72 hours.
+</div>
+
+<div class="disclaim">⚠ HYPOTHETICAL EDUCATIONAL SIMULATION — April 27, 2026. Nothing here constitutes financial or investment advice. <span class="claim c-fact">FACT</span> = sourced from CNN, Al Jazeera, AP, PBS, Axios, CNBC, Yahoo Finance, Trading Economics, Fortune, Robinhood, TipRanks. <span class="claim c-est">EST</span> = model estimate. Next actions: (1) Today: Monitor Trump Situation Room on Iran — any ceasefire void declaration or IRGC vessel fire → GLD add fires immediately. (2) Apr 28: Visa, Starbucks, UPS earnings — watch for geopolitical evolution. (3) Apr 29 EOD: AVGO decision — log Option A (if mega-cap names Broadcom) or Option B default. FOMC + MSFT/AMZN/GOOGL/META. (4) Apr 30: LLY gate — beat + guidance → 3% entry from reserve. (5) May 1: AVGO trim (Option B default) + XOM Q1 + War Powers deadline + EQIX evaluation.</div>
+
+<script>
+const toggleBtn=document.getElementById('theme-toggle');
+const htmlEl=document.documentElement;
+if(localStorage.getItem('theme')==='dark'){htmlEl.setAttribute('data-theme','dark');}
+toggleBtn.addEventListener('click',()=>{const isDark=htmlEl.getAttribute('data-theme')==='dark';htmlEl.setAttribute('data-theme',isDark?'':'dark');localStorage.setItem('theme',isDark?'light':'dark');});
+function showMain(id,btn){document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));document.querySelectorAll('.mt').forEach(t=>t.classList.remove('on'));document.getElementById('sec-'+id).classList.add('on');btn.classList.add('on');}
+function showPick(id,b){document.querySelectorAll('.pp').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.pt').forEach(t=>t.classList.remove('on'));document.getElementById('pp-'+id).classList.add('on');b.classList.add('on');}
+function pb(id,b,n,r){const el=document.getElementById(id);if(!el)return;el.innerHTML=`<div class="pb-b" style="width:${b}%"></div><div class="pb-n" style="width:${n}%"></div><div class="pb-r" style="width:${r}%"></div>`;}
+window.addEventListener('load',function(){pb('macro-pbar',28,36,36);});
+</script>
+</body>
+</html>
