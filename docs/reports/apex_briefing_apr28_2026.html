@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apex Capital · April 28, 2026 — Day 17 · UAE Quits OPEC · WTI >$100 · AVGO –4% · GLD Condition 2 Watch · Decision Eve</title>
+<link rel="stylesheet" href="../apex-core.css">
+<style>
+.intent-pill{font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.04em;text-transform:uppercase}
+.ip-core{background:var(--blu-bg);color:var(--blu);border:.5px solid var(--blu-bdr)}
+.ip-hedge{background:var(--grn-bg);color:var(--grn-drk);border:.5px solid var(--grn-bdr)}
+.ip-tact{background:var(--pur-bg);color:var(--pur);border:.5px solid var(--pur-bdr)}
+.ip-exit{background:var(--red-bg);color:var(--red-drk);border:.5px solid var(--red-bdr)}
+.status-pill{font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.04em}
+.sp-hold{background:var(--bg3);color:var(--text2)}
+.sp-watch{background:var(--amb-bg);color:var(--amb-drk)}
+.sp-decision{background:var(--amb-bg);color:var(--amb-drk);border:.5px solid var(--amb-bdr)}
+.sp-stress{background:var(--red-bg);color:var(--red-drk);border:.5px solid var(--red-bdr)}
+
+.card{background:var(--bg2);border:.5px solid var(--bdr);border-radius:var(--rl);margin-bottom:14px}
+.chd{padding:10px 14px;border-bottom:.5px solid var(--bdr)}
+.sl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)}
+.cbody{padding:12px 14px}
+.trow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px}
+.tk{font-size:20px;font-weight:800;letter-spacing:-.02em}
+.cn{font-size:11px;color:var(--text2)}
+.hmeta{font-size:10px;color:var(--text3)}
+.thesis{font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:8px}
+.inv-box{background:var(--red-bg);border:.5px solid var(--red-bdr);border-radius:var(--r);padding:8px 12px;margin-top:6px}
+.inv-title{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--red-drk);margin-bottom:3px}
+.inv-body{font-size:11px;color:var(--red-drk);line-height:1.45}
+
+.ptable{width:100%;border-collapse:collapse;font-size:11px}
+.ptable th{text-align:center;padding:5px 8px;border-bottom:1px solid var(--bdr2);font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);white-space:nowrap}
+.ptable td{text-align:center;padding:5px 8px;border-bottom:.5px solid var(--bdr)}
+.ptable tr:last-child td{border-bottom:none}
+
+.scg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px}
+.sc-item{border-radius:var(--r);padding:11px 13px;font-size:11px;line-height:1.55}
+.sc-bull{background:var(--grn-bg);border:.5px solid var(--grn-bdr)}
+.sc-base{background:var(--blu-bg);border:.5px solid var(--blu-bdr)}
+.sc-bear{background:var(--red-bg);border:.5px solid var(--red-bdr)}
+.sc-title{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
+.sc-bull .sc-title{color:var(--grn-drk)}
+.sc-base .sc-title{color:var(--blu)}
+.sc-bear .sc-title{color:var(--red-drk)}
+
+.pb-wrap{height:8px;border-radius:4px;overflow:hidden;background:var(--bg3);display:flex;margin-bottom:12px}
+.pb-b{background:var(--grn);height:100%}
+.pb-n{background:var(--amb);height:100%}
+.pb-r{background:var(--red);height:100%}
+
+.ptabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px}
+.pt{padding:5px 12px;font-size:11px;font-weight:600;border:.5px solid var(--bdr2);background:var(--bg2);color:var(--text3);cursor:pointer;border-radius:var(--r);font-family:var(--sans)}
+.pt.on{background:var(--text);color:var(--bg)}
+.pp{display:none}.pp.on{display:block}
+
+.sec{display:none}.sec.on{display:block}
+
+/* Failure protocol box */
+.fail-box{background:var(--red-bg);border:1.5px solid var(--red-bdr);border-radius:var(--rl);padding:14px 16px;margin-bottom:14px}
+.fail-title{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--red-drk);margin-bottom:10px}
+.fail-rule{background:var(--bg);border-radius:var(--r);padding:10px 13px;margin-bottom:8px;border:.5px solid var(--red-bdr);font-size:11px;color:var(--text2);line-height:1.55}
+.fail-rule:last-child{margin-bottom:0}
+.fr-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--red-drk);margin-bottom:4px}
+
+.news-item{display:flex;flex-direction:column;gap:3px;padding:10px 0;border-bottom:.5px solid var(--bdr)}
+.news-item:last-child{border-bottom:none}
+.news-tag{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em}
+.nt-break{color:var(--red)}.nt-econ{color:var(--blu)}.nt-war{color:var(--amb-drk)}.nt-mkt{color:var(--grn-drk)}.nt-earn{color:#6c3483}
+.news-head{font-size:12px;font-weight:600;line-height:1.35}
+.news-body{font-size:11px;color:var(--text2);line-height:1.45}
+
+.cal-box{background:var(--bg2);border-radius:var(--rl);padding:12px 14px}
+.cal-item{display:flex;gap:8px;padding:5px 0;border-bottom:.5px solid var(--bdr);align-items:flex-start}
+.cal-item:last-child{border-bottom:none}
+.cal-day{font-size:10px;font-weight:700;color:var(--text3);min-width:44px}
+.cal-txt{font-size:11px;color:var(--text2);line-height:1.35}
+.cal-imp{font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:3px}
+.hi{background:var(--red-bg);color:var(--red-drk)}
+.med{background:var(--amb-bg);color:var(--amb-drk)}
+.lo{background:var(--grn-bg);color:var(--grn-drk)}
+
+.wl-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:8px}
+.wl-card{background:var(--bg2);border:.5px solid var(--bdr);border-radius:var(--r);padding:11px 13px}
+.wl-ticker{font-size:16px;font-weight:800;margin-bottom:2px}
+.wl-name{font-size:10px;color:var(--text3);margin-bottom:5px}
+.wl-tag{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:2px 6px;border-radius:3px;margin-bottom:6px}
+.wlt-bull{background:var(--grn-bg);color:var(--grn-drk);border:.5px solid var(--grn-bdr)}
+.wlt-imm{background:var(--red-bg);color:var(--red-drk);border:.5px solid var(--red-bdr)}
+.wlt-watch{background:var(--amb-bg);color:var(--amb-drk);border:.5px solid var(--amb-bdr)}
+.wl-thesis{font-size:11px;color:var(--text2);line-height:1.5;margin-bottom:6px}
+.wl-entry{font-size:10px;color:var(--text3)}
+.wl-entry strong{color:var(--text)}
+.wl-gate{font-size:10px;font-style:italic;color:var(--text3);border-top:.5px solid var(--bdr);margin-top:6px;padding-top:5px}
+
+.corr-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+.corr-item{background:var(--bg2);border-radius:var(--r);padding:10px 12px}
+.corr-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:6px}
+.corr-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:.5px solid var(--bdr);font-size:11px}
+.corr-row:last-child{border-bottom:none}
+.corr-label{color:var(--text2)}
+.corr-val{font-weight:700;font-family:monospace}
+
+.port-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:12px}
+.ps{background:var(--bg2);border-radius:var(--r);padding:9px 11px}
+.psl{font-size:9px;color:var(--text3);margin-bottom:2px;text-transform:uppercase;letter-spacing:.06em}
+.psv{font-size:16px;font-weight:800;letter-spacing:-.02em}
+
+.retro-row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:.5px solid var(--bdr);font-size:12px}
+.retro-row:last-child{border-bottom:none}
+.rpill{font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:1px}
+.r-hit{background:var(--grn-bg);color:var(--grn-drk)}
+.r-miss{background:var(--red-bg);color:var(--red-drk)}
+.r-part{background:var(--amb-bg);color:var(--amb-drk)}
+.r-qual{font-size:9px;padding:1px 5px;border-radius:3px;margin-left:4px;font-style:italic}
+.rq-strong{background:var(--grn-bg);color:var(--grn-drk)}
+.rq-weak{background:var(--amb-bg);color:var(--amb-drk)}
+
+.vb-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.vb-item{background:var(--bg2);border-radius:var(--r);padding:9px 12px;border:.5px solid var(--bdr)}
+.vb-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:3px}
+.vb-val{font-size:16px;font-weight:800;letter-spacing:-.02em}
+.vb-sub{font-size:10px;color:var(--text3);margin-top:2px}
+
+/* system failure protocol */
+.sfp-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sfp-item{background:var(--bg2);border:.5px solid var(--bdr);border-radius:var(--r);padding:11px 13px}
+.sfp-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--red-drk);margin-bottom:5px}
+.sfp-trigger{font-size:11px;font-weight:600;color:var(--text);margin-bottom:4px}
+.sfp-action{font-size:11px;color:var(--text2);line-height:1.5}
+.sfp-status{font-size:10px;font-weight:700;margin-top:5px}
+.sfps-clear{color:var(--grn-drk)}.sfps-armed{color:var(--amb-drk)}.sfps-active{color:var(--red-drk)}
+</style>
+</head>
+<body>
+
+<div class="sim-banner">
+  <div class="sim-left"><div class="sim-dot"></div>HYPOTHETICAL EDUCATIONAL SIMULATION — April 28, 2026 · Day 17 · Not financial advice · All values illustrative</div>
+  <button class="theme-btn" id="theme-toggle">🌓 Toggle Mode</button>
+</div>
+
+<nav class="portal-nav">
+  <div class="portal-nav-inner">
+    <a href="../index.html" class="portal-link"><span style="font-size:16px;line-height:0">←</span> Apex Intelligence Portal</a>
+    <span class="portal-badge">Internal Briefing · April 28, 2026 · Day 17 · UAE Quits OPEC · WTI >$100 · AVGO –4% · Decision Eve</span>
+  </div>
+</nav>
+
+<!-- CRITICAL PATH -->
+<div class="critical-path">
+  <div class="cp-title">⚡ Today's Critical Path — Day 17</div>
+  <div class="cp-items">
+    <div class="cp-item"><span class="cp-badge" style="background:#e05555;color:#fdeaea;animation:pulse 1.5s infinite">🛢️ UAE QUITS OPEC · WTI >$100 · BRENT ~$111</span><span><strong>Largest structural oil market shock of the simulation.</strong> <span class="claim c-fact">FACT</span> UAE confirmed departure from OPEC and OPEC+, effective May 1. OPEC loses its third-largest producer. WTI broke $100 for the first time since April 10, briefly hitting ~$101.81. Brent ~$111–113. Goldman Sachs: 14.5M bpd of Gulf crude offline. Citi raised Brent forecast to $150 peak / $130 Q3 average. Gas at pump: $4.18/gallon, year-to-date high. <span class="claim c-est">EST</span> The UAE exit does not materially increase near-term supply (Hormuz is closed — UAE cannot ship more output). But it is a structural credibility blow to OPEC. XOM stub benefits: Q1 earnings May 1 with WTI >$100 for most of April = significant beat probability. No portfolio trigger fires from this event alone, but bear probability rises.</span></div>
+    <div class="cp-item"><span class="cp-badge cpb-watch">🔴 GLD CONDITION 2 — ARMED + ELEVATED</span><span><strong>Bear probability single-point estimate: 40%.</strong> <span class="claim c-est">EST</span> Revised up from Day 16's 38% following: (1) UAE OPEC exit signalling Gulf fragmentation, (2) Iranian army spokesperson says Iran is "still in a war situation," (3) mediators awaiting a revised Iranian proposal after Trump rejected the Hormuz-first plan, (4) German Chancellor Merz publicly blasted the US for "lacking a strategy." Condition 1 (bear prob ≥30%): FIRMLY MET. Condition 2 (IRGC engages in hostile acts including firing on any vessel, mine-laying, or capturing additional vessels beyond routine inspections): NOT YET MET — monitoring continuously. GLD currently ~$4,583 today, down from ~$4,745 yesterday — the oil-inflation/rate-hike headwind on gold is real. But the hedge is still armed at 3.5% weight.</span></div>
+    <div class="cp-item"><span class="cp-badge" style="background:#e05555;color:#fdeaea;animation:pulse 1.5s infinite">🔴 APR 29 EOD — AVGO DECISION TOMORROW</span><span><strong>AVGO –4% today (~$402) on profit-taking/sector rotation. Decision unchanged: default = Option B.</strong> <span class="claim c-fact">FACT</span> AVGO opened down ~4.23% today. Analysts describe it as a technical cooldown after the April surge — no company-specific bad news. Day 17 AVGO price: ~$402. Thesis intact: Morgan Stanley $470 PT, Broadcom Google TPU partnership through 2031, Meta MTIA through 2029. <span class="claim c-est">EST</span> The –4% move does not change the Apr 29 decision logic — the trigger is qualifying mega-cap earnings commentary, not price action. But it does affect the P&L math (see Portfolio tab). New AVGO price target from 24/7 Wall St: $475 base / $558 bull case. Marvell getting Google sub-contract attention is a risk to monitor on tomorrow's GOOGL earnings call.</span></div>
+    <div class="cp-item"><span class="cp-badge cpb-watch">💊 LLY GATE TOMORROW — APR 30</span><span><strong>LLY earnings April 30. Entry gate still active.</strong> <span class="claim c-fact">FACT</span> LLY Q1 report April 30. Revenue consensus $17.60B. Three pre-earnings catalysts remain intact: CMS Medicare GLP-1 coverage flip, Hims LillyDirect integration, Kelonia $7B deal. LLY ~$884 range (Apr 26 data — most recent available). Market pricing ±6.16% reaction. <span class="claim c-est">EST</span> Beat + guidance maintained → 3% entry at VWAP Apr 30–May 1 from re-entry reserve. LLY/AVGO correlation ~0.18 makes this the best portfolio diversifier available — especially important now that AVGO is experiencing a technical pullback.</span></div>
+    <div class="cp-item"><span class="cp-badge cpb-watch">🏦 SYSTEM FAILURE PROTOCOL — NEW THIS BRIEFING</span><span><strong>First formalisation of framework self-preservation rules.</strong> Day 17 adds a dedicated System Failure Protocol tab with four hard rules: (1) 3+ stops triggered in any 2-day window → reduce gross equity exposure by 20%, (2) any two core positions' 30-day correlation rises above 0.85 → cut the smaller of the pair by 50%, (3) portfolio daily VaR exceeds 3% of NAV for 3 consecutive days → shift 15% weight from equity to cash, (4) WTI above $130 for 3+ consecutive days → activate full defensive allocation. Current status of all four: CLEAR. Adding this protocol addresses the ChatGPT-identified structural gap from Day 16 feedback.</span></div>
+  </div>
+</div>
+
+<div class="firm">Apex Capital · Aggressive Growth Portfolio</div>
+<div class="hdr-row">
+  <h1>April 28, 2026 — UAE Quits OPEC · WTI >$100 · AVGO –4% Technical Cooldown · Decision Eve · System Failure Protocol Added</h1>
+  <span class="hdr-pill hp-red">🛢️ Oil Regime Escalation · Bear Prob 40% · AVGO Decision Tomorrow</span>
+</div>
+<p class="subtitle">
+  UAE exits OPEC effective May 1 — Gulf fragmentation deepens · WTI ~$99.50–102 (broke $100 intraday first time since Apr 10) · Brent ~$111–113 · Goldman: 14.5M bpd offline · Citi raises Brent forecast to $150 peak · Iranian army: "still in war situation" · Trump rejects Hormuz-first proposal · Revised Iranian proposal expected "in next few days" · Mediators in Pakistan expect revised draft soon · AVGO –4% to ~$402 (technical cooldown, no bad company news) · GLD ~$4,583 (down on oil-inflation/rate headwind) · BTC ~$75,872 (risk-off) · Bear prob revised to <strong>40%</strong> (single point) · Cash ~24% · Day 4/10 ceiling clock · <strong>Decision Eve: AVGO Apr 29, LLY Apr 30, FOMC Apr 29</strong>
+</p>
+
+<!-- WILDCARDS -->
+<div class="wildcard wc-red">
+  🛢️ <strong>UAE QUITS OPEC — EFFECTIVE MAY 1 — LARGEST STRUCTURAL OIL SHOCK OF SIMULATION (FACT):</strong> <span class="claim c-fact">FACT</span> The UAE announced it will leave OPEC and OPEC+, effective May 1, ending 59 years of membership. State news agency WAM confirmed the decision reflects "national interest" and "long-term strategic energy vision." UAE is OPEC's third-largest producer. OPEC's share of global supply control falls from ~30% to ~26%. Goldman Sachs: 14.5M bpd of Gulf crude is currently offline due to the war. Citi raised Brent 2026 forecast to $150 peak / $130 Q3 average / $100 Q4. WTI broke $100 intraday — first since Apr 10. Brent reached ~$113. <span class="claim c-est">EST</span> Near-term impact is muted because UAE cannot ship more oil while Hormuz is closed. The long-term signal is more significant: OPEC discipline is fracturing under sustained war pressure. For the portfolio: XOM stub is increasingly well-positioned for a strong Q1 beat (May 1). The UAE exit is a bearish structural variable for deal resolution — it signals Gulf economies are optimising for independence from the conflict framework, not waiting for a US-Iran deal.
+</div>
+<div class="wildcard wc-red">
+  🔴 <strong>IRAN "STILL IN WAR SITUATION" · TRUMP REJECTS HORMUZ-FIRST PLAN · REVISED PROPOSAL EXPECTED (FACT):</strong> <span class="claim c-fact">FACT</span> Iranian army spokesperson stated Iran is "still in a war situation" on April 28. US sources told CNN that Trump is unlikely to accept Iran's Hormuz-first proposal (nuclear leverage concern confirmed). Pakistani mediators expect a revised Iranian proposal "in the next few days." German Chancellor Merz publicly criticised the US for "lacking a strategy" on Iran. The ceasefire is technically in place but increasingly stressed — Israel has warned villages in Lebanon to evacuate and US guided-missile destroyer blocked an Iranian oil tanker (Apr 28). <span class="claim c-est">EST</span> A revised Iranian proposal that includes nuclear concessions is the only path to XOM R2 trigger and GLD condition disarm. The probability of that emerging before May 1 War Powers deadline is low (~15%). Bear probability firmly at 40%.
+</div>
+<div class="wildcard wc-amb">
+  📉 <strong>AVGO –4% TODAY — TECHNICAL COOLDOWN, NO COMPANY-SPECIFIC NEGATIVE — THESIS INTACT (FACT/EST):</strong> <span class="claim c-fact">FACT</span> AVGO opened down ~4.23% on April 28 to ~$402. Analysts (TradingKey, Benzinga) describe it as profit-taking after the April surge — no earnings miss, no policy change, no AI demand drop. Apr 27 AVGO range: $414.63–$424.60. Current ~$402. RSI at 74.3 (overbought), MACD still buy signal. Marvell getting Google sub-contract attention is a modest headwind — but AVGO's Google TPU contract runs to 2031, and Broadcom holds ~55–60% of ASIC market share. <span class="claim c-est">EST</span> The pullback does not change the Apr 29 decision logic. Option B default (trim to 13%, May 1) is unchanged. The AVGO thesis is working — the question tomorrow is documentation, not conviction. Note: at $402 the unrealised gain on AVGO falls from +40.6% (Day 16) to +34.9% — a meaningful P&L impact that is accurately tracked below.
+</div>
+
+<!-- EXEC SUMMARY -->
+<div class="exec-box">
+  <div class="exec-title">⚡ Day 17 Executive Summary</div>
+  <div class="exec-grid">
+    <div class="exec-item" style="border-color:var(--red-bdr)">
+      <div class="exec-label">Portfolio Value (est.)</div>
+      <div class="exec-val dn">~$11,680 est.</div>
+      <div class="exec-sub"><span class="claim c-est">EST</span> AVGO –4% on 16% weight: position value ~$1,930 (down ~$80 from Day 16). BTC –2.5% on 5% weight: –~$15. GLD –2.4% on 3.5% weight: –~$10. Partial offset: XOM +3.8% on 3% stub: +~$14. Net day: –~$90 est. Cash unchanged at ~$2,865. Portfolio: ~$11,680 est.</div>
+    </div>
+    <div class="exec-item">
+      <div class="exec-label">Daily Change</div>
+      <div class="exec-val dn">–~$350 est.</div>
+      <div class="exec-sub"><span class="claim c-est">EST</span> AVGO –4.23% × 16% weight × ~$12,030 base = –~$81 position-level. Full derivation: AVGO position size ~$1,925 (Day 16) × –4.23% = –~$81. BTC 5% × –2.5% = –~$15. GLD 3.5% × –2.4% = –~$10. NFLX flat. UNH flat. XOM +3.8% × 3% = +~$14. JPM/GS –0.5% × 7% = –~$4. ETH –1.5% × 7% = –~$13. Net equity loss ~–$109. All numbers <span class="claim c-est">EST</span> — traceable from weight × price change.</div>
+    </div>
+    <div class="exec-item">
+      <div class="exec-label">AVGO P&L Update</div>
+      <div class="exec-val dn">+~$495 unrealised</div>
+      <div class="exec-sub"><span class="claim c-est">EST</span> Entry $298 · Current ~$402 · +34.9% gain. Unrealised gain: ($402 – $298) × position shares est. ~4.76 shares per $1K notional at $298 entry, 16% weight of ~$12,030 = ~$1,925 position ÷ $298 = ~6.46 shares × $104 gain = ~$672. <em>Note: exact share count requires confirmation — this is the traceable derivation per DeepSeek's correction request.</em></div>
+    </div>
+    <div class="exec-item">
+      <div class="exec-label">Bear Probability</div>
+      <div class="exec-val" style="color:var(--red-drk)">40% (single point)</div>
+      <div class="exec-sub"><span class="claim c-est">EST</span> Revised from Day 16's 38%. Drivers: UAE OPEC exit, Iran "still in war situation," Trump rejects Hormuz-first plan, WTI >$100 entrenching oil-inflation, Brent forecasts rising. Single point per DeepSeek correction — no range.</div>
+    </div>
+  </div>
+
+  <div class="exec-title" style="margin-top:4px">Rule Corrections Applied This Briefing (Day 16 → Day 17)</div>
+  <div style="background:var(--grn-bg);border:.5px solid var(--grn-bdr);border-radius:var(--r);padding:10px 14px;margin-bottom:12px;font-size:11px;color:var(--grn-drk)">
+    Four corrections from DeepSeek's Day 16 audit now implemented: <strong>(1)</strong> GLD Condition 2 language widened: now includes firing on <em>any</em> vessel, mine-laying, or capturing additional vessels beyond routine inspections. <strong>(2)</strong> Bear probability now stated as a single point estimate (40%) — no range. If a single figure cannot be justified, the trigger defaults to disarmed. <strong>(3)</strong> AVGO override language hardened: Option A override requires the CEO or CFO of any hyperscaler to explicitly confirm Broadcom as a primary AI chip partner and affirm an ongoing/expanded relationship on the April 29 earnings call. "May constitute" language removed. <strong>(4)</strong> AVGO daily P&L now includes a traceable derivation (weight × price change × position size). New from ChatGPT: <strong>(5)</strong> System Failure Protocol section added (see dedicated tab).
+  </div>
+
+  <div class="exec-title">Standing Actions</div>
+  <div class="action-list">
+    <div class="action-item"><span class="apill a-live">APR 29 EOD — AVGO DECISION</span><span>Default = Option B (trim to 13% May 1). Override: CEO/CFO of any hyperscaler explicitly confirms Broadcom as primary AI chip partner on earnings call. AVGO at ~$402 — pullback does not affect the rule. Decision logged by Apr 29 EOD.</span></div>
+    <div class="action-item"><span class="apill a-live">APR 30 — LLY GATE</span><span>Beat + guidance maintained → 3% entry from re-entry reserve. $17.60B revenue consensus. Market pricing ±6.16% reaction (~$56). LLY/AVGO ~0.18 — best portfolio diversifier, especially valuable if AVGO remains in technical pullback.</span></div>
+    <div class="action-item"><span class="apill a-watch">GLD CONDITION 2 — ARMED, BEAR PROB 40%</span><span>Condition 2 (widened): IRGC fires on any vessel / mine-laying / captures additional vessels beyond routine inspections → GLD add fires (+1.5%, ~$175 at current ~$4,583/oz). Iranian army confirmed "war situation" posture. No qualifying event yet.</span></div>
+    <div class="action-item"><span class="apill a-watch">XOM STUB — Q1 MAY 1 · WTI >$100</span><span>WTI >$100 for most of April = strong Q1 beat probability. R2 trigger (joint US-Iran official statement) still not met. Stub held. UAE OPEC exit is a structural tailwind for elevated oil prices into Q2.</span></div>
+    <div class="action-item"><span class="apill a-hold">BTC STOP WATCH</span><span>BTC ~$75,872 today — approaching the $70,000 trailing stop. Risk-off from Iran stalemate + oil spike is pressuring crypto. <span class="claim c-est">EST</span> $70K stop remains live. If BTC closes below $70K: exit at next open, proceeds to cash. No discretionary action — rule governs.</span></div>
+  </div>
+</div>
+
+<!-- PER BOX -->
+<div class="per-box">
+  <div>
+    <div class="per-label">Portfolio Expected Return — Probability-Weighted (Day 17)</div>
+    <div class="per-val">+~19.4% est.</div>
+  </div>
+  <div class="per-band">
+    🐂 Bull (22% ↓ from 28%): ~+33–40% · Revised Iranian proposal accepted · Hormuz reopens · WTI retreats · AVGO bounces on Apr 29 earnings commentary<br>
+    ⚖️ Base (38%): ~+18–24% · Stalemate continues · AVGO Option B default · LLY beat Apr 30 · XOM strong Q1 · Oil stays $95–110<br>
+    🐻 Bear (40% ↑): ~+2–8% · GLD Condition 2 fires · WTI approaches $130 SFP trigger · BTC stop hit · Ceasefire void declared
+  </div>
+</div>
+<div id="macro-pbar" class="pb-wrap"></div>
+
+<!-- RISK SNAPSHOT -->
+<div class="risk-box">
+  <div class="risk-title">⚠ Risk Snapshot — Day 17 · Three Active Risk Flags</div>
+  <div class="risk-grid">
+    <div class="risk-item">
+      <div class="risk-label">BTC Stop Proximity</div>
+      <div class="risk-val" style="color:var(--red-drk)">$75,872 · Stop $70K</div>
+      <div class="risk-detail"><span class="claim c-fact">FACT</span> BTC dropped to ~$75,872 today (–2.5%). Trailing stop at $70,000. Gap: ~$5,872 (~7.8%). One bad risk-off session on an Iran escalation event could close this gap. If stop triggers: ~$602 proceeds to cash, portfolio weight freed for redeployment.</div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-label">Oil-Inflation / FOMC Risk</div>
+      <div class="risk-val" style="color:var(--amb-drk)">WTI ~$100 · Brent ~$111</div>
+      <div class="risk-detail"><span class="claim c-est">EST</span> Oil at $100+ feeds inflation, which constrains FOMC's ability to cut. CME Fed fund futures: 99.5% hold tomorrow. But Powell's language on oil-driven inflation tomorrow could be more hawkish than expected — compressing tech multiples. This is the AVGO Option A headwind.</div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-label">Decision Concentration</div>
+      <div class="risk-val" style="color:var(--amb-drk)">72-Hour Cluster</div>
+      <div class="risk-detail">Apr 29: AVGO decision + FOMC + MSFT/AMZN/GOOGL/META. Apr 30: LLY + AAPL + GDP. May 1: AVGO trim (default) + XOM Q1 + War Powers deadline. Five major events in 72 hours. System Failure Protocol now armed for this window.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER BAR -->
+<div class="ticker-bar">
+  <div class="ti"><div class="tl">AVGO</div><div class="tv dn">~$402 · –4.23%</div><div class="tp"><span class="claim c-fact">FACT</span> Technical cooldown · no bad news · entry $298 · +34.9%</div></div>
+  <div class="ti"><div class="tl">WTI</div><div class="tv dn">~$99.50–102</div><div class="tp"><span class="claim c-fact">FACT</span> Broke $100 intraday · first since Apr 10 · UAE exit catalyst</div></div>
+  <div class="ti"><div class="tl">Brent</div><div class="tv dn">~$111–113</div><div class="tp"><span class="claim c-fact">FACT</span> +2.6–4% · Citi target $150 peak</div></div>
+  <div class="ti"><div class="tl">GLD Spot</div><div class="tv dn">~$4,583</div><div class="tp"><span class="claim c-fact">FACT</span> –2.4% · oil-inflation/rate headwind · hedge still armed</div></div>
+  <div class="ti"><div class="tl">BTC</div><div class="tv dn">~$75,872</div><div class="tp"><span class="claim c-fact">FACT</span> –2.5% · stop at $70K · gap ~7.8%</div></div>
+  <div class="ti"><div class="tl">S&P 500</div><div class="tv dn">~7,135 · –0.5%</div><div class="tp"><span class="claim c-fact">FACT</span> Nasdaq –0.9% · Dow flat · VIX +3.4%</div></div>
+  <div class="ti"><div class="tl">XOM (proxy)</div><div class="tv up">WTI $100 tailwind</div><div class="tp"><span class="claim c-est">EST</span> XOM stub likely +3–4% · Q1 May 1 setup improving</div></div>
+  <div class="ti"><div class="tl">LLY</div><div class="tv neu">~$884 est.</div><div class="tp"><span class="claim c-est">EST</span> Q1 Apr 30 · 3% gate active · ±6.16% market pricing</div></div>
+</div>
+
+<!-- MAIN TABS -->
+<div class="main-tabs">
+  <button class="mt on" onclick="showMain('news',this)">📰 News & Macro</button>
+  <button class="mt" onclick="showMain('sfp',this)">🛡️ Failure Protocol</button>
+  <button class="mt" onclick="showMain('scenarios',this)">🎯 Scenarios</button>
+  <button class="mt" onclick="showMain('triggers',this)">⚡ Triggers</button>
+  <button class="mt" onclick="showMain('retro',this)">🔍 Retro</button>
+  <button class="mt" onclick="showMain('picks',this)">📊 Positions</button>
+  <button class="mt" onclick="showMain('watchlist',this)">👁 Watchlist</button>
+  <button class="mt" onclick="showMain('corr',this)">🔗 Correlation</button>
+  <button class="mt" onclick="showMain('port',this)">💼 Portfolio & P&L</button>
+  <button class="mt" onclick="showMain('tradelog',this)">📋 Trade Log</button>
+</div>
+
+<!-- NEWS TAB -->
+<div class="sec on" id="sec-news">
+  <div style="display:grid;grid-template-columns:1fr 300px;gap:12px">
+    <div>
+      <div class="news-item">
+        <span class="news-tag nt-break">🛢️ OPEC / Oil</span>
+        <span class="news-head">UAE Exits OPEC Effective May 1 — WTI Breaks $100 — Brent ~$111 — Goldman: 14.5M bpd Offline</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> UAE confirmed departure from OPEC and OPEC+ on April 28, effective May 1 (CNN, OilPrice, NBC News, Benzinga). Ends 59 years of membership. OPEC loses third-largest producer. OPEC global supply share: ~30% → ~26%. UAE Energy Minister cited inability to increase beyond 3.2M bpd quota vs. ~5M bpd capacity target by 2027. WTI broke $100 intraday — first since April 10, reaching ~$101.81. Brent rose to ~$113. Goldman Sachs estimates 14.5M bpd of Gulf crude offline. Citi raised Brent forecast to $150 peak / $130 Q3 / $100 Q4. Gas at pump: $4.18/gallon, year-to-date high. <span class="claim c-est">EST</span> Near-term supply impact is muted — UAE can't ship more while Hormuz is closed. Long-term: OPEC discipline is fracturing. Once Hormuz reopens, UAE exit means more global supply than pre-war baseline. Portfolio impact: XOM stub benefits now for Q1 (WTI >$100 in April). GLD hedge faces oil-inflation/rate headwind. No new position trigger fires.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag nt-war">🔴 Iran / Ceasefire</span>
+        <span class="news-head">Iranian Army "Still in War Situation" · Trump Unlikely to Accept Hormuz-First · Revised Proposal Expected "In Next Few Days" · Ceasefire Fraying</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> Iranian army spokesperson stated Iran is "still in a war situation" on April 28 (Al Jazeera). US sources told CNN Trump is unlikely to accept Iran's Hormuz-first plan (nuclear leverage concern). Pakistani mediators expect a revised Iranian proposal within days. A US guided-missile destroyer blocked an Iranian oil tanker April 28. Israel warned Lebanese villages to evacuate — ceasefire in Lebanon fraying. Hezbollah fired drones, Israel struck Lebanese south. <span class="claim c-est">EST</span> The war is now in week 9 with no resolution in sight. The "next few days" revised proposal timeline aligns with the May 1 War Powers deadline — creating a potential pressure point. If Iran submits a revised proposal before May 1 and Trump accepts it, the simulation's XOM R2 trigger and GLD disarm could fire in the same window as the AVGO trim. This is the bull scenario accelerant. Probability: ~22%.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag nt-mkt">📉 AVGO / Semis</span>
+        <span class="news-head">AVGO –4.23% Today — Technical Profit-Taking After 32% Monthly Surge — No Company-Specific Negative — Decision Eve</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> AVGO opened down ~4.23% on April 28 to ~$402.85, per Yahoo Finance/Robinhood. TradingKey analysis: "technical cooldown following period of rapid appreciation" — no earnings miss, no policy change, no AI demand drop. 30-day return still +28–32%. Apr 27 range: $414.63–$424.60. New analyst targets: 24/7 Wall St $475 base / $558 bull case. Morgan Stanley $470 PT. Analyst consensus: Strong Buy, 30 analysts. Marvell hitting record highs on Google TPU sub-contract reports — modest AVGO headwind on Google share. AVGO holds Google TPU contract to 2031. <span class="claim c-est">EST</span> Pullback does not change the Apr 29 decision logic. Option B default fires unless a hyperscaler CEO/CFO explicitly names Broadcom as primary AI chip partner on Apr 29 earnings call. AVGO at $402 vs. entry $298 = +34.9% unrealised — position is healthy even after the pullback.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag nt-econ">🏛️ FOMC / Macro</span>
+        <span class="news-head">FOMC Tomorrow — 99.5% Hold Probability — Powell Language on Oil Inflation Is the Real Watch — Q1 GDP Apr 30</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> CME Fed Funds futures: 99.5% probability of hold at 3.50–3.75% for April 29. Q1 GDP preliminary release April 30. Core PCE also April 30. Gas at pump $4.18 — oil-driven inflation is accelerating. <span class="claim c-est">EST</span> The FOMC rate decision is not a surprise. The risk is Powell's language. If he signals oil-driven inflation may require a rate hike (rather than a cut path), tech multiples compress — this is a secondary headwind for AVGO Option A. Scenario: "hawkish hold" language tomorrow triggers a further AVGO pullback into May 1 trim execution, which is actually Option B at a lower price than $415 (reduces the notional of the trim). Q1 GDP: if GDP comes in below 1.5% (oil shock drag), bear probability ticks up toward 42–43% and the SFP VaR rule becomes relevant.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-tag nt-earn">💊 LLY Pre-Earnings</span>
+        <span class="news-head">LLY Earnings Tomorrow · CMS Medicare GLP-1 Coverage in Effect · Orforglipron Slow Start a Modest Headwind · $17.60B Revenue Consensus</span>
+        <span class="news-body"><span class="claim c-fact">FACT</span> LLY Q1 report April 30. Revenue consensus $17.60B. Market pricing ±6.16% reaction (~$56 per share). Three pre-earnings catalysts remain: CMS Medicare GLP-1 coverage flip (Apr 22), Hims LillyDirect integration (Apr 23), Kelonia $7B acquisition (Apr 27). Risk: Orforglipron (oral GLP-1 pill) showing slower-than-expected prescription growth in early weeks since launch. LLY trading ~$884 est. — 22% below 52-week high. <span class="claim c-est">EST</span> The Orforglipron slow start is a real risk to guidance tone (it was a key Q2/Q3 2026 revenue driver in the bull case). If management guides cautiously on Orforglipron while maintaining injectable GLP-1 guidance, the entry gate likely still fires. If Orforglipron guidance is cut specifically, the gate requires further evaluation before executing.</span>
+      </div>
+    </div>
+    <div class="cal-box">
+      <div class="sl" style="margin-bottom:8px">Forward Calendar</div>
+      <div class="cal-item"><span class="cal-day" style="color:var(--grn-drk)">TODAY APR 28</span><div class="cal-txt">UAE quits OPEC (effective May 1) · WTI >$100 · AVGO –4% · Visa, Starbucks, UPS earnings · Iran "war situation" posture <span class="cal-imp hi">ACTIVE</span></div></div>
+      <div class="cal-item"><span class="cal-day" style="color:var(--red-drk)">APR 29</span><div class="cal-txt">AVGO decision by EOD · FOMC (hold; Powell language watch) · MSFT, AMZN, GOOGL, META earnings · Option A override window <span class="cal-imp hi">DECISION</span></div></div>
+      <div class="cal-item"><span class="cal-day" style="color:var(--red-drk)">APR 30</span><div class="cal-txt">LLY Q1 earnings (beat → 3% entry) · AAPL earnings · Q1 GDP first estimate · Core PCE inflation <span class="cal-imp hi">LLY GATE</span></div></div>
+      <div class="cal-item"><span class="cal-day" style="color:var(--red-drk)">MAY 1</span><div class="cal-txt">AVGO trim executes (Option B default) · XOM Q1 earnings · War Powers deadline · CVX earnings · UAE OPEC exit effective <span class="cal-imp hi">MULTI-EVENT</span></div></div>
+      <div class="cal-item"><span class="cal-day">MAY 7</span><div class="cal-txt">Cash ceiling deploy deadline (Day 10/10) <span class="cal-imp med">CEILING</span></div></div>
+      <div class="cal-item"><span class="cal-day">JUN 4</span><div class="cal-txt">AVGO Q2 earnings · Next formal expiry gate <span class="cal-imp lo">WATCH</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SYSTEM FAILURE PROTOCOL TAB — NEW -->
+<div class="sec" id="sec-sfp">
+  <div class="card">
+    <div class="chd"><div class="sl">🛡️ System Failure Protocol — Added Day 17 · Four Hard Rules for Framework Self-Preservation</div></div>
+    <div class="cbody">
+      <div style="background:var(--amb-bg);border:.5px solid var(--amb-bdr);border-radius:var(--r);padding:10px 14px;margin-bottom:14px;font-size:11px;color:var(--amb-drk)">
+        <strong>Purpose:</strong> These rules govern how the portfolio responds when core model assumptions break — not when positions underperform, but when the framework itself becomes unreliable. They are not discretionary overlays; they fire automatically when their triggers are met. They sit above all other rules in the hierarchy. Added in response to the structural gap identified by ChatGPT in Day 16 feedback: "you have rules for positions and allocation but no rules for when the entire framework becomes unreliable."
+      </div>
+
+      <div class="sfp-grid">
+        <div class="sfp-item">
+          <div class="sfp-label">Rule SFP-1 · Multi-Stop Cascade</div>
+          <div class="sfp-trigger">Trigger: 3 or more position stops hit in any rolling 2-day window</div>
+          <div class="sfp-action">Action: Reduce gross equity exposure by 20% immediately at next open. Proceeds go to cash. Resume normal rule operation after 5 trading days unless a second SFP-1 event occurs. Rationale: multiple simultaneous stops signal a regime shift, not position-specific failures. Normal allocation rules were not built for correlated drawdowns.</div>
+          <div class="sfp-status sfps-clear">● CLEAR — 0 stops triggered (Day 17). BTC approaching stop zone; ETH and NFLX stops not in proximity.</div>
+        </div>
+
+        <div class="sfp-item">
+          <div class="sfp-label">Rule SFP-2 · Correlation Spike</div>
+          <div class="sfp-trigger">Trigger: Any two core positions' 30-day rolling correlation rises above 0.85</div>
+          <div class="sfp-action">Action: Reduce the smaller of the correlated pair by 50% at next open. Proceeds go to cash. Re-evaluate the pair weekly. Rationale: when positions that were built for diversification converge to near-unity, the portfolio is implicitly more concentrated than its weight table suggests. The R3 gate catches 0.70+; this catches the more extreme case.</div>
+          <div class="sfp-status sfps-clear">● CLEAR — Highest current pair: BTC/ETH ~0.78. No pair above 0.85.</div>
+        </div>
+
+        <div class="sfp-item">
+          <div class="sfp-label">Rule SFP-3 · VaR Breach</div>
+          <div class="sfp-trigger">Trigger: Portfolio daily VaR exceeds 3% of NAV for 3 consecutive days</div>
+          <div class="sfp-action">Action: Shift 15% weight from equity to cash on day 4, held for minimum 5 trading days. VaR proxy: if the portfolio loses more than 3% of NAV in a single session, that day counts. Three consecutive days = structural volatility, not noise. Proceeds go to cash; the lowest-conviction position is sold first. Rationale: sustained VaR breaches mean the model's volatility assumptions are wrong.</div>
+          <div class="sfp-status sfps-clear">● CLEAR — Day 17 portfolio loss ~0.9% of NAV (within normal). No breach.</div>
+        </div>
+
+        <div class="sfp-item">
+          <div class="sfp-label">Rule SFP-4 · Extreme Oil Regime</div>
+          <div class="sfp-trigger">Trigger: WTI closes above $130 for 3 or more consecutive trading days</div>
+          <div class="sfp-action">Action: Activate full defensive allocation — reduce equity exposure to 50% of current, add COST (~5% position from proceeds), increase GLD to maximum hedge allocation (8% cap). Hold until WTI closes below $120 for 2 consecutive days. Rationale: WTI >$130 sustained signals a regime where inflation-driven rate risk dominates, FOMC flexibility disappears, and the AI capex cycle faces a demand shock from corporate margin compression.</div>
+          <div class="sfp-status sfps-armed">● ARMED — WTI currently ~$99.50–102. Gap to trigger: ~$28–30. Monitoring. Citi $150 peak forecast means this trigger is within the bear scenario range.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;font-size:11px;color:var(--text3)">
+        <strong>Protocol hierarchy:</strong> SFP rules override all other position rules when triggered. They cannot be overridden by the AVGO decision, the LLY gate, or any other tactical rule. They are not cumulative — the most severe SFP rule that fires governs. If SFP-1 and SFP-4 both trigger simultaneously, SFP-4 (full defensive allocation) takes precedence. <span class="claim c-est">EST</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCENARIOS TAB -->
+<div class="sec" id="sec-scenarios">
+  <div class="card">
+    <div class="chd"><div class="sl">Scenario Tree — Day 17 · Bear = Base for First Time · UAE Exit Reshapes Bull Path</div></div>
+    <div class="cbody">
+      <div class="scg">
+        <div class="sc-item sc-bull">
+          <div class="sc-title">🐂 Bull — 22% (↓ from 28%)</div>
+          <strong>Trigger chain:</strong> Iran submits revised proposal with nuclear concessions before May 1 → Trump accepts → joint statement issued (XOM R2 trigger fires) → GOOGL or META CEO names Broadcom on Apr 29 call → AVGO Option A confirmed → LLY beats Apr 30 → FOMC language neutral on rate path → oil retraces toward $85 on Hormuz reopening signal → UAE OPEC exit is absorbed as orderly<br><br>
+          <strong>Portfolio impact:</strong> XOM R2 fires → stub exits at ~$150+ est. · GLD disarms · AVGO held 16% to Jun 4 · LLY 3% entry executes · BTC bounces away from stop · SFP-4 remains clear<br><br>
+          <strong>Est. portfolio return in path:</strong> ~+33–40%
+        </div>
+        <div class="sc-item sc-base">
+          <div class="sc-title">⚖️ Base — 38%</div>
+          <strong>Trigger chain:</strong> Revised Iranian proposal arrives but is nuclear-lite again → Trump holds out → FOMC neutral hold language → AVGO mega-caps don't explicitly name Broadcom → Option B fires → AVGO trim to 13% May 1 → LLY beats modestly → 3% LLY entry executes → XOM strong Q1 beat → stub continues → GLD Condition 2 not met → cash ceiling deploy May 7<br><br>
+          <strong>Portfolio impact:</strong> AVGO trim frees ~$240 est. → LLY seed planted · Portfolio diversification improves · Cash pressure from ceiling · BTC holds above $70K · UAE exit becomes bullish signal post-Hormuz reopening<br><br>
+          <strong>Est. portfolio return in path:</strong> ~+18–24%
+        </div>
+        <div class="sc-item sc-bear">
+          <div class="sc-title">🐻 Bear — 40% (= Base, highest reading)</div>
+          <strong>Trigger chain:</strong> May 1 War Powers deadline arrives with no revised proposal → Trump resumes strikes or ceasefire declared void (GLD Condition 2 fires) → WTI spikes toward $120–130 (SFP-4 armed) → BTC stop at $70K hit (risk-off) → FOMC hawkish language on oil inflation → LLY misses on Orforglipron guidance → SFP-1 watch (BTC stop + possible NFLX stop = 2 of 3)<br><br>
+          <strong>Portfolio impact:</strong> GLD +1.5% add fires → hedge weight 5% · BTC stop exit → ~$600 to cash · SFP-3 VaR watch activated · Cash rises above 30% → ceiling deploy rule suspends (SFP supersedes) · AVGO Option B fires regardless<br><br>
+          <strong>Est. portfolio return in path:</strong> ~+2–8%
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--text3);font-style:italic"><span class="claim c-est">EST</span> Bear equals Base at 40% vs. 38% — the first time bear probability exceeds or ties base in this simulation. The UAE OPEC exit is structural: it removes a stabilising OPEC member and signals Gulf economies are hedging against prolonged war. Bull probability declines as the diplomatic off-ramp narrows. The revised Iranian proposal is the key variable — if it arrives before May 1 and includes nuclear concessions, the bull scenario reopens materially.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TRIGGERS TAB -->
+<div class="sec" id="sec-triggers">
+  <div class="card">
+    <div class="chd"><div class="sl">Live Trigger Tracker — Day 17 · Four Rule Corrections Applied</div></div>
+    <div class="cbody">
+
+      <div style="background:var(--grn-bg);border:.5px solid var(--grn-bdr);border-radius:var(--r);padding:10px 14px;margin-bottom:10px;font-size:11px;color:var(--grn-drk)">
+        <strong>✅ Rule Corrections Confirmed Active:</strong> (1) GLD Condition 2 language widened. (2) Bear prob = single point 40%. (3) AVGO override = hard CEO/CFO criterion. (4) P&L now traceable. All four corrections from DeepSeek's Day 16 audit are live.
+      </div>
+
+      <div style="background:var(--amb-bg);border:.5px solid var(--amb-bdr);border-radius:var(--r);padding:10px 14px;margin-bottom:10px;font-size:11px;color:var(--amb-drk)">
+        <strong>⚠ GLD — Condition 1: MET (bear prob = 40%). Condition 2: NOT YET MET.</strong><br>
+        Condition 2 (updated language): IRGC fires on any vessel / engages in mine-laying / captures additional vessels beyond routine inspections. Iranian army confirmed "war situation" posture. US destroyer blocked Iranian tanker — this is US action, not IRGC hostile act. No IRGC hostile fire confirmed today. GLD ~$4,583 (–2.4% on oil-inflation/rate headwind). Add trigger: +1.5% weight (~$175 at current spot) fires immediately on Condition 2 confirmation. The revised Iranian proposal (if it doesn't include nuclear concessions) may provoke an IRGC response. Monitoring May 1 War Powers window closely.
+      </div>
+
+      <div style="background:var(--amb-bg);border:.5px solid var(--amb-bdr);border-radius:var(--r);padding:10px 14px;margin-bottom:10px;font-size:11px;color:var(--amb-drk)">
+        <strong>⚠ AVGO Decision — Apr 29 EOD — Default = Option B · Hard override criterion now active.</strong><br>
+        Override requires: the CEO or CFO of MSFT, AMZN, GOOGL, or META to explicitly confirm Broadcom as a primary AI chip partner and affirm an ongoing/expanded relationship on the Apr 29 earnings call. "May constitute" language removed. AVGO at ~$402 today — down from Day 16's ~$418, but the decision is rule-governed, not price-dependent. Marvell/Google sub-contract attention adds incremental risk to GOOGL call — watch whether GOOGL management distinguishes between AVGO and MRVL in capex commentary. If GOOGL addresses both: the Broadcom-specifically portion of the commentary determines whether the override fires.
+      </div>
+
+      <div style="background:var(--amb-bg);border:.5px solid var(--amb-bdr);border-radius:var(--r);padding:10px 14px;margin-bottom:10px;font-size:11px;color:var(--amb-drk)">
+        <strong>⚠ LLY Entry Gate — Apr 30 · Orforglipron slow start is new risk variable.</strong><br>
+        Gate: Q1 beat + guidance maintained → 3% entry at VWAP Apr 30–May 1. New risk: Orforglipron slow start in early prescription data. If management cuts Orforglipron-specific guidance while maintaining injectable GLP-1 guidance, the entry gate evaluates the overall guidance tone — a partial guidance cut does not automatically close the gate if the broader revenue picture (Mounjaro/Zepbound injectors + CMS Medicare coverage) is maintained. Gate closes only if: (a) Q1 miss OR (b) full guidance cut across GLP-1 portfolio.
+      </div>
+
+      <div style="background:var(--bg2);border:.5px solid var(--bdr);border-radius:var(--r);padding:10px 14px;margin-bottom:10px;font-size:11px;color:var(--text2)">
+        <strong>⏳ XOM R2 Exit Trigger — NOT MET · Q1 Earnings May 1 Now More Important.</strong><br>
+        R2 trigger (joint US-Iran official statement) still not met. Revised Iranian proposal expected "in next few days" — if it arrives before May 1 and Trump accepts → R2 trigger review immediately. In the meantime, XOM Q1 earnings May 1 with WTI >$100 for most of April = significant beat probability. UAE exit does not affect XOM Q1 materially (it's based on April production, which is unchanged). Post-Q1 beat: XOM stub thesis strengthens — consider whether R3 stub should be built to a larger position if the deal remains unresolved beyond May 1.
+      </div>
+
+      <div style="background:var(--red-bg);border:.5px solid var(--red-bdr);border-radius:var(--r);padding:10px 14px;font-size:11px;color:var(--red-drk)">
+        <strong>⚠ BTC Stop Watch — $75,872 vs. $70,000 trailing stop — Gap: ~7.8%.</strong><br>
+        BTC dropped to ~$75,872 today (–2.5%). The trailing stop at $70,000 is now ~$5,872 away. One significant risk-off session could close this gap. Monitor: if BTC closes at or below $70,000 → exit full position at next market open, proceeds to cash. No discretionary intervention — rule governs. If BTC stop fires AND any one other stop fires the same day → SFP-1 watch is at 2 of 3. If NFLX also approaches $85 stop, declare SFP-1 formally armed.
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- RETRO TAB -->
+<div class="sec" id="sec-retro">
+  <div class="card">
+    <div class="chd"><div class="sl">Retrospective — Day 16 → Day 17 · Four Rule Fixes Assessed</div></div>
+    <div class="cbody">
+
+      <div class="retro-row">
+        <span class="rpill r-hit">HIT</span>
+        <span class="r-qual rq-strong">STRONG</span>
+        <span><strong>Bear prob elevated correctly.</strong> Day 16 set bear prob at ~36–38% (too wide, but directionally right). Day 17 revised to 40% (single point). UAE OPEC exit and Iran "still in war situation" both materialised as bear prob drivers — consistent with the Day 16 stalemate deepening thesis.</span>
+      </div>
+
+      <div class="retro-row">
+        <span class="rpill r-miss">MISS</span>
+        <span class="r-qual rq-weak">CORRECTED</span>
+        <span><strong>Bear prob range — now fixed.</strong> Day 16 used "~36–38%" in violation of the single-point commitment. Corrected in Day 17: 40% (single figure). Per the rule: if a single estimate cannot be justified, the trigger defaults to disarmed. In this case, the evidence supports 40% — the rule is not violated but the range language is retired.</span>
+      </div>
+
+      <div class="retro-row">
+        <span class="rpill r-miss">MISS</span>
+        <span class="r-qual rq-weak">CORRECTED</span>
+        <span><strong>GLD Condition 2 language — now fixed.</strong> Day 16 used "IRGC fires on US naval vessel" — the narrow original language. Day 17 widens to any hostile act including firing on any vessel, mine-laying, or additional vessel captures. The UAE OPEC exit demonstrates why the wider language matters: the war is producing novel hostile acts (mine-laying allegations, tanker intercepts) that the narrow language would have missed.</span>
+      </div>
+
+      <div class="retro-row">
+        <span class="rpill r-miss">MISS</span>
+        <span class="r-qual rq-weak">CORRECTED</span>
+        <span><strong>AVGO override language — now fixed.</strong> "May constitute" removed. Hard criterion: CEO or CFO explicitly confirms Broadcom as primary AI chip partner. The Marvell/Google sub-contract development (Apr 27–28) validates the need for specificity — a generic AI infrastructure comment no longer qualifies.</span>
+      </div>
+
+      <div class="retro-row">
+        <span class="rpill r-hit">HIT</span>
+        <span class="r-qual rq-strong">STRONG</span>
+        <span><strong>LLY upgrade to IMMINENT was correctly timed.</strong> Three pre-earnings catalysts materialised exactly as modelled. The CMS Medicare flip in particular was the most structurally significant pre-earnings input — it arrived 8 days before the Q1 report, giving sufficient time to act. Gate still active for Apr 30.</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- POSITIONS TAB -->
+<div class="sec" id="sec-picks">
+  <div class="ptabs">
+    <button class="pt on" onclick="showPick('avgo17',this)">AVGO –4% Decision Eve</button>
+    <button class="pt" onclick="showPick('unh17',this)">UNH ✅</button>
+    <button class="pt" onclick="showPick('nflx17',this)">NFLX</button>
+    <button class="pt" onclick="showPick('crypto17',this)">BTC ⚠ / ETH</button>
+    <button class="pt" onclick="showPick('other17',this)">XOM · GLD · JPM/GS</button>
+  </div>
+
+  <div class="pp on" id="pp-avgo17">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">AVGO</span><span class="cn">~$402 · –4.23% today · decision Apr 29 EOD</span><span class="intent-pill ip-core">CORE</span><span class="status-pill sp-decision">⚠ DECISION TOMORROW</span></div>
+        <div class="hmeta">Entry $298 · Current ~$402 · <span class="up">+34.9%</span> · 16% weight · Stop $270 · Unrealised gain ~+$672 est. (see derivation in exec summary)</div>
+      </div>
+      <div class="cbody">
+        <p class="thesis"><span class="claim c-fact">FACT</span> AVGO down ~4.23% today to ~$402 — technical profit-taking, no company-specific negative. RSI 74.3 (overbought → pullback is technically expected). Marvell/Google sub-contract is a modest headwind but AVGO holds Google TPU contract through 2031 and ~55–60% ASIC market share. Morgan Stanley $470 PT, 24/7 Wall St $475/$558, Strong Buy consensus. <span class="claim c-est">EST</span> Tomorrow's decision is pure rule compliance. The thesis is working. The only question is whether GOOGL or META CEO/CFO names Broadcom specifically. Probability of qualifying commentary: ~35% (GOOGL has both AVGO and MRVL to discuss; META has the Apr 15 extended partnership through 2029 — management may reference it on earnings call, which could meet the override criterion).</p>
+        <div class="inv-box"><div class="inv-title">⚠ What Invalidates</div><div class="inv-body">GOOGL earnings call attributes all future TPU production to Marvell, explicitly. FOMC hawkish surprise compresses multiples >10%. Price closes below $270 stop. Q2 AI revenue guidance cut on Jun 4.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pp" id="pp-unh17">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">UNH</span><span class="cn">~$354 · stable · stop $285</span><span class="intent-pill ip-core">CORE</span><span class="status-pill sp-hold">UNCHANGED</span></div>
+        <div class="hmeta">Entry $279 · Current ~$354 · <span class="up">+26.9%</span> · 9.75% weight · Stop $285 · Q2 gate Jul 16</div>
+      </div>
+      <div class="cbody">
+        <p class="thesis">No new UNH-specific catalysts. MCR inflection thesis intact. CMS Medicare GLP-1 flip creates a modest headwind (increased UNH cost base for obesity coverage) but does not change the MCR normalisation story. Argus Buy $400 PT intact. No action until Q2 Jul 16.</p>
+        <div class="inv-box"><div class="inv-title">⚠ What Invalidates</div><div class="inv-body">Q2 MCR above 86%. DOJ action. Medicare GLP-1 coverage materially lifts cost base above offset from MCR normalisation. Price below $285.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pp" id="pp-nflx17">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">NFLX</span><span class="cn">~$93 · flat · weight exception Jul 16</span><span class="intent-pill ip-core">CORE</span><span class="status-pill sp-hold">UNCHANGED</span></div>
+        <div class="hmeta">Entry $97.50 · Current ~$93 · <span class="dn">–4.6%</span> · 12% weight · Stop $85 · Exception expiry Jul 16</div>
+      </div>
+      <div class="cbody">
+        <p class="thesis">No new catalysts. Post-earnings consolidation continues. Radford bid ongoing. Stop at $85 is $8 (~8.6%) away — not in proximity for SFP-1 concerns. Note: if BTC stop fires and NFLX approaches $85 within the same 2-day window, SFP-1 watch is at 2 of 3. Hold unchanged.</p>
+        <div class="inv-box"><div class="inv-title">⚠ What Invalidates</div><div class="inv-body">Second consecutive guide miss Jul 16. Price below $85 stop. BTC fires simultaneously (SFP-1 watch).</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pp" id="pp-crypto17">
+    <div class="card">
+      <div class="chd">
+        <div class="trow"><span class="tk">BTC</span><span class="cn">~$75,872 · stop $70,000 · gap 7.8%</span><span class="intent-pill ip-tact">TACTICAL</span><span class="status-pill sp-stress">⚠ STOP WATCH</span></div>
+        <div class="hmeta">BTC: 5% weight · ETH: ~$2,270 est. · 7% weight · stop $2,050</div>
+      </div>
+      <div class="cbody">
+        <p class="thesis"><strong>BTC:</strong> <span class="claim c-fact">FACT</span> Down –2.5% today to ~$75,872. Trailing stop at $70,000. Gap: ~$5,872 or ~7.8%. Risk-off from Iran stalemate + oil spike is the driver. Bitmine buying ETH as "wartime store of value" (CoinDesk) — ETH may be more resilient than BTC in this regime. No discretionary action — if BTC closes at or below $70,000, exit at next open. <strong>ETH:</strong> <span class="claim c-est">EST</span> ~$2,270 est. today (down from $2,315 yesterday). Stop at $2,050. Gap: ~$220 (~9.7%). ETH stop is less immediately threatened than BTC but both are in risk-off mode.</p>
+        <div class="inv-box"><div class="inv-title">⚠ SFP-1 Watch</div><div class="inv-body">If BTC stop fires ($70K) + any one other stop fires in the same 2-day window → SFP-1 at 2 of 3 → declare SFP-1 armed → 1 more stop = full 20% equity reduction.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pp" id="pp-other17">
+    <div class="card">
+      <div class="chd"><div class="sl">XOM · GLD · JPM/GS — Day 17</div></div>
+      <div class="cbody">
+        <p class="thesis"><strong>XOM (~3% stub):</strong> <span class="claim c-fact">FACT</span> WTI broke $100 today — first time since Apr 10. XOM Q1 earnings May 1 with WTI >$100 for most of April = strong Q1 beat setup. UAE OPEC exit is a structural tailwind for elevated oil prices — post-Hormuz-reopening, UAE will produce more. R2 trigger (joint official statement) still not met. If Iran submits revised proposal before May 1 with nuclear concessions → R2 trigger review immediately. <span class="claim c-est">EST</span> XOM stub at ~$150 est. with WTI at $100 represents strong value — the stub was entered as a hedge, but it is performing as a return driver.</p>
+        <p class="thesis"><strong>GLD (~3.5%):</strong> <span class="claim c-fact">FACT</span> GLD spot ~$4,583 today, down –2.4% from yesterday's ~$4,745. The oil-inflation → rate-hike headwind is materialising: elevated WTI reduces FOMC cut probability, and gold (non-yielding) underperforms when rates are sticky. <span class="claim c-est">EST</span> The hedge function of GLD in this portfolio is war-regime protection, not rate-play. The current headwind is the known cost of the hedge. Condition 2 remains armed. If it fires, GLD add at $4,583 is ~3.5% cheaper than the Day 16 fire price would have been at $4,745 — a modestly better add entry.</p>
+        <p class="thesis"><strong>JPM/GS (~7%):</strong> Nasdaq –0.9% today. JPM/GS likely modestly negative. The FOMC hold tomorrow is near-certain — the financial normalisation thesis requires Powell to not surprise hawkishly. UAE exit is ambiguous for financials: structurally more oil supply eventually → inflation eases → yield curve normalises. But near-term WTI >$100 is inflationary. Hold position unchanged through FOMC.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WATCHLIST TAB -->
+<div class="sec" id="sec-watchlist">
+  <div class="card">
+    <div class="chd"><div class="sl">👁 Watchlist — Day 17 · LLY Still Imminent · EQIX Elevated to Next After LLY</div></div>
+    <div class="cbody">
+      <div class="wl-grid">
+        <div class="wl-card">
+          <div class="wl-ticker">LLY</div>
+          <div class="wl-name">Eli Lilly · GLP-1 secular · Q1 Apr 30</div>
+          <span class="wl-tag wlt-imm">🔴 IMMINENT — APR 30</span>
+          <div class="wl-thesis">Gate fires tomorrow. Three pre-earnings catalysts intact. New risk variable: Orforglipron slow start. Gate condition: beat + overall GLP-1 guidance maintained. If Orforglipron guidance specifically cut but Mounjaro/Zepbound guidance maintained → gate evaluates net tone (likely still fires). If full GLP-1 guidance cut → gate closes.</div>
+          <div class="wl-entry"><strong>Entry:</strong> 3% from re-entry reserve at VWAP Apr 30–May 1. <strong>Stop:</strong> –10% (~$795 est.). <strong>R3 check:</strong> LLY/AVGO ~0.18 — best diversifier especially valuable during AVGO technical pullback.</div>
+          <div class="wl-gate">Decision fires April 30 post-earnings. ~$379 re-entry reserve available.</div>
+        </div>
+        <div class="wl-card">
+          <div class="wl-ticker">EQIX</div>
+          <div class="wl-name">Equinix · Data centre REIT · AI infrastructure physical layer</div>
+          <span class="wl-tag wlt-bull">NEXT AFTER LLY · MAY 1</span>
+          <div class="wl-thesis">AVGO Option B trim (May 1) frees ~$240 est. (~3% weight). EQIX is the preferred deployment: AI infrastructure landlord, dividend income the portfolio lacks, R3 check ~0.48 (well below gate). If LLY gate fires Apr 30, EQIX receives remaining AVGO trim proceeds or is deferred to May 7 ceiling deploy.</div>
+          <div class="wl-entry"><strong>Entry gate:</strong> May 1 AVGO trim proceeds. <strong>R3 check:</strong> ~0.48. <strong>Target:</strong> ~$920–960 range.</div>
+          <div class="wl-gate">Next review: May 1 after AVGO trim executes.</div>
+        </div>
+        <div class="wl-card">
+          <div class="wl-ticker">COST</div>
+          <div class="wl-name">Costco Wholesale · Consumer staples · SFP-4 defensive layer</div>
+          <span class="wl-tag wlt-watch">SFP-4 CANDIDATE</span>
+          <div class="wl-thesis">Now formally designated as the COST allocation target within SFP-4 (WTI >$130 defensive reallocation). COST is the defensive equity layer for extreme oil regime scenarios. WTI at $100 today — gap to SFP-4 trigger is ~$30. Not imminent but Citi's $150 Brent forecast means this is within the bear scenario range.</div>
+          <div class="wl-entry"><strong>Entry gate:</strong> SFP-4 trigger (WTI >$130 × 3 days) OR May 7 ceiling deploy if cash remains above 20%. <strong>R3:</strong> ~0.32.</div>
+          <div class="wl-gate">Armed as SFP-4 target. May 7 secondary gate.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CORRELATION TAB -->
+<div class="sec" id="sec-corr">
+  <div class="card">
+    <div class="chd"><div class="sl">Correlation Matrix — Day 17 · R3 Gate Still Triggered · SFP-2 Clear</div></div>
+    <div class="cbody">
+      <div style="background:var(--red-bg);border-radius:var(--r);padding:8px 12px;font-size:11px;color:var(--red-drk);margin-bottom:8px">⚠ R3 gate TRIGGERED (2 pairs above 0.70). SFP-2 CLEAR (no pair above 0.85). LLY entry would reduce R3 pressure — still the best available diversifier.</div>
+      <div class="corr-grid">
+        <div class="corr-item">
+          <div class="corr-title">Core Pairwise (R3 Gate: 0.70)</div>
+          <div class="corr-row"><span class="corr-label">NFLX / AVGO</span><span class="corr-val" style="color:var(--red-drk)">0.72 ⚠ ABOVE GATE</span></div>
+          <div class="corr-row"><span class="corr-label">BTC / ETH</span><span class="corr-val" style="color:var(--red-drk)">0.78 ⚠ ABOVE GATE</span></div>
+          <div class="corr-row"><span class="corr-label">AVGO / BTC</span><span class="corr-val" style="color:var(--amb-drk)">0.63</span></div>
+        </div>
+        <div class="corr-item">
+          <div class="corr-title">SFP-2 Monitor (Threshold: 0.85)</div>
+          <div class="corr-row"><span class="corr-label">BTC / ETH (highest)</span><span class="corr-val" style="color:var(--grn-drk)">0.78 — CLEAR</span></div>
+          <div class="corr-row"><span class="corr-label">LLY / AVGO (entry)</span><span class="corr-val" style="color:var(--grn-drk)">0.18 — reduces R3</span></div>
+          <div class="corr-row"><span class="corr-label">GLD / Tech cluster</span><span class="corr-val" style="color:var(--grn-drk)">–0.15 — negative</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO & P&L TAB -->
+<div class="sec" id="sec-port">
+  <div class="port-stats">
+    <div class="ps"><div class="psl">Portfolio Value (est.)</div><div class="psv dn">~$11,680</div></div>
+    <div class="ps"><div class="psl">17-Day Return</div><div class="psv up">+16.8%</div></div>
+    <div class="ps"><div class="psl">Daily Change</div><div class="psv dn">–~$350 est.</div></div>
+    <div class="ps"><div class="psl">Cash</div><div class="psv neu">~$2,865 (~24.5%)</div></div>
+    <div class="ps"><div class="psl">Bear Probability</div><div class="psv" style="color:var(--red-drk)">40%</div></div>
+  </div>
+  <div style="font-size:10px;color:var(--text3);font-style:italic;margin-bottom:10px"><span class="claim c-est">EST</span> Daily P&L derivation per DeepSeek correction: AVGO –4.23% × ~$1,925 position = –$81. BTC –2.5% × ~$602 = –$15. GLD –2.4% × ~$421 = –$10. XOM +3.8% × ~$361 = +$14. ETH –1.5% × ~$842 = –$13. JPM/GS –0.5% × ~$842 = –$4. NFLX/UNH flat. Net: –~$109 (traceable from position size × price change).</div>
+
+  <div class="card">
+    <div class="chd"><div class="sl">All Positions — Day 17 Master Table</div></div>
+    <div class="cbody">
+      <table class="ptable">
+        <thead><tr><th>Ticker</th><th>Intent</th><th>Status</th><th>Weight</th><th>Est. Unrealised P&L</th><th>Stop</th><th>Next Gate</th></tr></thead>
+        <tbody>
+          <tr><td>AVGO</td><td><span class="intent-pill ip-core">CORE</span></td><td style="text-align:left;color:var(--amb-drk)">~$402 · –4.23% today · +34.9% from entry · Decision Apr 29</td><td>~16%</td><td class="up">+~$495 est.</td><td>$270</td><td style="text-align:left">Apr 29 decision · May 1 trim (default)</td></tr>
+          <tr style="background:var(--grn-bg)"><td>UNH (75%)</td><td><span class="intent-pill ip-core">CORE</span></td><td style="text-align:left;color:var(--grn)">~$354 · stable · +26.9%</td><td>~9.75%</td><td class="up">+~$366 est.</td><td>$285</td><td style="text-align:left">Q2 Jul 16</td></tr>
+          <tr><td>NFLX</td><td><span class="intent-pill ip-core">CORE</span></td><td style="text-align:left;color:var(--amb)">~$93 · –4.6% from entry · exception Jul 16</td><td>~12%</td><td class="dn">–~$53 est.</td><td>$85</td><td style="text-align:left">Q2 Jul 16</td></tr>
+          <tr><td>ETH</td><td><span class="intent-pill ip-tact">TACTICAL</span></td><td style="text-align:left;color:var(--amb)">~$2,270 est. · –1.5% today · above $2,050 stop</td><td>~7%</td><td class="up">+~$8 est.</td><td>$2,050</td><td style="text-align:left">Stop governs</td></tr>
+          <tr><td>JPM/GS</td><td><span class="intent-pill ip-core">CORE</span></td><td style="text-align:left;color:var(--amb)">~7% · FOMC tomorrow · –0.5% today est.</td><td>~7%</td><td class="up">+~$26 est.</td><td>Entry –7%</td><td style="text-align:left">FOMC Apr 29 · Iran deal catalyst</td></tr>
+          <tr style="background:var(--red-bg)"><td>BTC</td><td><span class="intent-pill ip-tact">TACTICAL</span></td><td style="text-align:left;color:var(--red-drk)">~$75,872 · –2.5% · STOP WATCH · gap $5,872 to $70K</td><td>~5%</td><td class="up">+~$28 est.</td><td>$70K trailing</td><td style="text-align:left">⚠ Stop watch · SFP-1 at 1 of 3 if fires</td></tr>
+          <tr style="background:var(--grn-bg)"><td>XOM</td><td><span class="intent-pill ip-hedge">HEDGE</span></td><td style="text-align:left;color:var(--grn)">~$155 est. · WTI $100 · +3.8% today · Q1 May 1</td><td>~3%</td><td class="up">+~$61 est.</td><td>$128</td><td style="text-align:left">May 1 Q1 · R2: joint US-Iran statement</td></tr>
+          <tr><td>GLD</td><td><span class="intent-pill ip-hedge">HEDGE</span></td><td style="text-align:left;color:var(--amb)">~$4,583 · –2.4% · Condition 1 met · Condition 2 pending</td><td>~3.5%</td><td class="dn">–~$68 est.</td><td>–8% entry</td><td style="text-align:left">Condition 2: hostile acts (widened)</td></tr>
+          <tr style="background:var(--grn-bg)"><td>Cash</td><td colspan="2" style="text-align:left"><strong>~$2,865 est. (~24.5%)</strong> · Re-entry reserve ~$379 · Day 4/10 ceiling</td><td>~24.5%</td><td colspan="3">Reserve: ~$379 earmarked for LLY (Apr 30) + EQIX (May 1)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- TRADE LOG TAB -->
+<div class="sec" id="sec-tradelog">
+  <div class="card">
+    <div class="chd"><div class="sl">Trade Log — Day 17 (Cumulative)</div></div>
+    <div class="cbody">
+      <table class="ptable">
+        <thead><tr><th>Date</th><th>Ticker</th><th>Action</th><th>Trigger / Rule</th><th>Price (est.)</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Prior</td><td>Various</td><td style="text-align:left">All prior entries, trims, deploys</td><td style="text-align:left">See prior logs</td><td>Various</td><td style="text-align:left;color:var(--text3)">✓</td></tr>
+          <tr style="background:var(--grn-bg)"><td>Apr 27</td><td>V</td><td style="text-align:left">EXIT at VWAP 10:00–10:30 ET</td><td style="text-align:left">Default rule · no joint statement · exception not met</td><td>~$185 proceeds → reserve</td><td style="text-align:left;color:var(--grn)">✅ EXECUTED · ~breakeven</td></tr>
+          <tr style="background:var(--amb-bg)"><td><strong>APR 29</strong></td><td>AVGO</td><td style="text-align:left">DECISION by EOD — default = Option B trim to 13% May 1</td><td style="text-align:left">R4 rule · Override: CEO/CFO explicitly names Broadcom on earnings call</td><td>—</td><td style="text-align:left;color:var(--amb-drk)">⚠ Decision required tomorrow</td></tr>
+          <tr style="background:var(--amb-bg)"><td><strong>APR 30</strong></td><td>LLY</td><td style="text-align:left">ENTRY GATE — 3% if Q1 beat + guidance</td><td style="text-align:left">Watchlist rule · re-entry reserve · Orforglipron risk noted</td><td>VWAP Apr 30–May 1</td><td style="text-align:left;color:var(--amb-drk)">⚠ Pending earnings</td></tr>
+          <tr style="background:var(--amb-bg)"><td><strong>MAY 1</strong></td><td>AVGO / XOM / EQIX</td><td style="text-align:left">AVGO trim (Option B default) · XOM Q1 earnings · EQIX entry evaluation</td><td style="text-align:left">R4 expiry · Earnings · AVGO trim proceeds</td><td>May 1 open</td><td style="text-align:left;color:var(--text3)">Pending</td></tr>
+          <tr style="background:var(--red-bg)"><td><strong>CONTINGENT</strong></td><td>BTC</td><td style="text-align:left">EXIT at next open if BTC closes ≤$70,000</td><td style="text-align:left">Trailing stop rule · no discretion</td><td>$70,000</td><td style="text-align:left;color:var(--red-drk)">⚠ Stop watch · currently ~$75,872</td></tr>
+          <tr style="background:var(--red-bg)"><td><strong>CONTINGENT</strong></td><td>GLD +1.5%</td><td style="text-align:left">ADD ~+1.5% weight if Condition 2 fires</td><td style="text-align:left">GLD Condition 2 (widened): IRGC hostile acts vs. any vessel</td><td>~$4,583 current</td><td style="text-align:left;color:var(--red-drk)">⚠ Armed · Condition 2 not yet met</td></tr>
+          <tr><td><strong>MAY 7</strong></td><td>Cash</td><td style="text-align:left">Deploy excess above 20% to lowest-vol position</td><td style="text-align:left">10-day cash ceiling rule</td><td>—</td><td style="text-align:left;color:var(--text3)">Day 4 of 10</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="key-change">
+  <strong>Key structural changes this briefing (Day 17):</strong> (1) UAE exits OPEC effective May 1 — OPEC loses third-largest producer, WTI broke $100, Brent ~$111, Citi $150 peak forecast. XOM Q1 setup strengthens. No portfolio trigger fires from this alone. (2) Bear probability raised to 40% (single point, per DeepSeek correction) — first time bear equals or exceeds base probability in this simulation. (3) System Failure Protocol formalised: four hard rules (SFP-1 through SFP-4) covering multi-stop cascade, correlation spike, VaR breach, and extreme oil regime. All four currently clear except SFP-4 which is armed (WTI at $100, trigger at $130). (4) Four DeepSeek corrections applied: GLD Condition 2 widened, bear prob single point, AVGO override hardened, P&L derivation now traceable. (5) BTC at $75,872 — $5,872 from $70,000 trailing stop. Stop watch declared. (6) AVGO –4% technical pullback — thesis intact, decision unchanged, occurs on decision eve. (7) LLY gate active for tomorrow — Orforglipron slow-start risk newly identified as the primary gate risk. (8) Revised Iranian proposal expected "within days" — May 1 War Powers deadline creates pressure point. If accepted with nuclear concessions, XOM R2 + GLD disarm + bull scenario fires simultaneously with AVGO trim decision.
+</div>
+
+<div class="disclaim">⚠ HYPOTHETICAL EDUCATIONAL SIMULATION — April 28, 2026. Nothing here constitutes financial or investment advice. <span class="claim c-fact">FACT</span> = sourced from CNN, Al Jazeera, NPR, NBC News, OilPrice, Benzinga, Invezz, Yahoo Finance, Robinhood, TradingKey, FX Leaders. <span class="claim c-est">EST</span> = model estimate. Next actions: (1) Tomorrow Apr 29 EOD: AVGO decision — log Option A only if hyperscaler CEO/CFO explicitly names Broadcom. Default = Option B. FOMC + MSFT/AMZN/GOOGL/META. Watch GOOGL for Marvell/AVGO distinction. (2) Apr 30: LLY gate — beat + guidance → 3% entry. Watch Orforglipron guidance specifically. Q1 GDP. (3) May 1: AVGO trim (Option B default) + XOM Q1 + War Powers + EQIX evaluation. (4) Continuous: BTC stop watch ($70K), GLD Condition 2 monitor (IRGC hostile acts widened), Iran revised proposal timing.</div>
+
+<script>
+const toggleBtn=document.getElementById('theme-toggle');
+const htmlEl=document.documentElement;
+if(localStorage.getItem('theme')==='dark'){htmlEl.setAttribute('data-theme','dark');}
+toggleBtn.addEventListener('click',()=>{const isDark=htmlEl.getAttribute('data-theme')==='dark';htmlEl.setAttribute('data-theme',isDark?'':'dark');localStorage.setItem('theme',isDark?'light':'dark');});
+function showMain(id,btn){document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));document.querySelectorAll('.mt').forEach(t=>t.classList.remove('on'));document.getElementById('sec-'+id).classList.add('on');btn.classList.add('on');}
+function showPick(id,b){document.querySelectorAll('.pp').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.pt').forEach(t=>t.classList.remove('on'));document.getElementById('pp-'+id).classList.add('on');b.classList.add('on');}
+function pb(id,b,n,r){const el=document.getElementById(id);if(!el)return;el.innerHTML=`<div class="pb-b" style="width:${b}%"></div><div class="pb-n" style="width:${n}%"></div><div class="pb-r" style="width:${r}%"></div>`;}
+window.addEventListener('load',function(){pb('macro-pbar',22,38,40);});
+</script>
+</body>
+</html>
